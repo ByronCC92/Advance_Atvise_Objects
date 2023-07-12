@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Objeto_Base_v1.3.Tiempo_Operacion
+NodeClass: Variable
+BrowseName: 1:Tiempo_Operacion
+DisplayName: en|Tiempo_Operacion
+Description: en|Tiempo_Operacion
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.ScriptCode

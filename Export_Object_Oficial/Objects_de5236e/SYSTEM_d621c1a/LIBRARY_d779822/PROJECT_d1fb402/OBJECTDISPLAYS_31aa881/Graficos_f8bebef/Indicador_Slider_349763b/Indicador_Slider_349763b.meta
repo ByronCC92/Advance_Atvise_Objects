@@ -1,0 +1,10 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Graficos.Indicador_Slider
+NodeClass: Variable
+BrowseName: 1:Indicador_Slider
+DisplayName: en|Indicador_Slider
+Description: en|Indicador_Slider
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

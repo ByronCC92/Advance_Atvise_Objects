@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="580" version="1.2" width="603" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <text atv:refpx="44.178" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14.5" y="35.5">Alarmas de</text>
+ <foreignObject height="320" id="chart_container1" width="560" x="20" y="160">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <g atv:refpx="310" atv:refpy="107.501" id="Seleccion_fechas" transform="matrix(1,0,0,1,20,10)">
+  <svg atv:refpx="149.976" atv:refpy="117.496" height="30" id="id_2" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="12.308" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="85.712">
+   <atv:argument name="fontSize" value="20"/>
+   <atv:argument name="name" value="Fecha_Inicial"/>
+   <atv:overwrite id="button_stroke" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.5"/>
+   <atv:overwrite id="id_1" transform="matrix(0.5538,0,0,0.7714,0,0)" x="262.778" y="9.445"/>
+   <atv:overwrite id="button_bg" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.5"/>
+   <atv:overwrite id="datepicker_label" transform="matrix(0.6154,0,0,0.8571,0,0)" x="225.5" y="22.75"/>
+   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.6154,0,0,0.8571,0,0)" width="256"/>
+   <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.6154,0,0,0.8571,0,0)" width="228"/>
+   <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.6154,0,0,0.8571,0,0)" width="228"/>
+   <atv:overwrite height="33.001" id="id_0" transform="matrix(0.6154,0,0,0.8571,0,0)" width="258"/>
+   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.6154,0,0,0.8571,0,0)" width="260"/>
+  </svg>
+  <text atv:refpx="57.887" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="25" y="85.5">Fecha Inicial</text>
+  <svg atv:refpx="429.975" atv:refpy="117.496" height="30" id="id_0" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="184.615" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="85.712">
+   <atv:argument name="fontSize" value="20"/>
+   <atv:argument name="name" value="Fecha_Final"/>
+   <atv:overwrite id="button_stroke" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.501"/>
+   <atv:overwrite id="id_1" transform="matrix(0.5538,0,0,0.7714,0,0)" x="262.778" y="9.445"/>
+   <atv:overwrite id="button_bg" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.501"/>
+   <atv:overwrite id="datepicker_label" transform="matrix(0.6154,0,0,0.8571,0,0)" x="225.5" y="22.751"/>
+   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.6154,0,0,0.8571,0,0)" width="256"/>
+   <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.6154,0,0,0.8571,0,0)" width="228"/>
+   <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.6154,0,0,0.8571,0,0)" width="228"/>
+   <atv:overwrite height="33.001" id="id_0" transform="matrix(0.6154,0,0,0.8571,0,0)" width="258"/>
+   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.6154,0,0,0.8571,0,0)" width="260"/>
+  </svg>
+  <text atv:refpx="335.767" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_1" x="305" y="85.5">Fecha Final</text>
+ </g>
+ <rect atv:refpx="500" atv:refpy="30" fill="#000000" height="40" id="background_play" stroke="none" stroke-width="2" width="40" x="480" y="10"/>
+ <rect atv:refpx="550" atv:refpy="30" fill="#000000" height="40" id="background_history" stroke="none" stroke-width="2" width="40" x="530" y="10"/>
+ <svg atv:refpx="550" atv:refpy="30" height="20" id="id_7" transform="matrix(2,0,0,2,0,0)" width="20" x="265" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Symbols.history" y="5">
+  <atv:argument name="symbolColor" value="#ffffff"/>
+ </svg>
+ <svg atv:refpx="500" atv:refpy="30" height="20" id="id_8" transform="matrix(2,0,0,2,0,0)" width="20" x="240" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Symbols.20x20.play" y="5">
+  <atv:argument name="symbolColor" value="#ffffff"/>
+ </svg>
+ <rect atv:refpx="500" atv:refpy="30" fill="#000000" fill-opacity="0" height="40" id="click_area_play" stroke="none" stroke-width="2" width="40" x="480" y="10"/>
+ <rect atv:refpx="550" atv:refpy="30" fill="#000000" fill-opacity="0" height="40" id="click_area_history" stroke="none" stroke-width="2" width="40" x="530" y="10"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/highcharts.js"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/variable-pie.js"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Creo Variables*******/
+//Variables Internas
+var to = new Date(); //milisegundos hasta este instante
+var range_mili=(24*60*60*1000);
+var from=new Date(to-range_mili);
+
+//Variables de menu
+var Backgrounds=["background_play","background_history"];
+var Click_Area=["click_area_play","click_area_history"];
+var Color=webMI.query["Color"];
+var Tiempo_real=true; //Comienza en tiempo real
+
+//Alarmas
+var Alarmas=new Array();
+var Object_ConditionsR=webMI.query["base"]+".Parameters.Object_Conditions";
+
+//Grafico
+var chart_1;
+var Colores=['#3096D0', '#55AEE0', '#89C7EA', '#366078', '#1C4963', '#00A2FF','#2B3E49'];
+
+
+/*******Condiciones Iniciales*******/
+webMI.addOnload(function() {
+	
+	
+	//Leo las alarmas que se monitorean
+	webMI.data.read(Object_ConditionsR, function(e) {
+	   var Object_ConditionsI=e.value;
+	   
+		for(var i=0; i<Object_ConditionsI.length;i++){
+			var Object_ConditionsII=JSON.parse(Object_ConditionsI[i]);
+			Alarmas.push((Object_ConditionsII.Condition_name).split('=').pop());
+		}
+		console.log(Alarmas);
+	});	
+	
+	//Configuración del DatePicker
+	webMI.trigger.fire("com.atvise.datepicker_Fecha_Inicial", from.getTime()); //Inicializo Fecha Inicial (1 día atras)
+	webMI.trigger.fire("com.atvise.datepicker_Fecha_Final", to.getTime()); //Inicializo Fecha Final 
+
+	//Definición de texto Inicial
+    webMI.gfx.setText("id_info", "Alarmas:"+(webMI.query["base"]).split('.').pop());
+    
+    //Comienzo con Selección de Fechas oculto
+    webMI.gfx.setFill(Backgrounds[0], Color);
+    webMI.gfx.setVisible("Seleccion_fechas", false);
+   
+   
+	/*******Seccion de Gráfico*******/   
+    
+    setTimeout(function(){
+		Monitorea_Alarmas(Alarmas,from,to,function(contadores) {										
+				
+			//Agrego el gráfico 2
+			
+			 var chartDiv2 = document.getElementById("chart_container1");
+			 webMI.gfx.setScaledEvents(chartDiv2);
+			 
+			 //Preparo data
+			 var data_completa=new Array();
+			 
+			 for (var i=0; i<contadores.length; i++){
+			 
+				var Namei= Alarmas[i].split('.');
+				data_completa.push({
+					name: Namei.pop(),
+					custom: Namei[Namei.length - 2],
+					color:Colores[i],
+					y: contadores[i],			
+				});
+			 }
+			
+			chart_1=Highcharts.chart(chartDiv2, {
+				chart: {
+					type: 'pie'
+				},
+				title: {
+					text: 'Ultimas 24h',
+					style: {
+								fontSize: '18px'
+						   }
+				},
+				tooltip: {
+					headerFormat: '',
+					pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.custom}</b> <p> {point.name}</p> <br/>' +
+						'Alarma: <b>{point.y}</b> <p>ocurrencias</p>'					
+				},
+				
+				credits: {
+					enabled: false
+				},
+				plotOptions: {				 
+					  pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',            
+						dataLabels: {
+							enabled: true,
+							style: {
+								fontSize: '16px'
+							},
+							format: '<b>{point.name}</b><br>{point.y}',
+							distance: 0,
+							filter: {
+								property: 'percentage',
+								operator: '>',
+								value: 4
+							}
+						}
+					}
+				},
+				series: [{
+					minPointSize: 10,
+					innerSize: '50%',
+					zMin: 0,
+					data: data_completa
+				}]
+			});		
+		
+		});
+	},300);
+    
+    
+});
+
+
+/*******Triggers*******/
+
+//Monitoreo Cambios en Date Picker Fecha Inicial
+webMI.trigger.connect("com.atvise.datepicker_Fecha_Inicial", function (e) {
+	from=new Date(e.value);
+	Chart_Update();
+});
+
+//Monitoreo Cambios en Date Picker Fecha Inicial
+webMI.trigger.connect("com.atvise.datepicker_Fecha_Final", function (e) {
+	to=new Date(e.value);
+	Chart_Update();
+});
+
+
+//Subscribirse a la alarma
+setTimeout(function(){
+	webMI.alarm.subscribe(Alarmas, function(e) {
+		if(Tiempo_real){
+			var value = e.ActiveStateId;
+			var indice=Alarmas.findIndex(element => element == e.address); //Encuentra la alarma que se activo
+		
+			//Si la alarma esta activa
+			if (value){    
+				if (chart_1!=undefined){		
+					Monitorea_Alarmas(Alarmas,from,new Date(),function(contadores) {
+						var SeriesA=chart_1.series[0];					
+						SeriesA.data[indice].update(contadores[indice]);									
+					});				
+				}
+			}
+		}	
+	});
+},300);
+/*******Seccion del menu*******/
+
+//Tiempo Real
+webMI.addEvent(Click_Area[0], "click", function(e) {
+
+	webMI.gfx.setFill(Backgrounds[0], Color);
+	webMI.gfx.setFill(Backgrounds[1], "#000000");
+    webMI.gfx.setVisible("Seleccion_fechas", false);
+    Tiempo_real=true;
+    
+    //Actualizo tiempo
+    to = new Date(); //milisegundos hasta este instante
+	from=new Date(to-range_mili);
+	
+	//Configuración del DatePicker
+	webMI.trigger.fire("com.atvise.datepicker_Fecha_Inicial", from.getTime()); //Inicializo Fecha Inicial (1 día atras)
+	webMI.trigger.fire("com.atvise.datepicker_Fecha_Final", to.getTime()); //Inicializo Fecha Final     
+    
+    //Actualizo el grafico
+    chart_1.update({
+		title: {text: 'Ultimas 24h'},
+	});
+});
+
+//Historicos
+webMI.addEvent(Click_Area[1], "click", function(e) {
+
+	webMI.gfx.setFill(Backgrounds[1], Color);
+	webMI.gfx.setFill(Backgrounds[0], "#000000");
+    webMI.gfx.setVisible("Seleccion_fechas", true);
+    Tiempo_real=false;
+      
+    //Actualizo el grafico
+    chart_1.update({
+		title: {text: 'Ultimas 24h'},
+	});
+});
+
+
+
+
+/*******Funciones Auxiliares*******/
+
+//Función que actualiza grafico completo
+function Chart_Update(){
+	if (chart_1!=undefined){
+		Monitorea_Alarmas(Alarmas,from,new Date(),function(contadores) {
+		
+			//Preparo data
+			 var data_completa=new Array();
+			 
+			 for (var i=0; i<contadores.length; i++){
+				var Namei= Alarmas[i].split('.');
+				data_completa.push({
+					name: Namei.pop(),
+					custom: Namei[Namei.length - 2],
+					color:Colores[i],
+					y: contadores[i],			
+				});
+			 }	
+			
+			var minutos=(to.getTime()-from.getTime())/(1000*60);	
+			
+			//Actualiza grafico
+			chart_1.update({
+				title: {text: 'Ultimos '+ minutos.toFixed(2)+ " minutos"},
+				series: [{
+						minPointSize: 10,
+						innerSize: '50%',
+						zMin: 0,
+						data: data_completa
+				}]
+			}); 							
+		});
+	}	
+}
+
+//Función que prepara datos de alarmas
+function Monitorea_Alarmas(Alarmas,from,to,callback){		
+	
+	//Preparo direcciones para el filtro
+	var address=new Array();
+	var contadores=new Array(); //Lleva cantidad de ocurrencias de cada alarma
+	for (var i=0; i<Alarmas.length; i++){	
+		address.push("g:"+Alarmas[i]);		
+		contadores.push(0);
+	}
+	
+	///////////////Solicito datos de Alarmas 
+	
+	var filter2 = {};
+	filter2.type = ["v:2"]; //Datos Crudos de alarmas
+	filter2.address = [address]; //Traga los datos de Todas las alarmas
+	filter2.timestamp = ["n:>=" + from.getTime() + "<" + to.getTime()];
+	
+	setTimeout(function(){ //Hay que darle tiempo al historizador
+	
+		//Traigo la información de la alarma	
+		webMI.data.queryFilter(filter2, function(e) {	
+		
+			//Datos crudos Sucio	
+			var result = e.result; 	
+			console.log("Nueva Iteración");
+			for(i=0; i<contadores.length; i++){ //Por cada contador
+				for (j=0; j<result.length; j++){
+					
+					if(result[j].ActiveStateId && result[j].address==Alarmas[i]){ //Si la alarma esta activa y es del address
+						contadores[i]=contadores[i]+1; //Cuenta alarma correspondiente y la guarda
+					}				
+				}	
+			}
+			console.log(contadores);	
+			//Ejecuto función de callback
+			callback(contadores);				
+		});	
+	},750);
+}
+
+
+]]></script>
+</svg>

@@ -34,13 +34,13 @@ webMI.table.loadResources(function () {
 	/* Configuration of the columns to be displayed */
 	config["columns"] =
 		[
-			{   id: "Alerta", name: "Alarma", field: "Alarma", sortable: false, filter: false, visible: true, width:170},
+			{   id: "Alert", name: "Alert", field: "Alert", sortable: false, filter: false, visible: true, width:170},
 			{   id: "Status", name: "Status", field: "Status", sortable: false, filter: false, visible: false},
 			{	id: "Value", name: "Value", field: "Value", sortable: false, filter: false, visible: true, width:15},
 			
 			{   id: "Timestamp", name: "Timestamp", field: "Timestamp", sortable: false, filter: true},
 			
-			{   id: "Texto", name: "Texto", field: "Texto", sortable: false, filter: true},
+			{   id: "Text", name: "Text", field: "Text", sortable: false, filter: true},
 		];
 
 	/* Configuration of the runtime behavior */
@@ -50,19 +50,19 @@ webMI.table.loadResources(function () {
 	config["dataRequestFunction"] =
 		function customDataRequest(continuation) {
 			self = this;
-			webMI.data.read(webMI.query["base"]+".Alert_Activos", function(e){
+			webMI.data.read(webMI.query["base"]+".Alert_Active", function(e){
 				//console.log(webMI.query["base"]+".Alarm_Activos");
 				//console.log(e.value);
 			    var result=e.value;	 			    
 			    for (var i=0; i<result.length; i++){
 					const myArray = JSON.parse(result[i]);
-					if (myArray.Status=="Creciendo"&&myArray.Condition_type=="Min"){
+					if (myArray.Status=="Increasing"&&myArray.Condition_type=="Min"){
 						data_lista.push({
-							"Alarma": myArray.Alert,
+							"Alert": myArray.Alert,
 							"Status":myArray.Status,
 							"Value":myArray.value,
 							"Timestamp":(new Date(myArray.Timestamp).toString()).slice(0,-33),
-							"Texto":myArray.eventText,	
+							"Text":myArray.eventText,	
 						});	
 					}					    
 				}

@@ -77,7 +77,7 @@
  </svg>
  <svg atv:refpx="101" atv:refpy="387.5" height="30" id="id_13" transform="matrix(1,0,0,1.1667,0,0)" width="160" x="21" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.checkbox_Mantenimiento" y="317.145">
   <atv:argument name="fontSize" value="20"/>
-  <atv:argument name="label" value="T{Activar}"/>
+  <atv:argument name="label" value="T{Activate}"/>
   <atv:argument name="name" value="Recurrente_Mantenimiento"/>
   <atv:overwrite id="checkbox_item" transform="matrix(1,0,0,0.8571,0,0)" y="22.501"/>
   <atv:overwrite id="checkbox_symbol" transform="matrix(1,0,0,0.8571,0,0)" y="7.251"/>
@@ -173,7 +173,7 @@ webMI.addOnload(function() {
 	webMI.gfx.setVisible("Elementos_Recurrencia", false);    
 	
 	//Definición de texto Inicial
-    webMI.gfx.setText("id_info", "Presione para agregar Mantenimiento");
+    webMI.gfx.setText("id_info", "Press to add a Maintenance");
 });
 
 /*******Triggers*******/
@@ -377,20 +377,20 @@ webMI.addEvent("id_17", "click", function(e) {
 		
 		//Notificación de que se escribió
 		webMI.gfx.setFill("id_info", "#0bbea9");	
-		webMI.gfx.setText("id_info", "Se escribió Correctamente");     
+		webMI.gfx.setText("id_info", "Written Correctly");     
 		setTimeout(function(){
 			webMI.gfx.setFill("id_info", webMI.query["Color"]);
-			webMI.gfx.setText("id_info", "Presione para agregar Mantenimiento");
+			webMI.gfx.setText("id_info", "Press to add a Maintenance");
 		},750);			
 	} 
 	
 	else {
 		//Notificación de que no escribio	
 		webMI.gfx.setFill("id_info", "#aa0000");
-		webMI.gfx.setText("id_info", "Faltan casillas por rellenar");     
+		webMI.gfx.setText("id_info", "Missing Information");     
 		setTimeout(function(){
 			webMI.gfx.setFill("id_info", webMI.query["Color"]);
-			webMI.gfx.setText("id_info", "Presione para agregar Mantenimiento");
+			webMI.gfx.setText("id_info", "Press to add a Maintenance");
 		},750);	
 	} 
 	

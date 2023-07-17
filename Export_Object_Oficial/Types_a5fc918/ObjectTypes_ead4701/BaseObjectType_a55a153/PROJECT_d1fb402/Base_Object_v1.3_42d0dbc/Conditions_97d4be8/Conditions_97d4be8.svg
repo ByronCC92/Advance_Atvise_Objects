@@ -20,7 +20,7 @@ webMI.addOnload(function() {
 
 ]]></script>
  <svg atv:refpx="505" atv:refpy="305" height="30" id="id_11" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="817.778" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="290">
-  <atv:argument name="base" prefix="base" value=".Tiempo"/>
+  <atv:argument name="base" prefix="base" value=".Time"/>
   <atv:argument name="unit" value="T{s}"/>
   <atv:argument name="fontSize" value="14"/>
   <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
@@ -30,5 +30,5 @@ webMI.addOnload(function() {
   <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
   <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
  </svg>
- <text atv:refpx="292.713" atv:refpy="661.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_12" x="464.5" y="276">Tiempo Operacion</text>
+ <text atv:refpx="318.105" atv:refpy="661.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_12" x="464.5" y="276">Operating Time</text>
 </svg>

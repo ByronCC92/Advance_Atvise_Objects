@@ -24,8 +24,8 @@
     </RelativePath>
   </parameter>
   <code><![CDATA[//Externas
-var Alarm_Activos  = Ua.findNode((base)+".Alarm_Activos");
-
+var Alarm_Active  = Ua.findNode((base)+".Alarm_Active");
+console.log(Alarm_Active);
 //Variables Globales
 var alarmas_activas_globales=alarming.list;
 var alarmas_activas=new Array();
@@ -49,7 +49,8 @@ for (var i=0; i<alarmas_activas_globales.length; i++){
     }	
 }
 
+console.log(alarmas_activas);
 
 //Asigno el valor al nodo
-Alarm_Activos.result.assign({value: alarmas_activas}); //Asigno al array Completo]]></code>
+Alarm_Active.result.assign({value: alarmas_activas}); //Asigno al array Completo]]></code>
 </script>

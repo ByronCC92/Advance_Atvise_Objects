@@ -6,26 +6,26 @@
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
- <text atv:refpx="44.178" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14.5" y="35.5">Alarmas de</text>
+ <text atv:refpx="38.879" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14.5" y="35.5">Alarms of</text>
  <foreignObject height="320" id="chart_container1" width="560" x="20" y="160">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
  </foreignObject>
- <g atv:refpx="310" atv:refpy="107.501" id="Seleccion_fechas" transform="matrix(1,0,0,1,20,10)">
-  <svg atv:refpx="149.976" atv:refpy="117.496" height="30" id="id_2" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="12.308" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="85.712">
+ <g atv:refpx="310" atv:refpy="107.5" id="Date_Selection">
+  <svg atv:refpx="149.976" atv:refpy="117.496" height="30" id="id_2" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="24.616" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="94.283">
    <atv:argument name="fontSize" value="20"/>
    <atv:argument name="name" value="Fecha_Inicial"/>
-   <atv:overwrite id="button_stroke" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.5"/>
+   <atv:overwrite id="button_stroke" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.501"/>
    <atv:overwrite id="id_1" transform="matrix(0.5538,0,0,0.7714,0,0)" x="262.778" y="9.445"/>
-   <atv:overwrite id="button_bg" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.5"/>
-   <atv:overwrite id="datepicker_label" transform="matrix(0.6154,0,0,0.8571,0,0)" x="225.5" y="22.75"/>
+   <atv:overwrite id="button_bg" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.501"/>
+   <atv:overwrite id="datepicker_label" transform="matrix(0.6154,0,0,0.8571,0,0)" x="225.5" y="22.751"/>
    <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.6154,0,0,0.8571,0,0)" width="256"/>
    <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.6154,0,0,0.8571,0,0)" width="228"/>
    <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.6154,0,0,0.8571,0,0)" width="228"/>
    <atv:overwrite height="33.001" id="id_0" transform="matrix(0.6154,0,0,0.8571,0,0)" width="258"/>
    <atv:overwrite height="35.001" id="id_2" transform="matrix(0.6154,0,0,0.8571,0,0)" width="260"/>
   </svg>
-  <text atv:refpx="57.887" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="25" y="85.5">Fecha Inicial</text>
-  <svg atv:refpx="429.975" atv:refpy="117.496" height="30" id="id_0" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="184.615" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="85.712">
+  <text atv:refpx="67.126" atv:refpy="91" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="45" y="95.5">Initial Date</text>
+  <svg atv:refpx="429.975" atv:refpy="117.496" height="30" id="id_0" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="196.923" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="94.283">
    <atv:argument name="fontSize" value="20"/>
    <atv:argument name="name" value="Fecha_Final"/>
    <atv:overwrite id="button_stroke" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.501"/>
@@ -38,7 +38,7 @@
    <atv:overwrite height="33.001" id="id_0" transform="matrix(0.6154,0,0,0.8571,0,0)" width="258"/>
    <atv:overwrite height="35.001" id="id_2" transform="matrix(0.6154,0,0,0.8571,0,0)" width="260"/>
   </svg>
-  <text atv:refpx="335.767" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_1" x="305" y="85.5">Fecha Final</text>
+  <text atv:refpx="347.326" atv:refpy="91" fill="$Color$" font-family="Arial" font-size="24" id="id_1" x="325" y="95.5">Final Date</text>
  </g>
  <rect atv:refpx="500" atv:refpy="30" fill="#000000" height="40" id="background_play" stroke="none" stroke-width="2" width="40" x="480" y="10"/>
  <rect atv:refpx="550" atv:refpy="30" fill="#000000" height="40" id="background_history" stroke="none" stroke-width="2" width="40" x="530" y="10"/>
@@ -93,11 +93,11 @@ webMI.addOnload(function() {
 	webMI.trigger.fire("com.atvise.datepicker_Fecha_Final", to.getTime()); //Inicializo Fecha Final 
 
 	//Definición de texto Inicial
-    webMI.gfx.setText("id_info", "Alarmas:"+(webMI.query["base"]).split('.').pop());
+    webMI.gfx.setText("id_info", "Alarms:"+(webMI.query["base"]).split('.').pop());
     
     //Comienzo con Selección de Fechas oculto
     webMI.gfx.setFill(Backgrounds[0], Color);
-    webMI.gfx.setVisible("Seleccion_fechas", false);
+    webMI.gfx.setVisible("Date_Selection", false);
    
    
 	/*******Seccion de Gráfico*******/   
@@ -129,7 +129,7 @@ webMI.addOnload(function() {
 					type: 'pie'
 				},
 				title: {
-					text: 'Ultimas 24h',
+					text: 'Last 24h',
 					style: {
 								fontSize: '18px'
 						   }
@@ -137,7 +137,7 @@ webMI.addOnload(function() {
 				tooltip: {
 					headerFormat: '',
 					pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.custom}</b> <p> {point.name}</p> <br/>' +
-						'Alarma: <b>{point.y}</b> <p>ocurrencias</p>'					
+						'Alarma: <b>{point.y}</b> <p>incidents</p>'					
 				},
 				
 				credits: {
@@ -218,7 +218,7 @@ webMI.addEvent(Click_Area[0], "click", function(e) {
 
 	webMI.gfx.setFill(Backgrounds[0], Color);
 	webMI.gfx.setFill(Backgrounds[1], "#000000");
-    webMI.gfx.setVisible("Seleccion_fechas", false);
+    webMI.gfx.setVisible("Date_Selection", false);
     Tiempo_real=true;
     
     //Actualizo tiempo
@@ -240,7 +240,7 @@ webMI.addEvent(Click_Area[1], "click", function(e) {
 
 	webMI.gfx.setFill(Backgrounds[1], Color);
 	webMI.gfx.setFill(Backgrounds[0], "#000000");
-    webMI.gfx.setVisible("Seleccion_fechas", true);
+    webMI.gfx.setVisible("Date_Selection", true);
     Tiempo_real=false;
       
     //Actualizo el grafico
@@ -276,7 +276,7 @@ function Chart_Update(){
 			
 			//Actualiza grafico
 			chart_1.update({
-				title: {text: 'Ultimos '+ minutos.toFixed(2)+ " minutos"},
+				title: {text: 'Last '+ minutos.toFixed(2)+ " minutes"},
 				series: [{
 						minPointSize: 10,
 						innerSize: '50%',
@@ -312,8 +312,7 @@ function Monitorea_Alarmas(Alarmas,from,to,callback){
 		webMI.data.queryFilter(filter2, function(e) {	
 		
 			//Datos crudos Sucio	
-			var result = e.result; 	
-			console.log("Nueva Iteración");
+			var result = e.result; 
 			for(i=0; i<contadores.length; i++){ //Por cada contador
 				for (j=0; j<result.length; j++){
 					

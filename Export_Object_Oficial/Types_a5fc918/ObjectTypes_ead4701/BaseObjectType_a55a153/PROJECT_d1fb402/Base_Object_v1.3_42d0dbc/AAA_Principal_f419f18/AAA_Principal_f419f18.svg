@@ -97,9 +97,9 @@ var Root_Path;
 var Alarmas=new Array(); //Aqui van las alarmas
 var Object_ConditionsR=webMI.query["base"]+".Parameters.Object_Conditions";
 var Root_PathR=webMI.query["base"]+".Parameters.Root_Path";
-var Alarm_ActivosR=webMI.query["base"]+".Alarm_Activos";
+var Alarm_ActiveR=webMI.query["base"]+".Alarm_Active";
 var Alarmas_Estado=new Array(Alarmas.length).fill(0);
-var AlertasR=webMI.query["base"]+".Alert_Activos";
+var AlertR=webMI.query["base"]+".Alert_Active";
 var Mant_ActiveR=webMI.query["base"]+".Mant_Active";
 var Mant_Notification=webMI.query["base"]+".Mant_Notification";
 
@@ -281,7 +281,7 @@ webMI.data.subscribe(Mant_Notification, function(e) {
 
 //Abro Ventana de Visor de Mant
 webMI.addEvent("mantenimiento", "click", function(e) {
-	webMI.display.openWindow({display:Root_Path+".Mant_Viewer",extern:false,height:600,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Mantenimientos Pendientes: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:465,query:webMI.query});
+	webMI.display.openWindow({display:Root_Path+".Mant_Viewer",extern:false,height:600,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Pending Maintenance: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:465,query:webMI.query});
 });
 
 //--------Ventana de Alarmas---------------//
@@ -290,7 +290,7 @@ webMI.addEvent("mantenimiento", "click", function(e) {
 webMI.addEvent("click_area_alarma", "mouseover", function(e) {
 
 	if (alarmWindow==undefined ||alarmWindow.closed==true){ //No va a reabrir si ya estaba
-		alarmWindow = webMI.display.openWindow({display:Root_Path+".Alarm_Viewer",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Alarmas Activas Superiores: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		alarmWindow = webMI.display.openWindow({display:Root_Path+".Alarm_Viewer",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{High Active Alarms: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
 	alarmWindow_fijada=false;
 	}
@@ -315,7 +315,7 @@ webMI.addEvent("click_area_alarma", "mouseout", function(e) {
 webMI.addEvent("click_area_alertC", "mouseover", function(e) {
 
 	if (alertWindowC==undefined ||alertWindowC.closed==true){ //No va a reabrir si ya estaba
-		alertWindowC = webMI.display.openWindow({display:Root_Path+".AlertC_Viewer",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Alertas Crecientes Activas Superiores: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		alertWindowC = webMI.display.openWindow({display:Root_Path+".AlertC_Viewer",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{High Active Increasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
 		alertWindowC_fijada=false;
 	}
@@ -340,7 +340,7 @@ webMI.addEvent("click_area_alertC", "mouseout", function(e) {
 webMI.addEvent("click_area_alertD", "mouseover", function(e) {
 
 	if (alertWindowD==undefined ||alertWindowD.closed==true){ //No va a reabrir si ya estaba
-		alertWindowD = webMI.display.openWindow({display:Root_Path+".AlertD_Viewer",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Alertas Decrecientes Activas Superiores: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		alertWindowD = webMI.display.openWindow({display:Root_Path+".AlertD_Viewer",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{High Active Decreasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
 		alertWindowD_fijada=false;
 	}
@@ -365,7 +365,7 @@ webMI.addEvent("click_area_alertD", "mouseout", function(e) {
 webMI.addEvent("click_area_alarma_min", "mouseover", function(e) {
 
 	if (alarmWindow_min==undefined ||alarmWindow_min.closed==true){ //No va a reabrir si ya estaba
-		alarmWindow_min = webMI.display.openWindow({display:Root_Path+".Alarm_Viewer_min",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Alarmas Inferiores Activas: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		alarmWindow_min = webMI.display.openWindow({display:Root_Path+".Alarm_Viewer_min",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Low Active Alarms: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
 	alarmWindow_fijada_min=false;
 	}
@@ -390,7 +390,7 @@ webMI.addEvent("click_area_alarma_min", "mouseout", function(e) {
 webMI.addEvent("click_area_alertC_min", "mouseover", function(e) {
 
 	if (alertWindowC_min==undefined ||alertWindowC_min.closed==true){ //No va a reabrir si ya estaba
-		alertWindowC_min= webMI.display.openWindow({display:Root_Path+".AlertC_Viewer_min",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Alertas Crecientes Activas Inferiores: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		alertWindowC_min= webMI.display.openWindow({display:Root_Path+".AlertC_Viewer_min",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Low Active Increasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
 		alertWindowC_fijada_min=false;
 	}
@@ -415,7 +415,7 @@ webMI.addEvent("click_area_alertC_min", "mouseout", function(e) {
 webMI.addEvent("click_area_alertD_min", "mouseover", function(e) {
 
 	if (alertWindowD_min==undefined ||alertWindowD_min.closed==true){ //No va a reabrir si ya estaba
-		alertWindowD_min = webMI.display.openWindow({display:Root_Path+".AlertD_Viewer_min",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Alertas Decrecientes Activas Inferiores: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		alertWindowD_min = webMI.display.openWindow({display:Root_Path+".AlertD_Viewer_min",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Low Active Decreasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
 		alertWindowD_fijada_min=false;
 	}
@@ -446,7 +446,7 @@ webMI.addEvent("click_area_alertD_min", "mouseout", function(e) {
 
 setTimeout(function(){ //Doy un tiempo al servidor
 	//Activación alarma
-	webMI.data.subscribe(Alarm_ActivosR, function(e) {		
+	webMI.data.subscribe(Alarm_ActiveR, function(e) {		
 		
 		var timestamp= (new Date()).getTime();
 		
@@ -527,7 +527,7 @@ setTimeout(function(){ //Doy un tiempo al servidor
 
 //---------------Sección Alertas---------------//
 //Activación Alerta
-webMI.data.subscribe(AlertasR, function(e) {
+webMI.data.subscribe(AlertR, function(e) {
 	//Inicializo Variables
 	var result=e.value;		
 	var AlertC=0;
@@ -538,7 +538,7 @@ webMI.data.subscribe(AlertasR, function(e) {
 	for(var i=0; i<result.length;i++){ //Busco todas las alertas
 		var AlertaInstantanea=JSON.parse(result[i]);
 		if (AlertaInstantanea!=""){ //Si hay alarma
-			if (AlertaInstantanea.Status=="Creciendo"){ //Esta Creciendo
+			if (AlertaInstantanea.Status=="Increasing"){ //Esta Creciendo
 				if (AlertaInstantanea.Condition_type=="Max"){ //Es Maxima		
 					AlertC=AlertC+1;
 				}
@@ -546,7 +546,7 @@ webMI.data.subscribe(AlertasR, function(e) {
 					AlertC_min=AlertC_min+1;
 				}			
 			}
-			else if (AlertaInstantanea.Status=="Decreciendo"){ //Esta Decreciendo
+			else if (AlertaInstantanea.Status=="Decreasing"){ //Esta Decreciendo
 				if (AlertaInstantanea.Condition_type=="Max"){ //Es Maxima		
 					AlertD=AlertD+1;
 				}

@@ -3,10 +3,10 @@
  <defs/>
  <metadata>
   <atv:parameter behavior="optional" desc="Input Node" name="Input" valuetype="address"/>
-  <atv:parameter behavior="optional" desc="Rango de Alertas" name="Alert_Range" valuetype="address"/>
+  <atv:parameter behavior="optional" desc="Alert Range" name="Alert_Range" valuetype="address"/>
   <atv:parameter behavior="optional" desc="Object Conditions Node" name="Object_Conditions" valuetype="address"/>
-  <atv:parameter behavior="optional" defaultvalue="" desc="Color Linea" name="Color_Linea" valuetype="global"/>
-  <atv:parameter behavior="optional" defaultvalue="" desc="Color Banda" name="Color_Banda" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Line Color" name="Color_Linea" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Band Color" name="Color_Banda" valuetype="global"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Display_PopUp" name="Display_PopUp" valuetype="display"/>
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>

@@ -41,7 +41,7 @@ var Alert_RangeR= webMI.query["Alert_Range"];
 var Object_ConditionsR= webMI.query["Object_Conditions"];
 var Color_Linea = webMI.query["Color_Linea"];
 var Color_Banda = webMI.query["Color_Banda"];
-var Display_PopUp= webMI.query["Display_PopUp"];
+
 
 //Variables Internas
 var min;	

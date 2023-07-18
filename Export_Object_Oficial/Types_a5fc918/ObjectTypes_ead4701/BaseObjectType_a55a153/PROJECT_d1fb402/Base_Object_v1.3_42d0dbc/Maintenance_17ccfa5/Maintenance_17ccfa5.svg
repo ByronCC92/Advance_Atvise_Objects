@@ -9,7 +9,7 @@
  <text atv:refpx="65.048" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_1" x="15.5" y="25.5">Maintenance Type</text>
  <svg atv:refpx="158.478" atv:refpy="197.496" height="30" id="id_2" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="12.218" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="154.281">
   <atv:argument name="fontSize" value="20"/>
-  <atv:argument name="name" value="Fecha_Mantenimiento"/>
+  <atv:argument name="name" value="Maintenance_Date"/>
   <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
   <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
   <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
@@ -28,7 +28,7 @@
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="mode" value="Enum List"/>
   <atv:argument name="enumList" value="SYSTEM.GLOBALS.Mantenimiento_Base"/>
-  <atv:argument name="name" value="Tipo_Mantenimiento"/>
+  <atv:argument name="name" value="Maintenance_Type"/>
   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.4507,0,0,0.8571,0,0)" width="351.008"/>
   <atv:overwrite id="button_stroke" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="7.501"/>
   <atv:overwrite id="id_7" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="8.501"/>
@@ -41,7 +41,7 @@
  </svg>
  <svg atv:refpx="421" atv:refpy="197.994" height="30" id="id_8" transform="matrix(1,0,0,1.1667,0,0)" width="160" x="341" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.rocker_switch_horizontal_Mantenimiento" y="154.709">
   <atv:argument name="fontSize" value="20"/>
-  <atv:argument name="name" value="Horas_Mantenimiento"/>
+  <atv:argument name="name" value="Maintenance_Hours"/>
   <atv:overwrite id="icon_plus" transform="matrix(1,0,0,0.8571,0,2.1432)"/>
   <atv:overwrite height="33.001" id="inc_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
   <atv:overwrite height="33.001" id="inc_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
@@ -59,7 +59,7 @@
  </svg>
  <svg atv:refpx="421" atv:refpy="247.5" height="30" id="id_10" transform="matrix(1,0,0,1.1667,0,0)" width="160" x="341" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.rocker_switch_horizontal_Mantenimiento" y="197.137">
   <atv:argument name="fontSize" value="20"/>
-  <atv:argument name="name" value="Minutos_Mantenimiento"/>
+  <atv:argument name="name" value="Maintenance_Minutes"/>
   <atv:overwrite id="icon_plus" transform="matrix(1,0,0,0.8571,0,2.1432)"/>
   <atv:overwrite height="33.001" id="inc_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
   <atv:overwrite height="33.001" id="inc_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
@@ -78,7 +78,7 @@
  <svg atv:refpx="101" atv:refpy="387.5" height="30" id="id_13" transform="matrix(1,0,0,1.1667,0,0)" width="160" x="21" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.checkbox_Mantenimiento" y="317.145">
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="label" value="T{Activate}"/>
-  <atv:argument name="name" value="Recurrente_Mantenimiento"/>
+  <atv:argument name="name" value="Recurrent_Maintenance"/>
   <atv:overwrite id="checkbox_item" transform="matrix(1,0,0,0.8571,0,0)" y="22.501"/>
   <atv:overwrite id="checkbox_symbol" transform="matrix(1,0,0,0.8571,0,0)" y="7.251"/>
   <atv:overwrite id="blinking_frame" transform="matrix(1,0,0,0.8571,0,0)" y="6.251"/>
@@ -88,12 +88,12 @@
   <atv:overwrite height="35.001" id="checkbox_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
  </svg>
  <text atv:refpx="51.204" atv:refpy="341" fill="$Color$" font-family="Arial" font-size="24" id="id_14" x="25.5" y="345.5">Recurrent</text>
- <g atv:refpx="377.504" atv:refpy="397.5" id="Elementos_Recurrencia">
+ <g atv:refpx="377.504" atv:refpy="397.5" id="Recurrency_Elements">
   <text atv:refpx="251.339" atv:refpy="331" fill="$Color$" font-family="Arial" font-size="24" id="id_6" x="205.5" y="335.5">Recurrency Type</text>
   <svg atv:refpx="377.497" atv:refpy="377.497" height="30" id="id_12" transform="matrix(2.2188,0,0,1.1667,0,0)" width="160" x="90.139" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.combobox_Mantenimiento" y="308.563">
    <atv:argument name="fontSize" value="20"/>
    <atv:argument name="enumList" value="SYSTEM.GLOBALS.Mantenimento_Bomba"/>
-   <atv:argument name="name" value="Tipo_Recurrencia"/>
+   <atv:argument name="name" value="Recurrency_Type"/>
    <atv:argument name="text1value" value="0"/>
    <atv:argument name="text2" value="T{Semanal}"/>
    <atv:argument name="text2value" value="1"/>
@@ -146,123 +146,123 @@
  <image atv:refpx="545" atv:refpy="45" height="512" id="id_22" transform="matrix(0.1367,0,0,0.1367,0,0)" width="512" x="3730.286" xlink:href="../../mantenimiento.png" y="73.143"/>
  <line atv:refpx="300" atv:refpy="300" id="id_23" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="300" y2="300"/>
  <line atv:refpx="300" atv:refpy="500" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="500" y2="500"/>
- <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Creo Variables*******/
-var Tipo_M; //Tipo Mantenimiento
-var Text_M; //Tipo Mantenimiento
-var Fecha_I;//Fecha Inicial Mantenimiento
-var Fecha_F;//Fecha Final Mantenimiento (Recurencia)
-var Horas_M=0;//Horas Mantenimiento
-var Min_M=0; //Minutos Mantenimiento
-var Rec_Act=0; //Recurrencia activa(inactiva)
-var Tipo_R; //Tipo Recurrencia
-var configNode="AGENT.OBJECTS.TimerConfig"; //Nodo Configuración
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Initialize Variables*******/
+var Type_M; //Maintenance Type Number
+var Text_M; //Maintenance Type Text
+var Initial_Date;//Initial Date for Maintenance
+var Final_Date;//Final Date for Maintenance
+var Hour_M=0;//Maintenance Hours
+var Min_M=0; //Maintenance Min
+var Rec_Act=0; //Activate Recurrency(inactive)
+var Type_R; //Recurrency Type
+var configNode="AGENT.OBJECTS.TimerConfig"; //Configuration node
 var Mant_Notification=webMI.query["base"]+".Mant_Notification";
 
-/*******Condiciones Iniciales*******/
+/*******Initial Conditions******/
 webMI.addOnload(function() {
 
-	//Date Picker muestra tiempo actual
+	//Date Picker shows current time 
 	var T_Actual=new Date();
-    webMI.trigger.fire("com.atvise.datepicker_Fecha_Mantenimiento", T_Actual.getTime()); //Actualizo Fecha Mantenimiento
-    webMI.trigger.fire("com.atvise.datepicker_Fecha_Recurrencia_Final", T_Actual.getTime()+15768000000); //Actualizo Fecha Final Recurrencia (6 meses)
+    webMI.trigger.fire("com.atvise.datepicker_Maintenance_Date", T_Actual.getTime()); //Actualizo Fecha Mantenimiento
+    webMI.trigger.fire("com.atvise.datepicker_Recurrency_Final_Date", T_Actual.getTime()+15768000000); //Actualizo Fecha Final Recurrencia (6 meses)
     
-    //Check inicializa false
+    //Check inicialize false
     webMI.trigger.fire("setChecked", false);
      
-	//Oculto elementos de recurrencia
-	webMI.gfx.setVisible("Elementos_Recurrencia", false);    
+	//Hide Recurrency options
+	webMI.gfx.setVisible("Recurrency_Elements", false);    
 	
-	//Definición de texto Inicial
+	//Define initial text
     webMI.gfx.setText("id_info", "Press to add a Maintenance");
 });
 
 /*******Triggers*******/
 
-//Elementos para Mantenimiento Unico
+//Single maintenance elements
 
-//Monitoreo Cambios en Date Picker Mantenimiento
-webMI.trigger.connect("com.atvise.datepicker_Fecha_Mantenimiento", function (e) {
-	Fecha_I=e.value;
+//Monitor Maintenance Date Picker 
+webMI.trigger.connect("com.atvise.datepicker_Maintenance_Date", function (e) {
+	Initial_Date=e.value;
 });
 
-//Monitoreo Cambios en Combobox Mantenimiento
-webMI.trigger.connect("com.atvise.combobox_Tipo_Mantenimiento", function (e) {
+//Monitor Maintenance Combobox 
+webMI.trigger.connect("com.atvise.combobox_Maintenance_Type", function (e) {
 	var result=e.value;
-	Tipo_M=result.value;	
+	Type_M=result.value;	
 	Text_M=e.value.text;	
 });
 
-//Monitoreo Cambios en rocker Horas
-webMI.trigger.connect("com.atvise.rocker_Horas_Mantenimiento", function (e) {
-	Horas_M=e.value;
+//Monitor rocker Hour
+webMI.trigger.connect("com.atvise.rocker_Maintenance_Hours", function (e) {
+	Hour_M=e.value;
 });
 
-//Monitoreo Cambios en rocker Minutos
-webMI.trigger.connect("com.atvise.rocker_Minutos_Mantenimiento", function (e) {
+//Monitor rocker Min
+webMI.trigger.connect("com.atvise.rocker_Maintenance_Minutes", function (e) {
 	Min_M=e.value;
 });
 
-//Elementos para Mantenimiento Recurrente
+//Recurrent Maintenance Elements
 
-//Monitoreo Cambios en checkbox Recurrente
-webMI.trigger.connect("com.atvise.checkbox_Recurrente_Mantenimiento", function (e) {
+//Monitor Recurrent checkbox 
+webMI.trigger.connect("com.atvise.checkbox_Recurrent_Maintenance", function (e) {
 	Rec_Act=e.value;	
 	if(Rec_Act){
-		webMI.gfx.setVisible("Elementos_Recurrencia", true);
+		webMI.gfx.setVisible("Recurrency_Elements", true);
 	}
 	else{
-		webMI.gfx.setVisible("Elementos_Recurrencia", false);
+		webMI.gfx.setVisible("Recurrency_Elements", false);
 	}
 });
 
-//Monitoreo Cambios en Combobox Recurrente
-webMI.trigger.connect("com.atvise.combobox_Tipo_Recurrencia", function (e) {
-	Tipo_R=e.value;
+//Monitor Recurrent Combobox 
+webMI.trigger.connect("com.atvise.combobox_Recurrency_Type", function (e) {
+	Type_R=e.value;
 });
 
-//Monitoreo Cambios en Fecha Final de Recurrencia
-webMI.trigger.connect("com.atvise.datepicker_Fecha_Recurrencia_Final", function (e) {
-	Fecha_F=e.value;	
+//Monitor Recurrent Final Date
+webMI.trigger.connect("com.atvise.datepicker_Recurrency_Final_Date", function (e) {
+	Final_Date=e.value;	
 });
 
 
-/*******Escritura a la configuración*******/
+/*******Write Config*******/
 
 webMI.addEvent("id_17", "click", function(e) {
 
-	/*Solo se ejecuta si:
-		-Tipo de Mantenimiento es !=undefinded
-		-Fecha Inicial es !=undefinded		
-		-Horas + Minutos > 0 		
+	/*This code excecutes only when:
+		-Maintenance type!=undefinded
+		-Initial Date !=undefinded		
+		-Hours + Min > 0 		
 	*/
 	
-	if (Tipo_M!=undefined && Fecha_I!=undefined && (Horas_M+Min_M)>0){
+	if (Type_M!=undefined && Initial_Date!=undefined && (Hour_M+Min_M)>0){
 	
-		//Creo Strings de Fechas
-		var Fecha_IS=(new Date(Fecha_I)).toString();
+		//Create Date Strings
+		var Initial_DateS=(new Date(Initial_Date)).toString();
 		
-		var Fecha_FS=(new Date(Fecha_F)).toString();
+		var Final_DateS=(new Date(Final_Date)).toString();
 		
-		//Configuro el String de Recurrencia
+		//Configure Recurrency String 
 		var Rec_pattern="";
 		var Rec_type="";
 		var Rep_Period="0";
 		var Weekdays={};		
 		if(Rec_Act){			
-			switch(Number(Tipo_R.value))
+			switch(Number(Type_R.value))
 			{
-			  case 0: // Diario
+			  case 0: // Daily
 				Rec_pattern="day_1___";
 				Rec_type="day_1___#";
 				Rep_Period="1";
 				break;
 				
-			  case 1: //Semanal
+			  case 1: //Weekly
 				var Rec_Day=((new Date()).getDay()==0) ? 7 : (new Date()).getDay()+1;
 				Rec_pattern="week_1___"+Rec_Day;
 				Rec_type="week_1___"+Rec_Day+"#";
 				Rep_Period="2";
-				//Día que se repite
+				//Repeated day
 				Weekdays={
 					"1": false,
 					"2": false,
@@ -275,7 +275,7 @@ webMI.addEvent("id_17", "click", function(e) {
 				Weekdays[String(Rec_Day)]=true;				
 				break;
 				
-			  case 2: //Mensual
+			  case 2: //Monthly
 				Rec_pattern="month_1___";
 				Rec_type="month_1___#";
 				Rep_Period="3";
@@ -293,56 +293,56 @@ webMI.addEvent("id_17", "click", function(e) {
 		
 		
 		
-		//Leo Configuración Actual
+		//Read Current Configuration
 		webMI.data.read(configNode, function(e) {
 			
-			//Configuro valor On
+			//Configure On Value
 			var row="_"+String(new Date().getTime());
-			var valueOn="{Ind_M:"+row+".Text_M:"+Text_M+".Tiempo_M:"+Fecha_I+"}"; //Indice 0 por defectp
+			var valueOn="{Ind_M:"+row+".Text_M:"+Text_M+".Tiempo_M:"+Initial_Date+"}"; //Indice 0 por defectp
 			
-			//Creo Configuración
-			var Segundos_Totales=((Horas_M*60)+(Min_M))*60; //Tiempo Requerido
+			//Create Config
+			var Total_Seconds=((Hour_M*60)+(Min_M))*60; //Required_Time
 			var Config=	{
 					  "row": row,
 					  "active": "true",
-					  "start_date": Fecha_IS.slice(0, (Fecha_FS.search(" GMT"))),
-					  "end_date": Fecha_FS.slice(0, (Fecha_FS.search(" GMT"))),				
+					  "start_date": Initial_DateS.slice(0, (Final_DateS.search(" GMT"))),
+					  "end_date": Final_DateS.slice(0, (Final_DateS.search(" GMT"))),				
 					  "nodeOn": Mant_Notification,				 
 					  "valueOn": valueOn,
 					  "valueOff": JSON.stringify({}),
 					  "event_pid": "",
-					  "event_length": String(Segundos_Totales),
+					  "event_length": String(Total_Seconds),
 					  "rec_pattern": Rec_pattern,
 					  "rec_type": Rec_type,
 					  "text": Text_M,
 					  "repeatPeriod": Rep_Period,
-					  "startDate": Fecha_I,
-					  "endDate": Fecha_F,
-					  "duration": String(Segundos_Totales),
+					  "startDate": Initial_Date,
+					  "endDate": Final_Date,
+					  "duration": String(Total_Seconds),
 					  "weekdays": Weekdays
 			};			
 			
-			//TimerConfig existe			
+			//TimerConfig exists			
 			if (e.value!=undefined){	
 				  
-				 //TimerConfig no esta vacío
+				 //TimerConfig is not empty 
 				 if (e.value!=""){ 
 					
-					console.log("TimerConfig NO esta vacio");
-					//Extraigo el array que necesito
-					var Config_Nueva=JSON.parse(e.value);				
 					
-					//Introduzco en Array
-					Config_Nueva[0].config.configs.push(Config);
+					//Get required array 
+					var New_Config=JSON.parse(e.value);				
+					
+					//Entry new Array
+					New_Config[0].config.configs.push(Config);
 											
 				}
 				
-				//TimerConfig esta vacío
+				//TimerConfig is empty
 				else if (e.value=="") {	
 					
-					console.log("TimerConfig esta vacio");
-					//Defino Configuración
-					var Config_Nueva=[
+					
+					//Define new configuration
+					var New_Config=[
 					  {
 						"id": "",
 						"config": {
@@ -352,15 +352,15 @@ webMI.addEvent("id_17", "click", function(e) {
 					];									
 				}
 				
-				//Escribe los datos en el nodo
-					webMI.data.write(configNode, JSON.stringify(Config_Nueva));
+				//Write new config in the node
+					webMI.data.write(configNode, JSON.stringify(New_Config));
 			}		
 			
-			//TimerConfig no existe
+			//TimerConfig doesn´t exist
 			else if (e.value==undefined) {	
 				
-				//Defino Configuración
-				var Config_Nueva=[
+				//Define config
+				var New_Config=[
 				  {
 					"id": "",
 					"config": {
@@ -368,14 +368,14 @@ webMI.addEvent("id_17", "click", function(e) {
 					}
 				  }
 				];
-				//Creo Nodo
-				Crea_configNode(JSON.stringify(Config_Nueva));					
+				//Create Node
+				Crea_configNode(JSON.stringify(New_Config));					
 			}			
 			
 						
 		});
 		
-		//Notificación de que se escribió
+		//Notify that it was written
 		webMI.gfx.setFill("id_info", "#0bbea9");	
 		webMI.gfx.setText("id_info", "Written Correctly");     
 		setTimeout(function(){
@@ -385,7 +385,7 @@ webMI.addEvent("id_17", "click", function(e) {
 	} 
 	
 	else {
-		//Notificación de que no escribio	
+		//Notify it wasn´t written	
 		webMI.gfx.setFill("id_info", "#aa0000");
 		webMI.gfx.setText("id_info", "Missing Information");     
 		setTimeout(function(){
@@ -398,8 +398,7 @@ webMI.addEvent("id_17", "click", function(e) {
 
 
 /*
-	Sección de Creación de Nodo
-	Se llama en caso de que no exista
+	Code required to create the node when it is empty
 */
 function Crea_configNode(value){	
 	webMI.data.call(

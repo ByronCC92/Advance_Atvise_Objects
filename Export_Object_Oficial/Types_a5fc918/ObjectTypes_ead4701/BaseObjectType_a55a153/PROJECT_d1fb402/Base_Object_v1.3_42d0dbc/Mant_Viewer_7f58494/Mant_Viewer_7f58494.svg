@@ -12,7 +12,7 @@
   <atv:argument name="globalFillColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
   <atv:argument name="globalFontColor" value="SYSTEM.GLOBALS.atvFontColor2"/>
  </svg>
- <svg atv:refpx="75" atv:refpy="604.992" height="30" id="Mant_Terminado" transform="matrix(1.625,0,0,1.6667,0,0)" width="80" x="6.154" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="347.993">
+ <svg atv:refpx="75" atv:refpy="604.992" height="30" id="Finished_Maint" transform="matrix(1.625,0,0,1.6667,0,0)" width="80" x="6.154" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="347.993">
   <atv:argument name="label" value="T{Finish}"/>
   <atv:argument name="fontSize" value="20"/>
   <atv:overwrite height="48.001" id="id_6" transform="matrix(0.6154,0,0,0.6,0,0)" width="128"/>
@@ -28,24 +28,24 @@
  </svg>
  <text atv:refpx="188" atv:refpy="609" fill="$Color$" font-family="Arial" font-size="20" id="id_info" x="174.5" y="613.5">Texto</text>
  <text atv:refpx="87.431" atv:refpy="559" fill="$Color$" font-family="Arial" font-size="20" id="id_1" x="4.5" y="563.5">Choose Finished Maintenance</text>
- <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//Defino Variables
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//Initialize Variables
 var self;
 var tableData = [];
-var Ind_Mant=0; //La fila del Mantenimiento que quiero marcar como terminado
+var Ind_Mant=0; //Variable for the finished maintenance
 var Table_Id;
-var data_lista=[];
-var configNode="AGENT.OBJECTS.TimerConfig"; //Nodo Configuración
+var data_ready=[];
+var configNode="AGENT.OBJECTS.TimerConfig"; //Configuration node
 var Mant_Notification=webMI.query["base"]+".Mant_Notification";
 var Mant_ActiveR=webMI.query["base"]+".Mant_Active";
 
-/*******Condiciones Iniciales*******/
+/*******Initial Conditions*******/
 webMI.addOnload(function() {
 
-	//Definición de texto Inicial
+	//Define initial text
     webMI.gfx.setText("id_info", "Press to finish");
 });
 
-/*******Codigo de Tabla HTML********/
+/*******HTML Table section********/
 webMI.table.loadResources(function () {
 
 	/* Create the configuration */
@@ -79,7 +79,7 @@ webMI.table.loadResources(function () {
 			    var result=e.value;	 			    
 			    for (var i=0; i<result.length; i++){
 					const myArray = result[i].split(".");
-					data_lista.push({
+					data_ready.push({
 						"Number": i,
 						"ID Global":myArray[0].slice(7),
 						"Name":myArray[1].slice(7),
@@ -88,7 +88,7 @@ webMI.table.loadResources(function () {
 						    
 				}
 				var data = {};
-				data.result= data_lista;
+				data.result= data_ready;
 				tableData.push(data);
 				self.addData(data);
 			});					
@@ -103,45 +103,45 @@ webMI.table.loadResources(function () {
 
 
 
-//Selecciono mantenimiento como terminado
-webMI.addEvent("Mant_Terminado", "click", function(e) {
-	//Leo que mantenimientos hay activos
+//Pick finished maintenance
+webMI.addEvent("Finished_Maint", "click", function(e) {
+	//Read active maintenance
 	webMI.data.read(Mant_ActiveR, function(j) {
 	   var Mant_Active=j.value;
 	   
-	   //Remuevo de Mant_Active
+	   //Remove de Mant_Active
 	   Mant_Active.splice(Ind_Mant, 1);										
-	   webMI.data.write(Mant_ActiveR, Mant_Active);//Ingreso nuevo mantenimiento activo 
+	   webMI.data.write(Mant_ActiveR, Mant_Active);//Upadta active maintenance node
 	   
-	   //Remuevo de la Tabla	  
+	   //Remove from table	  
 	   self.removeData(Table_Id);   
 	   
-	   //Remuevo de Mantenimiento Global
+	   //Remove from global maintenance
 		webMI.data.read(configNode, function(e) {
 			//Extraigo el array que necesito
-			var Config_Nueva=JSON.parse(e.value);			
-			var config=Config_Nueva[0].config.configs;
+			var New_Config=JSON.parse(e.value);			
+			var config=New_Config[0].config.configs;
 			
-			//Busco el id
+			//Search for id within confignode
 			var index=-1;     
 			for (var i=0; i<config.length; i++){  
 				if(config[i]["row"]==Global_Id) { 
 					index=i;
 				}
 			}		
-			if (index>(-1)){ //Si se encuentra el indice
-				//Remuevo el Mantenimiento de configNode
-				Config_Nueva[0].config.configs.splice(index, 1);					
+			if (index>(-1)){ //If it is there
+				//Remove from internal configNode 
+				New_Config[0].config.configs.splice(index, 1);					
 				
-				//Escribe los datos en el nodo
-				webMI.data.write(configNode, JSON.stringify(Config_Nueva));	
+				//Write from to configNode
+				webMI.data.write(configNode, JSON.stringify(New_Config));	
 			}   
 	   	});
 	   
-	   //Remuevo Icono de mantenimiento
-	   if (Mant_Active.length===0){ //Si esta vacío quito indicador de Mant
-			webMI.data.write(Mant_Notification, "{}");//Ingreso nuevo mantenimiento activo
-			//Notificación de que se termino
+	   //Hide maintenance icon
+	   if (Mant_Active.length===0){ //Hide if Mant_active is empty
+			webMI.data.write(Mant_Notification, "{}");//Entry new active maintenace
+			//Finished maintenance Notification
 			webMI.gfx.setFill("id_info", "#0bbea9");	
 			webMI.gfx.setText("id_info", "No pending maintenance left");     
 			setTimeout(function(){
@@ -150,7 +150,7 @@ webMI.addEvent("Mant_Terminado", "click", function(e) {
 		} 
 		
 		else{
-			//Notificación de que se termino
+			//Finished maintenance Notification
 			webMI.gfx.setFill("id_info", "#0bbea9");	
 			webMI.gfx.setText("id_info", "Finished Correctly");     
 			setTimeout(function(){

@@ -31,4 +31,12 @@ webMI.addOnload(function() {
   <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
  </svg>
  <text atv:refpx="318.105" atv:refpy="661.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_12" x="464.5" y="276">Operating Time</text>
+ <svg atv:refpx="292.25" atv:refpy="143" height="106" id="id_2" width="544.5" x="20" xlink:href="ObjectTypes.PROJECT.Base_Object_v1.3.Indicator_Slider" y="90">
+  <atv:argument name="Label" value="Test"/>
+  <atv:argument name="Input" prefix="base" value=".Variables.Test_1"/>
+  <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
+  <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
+  <atv:argument name="Unit" value="U"/>
+  <atv:argument name="Color" prefix="Color" value=""/>
+ </svg>
 </svg>

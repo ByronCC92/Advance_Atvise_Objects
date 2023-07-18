@@ -12,20 +12,20 @@
   <atv:argument name="globalFillColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
   <atv:argument name="globalFontColor" value="SYSTEM.GLOBALS.atvFontColor2"/>
  </svg>
- <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//Defino Variables
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//Initialize Variables
 var self;
 var tableData = [];
 var data_lista=[];
 
 
 
-/*******Condiciones Iniciales*******/
+/*******Initial Conditions*******/
 webMI.addOnload(function() {
 
 	
 });
 
-/*******Codigo de Tabla HTML********/
+/******HTML Code section********/
 webMI.table.loadResources(function () {
 
 	/* Create the configuration */
@@ -51,8 +51,6 @@ webMI.table.loadResources(function () {
 		function customDataRequest(continuation) {
 			self = this;
 			webMI.data.read(webMI.query["base"]+".Alert_Active", function(e){
-				//console.log(webMI.query["base"]+".Alarm_Activos");
-				//console.log(e.value);
 			    var result=e.value;	 			    
 			    for (var i=0; i<result.length; i++){
 					const myArray = JSON.parse(result[i]);

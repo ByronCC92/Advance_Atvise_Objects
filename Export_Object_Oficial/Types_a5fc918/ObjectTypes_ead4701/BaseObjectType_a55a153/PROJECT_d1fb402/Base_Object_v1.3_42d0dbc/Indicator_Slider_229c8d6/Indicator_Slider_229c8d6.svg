@@ -5,7 +5,7 @@
   <atv:parameter behavior="optional" defaultvalue="" desc="Label" name="Label" substitute="$LABEL$" valuetype="string"/>
   <atv:parameter behavior="optional" desc="Input" name="Input" valuetype="address"/>
   <atv:parameter behavior="optional" desc="Object Conditions Node" name="Object_Conditions" valuetype="address"/>
-  <atv:parameter behavior="optional" desc="Rango de Alertas" name="Alert_Range" valuetype="address"/>
+  <atv:parameter behavior="optional" desc="Alert Range" name="Alert_Range" valuetype="address"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Unit" name="Unit" valuetype="string"/>
   <atv:parameter behavior="optional" defaultvalue="#108a8e" desc="Color" group="Appereance" name="Color" substitute="$COLOR$" valuetype="color"/>
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
@@ -35,7 +35,7 @@
   <rect atv:refpx="275" atv:refpy="-14" fill="#a30002" height="48" id="id_27" rx="11.077" ry="11.077" stroke="#0000ff" stroke-width="0" width="50" x="254" y="-34"/>
   <text atv:refpx="278.5" atv:refpy="-6" fill="#000000" font-family="Arial" font-size="28" id="id_28" x="275" y="-1.5">1</text>
  </g>
- <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//Variables Externas
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//External Variables
 var Input= webMI.query["Input"];
 var Alert_RangeR= webMI.query["Alert_Range"];
 var Object_ConditionsR= webMI.query["Object_Conditions"];
@@ -43,53 +43,51 @@ var Color_Linea = webMI.query["Color_Linea"];
 var Color_Banda = webMI.query["Color_Banda"];
 
 
-//Variables Internas
+//Internal Variables 
 var min;	
 var max;
 var alarmHigh;
 var alarmLow;
 var alertHigh;
 var alertLow;
-var Condiciones=new Array();
-var Rango_Alarmas;
+var Conditions=new Array();
+var Alarm_Range;
 
 webMI.addOnload(function(e) {
 
-	// Leo variables Iniciales de las propias condiciones del objeto
+	// Read Initial variables from the object's own Conditions
 	if(Object_ConditionsR!=undefined && Alert_RangeR!=undefined){
 		webMI.data.read([Object_ConditionsR,Alert_RangeR], function(e) {
 		   var Object_Conditions=e[0].value;
 		   var Alert_Range=e[1].value;
-		   if(Object_Conditions.length!=0){ //No esta vacio
+		   if(Object_Conditions.length!=0){ //Not Empty
 				for (var i=0; i<Object_Conditions.length; i++){
-					//Busca condiciones del nodo correspondiente
+					//Look up Conditions of the corresponding node
 					var Object_ConditionsI=JSON.parse(Object_Conditions[i]);
 					if (Object_ConditionsI.Condition_node.split('ns=1;s=').pop()==Input) { 
-						Condiciones.push(Object_ConditionsI);
-						if (Object_ConditionsI.Condition_type=="Max"){ //Alarma máxima
+						Conditions.push(Object_ConditionsI);
+						if (Object_ConditionsI.Condition_type=="Max"){ //High Alarm
 							alarmHigh=Object_ConditionsI.Condition_limit;
 						}
-						else if (Object_ConditionsI.Condition_type=="Min"){ //Alarma máxima
+						else if (Object_ConditionsI.Condition_type=="Min"){ //Low Alarm
 							alarmLow=Object_ConditionsI.Condition_limit;
 						}
 					}
 				}
-				Rango_Alarmas=Condiciones[0].Rango;//Obtengo el rango	
+				Alarm_Range=Conditions[0].Range;//Get Range
 				
-				//Calculo Alertas	
-				alertHigh=alarmHigh-(Alert_Range*Rango_Alarmas/100);
-				alertLow=alarmLow+(Alert_Range*Rango_Alarmas/100);
+				//Alert Calculation	
+				alertHigh=alarmHigh-(Alert_Range*Alarm_Range/100);
+				alertLow=alarmLow+(Alert_Range*Alarm_Range/100);
 				
-				//Calculo Alarmas	
-				max=alarmHigh+(Alert_Range*Rango_Alarmas/100);
-				min=alarmLow-(Alert_Range*Rango_Alarmas/100);
+				//Alarm Calculation
+				max=alarmHigh+(Alert_Range*Alarm_Range/100);
+				min=alarmLow-(Alert_Range*Alarm_Range/100);
 				if (min<0){
 					min=0;
 				}
-				console.log("Max: "+max);		
-				console.log("Min: "+min);		
 				
-				//Escribo Max y Min
+				//Write Max and Min
 				webMI.gfx.setText("id_4", max);
 				webMI.gfx.setText("id_3", min);
 			   }
@@ -101,7 +99,7 @@ webMI.addOnload(function(e) {
 	webMI.gfx.setVisible("id_23", false);
 	webMI.gfx.setVisible("id_26", false);
 	
-	//Escribo Max y Min
+	//Write Max and Min
 	webMI.gfx.setText("id_4", max);
 
 });
@@ -117,39 +115,47 @@ webMI.data.subscribe(webMI.query["Input"], function(e) {
 
 	
 	
-	///////Cambio de Texto
+	///////Change Text
 	
 	webMI.gfx.setText("id_20", webMI.sprintf(("T{%.2f}"+webMI.query["Unit"]), value));
 	
-	///////Cambio de Barra
+	///////Change Bar
 	
 	
 	webMI.gfx.setScaleX("id_2", webMI.translate((value <= min)? (min) : ((value >= max) ? (max) : (value)), min,max, 0, 1));
 	
-	///////Simbolo de alerta
+	///////Alert Symbol
 	
-	//Alerta Baja
+	//Low Alert
 	if (alarmLow <= value && value <= alertLow){
 		webMI.gfx.setVisible("id_23", true);	
 		webMI.gfx.setVisible("id_12", false);
+		
+		//Always hide alarms
+		webMI.gfx.setVisible("id_26", false);
+		webMI.gfx.setVisible("id_13", false);
 		}	
 	
-	//Alerta Alta
+	//High Alert
 	if (alertHigh <= value && value <= alarmHigh){
 		webMI.gfx.setVisible("id_12", true);
 		webMI.gfx.setVisible("id_23", false);
+		
+		//Always hide alarms
+		webMI.gfx.setVisible("id_26", false);
+		webMI.gfx.setVisible("id_13", false);
 		}		
 		
-	//Dentro de Rango de Operación	
+	//Within Operating range
 	if (alertLow < value && value < alertHigh){
 		webMI.gfx.setVisible("id_12", false);	
 		webMI.gfx.setVisible("id_23", false);	
 		}
 		
 
-	///////Simbolo de alarma
+	///////Alarm Symbol
 	
-	//Alarma Baja
+	//Low Alarm
 	if (min <= value && value < alarmLow) {
 		webMI.gfx.setVisible("id_26", true);
 		webMI.gfx.setVisible("id_23", false);
@@ -157,7 +163,7 @@ webMI.data.subscribe(webMI.query["Input"], function(e) {
 		webMI.gfx.setVisible("id_13", false);
 		}
 	
-	//Alarma Alta
+	//High Alarm
 	if (alarmHigh < value && value < max) {
 		webMI.gfx.setVisible("id_13", true); 		
 		webMI.gfx.setVisible("id_23", false);
@@ -165,15 +171,15 @@ webMI.data.subscribe(webMI.query["Input"], function(e) {
 		webMI.gfx.setVisible("id_26", false);
 		}		
 	
-	//Dentro de Rango de Alarmas
+	//Within Alarm range
 	if (alarmLow < value && value < alarmHigh){
 		webMI.gfx.setVisible("id_26", false);
 		webMI.gfx.setVisible("id_13", false);
 		}
 		
-	//Fuera de los Rangos Max o MIn
+	//Out of Max or Min Ranges
 	
-	//Después del Minimo
+	//After Minimun
 	if (min >= value) {
 		webMI.gfx.setVisible("id_26", true); 
 		webMI.gfx.setVisible("id_23", false);
@@ -182,7 +188,7 @@ webMI.data.subscribe(webMI.query["Input"], function(e) {
 		webMI.gfx.setFill("id_2", "#a30002");
 		}
 	
-	//Después del Máximo
+	//After Maximun
 	if (value >= max) {
 		webMI.gfx.setVisible("id_13", true); 
 		webMI.gfx.setVisible("id_23", false);
@@ -192,7 +198,7 @@ webMI.data.subscribe(webMI.query["Input"], function(e) {
 		}
 		
 		
-		//Dentro de Rango entre Máximo y Mínimo
+		//Within Range between Maximum and Minimum
 	if (min < value && value < max){		
 		webMI.gfx.setFill("id_2", webMI.query["Color"]);
 		}

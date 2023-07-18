@@ -25,7 +25,6 @@ var Color2=webMI.query["Color2"];
 var Root_Path;
 var Root_PathR=webMI.query["base"]+".Parameters.Root_Path";
 
-console.log(webMI.query["Display"]);
 
 /*********When display loads**********/
 

@@ -23,34 +23,32 @@
       </Elements>
     </RelativePath>
   </parameter>
-  <code><![CDATA[//Externas
+  <code><![CDATA[//External Variables
 var Alarm_Active  = Ua.findNode((base)+".Alarm_Active");
-console.log(Alarm_Active);
-//Variables Globales
-var alarmas_activas_globales=alarming.list;
-var alarmas_activas=new Array();
+
+//Global Variables
+var Global_Active_Alarms=alarming.list;
+var Active_Alarms=new Array();
 
 
-//Leo todas las alarmas existentes
-for (var i=0; i<alarmas_activas_globales.length; i++){
-	var alarma_activa=alarmas_activas_globales[i];
+//Read all existing alarms
+for (var i=0; i<Global_Active_Alarms.length; i++){
+	var Active_Alarm=Global_Active_Alarms[i];
 	
-	//Guardo las alarmas activas y que pertenecen al nodo correspondiente
-	if (alarma_activa.base.includes(base.nodeid.split('=').pop()) && alarma_activa.ActiveStateId==true) {
-		var Config_conditions=alarming.configuration(alarma_activa.address)[0];		
-		if (Config_conditions.lowerLimit!=undefined){ //Alarma Máxima
-			alarmas_activas.push(JSON.stringify({Alarma:alarma_activa.base.split('AGENT.OBJECTS.').pop()+"."+alarma_activa.ConditionName,Condition_type:"Max",Status:alarma_activa.ActiveStateId,value:alarma_activa.value,Timestamp:alarma_activa.timestamp,eventText:alarma_activa.eventtext.en}));
+	//Save the active alarms that belong to the corresponding node
+	if (Active_Alarm.base.includes(base.nodeid.split('=').pop()) && Active_Alarm.ActiveStateId==true) {
+		var Config_conditions=alarming.configuration(Active_Alarm.address)[0];		
+		if (Config_conditions.lowerLimit!=undefined){ //High Alarm
+			Active_Alarms.push(JSON.stringify({Alarma:Active_Alarm.base.split('AGENT.OBJECTS.').pop()+"."+Active_Alarm.ConditionName,Condition_type:"Max",Status:Active_Alarm.ActiveStateId,value:Active_Alarm.value,Timestamp:Active_Alarm.timestamp,eventText:Active_Alarm.eventtext.en}));
 		}
-		else //Alarma Minima
+		else //Low Alarm
 		{
-			alarmas_activas.push(JSON.stringify({Alarma:alarma_activa.base.split('AGENT.OBJECTS.').pop()+"."+alarma_activa.ConditionName,Condition_type:"Min",Status:alarma_activa.ActiveStateId,value:alarma_activa.value,Timestamp:alarma_activa.timestamp,eventText:alarma_activa.eventtext.en}));
+			Active_Alarms.push(JSON.stringify({Alarma:Active_Alarm.base.split('AGENT.OBJECTS.').pop()+"."+Active_Alarm.ConditionName,Condition_type:"Min",Status:Active_Alarm.ActiveStateId,value:Active_Alarm.value,Timestamp:Active_Alarm.timestamp,eventText:Active_Alarm.eventtext.en}));
 		}
 		
     }	
 }
 
-console.log(alarmas_activas);
-
-//Asigno el valor al nodo
-Alarm_Active.result.assign({value: alarmas_activas}); //Asigno al array Completo]]></code>
+//Asign value to the node
+Alarm_Active.result.assign({value: Active_Alarms}); //Asign complete array ]]></code>
 </script>

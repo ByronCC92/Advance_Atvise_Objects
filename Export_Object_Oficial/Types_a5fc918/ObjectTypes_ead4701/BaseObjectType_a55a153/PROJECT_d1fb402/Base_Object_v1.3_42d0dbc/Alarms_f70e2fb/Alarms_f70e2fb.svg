@@ -10,10 +10,10 @@
  <foreignObject height="320" id="chart_container1" width="560" x="20" y="160">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
  </foreignObject>
- <g atv:refpx="310" atv:refpy="107.5" id="Date_Selection">
-  <svg atv:refpx="149.976" atv:refpy="117.496" height="30" id="id_2" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="24.616" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="94.283">
+ <g atv:refpx="310" atv:refpy="107.501" id="Date_Selection">
+  <svg atv:refpx="149.975" atv:refpy="117.496" height="30" id="id_2" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="24.615" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="94.283">
    <atv:argument name="fontSize" value="20"/>
-   <atv:argument name="name" value="Fecha_Inicial"/>
+   <atv:argument name="name" value="Initial_Date"/>
    <atv:overwrite id="button_stroke" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.501"/>
    <atv:overwrite id="id_1" transform="matrix(0.5538,0,0,0.7714,0,0)" x="262.778" y="9.445"/>
    <atv:overwrite id="button_bg" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.501"/>
@@ -27,7 +27,7 @@
   <text atv:refpx="67.126" atv:refpy="91" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="45" y="95.5">Initial Date</text>
   <svg atv:refpx="429.975" atv:refpy="117.496" height="30" id="id_0" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="196.923" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="94.283">
    <atv:argument name="fontSize" value="20"/>
-   <atv:argument name="name" value="Fecha_Final"/>
+   <atv:argument name="name" value="Final_Date"/>
    <atv:overwrite id="button_stroke" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.501"/>
    <atv:overwrite id="id_1" transform="matrix(0.5538,0,0,0.7714,0,0)" x="262.778" y="9.445"/>
    <atv:overwrite id="button_bg" transform="matrix(0.6154,0,0,0.8571,0,0)" x="235.5" y="7.501"/>
@@ -52,75 +52,73 @@
  <rect atv:refpx="550" atv:refpy="30" fill="#000000" fill-opacity="0" height="40" id="click_area_history" stroke="none" stroke-width="2" width="40" x="530" y="10"/>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/highcharts.js"/>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/variable-pie.js"/>
- <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Creo Variables*******/
-//Variables Internas
-var to = new Date(); //milisegundos hasta este instante
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Initialize Variables*******/
+//Internal Variables
+var to = new Date(); //milliseconds to this instant
 var range_mili=(24*60*60*1000);
 var from=new Date(to-range_mili);
 
-//Variables de menu
+//Menu Variables
 var Backgrounds=["background_play","background_history"];
 var Click_Area=["click_area_play","click_area_history"];
 var Color=webMI.query["Color"];
-var Tiempo_real=true; //Comienza en tiempo real
+var Real_Time=true; //Comienza en tiempo real
 
-//Alarmas
-var Alarmas=new Array();
+//Alarms
+var Alarms=new Array();
 var Object_ConditionsR=webMI.query["base"]+".Parameters.Object_Conditions";
 
-//Grafico
+//Chart
 var chart_1;
-var Colores=['#3096D0', '#55AEE0', '#89C7EA', '#366078', '#1C4963', '#00A2FF','#2B3E49'];
+var Colors=['#3096D0', '#55AEE0', '#89C7EA', '#366078', '#1C4963', '#00A2FF','#2B3E49'];
 
 
-/*******Condiciones Iniciales*******/
+/*******Initial Conditions*******/
 webMI.addOnload(function() {
 	
 	
-	//Leo las alarmas que se monitorean
+	//Read the alarms that are monitored
 	webMI.data.read(Object_ConditionsR, function(e) {
 	   var Object_ConditionsI=e.value;
 	   
 		for(var i=0; i<Object_ConditionsI.length;i++){
 			var Object_ConditionsII=JSON.parse(Object_ConditionsI[i]);
-			Alarmas.push((Object_ConditionsII.Condition_name).split('=').pop());
+			Alarms.push((Object_ConditionsII.Condition_name).split('=').pop());
 		}
-		console.log(Alarmas);
 	});	
 	
-	//Configuración del DatePicker
-	webMI.trigger.fire("com.atvise.datepicker_Fecha_Inicial", from.getTime()); //Inicializo Fecha Inicial (1 día atras)
-	webMI.trigger.fire("com.atvise.datepicker_Fecha_Final", to.getTime()); //Inicializo Fecha Final 
+	//DatePicker Configuration
+	webMI.trigger.fire("com.atvise.datepicker_Initial_Date", from.getTime()); //Initialize Start Date (1 day ago)
+	webMI.trigger.fire("com.atvise.datepicker_Final_Date", to.getTime()); //Initialized End Date
 
-	//Definición de texto Inicial
+	//Initial text definition
     webMI.gfx.setText("id_info", "Alarms:"+(webMI.query["base"]).split('.').pop());
     
-    //Comienzo con Selección de Fechas oculto
+    //Start with Hidden Date Selection
     webMI.gfx.setFill(Backgrounds[0], Color);
     webMI.gfx.setVisible("Date_Selection", false);
    
    
-	/*******Seccion de Gráfico*******/   
+	/*******Chart Section*******/   
     
     setTimeout(function(){
-		Monitorea_Alarmas(Alarmas,from,to,function(contadores) {										
+		Monitor_Alarms(Alarms,from,to,function(count) {										
 				
-			//Agrego el gráfico 2
-			
+						
 			 var chartDiv2 = document.getElementById("chart_container1");
 			 webMI.gfx.setScaledEvents(chartDiv2);
 			 
-			 //Preparo data
-			 var data_completa=new Array();
+			 //Prepare Data
+			 var Complete_Data=new Array();
 			 
-			 for (var i=0; i<contadores.length; i++){
+			 for (var i=0; i<count.length; i++){
 			 
-				var Namei= Alarmas[i].split('.');
-				data_completa.push({
+				var Namei= Alarms[i].split('.');
+				Complete_Data.push({
 					name: Namei.pop(),
 					custom: Namei[Namei.length - 2],
-					color:Colores[i],
-					y: contadores[i],			
+					color:Colors[i],
+					y: count[i],			
 				});
 			 }
 			
@@ -166,7 +164,7 @@ webMI.addOnload(function() {
 					minPointSize: 10,
 					innerSize: '50%',
 					zMin: 0,
-					data: data_completa
+					data: Complete_Data
 				}]
 			});		
 		
@@ -179,151 +177,151 @@ webMI.addOnload(function() {
 
 /*******Triggers*******/
 
-//Monitoreo Cambios en Date Picker Fecha Inicial
-webMI.trigger.connect("com.atvise.datepicker_Fecha_Inicial", function (e) {
+//Monitoring Changes in Date Picker Initial Date
+webMI.trigger.connect("com.atvise.datepicker_Initial_Date", function (e) {
 	from=new Date(e.value);
 	Chart_Update();
 });
 
-//Monitoreo Cambios en Date Picker Fecha Inicial
-webMI.trigger.connect("com.atvise.datepicker_Fecha_Final", function (e) {
+//Monitoring Changes in Date Picker Final Date
+webMI.trigger.connect("com.atvise.datepicker_Final_Date", function (e) {
 	to=new Date(e.value);
 	Chart_Update();
 });
 
 
-//Subscribirse a la alarma
+//Subscribe to alarm
 setTimeout(function(){
-	webMI.alarm.subscribe(Alarmas, function(e) {
-		if(Tiempo_real){
+	webMI.alarm.subscribe(Alarms, function(e) {
+		if(Real_Time){
 			var value = e.ActiveStateId;
-			var indice=Alarmas.findIndex(element => element == e.address); //Encuentra la alarma que se activo
+			var indice=Alarms.findIndex(element => element == e.address); //Find the alarm that went off
 		
-			//Si la alarma esta activa
+			//If it is active
 			if (value){    
 				if (chart_1!=undefined){		
-					Monitorea_Alarmas(Alarmas,from,new Date(),function(contadores) {
+					Monitor_Alarms(Alarms,from,new Date(),function(count) {
 						var SeriesA=chart_1.series[0];					
-						SeriesA.data[indice].update(contadores[indice]);									
+						SeriesA.data[indice].update(count[indice]);									
 					});				
 				}
 			}
 		}	
 	});
 },300);
-/*******Seccion del menu*******/
 
-//Tiempo Real
+/*******Menu Section*******/
+
+//Real Time
 webMI.addEvent(Click_Area[0], "click", function(e) {
 
 	webMI.gfx.setFill(Backgrounds[0], Color);
 	webMI.gfx.setFill(Backgrounds[1], "#000000");
     webMI.gfx.setVisible("Date_Selection", false);
-    Tiempo_real=true;
+    Real_Time=true;
     
-    //Actualizo tiempo
-    to = new Date(); //milisegundos hasta este instante
+    //Update Time
+    to = new Date(); //Miliseconds until now
 	from=new Date(to-range_mili);
 	
-	//Configuración del DatePicker
-	webMI.trigger.fire("com.atvise.datepicker_Fecha_Inicial", from.getTime()); //Inicializo Fecha Inicial (1 día atras)
-	webMI.trigger.fire("com.atvise.datepicker_Fecha_Final", to.getTime()); //Inicializo Fecha Final     
+	//DatePicker Configuration
+	webMI.trigger.fire("com.atvise.datepicker_Initial_Date", from.getTime()); //Initialize Start Date (1 day ago)
+	webMI.trigger.fire("com.atvise.datepicker_Final_Date", to.getTime()); //Initialize End Date   
     
-    //Actualizo el grafico
+    //Update Chart
     chart_1.update({
 		title: {text: 'Ultimas 24h'},
 	});
 });
 
-//Historicos
+//Histotical Data
 webMI.addEvent(Click_Area[1], "click", function(e) {
 
 	webMI.gfx.setFill(Backgrounds[1], Color);
 	webMI.gfx.setFill(Backgrounds[0], "#000000");
     webMI.gfx.setVisible("Date_Selection", true);
-    Tiempo_real=false;
+    Real_Time=false;
       
-    //Actualizo el grafico
+    //Update Chart
     chart_1.update({
-		title: {text: 'Ultimas 24h'},
+		title: {text: 'Last 24h'},
 	});
 });
 
 
 
 
-/*******Funciones Auxiliares*******/
+/*******Auxiliary Functions*******/
 
-//Función que actualiza grafico completo
+//Function that updates the entire graph
 function Chart_Update(){
 	if (chart_1!=undefined){
-		Monitorea_Alarmas(Alarmas,from,new Date(),function(contadores) {
+		Monitor_Alarms(Alarms,from,new Date(),function(count) {
 		
-			//Preparo data
-			 var data_completa=new Array();
+			//Prepare Data
+			 var Complete_Data=new Array();
 			 
-			 for (var i=0; i<contadores.length; i++){
-				var Namei= Alarmas[i].split('.');
-				data_completa.push({
+			 for (var i=0; i<count.length; i++){
+				var Namei= Alarms[i].split('.');
+				Complete_Data.push({
 					name: Namei.pop(),
 					custom: Namei[Namei.length - 2],
-					color:Colores[i],
-					y: contadores[i],			
+					color:Colors[i],
+					y: count[i],			
 				});
 			 }	
 			
-			var minutos=(to.getTime()-from.getTime())/(1000*60);	
+			var minutes=(to.getTime()-from.getTime())/(1000*60);	
 			
-			//Actualiza grafico
+			//Update Chart
 			chart_1.update({
-				title: {text: 'Last '+ minutos.toFixed(2)+ " minutes"},
+				title: {text: 'Last '+ minutes.toFixed(2)+ " minutes"},
 				series: [{
 						minPointSize: 10,
 						innerSize: '50%',
 						zMin: 0,
-						data: data_completa
+						data: Complete_Data
 				}]
 			}); 							
 		});
 	}	
 }
 
-//Función que prepara datos de alarmas
-function Monitorea_Alarmas(Alarmas,from,to,callback){		
+//Function that prepares alarm data
+function Monitor_Alarms(Alarms,from,to,callback){		
 	
-	//Preparo direcciones para el filtro
+	//Prepare addresses for the filter
 	var address=new Array();
-	var contadores=new Array(); //Lleva cantidad de ocurrencias de cada alarma
-	for (var i=0; i<Alarmas.length; i++){	
-		address.push("g:"+Alarmas[i]);		
-		contadores.push(0);
+	var count=new Array(); //Carries the number of occurrences of each alarm
+	for (var i=0; i<Alarms.length; i++){	
+		address.push("g:"+Alarms[i]);		
+		count.push(0);
 	}
 	
-	///////////////Solicito datos de Alarmas 
+	///////////////Request Alarm data
 	
 	var filter2 = {};
-	filter2.type = ["v:2"]; //Datos Crudos de alarmas
-	filter2.address = [address]; //Traga los datos de Todas las alarmas
+	filter2.type = ["v:2"]; //Raw Alarm Data
+	filter2.address = [address]; //Bring all data
 	filter2.timestamp = ["n:>=" + from.getTime() + "<" + to.getTime()];
 	
-	setTimeout(function(){ //Hay que darle tiempo al historizador
+	setTimeout(function(){ //Give the historian time
 	
-		//Traigo la información de la alarma	
+		//Bring the alarm information
 		webMI.data.queryFilter(filter2, function(e) {	
 		
-			//Datos crudos Sucio	
+			//Raw data
 			var result = e.result; 
-			for(i=0; i<contadores.length; i++){ //Por cada contador
+			for(i=0; i<count.length; i++){ //For each count
 				for (j=0; j<result.length; j++){
 					
-					if(result[j].ActiveStateId && result[j].address==Alarmas[i]){ //Si la alarma esta activa y es del address
-						contadores[i]=contadores[i]+1; //Cuenta alarma correspondiente y la guarda
+					if(result[j].ActiveStateId && result[j].address==Alarms[i]){ //If the alarm is active and it is from the address
+						count[i]=count[i]+1; //Corresponding alarm counts and saves it
 					}				
 				}	
 			}
-			console.log(contadores);	
-			//Ejecuto función de callback
-			callback(contadores);				
+			//Execute callback function
+			callback(count);				
 		});	
 	},750);
 }

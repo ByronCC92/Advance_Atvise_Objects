@@ -40,9 +40,9 @@
  </defs>
  <metadata>
   <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
-  <atv:parameter behavior="optional" config="Imagen1;Imagen2;Imagen3" defaultvalue="Imagen1" desc="Imagen Objeto" name="Imagen" valuetype="enum"/>
-  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
-  <atv:snapconfig enabled="false" height="1" width="1"/>
+  <atv:parameter behavior="optional" config="Image1;Image2;Image3" defaultvalue="Image1" desc="Object Image" name="Image" valuetype="enum"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="1" width="1"/>
  </metadata>
  <text atv:refpx="123.738" atv:refpy="35.5" fill="$Color$" font-family="Arial" font-size="14" font-weight="bold" id="Title" x="102.5" y="41">Name</text>
  <svg atv:refpx="110" atv:refpy="182.002" height="30" id="id_2" transform="matrix(1,0,0,0.6667,0,0)" width="80" x="70" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button_switch" y="257.993">
@@ -59,51 +59,50 @@
   <atv:overwrite height="20.001" id="outer_frame" transform="matrix(1,0,0,1.4999,0,0)"/>
  </svg>
  <text atv:refpx="92.123" atv:refpy="161.5" fill="#195c88" font-family="Arial" font-size="12" font-weight="bold" id="id_49" x="74.967" y="166">On/Off</text>
- <polygon atv:refpx="65.671" atv:refpy="46.035" fill="#fdf90a" id="alerta_creciendo" points="53.67,58.034 77.67,58.034 65.003,34.034" stroke="#000000" stroke-width="1"/>
- <rect atv:refpx="123" atv:refpy="99" fill="#185b85" height="50" id="Imagen1" stroke="#0000ff" stroke-width="0" width="50" x="98" y="74"/>
- <circle atv:refpx="126.284" atv:refpy="102.284" cx="122.284" cy="98.284" fill="#000000" id="Imagen2" r="28.284" stroke="#0000ff" stroke-width="0"/>
- <rect atv:refpx="122.154" atv:refpy="98.151" fill="#78a508" height="49.997" id="Imagen3" stroke="#0000ff" stroke-width="0" transform="matrix(0.5,-0.866,0.866,0.5,0,0)" width="49.997" x="-48.922" y="129.855"/>
- <rect atv:refpx="125.966" atv:refpy="103.606" fill="#000000" fill-opacity="0" height="110" id="click_area" stroke="#0000ff" stroke-width="0" width="120" x="65.966" y="48.606"/>
- <g atv:refpx="26.062" atv:refpy="176.062" id="mantenimiento" transform="matrix(1,0,0,1,1.4181,21.4175)">
+ <polygon atv:refpx="65.671" atv:refpy="46.035" fill="#fdf90a" id="alert_increasing" points="53.67,58.034 77.67,58.034 65.003,34.034" stroke="#000000" stroke-width="1"/>
+ <rect atv:refpx="123" atv:refpy="99" fill="#185b85" height="50" id="Image1" stroke="#0000ff" stroke-width="0" width="50" x="98" y="74"/>
+ <circle atv:refpx="126.284" atv:refpy="102.284" cx="122.284" cy="98.284" fill="#000000" id="Image2" r="28.284" stroke="#0000ff" stroke-width="0"/>
+ <rect atv:refpx="122.154" atv:refpy="98.151" fill="#78a508" height="49.997" id="Image3" stroke="#0000ff" stroke-width="0" transform="matrix(0.5,-0.866,0.866,0.5,0,0)" width="49.997" x="-48.922" y="129.855"/>
+ <rect atv:refpx="128" atv:refpy="85" fill="#000000" fill-opacity="0" height="110" id="click_area" stroke="#0000ff" stroke-width="0" width="120" x="68" y="30"/>
+ <g atv:refpx="26.062" atv:refpy="176.062" id="maintenance" transform="matrix(1,0,0,1,1.4181,21.4175)">
   <rect atv:refpx="46.171" atv:refpy="204.643" fill="#2b9de8" height="24.544" id="id_39" stroke="#000000" stroke-width="1" transform="matrix(0.7071,-0.7071,0.7071,0.7071,0,0)" width="24.544" x="-104.196" y="114.505"/>
   <text atv:refpx="28" atv:refpy="149.5" fill="#000000" font-family="Arial" font-size="14" id="id_40" x="18.5" y="160">M</text>
  </g>
- <polygon atv:refpx="13.207" atv:refpy="48.619" fill="#fdbf21" id="alerta_decreciendo" points="27.872,36.618 3.871,36.618 16.537,60.619" stroke="#000000" stroke-width="1"/>
- <text atv:refpx="66.671" atv:refpy="50.535" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alarmaC_texto" text-anchor="end" x="68.171" y="55.035">1</text>
- <text atv:refpx="16.459" atv:refpy="45.617" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alarmaD_texto" x="12.959" y="50.117">1</text>
- <rect atv:refpx="10.759" atv:refpy="-50.498" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertC" stroke="none" stroke-width="0" width="28" x="51.671" y="18.035"/>
- <rect atv:refpx="16.459" atv:refpy="52.117" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertD" stroke="none" stroke-width="0" width="28" x="2.459" y="33.117"/>
- <polygon atv:refpx="62.419" atv:refpy="89.537" fill="#fdf90a" id="alerta_creciendo_min" points="77.084,77.535 53.082,77.535 65.749,101.535" stroke="#000000" stroke-width="1"/>
- <text atv:refpx="65.671" atv:refpy="86.535" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alarmaC_texto_min" x="62.171" y="91.035">1</text>
- <rect atv:refpx="65.671" atv:refpy="95.035" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertC_min" stroke="none" stroke-width="0" width="28" x="51.671" y="76.035"/>
- <polygon atv:refpx="16.459" atv:refpy="89.117" fill="#fdbf21" id="alerta_decreciendo_min" points="4.458,101.117 28.458,101.117 15.79,77.117" stroke="#000000" stroke-width="1"/>
- <text atv:refpx="17.459" atv:refpy="93.617" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alarmaD_texto_min" text-anchor="end" x="18.959" y="98.117">1</text>
- <rect atv:refpx="-38.453" atv:refpy="-5.416" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertD_min" stroke="none" stroke-width="0" width="28" x="2.459" y="63.117"/>
- <g atv:refpx="38.5" atv:refpy="69" id="Barra_Ind">
+ <polygon atv:refpx="13.207" atv:refpy="48.619" fill="#fdbf21" id="alert_decreasing" points="27.872,36.618 3.871,36.618 16.537,60.619" stroke="#000000" stroke-width="1"/>
+ <text atv:refpx="66.671" atv:refpy="50.535" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alertC_text" text-anchor="end" x="68.171" y="55.035">1</text>
+ <text atv:refpx="16.459" atv:refpy="45.617" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alertD_text" x="12.959" y="50.117">1</text>
+ <rect atv:refpx="11.088" atv:refpy="-49.533" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertC" stroke="none" stroke-width="0" width="28" x="52" y="19"/>
+ <rect atv:refpx="16" atv:refpy="51" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertD" stroke="none" stroke-width="0" width="28" x="2" y="32"/>
+ <polygon atv:refpx="62.419" atv:refpy="89.537" fill="#fdf90a" id="alert_increasing_min" points="77.084,77.535 53.082,77.535 65.749,101.535" stroke="#000000" stroke-width="1"/>
+ <text atv:refpx="65.671" atv:refpy="86.535" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alertC_text_min" x="62.171" y="91.035">1</text>
+ <polygon atv:refpx="16.459" atv:refpy="89.117" fill="#fdbf21" id="alert_decreasing_min" points="4.458,101.117 28.458,101.117 15.79,77.117" stroke="#000000" stroke-width="1"/>
+ <text atv:refpx="17" atv:refpy="93.5" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alertD_text_min" text-anchor="end" x="18.5" y="98">1</text>
+ <rect atv:refpx="-38.912" atv:refpy="-5.533" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertD_min" stroke="none" stroke-width="0" width="28" x="2" y="63"/>
+ <g atv:refpx="38.5" atv:refpy="69" id="Ind_Bar">
   <rect atv:refpx="38.5" atv:refpy="69" fill="#626262" height="77.366" id="Barra_Ind2" rx="7" ry="7" stroke="#000000" stroke-width="1" width="14" x="31.5" y="30.317"/>
   <path atv:refpx="38.496" atv:refpy="36.976" d="M31.826,43.257L45.178,43.257L45.08,36.1C45.08,36.1 44.046,30.754 38.676,30.694C33.305,30.633 31.876,35.603 31.876,35.603C31.876,35.603 31.777,43.318 31.826,43.257" fill="#b5b5b5" id="id_19" stroke="#000000" stroke-width="0"/>
   <path atv:refpx="38.533" atv:refpy="100.982" d="M45.204,94.701L31.852,94.701L31.95,101.858C31.95,101.858 32.985,107.205 38.355,107.265C43.726,107.324 45.154,102.356 45.154,102.356C45.154,102.356 45.252,94.641 45.204,94.701" fill="#b5b5b5" id="id_20" stroke="#000000" stroke-width="0"/>
  </g>
- <rect atv:refpx="51.396" atv:refpy="22.211" fill="#bd070d" height="23" id="alarma_cuadro" rx="1.855" ry="1.987" stroke="#000000" stroke-width="1" text-anchor="middle" width="23" x="39.446" y="10.085"/>
- <text atv:refpx="-18.554" atv:refpy="-3.2" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alarma_texto" text-anchor="middle" x="50.946" y="26.586">1</text>
- <rect atv:refpx="-0.838" atv:refpy="-41.406" fill="#93060a" fill-opacity="0" height="28" id="click_area_alarma" stroke="none" stroke-width="0" width="28" x="37.446" y="7.8"/>
- <rect atv:refpx="51.102" atv:refpy="116.645" fill="#bd070d" height="23" id="alarma_cuadro_min" rx="1.855" ry="1.987" stroke="#000000" stroke-width="1" text-anchor="middle" width="23" x="39.152" y="104.519"/>
- <text atv:refpx="-18.848" atv:refpy="91.234" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alarma_texto_min" text-anchor="middle" x="50.652" y="121.02">1</text>
- <rect atv:refpx="-1.132" atv:refpy="53.028" fill="#93060a" fill-opacity="0" height="28" id="click_area_alarma_min" stroke="none" stroke-width="0" width="28" x="37.152" y="102.234"/>
+ <rect atv:refpx="51.396" atv:refpy="22.211" fill="#bd070d" height="23" id="alarm_square" rx="1.855" ry="1.987" stroke="#000000" stroke-width="1" text-anchor="middle" width="23" x="39.446" y="10.085"/>
+ <text atv:refpx="-18.554" atv:refpy="-3.2" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alarm_text" text-anchor="middle" x="50.946" y="26.586">1</text>
+ <rect atv:refpx="-1.405" atv:refpy="-41.69" fill="#93060a" fill-opacity="0" height="28" id="click_area_alarm" stroke="none" stroke-width="0" width="28" x="36.879" y="7.516"/>
+ <rect atv:refpx="51.102" atv:refpy="116.645" fill="#bd070d" height="23" id="alarm_square_min" rx="1.855" ry="1.987" stroke="#000000" stroke-width="1" text-anchor="middle" width="23" x="39.152" y="104.519"/>
+ <text atv:refpx="-18.848" atv:refpy="91.234" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alarm_text_min" text-anchor="middle" x="50.652" y="121.02">1</text>
+ <rect atv:refpx="-1.983" atv:refpy="53.028" fill="#93060a" fill-opacity="0" height="28" id="click_area_alarm_min" stroke="none" stroke-width="0" width="28" x="36.301" y="102.234"/>
+ <rect atv:refpx="65" atv:refpy="92" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertC_min" stroke="none" stroke-width="0" width="28" x="51" y="73"/>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//------------------Variables Declaration------------------//
 
 //External Variables
 var Root_Path;
-var Alarmas=new Array(); //Aqui van las alarmas
+var Alarms=new Array(); //Here are all the alarms
 var Object_ConditionsR=webMI.query["base"]+".Parameters.Object_Conditions";
 var Root_PathR=webMI.query["base"]+".Parameters.Root_Path";
 var Alarm_ActiveR=webMI.query["base"]+".Alarm_Active";
-var Alarmas_Estado=new Array(Alarmas.length).fill(0);
 var AlertR=webMI.query["base"]+".Alert_Active";
 var Mant_ActiveR=webMI.query["base"]+".Mant_Active";
 var Mant_Notification=webMI.query["base"]+".Mant_Notification";
 
-//Variable de ventana de alarmas
+//Alarms window variable
  var Pop_Position; 
  var alarmWindow; 
  var alertWindowC; 
@@ -111,39 +110,39 @@ var Mant_Notification=webMI.query["base"]+".Mant_Notification";
  var alarmWindow_min; 
  var alertWindowC_min; 
  var alertWindowD_min; 
- var alarmWindow_fijada=false;
- var alertWindowC_fijada=false;
- var alertWindowD_fijada=false;
- var alarmWindow_fijada_min=false;
- var alertWindowC_fijada_min=false;
- var alertWindowD_fijada_min=false;
+ var alarmWindow_fixed=false;
+ var alertWindowC_fixed=false;
+ var alertWindowD_fixed=false;
+ var alarmWindow_fixed_min=false;
+ var alertWindowC_fixed_min=false;
+ var alertWindowD_fixed_min=false;
  
- //Variable de Alertas
+ //Alert Variables
  var alertCActive=false;
  var alertDActive=false;
  var alertCActive_min=false;
  var alertDActive_min=false;
  
- //Variables de animación
+ //Animation Variables
  
- //Alarma
+ //Alarms
  var alarmActive=false;
  var alarmActive_min=false;
  var increment=0.0;
  var isGrowing=true;
  var ColorIni="#bd070d";
  
- //Alertas
- const Rango_movimiento=8; //Pixeles
- const Step_size=0.5; //Pixeles
+ //Alerts
+ const Movement_Range=8; //Pixels
+ const Step_size=0.5; //Pixels
  
- //AlertaC
+ //AlertC
  var incrementAlerC=0.0;
  var incrementAlerC_min=0.0;
  var ColorIniAlerC="#fdf90a";
  var ColorActAlerC=ColorIniAlerC;
  
- //AlertaD
+ //AlertD
  var incrementAlerD=0.0;
  var incrementAlerD_min=0.0;
  var ColorIniAlerD="#fdbf21";
@@ -151,87 +150,87 @@ var Mant_Notification=webMI.query["base"]+".Mant_Notification";
  
  var ColorAct=ColorIni;
  
- var Imagen=webMI.query["Imagen"]; //Imagen seleccionada
+ var Image=webMI.query["Image"]; //Image choosen
 
 
-//Variables Internas
-var Imagenes_IDs=["Imagen1","Imagen2","Imagen3"];
+//Internal Variables
+var Images_IDs=["Image1","Image2","Image3"];
 
-//---------------Sección General---------------//
+//---------------General Section---------------//
 
-//Condiciones Iniciales
+//Initial Conditions
 webMI.addOnload(function(e) {
 
-	//Obtengo posición de referencia para Popups
-	const thisElement = document.getElementById('click_area_alarma_min'); //Cualquier elemento en hijo
-	const parentElement = thisElement.parentElement; //Obtengo la referencia de elemento hmtl padre
+	//Get reference position for Popups
+	const thisElement = document.getElementById('click_area_alarm_min'); //Any element in child
+	const parentElement = thisElement.parentElement; //Get parent html element reference
 	const absolutePosition= [parentElement.getAttribute('x'),parentElement.getAttribute('y')];
-	Pop_Position=[Number(absolutePosition[0])+80,Number(absolutePosition[1])+120]; //Posición donde se abre el Pop Up
+	Pop_Position=[Number(absolutePosition[0])+80,Number(absolutePosition[1])+120]; //Position where the Pop Up Hides
 
 	
-	//Leo Raiz Ruta del nodo
+	//Read Root Node path
 	webMI.data.read(Root_PathR, function(e) {
 	    Root_Path=e.value;		
 	    webMI.query["Display"]=Root_Path+".Conditions_Blank";	
 	})	
 	
-	//Leo las alarmas que se monitorean
+	//Read the alarms that are monitored
 	webMI.data.read(Object_ConditionsR, function(e) {
 	   var Object_ConditionsI=e.value;
 	   
 		for(var i=0; i<Object_ConditionsI.length;i++){
 			var Object_ConditionsII=JSON.parse(Object_ConditionsI[i]);
-			Alarmas.push((Object_ConditionsII.Condition_name).split('=').pop());
+			Alarms.push((Object_ConditionsII.Condition_name).split('=').pop());
 		}
 	});
 	
 	
-	//Ejecuto Script Startup	
+	//Excute Script Startup	
 	webMI.data.read(webMI.query["base"]+".Parameters.Startup", function(e) {
 		var status=e.value;
 		
-		//No se había inicializado
+		//It has not been initialized
 		if (status==false) {
 			webMI.data.write(webMI.query["base"]+".Parameters.Startup", true);
 		}
 	});	
 	
-	//Oculto Imagenes
-	for(var i=0; i<Imagenes_IDs.length;i++){
-		if (Imagenes_IDs[i]==Imagen){
-			webMI.gfx.setVisible(Imagenes_IDs[i], true);	
+	//Hide Images
+	for(var i=0; i<Images_IDs.length;i++){
+		if (Images_IDs[i]==Image){
+			webMI.gfx.setVisible(Images_IDs[i], true);	
 		}
 		else{
-			webMI.gfx.setVisible(Imagenes_IDs[i], false);
+			webMI.gfx.setVisible(Images_IDs[i], false);
 		}
 	}
 
-	//Oculto Mant	
-	webMI.gfx.setVisible("mantenimiento", false);
+	//Hide Mant	
+	webMI.gfx.setVisible("maintenance", false);
 	
-	//Oculto Barra
-	webMI.gfx.setVisible("Barra_Ind", false);
+	//Hide Barra
+	webMI.gfx.setVisible("Ind_Bar", false);
 	
-	//Oculto Alarma	
-	webMI.gfx.setVisible("alarma_cuadro", false);
-	webMI.gfx.setVisible("alarma_texto", false);	
-	webMI.gfx.setVisible("alarma_cuadro_min", false);
-	webMI.gfx.setVisible("alarma_texto_min", false);
-	webMI.gfx.setVisible("click_area_alarma", false);
-	webMI.gfx.setVisible("click_area_alarma_min", false);
+	//Hide Alarma	
+	webMI.gfx.setVisible("alarm_square", false);
+	webMI.gfx.setVisible("alarm_text", false);	
+	webMI.gfx.setVisible("alarm_square_min", false);
+	webMI.gfx.setVisible("alarm_text_min", false);
+	webMI.gfx.setVisible("click_area_alarm", false);
+	webMI.gfx.setVisible("click_area_alarm_min", false);
 	
-	//Oculto Alertas	
-	webMI.gfx.setVisible("alerta_creciendo", false);
-	webMI.gfx.setVisible("alarmaC_texto", false);
-	webMI.gfx.setVisible("alerta_decreciendo", false);	
-	webMI.gfx.setVisible("alarmaD_texto", false);
+	//Hide Alertas	
+	webMI.gfx.setVisible("alert_increasing", false);
+	webMI.gfx.setVisible("alertC_text", false);
+	webMI.gfx.setVisible("alert_decreasing", false);	
+	webMI.gfx.setVisible("alertD_text", false);
 	webMI.gfx.setVisible("click_area_alertC", false);
 	webMI.gfx.setVisible("click_area_alertC_min", false);
 	
-	webMI.gfx.setVisible("alerta_creciendo_min", false);
-	webMI.gfx.setVisible("alarmaC_texto_min", false);
-	webMI.gfx.setVisible("alerta_decreciendo_min", false);	
-	webMI.gfx.setVisible("alarmaD_texto_min", false);
+	webMI.gfx.setVisible("alert_increasing_min", false);
+	webMI.gfx.setVisible("alertC_text_min", false);
+	webMI.gfx.setVisible("alert_decreasing_min", false);	
+	webMI.gfx.setVisible("alertD_text_min", false);
 	webMI.gfx.setVisible("click_area_alertD", false);
 	webMI.gfx.setVisible("click_area_alertD_min", false);
 	
@@ -240,441 +239,441 @@ webMI.addOnload(function(e) {
 	webMI.gfx.setText("Title", (webMI.query["base"]).split('.').pop());
 });
 
-//Abro Ventana de Config
+//Open Config Window  
 webMI.addEvent("click_area", "click", function(e) {
 	webMI.display.openWindow({display:Root_Path+".General_Configuration",extern:false,height:660,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Configuracion General }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:603,query:webMI.query});
 });
 
 
 
-//---------------Sección Mantenimiento---------------//
+//---------------Maintenance Section---------------//
 
-//Agrego Mantenimientos Activos
+//Add active maintenance
 webMI.data.subscribe(Mant_Notification, function(e) {
-	var id = "mantenimiento";
+	var id = "maintenance";
 	var value = e.value;	
-	if (value !="{}"){ //Hay mantenimiento
+	if (value !="{}"){ //There are Pending maintenance
 		webMI.gfx.setVisible(id, true);
 		
-		//Leo que mantenimientos hay activos
+		//Read active maintenance
 		webMI.data.read(Mant_ActiveR, function(j) {
 		   var Mant_Active=j.value;
 		   
-		   //Solo agrego si mant no existe
+		   //Add only if mant doesn´t exist
 		   if (!Mant_Active.includes(value)){
 						
-				if (Mant_Active[0]==[""]){ //Si esta vacío					
+				if (Mant_Active[0]==[""]){ //If it is empty				
 					Mant_Active=[value];								
-					webMI.data.write(Mant_ActiveR, Mant_Active);//Ingreso nuevo mantenimiento activo   
+					webMI.data.write(Mant_ActiveR, Mant_Active);//Entry of new active maintenance  
 			   }			   
-			   else{ //Si ya tiene elementos				   			    		   
+			   else{ //If they already have elements				   			    		   
 				   Mant_Active.push(value);				   		   			   
-				   webMI.data.write(Mant_ActiveR, Mant_Active);//Ingreso nuevo mantenimiento activo   
+				   webMI.data.write(Mant_ActiveR, Mant_Active);//Entry of new active maintenance
 			   }
 		   }	   
 		});
 	}	
-	else if (value == "{}"){//No hay mantenimiento
+	else if (value == "{}"){//No maintenance
 		webMI.gfx.setVisible(id, false);
 	}
 });
 
-//Abro Ventana de Visor de Mant
-webMI.addEvent("mantenimiento", "click", function(e) {
+//Open Window Mant Viewer
+webMI.addEvent("maintenance", "click", function(e) {
 	webMI.display.openWindow({display:Root_Path+".Mant_Viewer",extern:false,height:600,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Pending Maintenance: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:465,query:webMI.query});
 });
 
-//--------Ventana de Alarmas---------------//
+//--------Alarm Window---------------//
 
-//Abro Ventana de Visor de Alarmas Vista Rapida
-webMI.addEvent("click_area_alarma", "mouseover", function(e) {
+//Open Window Alarms Viewer Quick Look
+webMI.addEvent("click_area_alarm", "mouseover", function(e) {
 
-	if (alarmWindow==undefined ||alarmWindow.closed==true){ //No va a reabrir si ya estaba
+	if (alarmWindow==undefined ||alarmWindow.closed==true){ //Don´t Open if it was already open
 		alarmWindow = webMI.display.openWindow({display:Root_Path+".Alarm_Viewer",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{High Active Alarms: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
-	alarmWindow_fijada=false;
+	alarmWindow_fixed=false;
 	}
 });
 
-//Abro Ventana de Visor de Alarmas Vista permanente
-webMI.addEvent("click_area_alarma", "click", function(e) {
-	alarmWindow_fijada=true;
+//Open Window Alarms Viewer Permanent Look
+webMI.addEvent("click_area_alarm", "click", function(e) {
+	alarmWindow_fixed=true;
 });
 
-//Cierro Ventana de Visor de Alarmas
-webMI.addEvent("click_area_alarma", "mouseout", function(e) {
+//Close Window Alarms Viewer
+webMI.addEvent("click_area_alarm", "mouseout", function(e) {
 	
-	if(alarmWindow_fijada!=true){
+	if(alarmWindow_fixed!=true){
 		alarmWindow.close();
 	}
 });
 
-//--------Ventana de Alertas Creciendo---------------//
+//--------Window Increasing Alert---------------//
 
-//Abro Ventana de Visor de Alerta Creciente Vista Rapida
+//Open Window AlerC_Viewer Quick Look
 webMI.addEvent("click_area_alertC", "mouseover", function(e) {
 
-	if (alertWindowC==undefined ||alertWindowC.closed==true){ //No va a reabrir si ya estaba
+	if (alertWindowC==undefined ||alertWindowC.closed==true){ //Don´t Open if it was already open
 		alertWindowC = webMI.display.openWindow({display:Root_Path+".AlertC_Viewer",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{High Active Increasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
-		alertWindowC_fijada=false;
+		alertWindowC_fixed=false;
 	}
 });
 
-//Abro Ventana de Visor de Alerta Creciente Vista permanente
+//Open Window AlerC_Viewer Permanent Look
 webMI.addEvent("click_area_alertC", "click", function(e) {
-	alertWindowC_fijada=true;
+	alertWindowC_fixed=true;
 });
 
-//Cierro Ventana de Visor de Alerta Creciente
+//Close Window AlerC_Viewer
 webMI.addEvent("click_area_alertC", "mouseout", function(e) {
 	
-	if(alertWindowC_fijada!=true){
+	if(alertWindowC_fixed!=true){
 		alertWindowC.close();
 	}
 });
 
-//--------Ventana de Alertas Decreciendo---------------//
+//--------Window Decreasing Alert---------------//
 
-//Abro Ventana de Visor de Alerta Decreciente Vista Rapida
+//Open Window AlerD_Viewer Quick Look
 webMI.addEvent("click_area_alertD", "mouseover", function(e) {
 
-	if (alertWindowD==undefined ||alertWindowD.closed==true){ //No va a reabrir si ya estaba
+	if (alertWindowD==undefined ||alertWindowD.closed==true){ //Don´t Open if it was already open
 		alertWindowD = webMI.display.openWindow({display:Root_Path+".AlertD_Viewer",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{High Active Decreasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
-		alertWindowD_fijada=false;
+		alertWindowD_fixed=false;
 	}
 });
 
-//Abro Ventana de Visor de Alerta Decreciente Vista permanente
+//Open Window AlerD_Viewer Permanent Look
 webMI.addEvent("click_area_alertD", "click", function(e) {
-	alertWindowD_fijada=true;
+	alertWindowD_fixed=true;
 });
 
-//Cierro Ventana de Visor de Alerta Decreciente
+//Close Window AlerD_Viewer
 webMI.addEvent("click_area_alertD", "mouseout", function(e) {
 	
-	if(alertWindowD_fijada!=true){
+	if(alertWindowD_fixed!=true){
 		alertWindowD.close();
 	}
 });
 
-//--------Ventana de Alarmas Min---------------//
+//--------Window de Alarms Min---------------//
 
-//Abro Ventana de Visor de Alarmas Vista Rapida
-webMI.addEvent("click_area_alarma_min", "mouseover", function(e) {
+//Open Window Alarms Viewer min Quick Look
+webMI.addEvent("click_area_alarm_min", "mouseover", function(e) {
 
-	if (alarmWindow_min==undefined ||alarmWindow_min.closed==true){ //No va a reabrir si ya estaba
+	if (alarmWindow_min==undefined ||alarmWindow_min.closed==true){ //Don´t Open if it was already open
 		alarmWindow_min = webMI.display.openWindow({display:Root_Path+".Alarm_Viewer_min",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Low Active Alarms: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
-	alarmWindow_fijada_min=false;
+	alarmWindow_fixed_min=false;
 	}
 });
 
-//Abro Ventana de Visor de Alarmas Vista permanente
-webMI.addEvent("click_area_alarma_min", "click", function(e) {
-	alarmWindow_fijada_min=true;
+//Open Window Alarms Viewer min Permanent Look
+webMI.addEvent("click_area_alarm_min", "click", function(e) {
+	alarmWindow_fixed_min=true;
 });
 
-//Cierro Ventana de Visor de Alarmas
-webMI.addEvent("click_area_alarma_min", "mouseout", function(e) {
+//Close Alarms Viewer min
+webMI.addEvent("click_area_alarm_min", "mouseout", function(e) {
 	
-	if(alarmWindow_fijada_min!=true){
+	if(alarmWindow_fixed_min!=true){
 		alarmWindow_min.close();
 	}
 });
 
-//--------Ventana de Alertas Creciendo min---------------//
+//--------Window Increasing Alert min---------------//
 
-//Abro Ventana de Visor de Alerta Creciente Vista Rapida
+//Open Window AlerC_Viewer_min Quick Look
 webMI.addEvent("click_area_alertC_min", "mouseover", function(e) {
 
-	if (alertWindowC_min==undefined ||alertWindowC_min.closed==true){ //No va a reabrir si ya estaba
+	if (alertWindowC_min==undefined ||alertWindowC_min.closed==true){ //Don´t Open if it was already open
 		alertWindowC_min= webMI.display.openWindow({display:Root_Path+".AlertC_Viewer_min",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Low Active Increasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
-		alertWindowC_fijada_min=false;
+		alertWindowC_fixed_min=false;
 	}
 });
 
-//Abro Ventana de Visor de Alerta Creciente Vista permanente
+//Open Window AlerC_Viewer_min Permanent Look
 webMI.addEvent("click_area_alertC_min", "click", function(e) {
-	alertWindowC_fijada_min=true;
+	alertWindowC_fixed_min=true;
 });
 
-//Cierro Ventana de Visor de Alerta Creciente
+//Close Window AlerC_Viewer_min
 webMI.addEvent("click_area_alertC_min", "mouseout", function(e) {
 	
-	if(alertWindowC_fijada_min!=true){
+	if(alertWindowC_fixed_min!=true){
 		alertWindowC_min.close();
 	}
 });
 
-//--------Ventana de Alertas Decreciendo Min---------------//
+//--------Window de Alertas Decreciendo Min---------------//
 
-//Abro Ventana de Visor de Alerta Decreciente Vista Rapida
+//Open Window AlerD_Viewer_min Quick Look
 webMI.addEvent("click_area_alertD_min", "mouseover", function(e) {
 
-	if (alertWindowD_min==undefined ||alertWindowD_min.closed==true){ //No va a reabrir si ya estaba
+	if (alertWindowD_min==undefined ||alertWindowD_min.closed==true){ //Don´t Open if it was already open
 		alertWindowD_min = webMI.display.openWindow({display:Root_Path+".AlertD_Viewer_min",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Low Active Decreasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
 		
-		alertWindowD_fijada_min=false;
+		alertWindowD_fixed_min=false;
 	}
 });
 
-//Abro Ventana de Visor de Alerta Decreciente Vista permanente
+//Open Window AlerD_Viewer_min Quick Look Permanent Look
 webMI.addEvent("click_area_alertD_min", "click", function(e) {
-	alertWindowD_fijada_min=true;
+	alertWindowD_fixed_min=true;
 });
 
-//Cierro Ventana de Visor de Alerta Decreciente
+//Close Window AlerD_Viewer_min 
 webMI.addEvent("click_area_alertD_min", "mouseout", function(e) {
 	
-	if(alertWindowD_fijada_min!=true){
+	if(alertWindowD_fixed_min!=true){
 		alertWindowD_min.close();
 	}
 });
 
 
 
-//---------------Sección Apariencia---------------//
+//---------------Apereance Section---------------//
 
-//Cambio color de Objeto
+//Change color
 
 
 
-//---------------Sección Alarmas---------------//
+//--------------Alarms Section---------------//
 
-setTimeout(function(){ //Doy un tiempo al servidor
-	//Activación alarma
+setTimeout(function(){ //Give the server some time
+	//Alarm Activation
 	webMI.data.subscribe(Alarm_ActiveR, function(e) {		
 		
 		var timestamp= (new Date()).getTime();
 		
-		//Inicializo Variables
+		//Initialize Variables
 		var result=e.value;	
 		var contador_Max=0;
 		var contador_Min=0;
 		
 		for(var i=0; i<result.length;i++){
-			if(result[i]!=""){//No esta vacío
-				var AlarmaAct = JSON.parse(result[i]);//La alarma que se analiza
-				//Alarma Maxima
+			if(result[i]!=""){//It is not empty
+				var AlarmaAct = JSON.parse(result[i]);//Alarm being analized
+				//Alarm High
 				if(AlarmaAct.Condition_type=="Max"){
 					contador_Max=contador_Max+1;
 				}	
 				
-				//Alarma Minima
+				//Alarm Min
 				else{
 						contador_Min=contador_Min+1;
 				}
 			}
 		}		
 		
-		//Seccion de alarma maxima
-		if(contador_Max>0){ //Activa Alarma
-				webMI.gfx.setVisible("alarma_cuadro", true);
-				webMI.gfx.setVisible("click_area_alarma", true);
-				webMI.gfx.setVisible("alarma_texto", true);					
+		//Alarm High Section
+		if(contador_Max>0){ //Active Alarm
+				webMI.gfx.setVisible("alarm_square", true);
+				webMI.gfx.setVisible("click_area_alarm", true);
+				webMI.gfx.setVisible("alarm_text", true);					
 				
-				//Pongo Cantidad de Alarmas Activas
-				webMI.gfx.setText("alarma_texto", contador_Max);				
+				//Set Active Alarm counter
+				webMI.gfx.setText("alarm_text", contador_Max);				
 		
-				//Alarmas activas
+				//Active alarm
 				alarmActive=true;
 				
 		}
 		else{
-			webMI.gfx.setVisible("alarma_cuadro", false);
-			webMI.gfx.setVisible("click_area_alarma", false);
-			webMI.gfx.setVisible("alarma_texto", false);
+			webMI.gfx.setVisible("alarm_square", false);
+			webMI.gfx.setVisible("click_area_alarm", false);
+			webMI.gfx.setVisible("alarm_text", false);
 			
-			//Alarmas Inactivas
+			//Inactive Alarm
 			alarmActive=false;					
 		}	
 		
-		//Seccion de alarma Minima
-		if(contador_Min>0){ //Activa Alarma
-				webMI.gfx.setVisible("alarma_cuadro_min", true);
-				webMI.gfx.setVisible("click_area_alarma_min", true);
-				webMI.gfx.setVisible("alarma_texto_min", true);					
+		//Alarm Min Section
+		if(contador_Min>0){ //Active Alarm
+				webMI.gfx.setVisible("alarm_square_min", true);
+				webMI.gfx.setVisible("click_area_alarm_min", true);
+				webMI.gfx.setVisible("alarm_text_min", true);					
 				
-				//Pongo Cantidad de Alarmas Activas
-				webMI.gfx.setText("alarma_texto_min", contador_Min);				
+				//Set count of active alarms min
+				webMI.gfx.setText("alarm_text_min", contador_Min);				
 		
-				//Alarmas activas
+				//Active alarm
 				alarmActive_min=true;
 				
 		}
 		else{
-			webMI.gfx.setVisible("alarma_cuadro_min", false);
-			webMI.gfx.setVisible("click_area_alarma_min", false);
-			webMI.gfx.setVisible("alarma_texto_min", false);
+			webMI.gfx.setVisible("alarm_square_min", false);
+			webMI.gfx.setVisible("click_area_alarm_min", false);
+			webMI.gfx.setVisible("alarm_text_min", false);
 			
-			//Alarmas Inactivas
+			//Inactive Alarm
 			alarmActive_min=false;					
 		}	
 		
-		//Sección de Barra
-		if(!alarmActive&&!alertCActive&&!alertDActive&&!alarmActive_min&&!alertCActive_min&&!alertDActive_min){	//Si todas las alarmas y alertas estan en false
-			webMI.gfx.setVisible("Barra_Ind", false);
+		//Bar Section
+		if(!alarmActive&&!alertCActive&&!alertDActive&&!alarmActive_min&&!alertCActive_min&&!alertDActive_min){	//Si todas las Alarms y alertas estan en false
+			webMI.gfx.setVisible("Ind_Bar", false);
 		}
-		else{	//Si al menos una alerta o alarma esta activa
-			webMI.gfx.setVisible("Barra_Ind", true);
+		else{	//If at least one alert or alarm is active
+			webMI.gfx.setVisible("Ind_Bar", true);
 		}
 	});	
 },400);
 
 
-//---------------Sección Alertas---------------//
-//Activación Alerta
+//---------------Alert Section---------------//
+//Alert Activation
 webMI.data.subscribe(AlertR, function(e) {
-	//Inicializo Variables
+	//Initialize Variables
 	var result=e.value;		
 	var AlertC=0;
 	var AlertD=0;
 	var AlertC_min=0;
 	var AlertD_min=0;
 	
-	for(var i=0; i<result.length;i++){ //Busco todas las alertas
-		var AlertaInstantanea=JSON.parse(result[i]);
-		if (AlertaInstantanea!=""){ //Si hay alarma
-			if (AlertaInstantanea.Status=="Increasing"){ //Esta Creciendo
-				if (AlertaInstantanea.Condition_type=="Max"){ //Es Maxima		
+	for(var i=0; i<result.length;i++){ //Go through all the alerts
+		var InstantAlert=JSON.parse(result[i]);
+		if (InstantAlert!=""){ //If there is an alert
+			if (InstantAlert.Status=="Increasing"){ //It is Increasing
+				if (InstantAlert.Condition_type=="Max"){ //It is Max		
 					AlertC=AlertC+1;
 				}
-				else if (AlertaInstantanea.Condition_type=="Min"){ //Es Minima	
+				else if (InstantAlert.Condition_type=="Min"){ //It is Min
 					AlertC_min=AlertC_min+1;
 				}			
 			}
-			else if (AlertaInstantanea.Status=="Decreasing"){ //Esta Decreciendo
-				if (AlertaInstantanea.Condition_type=="Max"){ //Es Maxima		
+			else if (InstantAlert.Status=="Decreasing"){ //It is Decreasing
+				if (InstantAlert.Condition_type=="Max"){ //It is Max			
 					AlertD=AlertD+1;
 				}
-				else if (AlertaInstantanea.Condition_type=="Min"){ //Es Minima	
+				else if (InstantAlert.Condition_type=="Min"){ //It is Min
 					AlertD_min=AlertD_min+1;
 				}	
 			}
 		}	
 	}
 	
-	////////////Sección de Maximas
+	////////////Max Section
 	
-	//Analisis Creciendo Max
-	if (AlertC>0){ //Encontrol aleras creciendo
-		webMI.gfx.setVisible("alerta_creciendo", true);
-		webMI.gfx.setVisible("alarmaC_texto", true);
+	//Increasing Max Analysis
+	if (AlertC>0){ //There are Increasing Alerts
+		webMI.gfx.setVisible("alert_increasing", true);
+		webMI.gfx.setVisible("alertC_text", true);
 		webMI.gfx.setVisible("click_area_alertC", true);	
 		
 		
-		//Pongo Cantidad de Alarmas Activas
-		webMI.gfx.setText("alarmaC_texto", AlertC);
+		//Set Count of Increasing Alerts
+		webMI.gfx.setText("alertC_text", AlertC);
 		
 		alertCActive=true;	
 	}
-	else{ //No Encontrol aleras creciendo 
-		webMI.gfx.setVisible("alerta_creciendo", false);
-		webMI.gfx.setVisible("alarmaC_texto", false);
+	else{ //There are not Increasing Alerts
+		webMI.gfx.setVisible("alert_increasing", false);
+		webMI.gfx.setVisible("alertC_text", false);
 		webMI.gfx.setVisible("click_area_alertC", false);
 		
 		alertCActive=false;
 	}
 	
 	
-	//Analisis Decreciendo Max
-	if (AlertD>0){ //Encontrol aleras creciendo
-		webMI.gfx.setVisible("alerta_decreciendo", true);
-		webMI.gfx.setVisible("alarmaD_texto", true);
+	//Decreasing Max Analysis
+	if (AlertD>0){ //There are Decreasing Alerts
+		webMI.gfx.setVisible("alert_decreasing", true);
+		webMI.gfx.setVisible("alertD_text", true);
 		webMI.gfx.setVisible("click_area_alertD", true);	
 		
 		
-		//Pongo Cantidad de Alarmas Activas
-		webMI.gfx.setText("alarmaD_texto", AlertD);	
+		//Set Count of Decreasing Alerts
+		webMI.gfx.setText("alertD_text", AlertD);	
 		
 		alertDActive=true;
 	}
-	else{ //No Encontrol aleras creciendo
-		webMI.gfx.setVisible("alerta_decreciendo", false);
-		webMI.gfx.setVisible("alarmaD_texto", false);
+	else{ //There are not Increasing Alerts
+		webMI.gfx.setVisible("alert_decreasing", false);
+		webMI.gfx.setVisible("alertD_text", false);
 		webMI.gfx.setVisible("click_area_alertD", false);
 		
 		alertDActive=false;
 	}
 	
-	////////////Sección de Minimas
+	////////////Min Section
 	
-	//Analisis Creciendo Min
-	if (AlertC_min>0){ //Encontrol aleras creciendo
-		webMI.gfx.setVisible("alerta_creciendo_min", true);
-		webMI.gfx.setVisible("alarmaC_texto_min", true);
+	//Increasing Min Analysis
+	if (AlertC_min>0){ //There are Increasing Alerts
+		webMI.gfx.setVisible("alert_increasing_min", true);
+		webMI.gfx.setVisible("alertC_text_min", true);
 		webMI.gfx.setVisible("click_area_alertC_min", true);	
 		
 		
-		//Pongo Cantidad de Alarmas Activas
-		webMI.gfx.setText("alarmaC_texto_min", AlertC_min);
+		//Set Count of Increasing Alerts
+		webMI.gfx.setText("alertC_text_min", AlertC_min);
 		
 		alertCActive_min=true;	
 	}
-	else{ //No Encontrol aleras creciendo 
-		webMI.gfx.setVisible("alerta_creciendo_min", false);
-		webMI.gfx.setVisible("alarmaC_texto_min", false);
+	else{ //There are not Increasing Alerts
+		webMI.gfx.setVisible("alert_increasing_min", false);
+		webMI.gfx.setVisible("alertC_text_min", false);
 		webMI.gfx.setVisible("click_area_alertC_min", false);
 		
 		alertCActive_min=false;
 	}
 	
 	
-	//Analisis Decreciendo Min
-	if (AlertD_min>0){ //Encontrol aleras creciendo
-		webMI.gfx.setVisible("alerta_decreciendo_min", true);
-		webMI.gfx.setVisible("alarmaD_texto_min", true);
+	//Decreasing Min Analysis
+	if (AlertD_min>0){ //There are Decreasing Alerts
+		webMI.gfx.setVisible("alert_decreasing_min", true);
+		webMI.gfx.setVisible("alertD_text_min", true);
 		webMI.gfx.setVisible("click_area_alertD_min", true);	
 		
 		
-		//Pongo Cantidad de Alarmas Activas
-		webMI.gfx.setText("alarmaD_texto_min", AlertD_min);	
+		//Set Count of Decreasing Alerts
+		webMI.gfx.setText("alertD_text_min", AlertD_min);	
 		
 		alertDActive_min=true;
 	}
-	else{ //No Encontrol aleras creciendo
-		webMI.gfx.setVisible("alerta_decreciendo_min", false);
-		webMI.gfx.setVisible("alarmaD_texto_min", false);
+	else{ //There are not Increasing Alerts
+		webMI.gfx.setVisible("alert_decreasing_min", false);
+		webMI.gfx.setVisible("alertD_text_min", false);
 		webMI.gfx.setVisible("click_area_alertD_min", false);
 		
 		alertDActive_min=false;
 	}
 	
 	
-	//Sección de Barra
-	if(!alarmActive&&!alertCActive&&!alertDActive&&!alarmActive_min&&!alertCActive_min&&!alertDActive_min){	//Si todas las alarmas y alertas estan en false
-		webMI.gfx.setVisible("Barra_Ind", false);
+	//Bar Section
+	if(!alarmActive&&!alertCActive&&!alertDActive&&!alarmActive_min&&!alertCActive_min&&!alertDActive_min){	//Si todas las Alarms y alertas estan en false
+		webMI.gfx.setVisible("Ind_Bar", false);
 	}
-	else{	//Si al menos una alerta o alarma esta activa
-		webMI.gfx.setVisible("Barra_Ind", true);
+	else{	//If at least one alert or alarm is active
+		webMI.gfx.setVisible("Ind_Bar", true);
 	}
 
 });
 
-//---------------Sección Funciones---------------//
+//---------------Functions Section---------------//
 
 
-//Función animación alarmas y alertas Pulsantes
+//Animation function Alarms and alerts Pulsating
 
-//Alarma Max
+//Alarm Max
 setInterval(() => {
 	if(alarmActive){
 		const initialfactor=1;
 		const targetfactor=1.2;
 		
-		const id="alarma_cuadro";
+		const id="alarm_square";
 		
-		//Calculo color
-		ColorAct=generarColorConIntensidad(ColorIni,(initialfactor+(increment*1.2)));
+		//Color Calculation
+		ColorAct=generateColorIntensity(ColorIni,(initialfactor+(increment*1.2)));
 		webMI.gfx.setScaleX(id, initialfactor+increment);
 		webMI.gfx.setScaleY(id, initialfactor+increment);
 		webMI.gfx.setFill(id, ColorAct);
 		
 		if (isGrowing) {
-		  // Si está creciendo, incrementar el tamaño
+		  // If it is increasing, increase Size
 		  increment=increment+0.02;
 		  if (initialfactor+increment >= targetfactor) {
 			isGrowing = false;
@@ -682,30 +681,32 @@ setInterval(() => {
 		} 
 		
 		else {		
-		  // Si está en disminución, reducir el tamaño		  
+		  // If it is decreasing, reduce size		  
 		  increment=increment-0.02;
 		  if (initialfactor+increment <= initialfactor) {
 			isGrowing = true;
 		  }
 		}  
 	 }	 
-}, 75); // Intervalo de actualización en milisegundos
+}, 75); // Interval in Miliseconds
 
+
+//Alarm Min
 setInterval(() => {
 	if(alarmActive_min){
 		const initialfactor=1;
 		const targetfactor=1.2;
 		
-		const id="alarma_cuadro_min";
+		const id="alarm_square_min";
 		
-		//Calculo color
-		ColorAct=generarColorConIntensidad(ColorIni,(initialfactor+(increment*1.2)));
+		//Color Calculation
+		ColorAct=generateColorIntensity(ColorIni,(initialfactor+(increment*1.2)));
 		webMI.gfx.setScaleX(id, initialfactor+increment);
 		webMI.gfx.setScaleY(id, initialfactor+increment);
 		webMI.gfx.setFill(id, ColorAct);
 		
 		if (isGrowing) {
-		  // Si está creciendo, incrementar el tamaño
+		  // If it is increasing, increase Size
 		  increment=increment+0.02;
 		  if (initialfactor+increment >= targetfactor) {
 			isGrowing = false;
@@ -713,125 +714,125 @@ setInterval(() => {
 		} 
 		
 		else {		
-		  // Si está en disminución, reducir el tamaño		  
+		  // If it is decreasing, reduce size		  
 		  increment=increment-0.02;
 		  if (initialfactor+increment <= initialfactor) {
 			isGrowing = true;
 		  }
 		}  
 	 }	 
-}, 75); // Intervalo de actualización en milisegundos
+}, 75); // Interval in Miliseconds
 
 
-//Alerta Creciente Max
+//Increasing Alert Max
 setInterval(() => {	
 
 	 if(alertCActive){		
 		const initialposition=0;
-		const targetposition=-Rango_movimiento; //Avanza 4 pixeles
-		const id="alerta_creciendo";
-		const id2="alarmaC_texto";
+		const targetposition=-Movement_Range; //Advance X Pixels
+		const id="alert_increasing";
+		const id2="alertC_text";
 				
-		//Calculo color
-		//ColorActAlerC=generarColorConIntensidad(ColorIniAlerC,(initialposition+-((incrementAlerC))));
+		//Color Calculation
+		//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
 		webMI.gfx.setMoveY(id,initialposition+incrementAlerC);
 		webMI.gfx.setFill(id, ColorActAlerC);
 		
 		webMI.gfx.setMoveY(id2,initialposition+incrementAlerC);
 		
-		// Si está creciendo, incrementar el tamaño
+		// If it is increasing, increase Size
 		incrementAlerC=incrementAlerC-Step_size;
 		if (initialposition+incrementAlerC <= targetposition) {
 			incrementAlerC=0;
 		}		
 	 }
-}, 50); // Intervalo de actualización en milisegundos
+}, 50); // Interval in Miliseconds
 
-//Alerta Decreciente Max
+//Decreasing Alert Max
 setInterval(() => {	
 
 	 if(alertDActive){	
 		const initialposition=0;
-		const targetposition=Rango_movimiento; //Avanza 4 pixeles
-		const id="alerta_decreciendo";
-		const id2="alarmaD_texto";
+		const targetposition=Movement_Range; //Advance X Pixels
+		const id="alert_decreasing";
+		const id2="alertD_text";
 				
-		//Calculo color
-		//ColorActAlerC=generarColorConIntensidad(ColorIniAlerC,(initialposition+-((incrementAlerC))));
+		//Color Calculation
+		//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
 		webMI.gfx.setMoveY(id,initialposition+incrementAlerD);
 		webMI.gfx.setFill(id, ColorActAlerD);
 		
 		webMI.gfx.setMoveY(id2,initialposition+incrementAlerD);
 		
-		// Si está creciendo, incrementar el tamaño
+		// If it is increasing, increase Size
 		incrementAlerD=incrementAlerD+Step_size;
 		if (initialposition+incrementAlerD >= targetposition) {
 			incrementAlerD=0;
 		}		
 	 }
-}, 50); // Intervalo de actualización en milisegundos
+}, 50); // Interval in Miliseconds
 
 
-//Alerta Creciente Min
+//Increasing Alert Min
 setInterval(() => {	
 
 	 if(alertCActive_min){	
 	 	
 		const initialposition=0;
-		const targetposition=Rango_movimiento; //Avanza 4 pixeles
-		const id="alerta_creciendo_min";
-		const id2="alarmaC_texto_min";
+		const targetposition=Movement_Range; //Advance X Pixels
+		const id="alert_increasing_min";
+		const id2="alertC_text_min";
 				
-		//Calculo color
-		//ColorActAlerC=generarColorConIntensidad(ColorIniAlerC,(initialposition+-((incrementAlerC))));
+		//Color Calculation
+		
 		webMI.gfx.setMoveY(id,initialposition+incrementAlerC_min);
 		webMI.gfx.setFill(id, ColorActAlerC);
 		
 		webMI.gfx.setMoveY(id2,initialposition+incrementAlerC_min);
 		
-		// Si está creciendo, incrementar el tamaño
+		// If it is increasing, increase Size
 		incrementAlerC_min=incrementAlerC_min+Step_size;
 		if (initialposition+incrementAlerC_min >= targetposition) {
 			incrementAlerC_min=0;
 		}		
 	 }
-}, 50); // Intervalo de actualización en milisegundos
+}, 50); // Interval in Miliseconds
 
-//Alerta Decreciente Min
+//Decreasing Alert Min
 setInterval(() => {	
 
 	 if(alertDActive_min){	
 		const initialposition=0;
-		const targetposition=-Rango_movimiento; //Avanza 4 pixeles
-		const id="alerta_decreciendo_min";
-		const id2="alarmaD_texto_min";
+		const targetposition=-Movement_Range; //Advance X Pixels
+		const id="alert_decreasing_min";
+		const id2="alertD_text_min";
 				
-		//Calculo color
-		//ColorActAlerC=generarColorConIntensidad(ColorIniAlerC,(initialposition+-((incrementAlerC))));
+		//Color Calculation
+		//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
 		webMI.gfx.setMoveY(id,initialposition+incrementAlerD_min);
 		webMI.gfx.setFill(id, ColorActAlerD);
 		
 		webMI.gfx.setMoveY(id2,initialposition+incrementAlerD_min);
 		
-		// Si está creciendo, incrementar el tamaño
+		// If it is increasing, increase Size
 		incrementAlerD_min=incrementAlerD_min-Step_size;
 		if (initialposition+incrementAlerD_min <=targetposition) {
 			incrementAlerD_min=0;
 		}		
 	 }
-}, 50); // Intervalo de actualización en milisegundos
+}, 50); // Interval in Miliseconds
 
 
 
 
-//Funcion que genera colores
-function generarColorConIntensidad(colorHex, factorIntensidad) {
-  // Validar que el colorHex tenga un formato válido
+//Color Generation Function
+function generateColorIntensity(colorHex, intensityfactor) {
+  // Validate that the colorHex has a valid format
   if (!/^#([0-9A-F]{3}){1,2}$/i.test(colorHex)) {
-    throw new Error('El color hexadecimal no tiene un formato válido.');
+    throw new Error('Hexadecimal color is not in a valid format.');
   }
 
-  // Remover el símbolo '#' y dividir el color en componentes RGB
+  // Remove the '#' symbol and split the color into RGB components
   const hex = colorHex.substring(1);
   const rgb = [
     parseInt(hex.substring(0, 2), 16),
@@ -839,18 +840,18 @@ function generarColorConIntensidad(colorHex, factorIntensidad) {
     parseInt(hex.substring(4, 6), 16)
   ];
 
-  // Ajustar la intensidad de cada componente RGB
-  const nuevoRGB = rgb.map(componente => {
-    const nuevoValor = Math.round(componente * factorIntensidad);
-    return Math.min(Math.max(nuevoValor, 0), 255); // Asegurar que el valor esté dentro del rango [0, 255]
+  // Adjust the intensity of each RGB component
+  const newRGB = rgb.map(component => {
+    const newValue = Math.round(component * intensityfactor);
+    return Math.min(Math.max(newValue, 0), 255); // Ensure that the value is within the range [0, 255]
   });
 
-  // Convertir el nuevo RGB a un color hexadecimal
-  const nuevoHex = nuevoRGB
-    .map(componente => componente.toString(16).padStart(2, '0'))
+  // Convert the new RGB to a hexadecimal color
+  const newHex = newRGB
+    .map(component => component.toString(16).padStart(2, '0'))
     .join('');
 
-  return `#${nuevoHex}`;
+  return `#${newHex}`;
 }
 
 

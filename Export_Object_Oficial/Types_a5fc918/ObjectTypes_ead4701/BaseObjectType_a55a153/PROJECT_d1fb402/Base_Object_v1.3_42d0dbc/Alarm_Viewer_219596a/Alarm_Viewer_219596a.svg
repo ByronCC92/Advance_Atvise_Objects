@@ -6,20 +6,20 @@
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
- <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//Defino Variables
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//Initialize Variables
 var self;
 var tableData = [];
 var data_lista=[];
 
 
 
-/*******Condiciones Iniciales*******/
+/*******Initial Conditions*******/
 webMI.addOnload(function() {
 
 	
 });
 
-/*******Codigo de Tabla HTML********/
+/******HTML Code section********/
 webMI.table.loadResources(function () {
 
 	/* Create the configuration */

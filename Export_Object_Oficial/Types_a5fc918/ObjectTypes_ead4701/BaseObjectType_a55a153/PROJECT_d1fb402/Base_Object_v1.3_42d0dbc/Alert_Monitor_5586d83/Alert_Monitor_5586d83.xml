@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Trigger1" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Variables</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Test_1</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Trigger2" type="node" trigger="false" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Variables</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Prueba_2</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <code><![CDATA[//Externas
+var Alert_Active  = Ua.findNode((base)+".Alert_Active");
+var Object_Conditions  = Ua.findNode((base)+".Parameters.Object_Conditions");
+var Initial_Values  = Ua.findNode((base)+".Parameters.Initial_Values");
+var Alert_Range  = Ua.findNode((base)+".Parameters.Alert_Range");
+
+
+//Variables Locales
+var Alert_ActiveI=Alert_Active.result.value;
+var Object_ConditionsI=Object_Conditions.result.value;
+var Object_ConditionsIA;
+var Initial_valuesI=Initial_Values.result.value;
+var Alert_RangeI=Alert_Range.result.value;
+var Temp_Var;
+var Temp_VarI;
+var Temp_Limit;
+var Temp_Limit_Type;
+var Temp_Alarm_Range;
+var Temp_Alert_Limit;
+var Orientacion; //0:creciendo, 1:decreciendo
+var T_Actual=new Date();
+
+for (var i=0; i<Object_ConditionsI.length; i++){
+	
+	//Leo condicion por condicion
+	Object_ConditionsIA=(JSON.parse(Object_ConditionsI[i]));
+
+	
+	//Variables temporales para el analisis
+	Temp_Var=Ua.findNode(Object_ConditionsIA.Condition_node);
+	Temp_VarI=Temp_Var.result.value;
+	Temp_Limit=Object_ConditionsIA.Condition_limit;
+	Temp_Limit_Type=Object_ConditionsIA.Condition_type;
+	Temp_Alarm_Range=Object_ConditionsIA.Rango;
+	
+	//Limite superior
+	if (Temp_Limit_Type=="Max"){
+		Temp_Alert_Limit=Temp_Limit-parseInt((Temp_Alarm_Range*(Alert_RangeI)/100));
+		//console.log("----------Condition Max---------");
+		//console.log("Temp_VarI: "+Temp_VarI+" >= "+"Temp_Alert_Limit: "+Temp_Alert_Limit +" && "+ "Temp_VarI: "+ Temp_VarI+" < "+ "Temp_Limit: "+Temp_Limit);	
+		if (Temp_VarI>=Temp_Alert_Limit && Temp_VarI<=Temp_Limit){	//Se encuentra en el rango de alerta superior
+			//console.log("Dentro del rango de Alerta Maxima");			
+			if(Temp_VarI>Initial_valuesI[i]){	//Se encuentra Creciendo
+				Alert_ActiveI[i]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Increasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:T_Actual,eventText:"Increasing Alert"});
+			}
+			else if(Temp_VarI<Initial_valuesI[i]){	//Se encuentra decreciendo
+				Alert_ActiveI[i]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Decreasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:T_Actual,eventText:"Decreasing Alert"});
+			}			
+		}
+		else{//Se encuentra fuera del rango de alerta superior
+			//console.log("Fuera del rango de Alerta Maxima");
+			Alert_ActiveI[i]=JSON.stringify("");
+		}
+	}	
+	//Limite inferior
+	else if(Temp_Limit_Type=="Min"){
+		Temp_Alert_Limit=Temp_Limit+parseInt((Temp_Alarm_Range*(Alert_RangeI)/100));
+		//console.log("----------Condition Min---------");
+		//console.log("Temp_VarI: "+Temp_VarI+" <= "+"Temp_Alert_Limit: "+Temp_Alert_Limit +" && "+ "Temp_VarI: "+ Temp_VarI+" > "+ "Temp_Limit: "+Temp_Limit);			
+		if (Temp_VarI<=Temp_Alert_Limit && Temp_VarI>=Temp_Limit){	//Se encuentra en el rango de alerta inferior
+			//console.log("Dentro del rango de Alerta Minima");
+			if(Temp_VarI<Initial_valuesI[i]){	//Se encuentra Creciendo
+				Alert_ActiveI[i]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Increasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:T_Actual,eventText:"Increasing Alert"});
+			}
+			else if(Temp_VarI>Initial_valuesI[i]){	//Se encuentra decreciendo
+				Alert_ActiveI[i]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Decreasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:T_Actual,eventText:"Decreasing Alert"});
+			}
+			
+		}
+		else{//Se encuentra fuera del rango de alerta superior
+			//console.log("Fuera del rango de Alerta Minima");
+			Alert_ActiveI[i]=JSON.stringify("");
+		}
+	}
+	
+	//Actualizo Initial Values	
+	Initial_valuesI[i]=Temp_VarI;
+}
+
+
+//Asigno Initial Values
+Initial_Values.result.assign({value: Initial_valuesI}); //Asigno al array Completo
+
+//Asigno el valor al nodo
+Alert_Active.result.assign({value: Alert_ActiveI}); //Asigno al array Completo]]></code>
+</script>

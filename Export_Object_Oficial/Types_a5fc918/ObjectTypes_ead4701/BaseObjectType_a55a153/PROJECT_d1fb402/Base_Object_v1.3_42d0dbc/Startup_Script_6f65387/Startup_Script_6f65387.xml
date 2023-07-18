@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Trigger" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Parameters</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Startup</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <code><![CDATA[//Externas
+var Object_Conditions = Ua.findNode((base)+".Parameters.Object_Conditions");
+var Initial_Values = Ua.findNode((base)+".Parameters.Initial_Values");
+var Root_Path = Ua.findNode((base)+".Parameters.Root_Path");
+
+console.log("---------------Startup Script----------------");
+//Variables Globales
+var Global_Conditions=alarming.conditions;
+var Object_ConditionsI=new Array();
+var Initial_ValuesI=new Array();
+var Alert_Nodes=new Array();
+var Ranges=new Array();
+
+//----------------Logica referente a raiz ruta---------------//
+
+var Root_PathI=server.script.origin; //Nombre del script
+console.log(Root_PathI);
+//Asigno el valor al nodo
+Root_Path.result.assign({value: Root_PathI.substring(0, Root_PathI.lastIndexOf('.'))}); //Asigno al array Completo
+
+//----------------Logica referente a las condiciones----------------//
+for (var i=0; i<Global_Conditions.length; i++){
+	
+	var Config_conditions=alarming.configuration(Global_Conditions[i])[0];
+	//Guardo las condiciones que pertenecen al nodo correspondiente
+	if (Global_Conditions[i].includes(base.nodeid.split('=').pop())) {
+		
+		//Guardo Estado inicial en variable global
+		var Temp_variable = Ua.findNode(Config_conditions.input);		
+		
+	    if (Config_conditions.lowerLimit!=undefined){ //Alarma Máxima
+			Object_ConditionsI.push({Condition_name:Global_Conditions[i],Condition_node:Config_conditions.input,Condition_type:"Max",Condition_limit:Config_conditions.lowerLimit,Initial_value:Temp_variable.result.value});
+		}
+		else //Alarma Minima
+		{
+			Object_ConditionsI.push({Condition_name:Global_Conditions[i],Condition_node:Config_conditions.input,Condition_type:"Min",Condition_limit:Config_conditions.upperLimit,Initial_value:Temp_variable.result.value});
+		}
+		
+		//Guardo una variable con los nodos por separado
+		if (isElementIncluded(Alert_Nodes,Config_conditions.input)!=true){ //No existe ya
+			Alert_Nodes.push(Config_conditions.input);
+			Ranges.push([]);
+		}
+		//Asigno valores iniciales para la comparación posterior
+		Initial_ValuesI.push(Temp_variable.result.value);
+		Initial_Values.result.assign({value: Initial_ValuesI});		
+    }		
+}
+
+//Extraigo parejas de limites para cada nodo
+for (var i=0; i<Alert_Nodes.length; i++){
+	for (var j=0; j<Object_ConditionsI.length; j++){
+		if (Alert_Nodes[i]==Object_ConditionsI[j].Condition_node){
+			Ranges[i].push(Object_ConditionsI[j].Condition_limit);
+		}
+	}
+	
+	if (Ranges[i].length==1){ //Solo un limite
+			Ranges[i].push(0); //Agrego un cero para que siempre tenga pareja
+		}
+}
+
+//Calculo e introduzco los Ranges
+for (var i=0; i<Alert_Nodes.length; i++){
+	for (var j=0; j<Object_ConditionsI.length; j++){
+		if (Alert_Nodes[i]==Object_ConditionsI[j].Condition_node){
+			Object_ConditionsI[j].Rango=Math.abs(Ranges[i][0]-Ranges[i][1]);
+			Object_ConditionsI[j]=JSON.stringify(Object_ConditionsI[j]);
+		}
+	}
+}
+
+
+//Asigno el valor al nodo
+Object_Conditions.result.assign({value: Object_ConditionsI}); //Asigno al array Completo
+
+
+
+//Funciones complementarias
+function isElementIncluded(array, element) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === element) {
+      return true; // Element found in the array
+    }
+  }
+  return false; // Element not found in the array
+}]]></code>
+</script>

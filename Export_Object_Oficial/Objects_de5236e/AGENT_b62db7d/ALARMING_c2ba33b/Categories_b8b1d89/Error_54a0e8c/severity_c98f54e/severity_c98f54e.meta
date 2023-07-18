@@ -1,0 +1,9 @@
+NodeId: ns=1;s=AGENT.ALARMING.Categories.Error.severity
+NodeClass: Variable
+BrowseName: 1:severity
+DisplayName: en|severity
+Description: en|severity
+DataType: UInt16
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition BaseVariableType

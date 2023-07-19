@@ -1,0 +1,616 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="580" version="1.2" width="603" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <text atv:refpx="65.048" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_1" x="15.5" y="25.5">Maintenance Type</text>
+ <svg atv:refpx="158.478" atv:refpy="197.496" height="30" id="id_2" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="12.218" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="154.281">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="name" value="Maintenance_Date"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+  <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+ </svg>
+ <text atv:refpx="74.518" atv:refpy="151" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="25.5" y="155.5">Maintenance Date</text>
+ <text atv:refpx="384.45" atv:refpy="151" fill="$Color$" font-family="Arial" font-size="24" id="id_5" x="345.5" y="155.5">Required Time</text>
+ <text atv:refpx="530.076" atv:refpy="201" fill="$Color$" font-family="Arial" font-size="24" id="id_9" x="515.5" y="205.5">Hours</text>
+ <text atv:refpx="535.375" atv:refpy="251" fill="$Color$" font-family="Arial" font-size="24" id="id_11" x="515.5" y="255.5">Minutes</text>
+ <svg atv:refpx="188.497" atv:refpy="67.497" height="30" id="id_4" transform="matrix(2.2188,0,0,1.1667,0,0)" width="160" x="4.958" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.combobox_Mantenimiento" y="42.856">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="mode" value="Enum List"/>
+  <atv:argument name="enumList" value="SYSTEM.GLOBALS.Mantenimiento_Base"/>
+  <atv:argument name="name" value="Maintenance_Type"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.4507,0,0,0.8571,0,0)" width="351.008"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="7.501"/>
+  <atv:overwrite id="id_7" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="8.501"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="7.501"/>
+  <atv:overwrite id="combobox_label" transform="matrix(0.4507,0,0,0.8571,0,0)" x="320.508" y="22.001"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.4507,0,0,0.8571,0,0)" width="323.008"/>
+  <atv:overwrite height="27.001" id="combobox_bg" transform="matrix(0.4507,0,0,0.8571,0,0)" width="323.008"/>
+  <atv:overwrite height="33.001" id="id_1" transform="matrix(0.4507,0,0,0.8571,0,0)" width="353.008"/>
+  <atv:overwrite height="35.001" id="id_0" transform="matrix(0.4507,0,0,0.8571,0,0)" width="355.008"/>
+ </svg>
+ <svg atv:refpx="421" atv:refpy="197.994" height="30" id="id_8" transform="matrix(1,0,0,1.1667,0,0)" width="160" x="341" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.rocker_switch_horizontal_Mantenimiento" y="154.709">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="name" value="Maintenance_Hours"/>
+  <atv:overwrite id="icon_plus" transform="matrix(1,0,0,0.8571,0,2.1432)"/>
+  <atv:overwrite height="33.001" id="inc_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33.001" id="inc_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35.001" id="id_5" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="0.508" id="icon_minus" transform="matrix(1,0,0,0.8571,0,0)" y="17.251"/>
+  <atv:overwrite height="33.001" id="dec_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33.001" id="dec_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35.001" id="id_20" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite id="input_label" transform="matrix(1,0,0,0.8571,0,0)" y="22.001"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="27.001" id="input_field_widget" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="32.001" id="focus_frame" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33.001" id="input_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35.001" id="border_area" transform="matrix(1,0,0,0.8571,0,0)"/>
+ </svg>
+ <svg atv:refpx="421" atv:refpy="247.5" height="30" id="id_10" transform="matrix(1,0,0,1.1667,0,0)" width="160" x="341" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.rocker_switch_horizontal_Mantenimiento" y="197.137">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="name" value="Maintenance_Minutes"/>
+  <atv:overwrite id="icon_plus" transform="matrix(1,0,0,0.8571,0,2.1432)"/>
+  <atv:overwrite height="33.001" id="inc_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33.001" id="inc_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35.001" id="id_5" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="0.508" id="icon_minus" transform="matrix(1,0,0,0.8571,0,0)" y="17.251"/>
+  <atv:overwrite height="33.001" id="dec_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33.001" id="dec_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35.001" id="id_20" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite id="input_label" transform="matrix(1,0,0,0.8571,0,0)" y="22.001"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="27.001" id="input_field_widget" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="32.001" id="focus_frame" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33.001" id="input_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35.001" id="border_area" transform="matrix(1,0,0,0.8571,0,0)"/>
+ </svg>
+ <svg atv:refpx="101" atv:refpy="387.5" height="30" id="id_13" transform="matrix(1,0,0,1.1667,0,0)" width="160" x="21" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.checkbox_Mantenimiento" y="317.145">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="label" value="T{Activate}"/>
+  <atv:argument name="name" value="Recurrent_Maintenance"/>
+  <atv:overwrite id="checkbox_item" transform="matrix(1,0,0,0.8571,0,0)" y="22.501"/>
+  <atv:overwrite id="checkbox_symbol" transform="matrix(1,0,0,0.8571,0,0)" y="7.251"/>
+  <atv:overwrite id="blinking_frame" transform="matrix(1,0,0,0.8571,0,0)" y="6.251"/>
+  <atv:overwrite height="30.801" id="focus_frame" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite id="checkbox_bg" transform="matrix(1,0,0,0.8571,0,0)" y="6.251"/>
+  <atv:overwrite height="33.001" id="checkbox_frame" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35.001" id="checkbox_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
+ </svg>
+ <text atv:refpx="51.204" atv:refpy="341" fill="$Color$" font-family="Arial" font-size="24" id="id_14" x="25.5" y="345.5">Recurrent</text>
+ <g atv:refpx="377.504" atv:refpy="397.5" id="Recurrency_Elements">
+  <text atv:refpx="251.339" atv:refpy="331" fill="$Color$" font-family="Arial" font-size="24" id="id_6" x="205.5" y="335.5">Recurrency Type</text>
+  <svg atv:refpx="377.497" atv:refpy="377.497" height="30" id="id_12" transform="matrix(2.2188,0,0,1.1667,0,0)" width="160" x="90.139" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.combobox_Mantenimiento" y="308.563">
+   <atv:argument name="fontSize" value="20"/>
+   <atv:argument name="enumList" value="SYSTEM.GLOBALS.Mantenimento_Bomba"/>
+   <atv:argument name="name" value="Recurrency_Type"/>
+   <atv:argument name="text1value" value="0"/>
+   <atv:argument name="text2" value="T{Semanal}"/>
+   <atv:argument name="text2value" value="1"/>
+   <atv:argument name="text3" value="T{Mensual}"/>
+   <atv:argument name="text3value" value="2"/>
+   <atv:argument name="text4" value="T{Anual}"/>
+   <atv:argument name="text4value" value="3"/>
+   <atv:argument name="text1" value="T{Diario}"/>
+   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.4507,0,0,0.8571,0,0)" width="351.008"/>
+   <atv:overwrite id="button_stroke" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="7.501"/>
+   <atv:overwrite id="id_7" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="8.501"/>
+   <atv:overwrite id="button_bg" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="7.501"/>
+   <atv:overwrite id="combobox_label" transform="matrix(0.4507,0,0,0.8571,0,0)" x="320.508" y="22.001"/>
+   <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.4507,0,0,0.8571,0,0)" width="323.008"/>
+   <atv:overwrite height="27.001" id="combobox_bg" transform="matrix(0.4507,0,0,0.8571,0,0)" width="323.008"/>
+   <atv:overwrite height="33.001" id="id_1" transform="matrix(0.4507,0,0,0.8571,0,0)" width="353.008"/>
+   <atv:overwrite height="35.001" id="id_0" transform="matrix(0.4507,0,0,0.8571,0,0)" width="355.008"/>
+  </svg>
+  <svg atv:refpx="338.478" atv:refpy="467.496" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="116.942" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="385.703">
+   <atv:argument name="fontSize" value="20"/>
+   <atv:argument name="name" value="Fecha_Recurrencia_Final"/>
+   <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+   <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+   <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+   <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+   <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+   <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+   <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+  </svg>
+  <text atv:refpx="232.263" atv:refpy="421" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="206" y="425.5">Final Date</text>
+ </g>
+ <svg atv:refpx="145" atv:refpy="544.992" height="30" id="id_17" transform="matrix(3.375,0,0,1.6667,0,0)" width="80" x="2.963" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="311.994">
+  <atv:argument name="label" value="T{Schedule Maintenance}"/>
+  <atv:argument name="fontSize" value="20"/>
+  <atv:overwrite height="48.001" id="id_6" transform="matrix(0.2963,0,0,0.6,0,0)" width="268"/>
+  <atv:overwrite id="button_label_2" transform="matrix(0.2963,0,0,0.6,0,0)" x="135" y="36.501"/>
+  <atv:overwrite id="button_label_1" transform="matrix(0.2963,0,0,0.6,0,0)" x="135" y="21.501"/>
+  <atv:overwrite id="button_label" transform="matrix(0.2963,0,0,0.6,0,0)" x="135" y="29.501"/>
+  <atv:overwrite id="button_symbol_bottom" transform="matrix(0.1778,0,0,0.36,0,0)" x="214.833" y="42.96"/>
+  <atv:overwrite id="button_symbol_top" transform="matrix(0.1778,0,0,0.36,0,0)" x="214.833" y="21.627"/>
+  <atv:overwrite id="button_symbol" transform="matrix(0.2963,0,0,0.6,0,0)" x="125" y="15.001"/>
+  <atv:overwrite height="46.001" id="button_stroke" transform="matrix(0.2963,0,0,0.6,0,0)" width="266"/>
+  <atv:overwrite height="48.001" id="button_bg" transform="matrix(0.2963,0,0,0.6,0,0)" width="268"/>
+  <atv:overwrite height="50.001" id="outer_frame" transform="matrix(0.2963,0,0,0.6,0,0)" width="270"/>
+ </svg>
+ <text atv:refpx="308" atv:refpy="549" fill="$Color$" font-family="Arial" font-size="20" id="id_info" x="294.5" y="553.5">Texto</text>
+ <line atv:refpx="301" atv:refpy="100" id="id_19" stroke="$Color$" stroke-width="2" x1="1" x2="601" y1="100" y2="100"/>
+ <image atv:refpx="545" atv:refpy="45" height="512" id="id_22" transform="matrix(0.1367,0,0,0.1367,0,0)" width="512" x="3730.286" xlink:href="../../mantenimiento.png" y="73.143"/>
+ <line atv:refpx="300" atv:refpy="300" id="id_23" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="300" y2="300"/>
+ <line atv:refpx="300" atv:refpy="500" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="500" y2="500"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Initialize Variables*******/
+var Type_M; //Maintenance Type Number
+var Text_M; //Maintenance Type Text
+var Initial_Date;//Initial Date for Maintenance
+var Final_Date;//Final Date for Maintenance
+var Hour_M=0;//Maintenance Hours
+var Min_M=0; //Maintenance Min
+var Rec_Act=0; //Activate Recurrency(inactive)
+var Type_R; //Recurrency Type
+var configNode="AGENT.OBJECTS.TimerConfig"; //Configuration node
+var Mant_Notification=webMI.query["base"]+".Mant_Notification";
+
+/*******Initial Conditions******/
+webMI.addOnload(function() {
+
+	//Date Picker shows current time 
+	var T_Actual=new Date();
+    webMI.trigger.fire("com.atvise.datepicker_Maintenance_Date", T_Actual.getTime()); //Actualizo Fecha Mantenimiento
+    webMI.trigger.fire("com.atvise.datepicker_Recurrency_Final_Date", T_Actual.getTime()+15768000000); //Actualizo Fecha Final Recurrencia (6 meses)
+    
+    //Check inicialize false
+    webMI.trigger.fire("setChecked", false);
+     
+	//Hide Recurrency options
+	webMI.gfx.setVisible("Recurrency_Elements", false);    
+	
+	//Define initial text
+    webMI.gfx.setText("id_info", "Press to add a Maintenance");
+});
+
+/*******Triggers*******/
+
+//Single maintenance elements
+
+//Monitor Maintenance Date Picker 
+webMI.trigger.connect("com.atvise.datepicker_Maintenance_Date", function (e) {
+	Initial_Date=e.value;
+});
+
+//Monitor Maintenance Combobox 
+webMI.trigger.connect("com.atvise.combobox_Maintenance_Type", function (e) {
+	var result=e.value;
+	Type_M=result.value;	
+	Text_M=e.value.text;	
+});
+
+//Monitor rocker Hour
+webMI.trigger.connect("com.atvise.rocker_Maintenance_Hours", function (e) {
+	Hour_M=e.value;
+});
+
+//Monitor rocker Min
+webMI.trigger.connect("com.atvise.rocker_Maintenance_Minutes", function (e) {
+	Min_M=e.value;
+});
+
+//Recurrent Maintenance Elements
+
+//Monitor Recurrent checkbox 
+webMI.trigger.connect("com.atvise.checkbox_Recurrent_Maintenance", function (e) {
+	Rec_Act=e.value;	
+	if(Rec_Act){
+		webMI.gfx.setVisible("Recurrency_Elements", true);
+	}
+	else{
+		webMI.gfx.setVisible("Recurrency_Elements", false);
+	}
+});
+
+//Monitor Recurrent Combobox 
+webMI.trigger.connect("com.atvise.combobox_Recurrency_Type", function (e) {
+	Type_R=e.value;
+});
+
+//Monitor Recurrent Final Date
+webMI.trigger.connect("com.atvise.datepicker_Recurrency_Final_Date", function (e) {
+	Final_Date=e.value;	
+});
+
+
+/*******Write Config*******/
+
+webMI.addEvent("id_17", "click", function(e) {
+
+	/*This code excecutes only when:
+		-Maintenance type!=undefinded
+		-Initial Date !=undefinded		
+		-Hours + Min > 0 		
+	*/
+	
+	if (Type_M!=undefined && Initial_Date!=undefined && (Hour_M+Min_M)>0){
+	
+		//Create Date Strings
+		var Initial_DateS=(new Date(Initial_Date)).toString();
+		
+		var Final_DateS=(new Date(Final_Date)).toString();
+		
+		//Configure Recurrency String 
+		var Rec_pattern="";
+		var Rec_type="";
+		var Rep_Period="0";
+		var Weekdays={};		
+		if(Rec_Act){			
+			switch(Number(Type_R.value))
+			{
+			  case 0: // Daily
+				Rec_pattern="day_1___";
+				Rec_type="day_1___#";
+				Rep_Period="1";
+				break;
+				
+			  case 1: //Weekly
+				var Rec_Day=((new Date()).getDay()==0) ? 7 : (new Date()).getDay()+1;
+				Rec_pattern="week_1___"+Rec_Day;
+				Rec_type="week_1___"+Rec_Day+"#";
+				Rep_Period="2";
+				//Repeated day
+				Weekdays={
+					"1": false,
+					"2": false,
+					"3": false,
+					"4": false,
+					"5": false,
+					"6": false,
+					"7": false
+				 };
+				Weekdays[String(Rec_Day)]=true;				
+				break;
+				
+			  case 2: //Monthly
+				Rec_pattern="month_1___";
+				Rec_type="month_1___#";
+				Rep_Period="3";
+				break;
+				
+			  case 2: //Anual
+				Rec_pattern="year_1___";
+				Rec_type="year_1___#";
+				Rep_Period="4";
+				break;
+			 
+			}
+		}
+		
+		
+		
+		
+		//Read Current Configuration
+		webMI.data.read(configNode, function(e) {
+			
+			//Configure On Value
+			var row="_"+String(new Date().getTime());
+			var valueOn="{Ind_M:"+row+".Text_M:"+Text_M+".Tiempo_M:"+Initial_Date+"}"; //Indice 0 por defectp
+			
+			//Create Config
+			var Total_Seconds=((Hour_M*60)+(Min_M))*60; //Required_Time
+			var Config=	{
+					  "row": row,
+					  "active": "true",
+					  "start_date": Initial_DateS.slice(0, (Final_DateS.search(" GMT"))),
+					  "end_date": Final_DateS.slice(0, (Final_DateS.search(" GMT"))),				
+					  "nodeOn": Mant_Notification,				 
+					  "valueOn": valueOn,
+					  "valueOff": JSON.stringify({}),
+					  "event_pid": "",
+					  "event_length": String(Total_Seconds),
+					  "rec_pattern": Rec_pattern,
+					  "rec_type": Rec_type,
+					  "text": Text_M,
+					  "repeatPeriod": Rep_Period,
+					  "startDate": Initial_Date,
+					  "endDate": Final_Date,
+					  "duration": String(Total_Seconds),
+					  "weekdays": Weekdays
+			};			
+			
+			//TimerConfig exists			
+			if (e.value!=undefined){	
+				  
+				 //TimerConfig is not empty 
+				 if (e.value!=""){ 
+					
+					
+					//Get required array 
+					var New_Config=JSON.parse(e.value);				
+					
+					//Entry new Array
+					New_Config[0].config.configs.push(Config);
+											
+				}
+				
+				//TimerConfig is empty
+				else if (e.value=="") {	
+					
+					
+					//Define new configuration
+					var New_Config=[
+					  {
+						"id": "",
+						"config": {
+						  "configs": [Config]
+						}
+					  }
+					];									
+				}
+				
+				//Write new config in the node
+					webMI.data.write(configNode, JSON.stringify(New_Config));
+			}		
+			
+			//TimerConfig doesn´t exist
+			else if (e.value==undefined) {	
+				
+				//Define config
+				var New_Config=[
+				  {
+					"id": "",
+					"config": {
+					  "configs": [Config]
+					}
+				  }
+				];
+				//Create Node
+				Crea_configNode(JSON.stringify(New_Config));					
+			}			
+			
+						
+		});
+		
+		//Notify that it was written
+		webMI.gfx.setFill("id_info", "#0bbea9");	
+		webMI.gfx.setText("id_info", "Written Correctly");     
+		setTimeout(function(){
+			webMI.gfx.setFill("id_info", webMI.query["Color"]);
+			webMI.gfx.setText("id_info", "Press to add a Maintenance");
+		},750);			
+	} 
+	
+	else {
+		//Notify it wasn´t written	
+		webMI.gfx.setFill("id_info", "#aa0000");
+		webMI.gfx.setText("id_info", "Missing Information");     
+		setTimeout(function(){
+			webMI.gfx.setFill("id_info", webMI.query["Color"]);
+			webMI.gfx.setText("id_info", "Press to add a Maintenance");
+		},750);	
+	} 
+	
+});
+
+
+/*
+	Code required to create the node when it is empty
+*/
+function Crea_configNode(value){	
+	webMI.data.call(
+			"AddNode",
+			{
+				address: configNode,
+				typeDefinition: "i=62",
+				dataType: "STRING",
+				value: value,
+				nodeClass: "VARIABLE"
+			},
+			function (result) {
+				if ("error" in result) {
+					return;
+				}			
+				webMI.data.call(
+					"AddNode",
+					{
+						address: configNode + ".timerScript",
+						typeDefinition: "VariableTypes.ATVISE.ScriptCode",
+						dataType: "XMLELEMENT",
+						value: "",
+						nodeClass: "VARIABLE"
+					},
+					function (result) {
+						if ("error" in result) {
+							return;
+						}
+						webMI.data.call(
+							"AddNode",
+							{
+								address: configNode + ".timerScript.scriptVersion",
+								typeDefinition: "i=62",
+								dataType: "STRING",
+								value: "1.0",
+								nodeClass: "VARIABLE"
+							},
+							function (result) {
+								if ("error" in result) {
+									return;
+								}
+							}
+						);
+						webMI.data.call(
+							"SetNodeValue",
+							{
+								address: configNode + ".timerScript",
+								addressVersion: configNode + ".timerScript.scriptVersion",
+								value:
+									'<?xml version="1.0" encoding="UTF-8"?><script><parameter name="mytimer" type="timer" trigger="true" relative="false" value="" starttime="00:00:00" repeat="00:00:20"/><code><![CDATA[' +
+									scriptCode +
+									"]]\><\/code><\/script>",
+								version: "1.1" /*on script change increase this*/
+							},
+							function (result) {
+								if ("error" in result) {
+									return;
+							}
+						}
+					);
+				}
+			);
+		}
+	);
+}
+	
+/**
+ * ADDITIONAL SCRIPT CODE SECTION
+ */
+var scriptCode =
+	"function getLocalConfig(a) {\n" +
+	"    var b = {configs: []};\n" +
+	"    for (var i = 0; i < a.length; i++) {\n" +
+	"        if (a[i].config && a[i].config.configs) {\n" +
+	"            for (var j = 0; j < a[i].config.configs.length; j++) {\n" +
+	"                b.configs[b.configs.length] = a[i].config.configs[j];\n" +
+	"            }\n" +
+	"        }\n" +
+	"    }\n" +
+	"    return b;\n" +
+	"}\n" +
+	"function setInactive(a,b) {\n" +
+	"    for (var i = 0; i < a.length; i++) {\n" +
+	"        if (a[i].config && a[i].config.configs) {\n" +
+	"            for (var j = 0; j < a[i].config.configs.length; j++) {\n" +
+	"                if (a[i].config.configs[j].row == b) {\n" +
+	"                    a[i].config.configs[j].active = \"false\";\n" +
+	"					change = true;\n" +
+	"                }\n" +
+	"            }\n" +
+	"        }\n" +
+	"    }\n" +
+	"}\n" +
+	"function getBoolean(a) {\n" +
+	"    if (a == \"1\" || a == \"true\"){\n" +
+	"        return true;\n" +
+	"    } else if (a == \"0\" || a == \"false\"){\n" +
+	"        return false;\n" +
+	"    }\n" +
+	"	return null;\n" +
+	"}\n" +
+	"\n" +
+	"var configNAddress = base;\n" +
+	"var configN = Ua.findNode(configNAddress);\n" +
+	"var configNExist = Ua.Status(configN) != Ua.Status.BADNODEIDUNKNOWN;\n" +
+	"\n" +
+	"var change = false;\n" +
+	"if (configN.result.value != \"\") {\n" +
+	"    var globalConfig = JSON.parse(configN.result.value);\n" +
+	"    var timerConfig = getLocalConfig(globalConfig);\n" +
+	"    if (timerConfig != undefined && timerConfig.configs != undefined) {\n" +
+	"        for (var i = 0; i < timerConfig.configs.length; i++) {\n" +
+	"            var config = timerConfig.configs[i];\n" +
+	"            if (config != undefined && config != null && config.active == \"true\") {\n" +
+	"                var startDate = new Date(config.startDate);\n" +
+	"                var endDate = new Date(config.endDate);\n" +
+	"                var durationMS = config.duration*1000;\n" +
+	"                var repeat = config.repeat;\n" +
+	"                var repeatPeriod = config.repeatPeriod;\n" +
+	"                var valueOn = config.valueOn;\n" +
+	"                var valueOff = config.valueOff;\n" +
+	"                var weekdays = config.weekdays;\n" +
+	"                if (config.nodeOn != undefined) {\n" +
+	"                    var tempNodeOn = config.nodeOn;\n" +
+	"                    if (tempNodeOn.indexOf(\"AGENT.OBJECTS\") == -1) {\n" +
+	"                        tempNodeOn = \"AGENT.OBJECTS.\" + tempNodeOn\n" +
+	"                    }\n" +
+	"					 \n" +
+	"					 var nodeOnAddress = tempNodeOn;\n" +
+	"					 var nodeOn = Ua.findNode(nodeOnAddress);\n" +
+	"					 var nodeOnExist = Ua.Status(nodeOn) != Ua.Status.BADNODEIDUNKNOWN;\n" +
+	"					 \n" +
+	"                    if (nodeOnExist) {\n" +
+	"                        var activate = false;\n" +
+	"                        var curTime = mytimer.getTime();\n" +
+	"                        var curDayOfWeek = mytimer.getDay();\n" +
+	"                        var curDay = mytimer.getDate();\n" +
+	"                        var curMonth = mytimer.getMonth() + 1;\n" +
+	"                        var curYear = mytimer.getYear() + 1900;\n" +
+	"                        var curHour = mytimer.getHours();\n" +
+	"                        var curMinutes = mytimer.getMinutes();\n" +
+	"                        if (curDayOfWeek == 0) {\n" +
+	"                            curDayOfWeek = 7\n" +
+	"                        }\n" +
+	"                        var startTime = startDate.getTime();\n" +
+	"                        var startDay = startDate.getDate();\n" +
+	"                        var startMonth = startDate.getMonth() + 1;\n" +
+	"                        var startYear = startDate.getYear() + 1900;\n" +
+	"                        var startHour = startDate.getHours();\n" +
+	"                        var startMinutes = startDate.getMinutes();\n" +
+	"                        var endDay = endDate.getDate();\n" +
+	"                        var endMonth = endDate.getMonth() + 1;\n" +
+	"                        var endYear = endDate.getYear() + 1900;\n" +
+	"                        var endHour = new Date(startTime + durationMS).getHours();\n" +
+	"                        var endMinutes = new Date(startTime + durationMS).getMinutes();\n" +
+	"                        var endTime = new Date(endYear,endMonth-1, endDay,endHour,endMinutes)\n" +
+	"                        var once = repeatPeriod == 0;\n" +
+	"                        var daily = repeatPeriod == 1;\n" +
+	"                        var weekly = repeatPeriod == 2;\n" +
+	"                        var monthly = repeatPeriod == 3;\n" +
+	"                        var yearly = repeatPeriod == 4;\n" +
+	"                        var inTime = false;\n" +
+	"                        var stayActive = true;\n" +
+	"                        if (once) {\n" +
+	"                            inTime = ((curDay == startDay && curMonth == startMonth && curYear == startYear) || (curDay == endDay && curMonth == endMonth && curYear == endYear))\n" +
+	"                        } else if (daily || weekly) {\n" +
+	"                            inTime = startTime <= curTime && endTime >= curTime;\n" +
+	"                        } else if (monthly) {\n" +
+	"                            inTime = curTime <= endTime && (curDay == startDay || curDay == endDay);\n" +
+	"                        } else if (yearly) {\n" +
+	"                            inTime = curTime <= endTime && ((curDay == startDay && curMonth == startMonth) || (curDay == endDay && curMonth == endMonth)) ;\n" +
+	"                        }\n" +
+	"                        if (inTime) {\n" +
+	"                            if (once) {\n" +
+	"                                if (curDay == startDay && curMonth == startMonth && curYear == startYear && curHour == startHour && curMinutes == startMinutes) {\n" +
+	"                                    stayActive = true;\n" +
+	"                                    if (typeof nodeOn.result.value == \"boolean\" && getBoolean(valueOn) != null){ nodeOn.result.value = getBoolean(valueOn);}\n" +
+	"                                    else { nodeOn.result.value = valueOn;}\n" +
+	"                                }\n" +
+	"                                if (curDay == endDay && curMonth == endMonth && curYear == endYear && curHour == endHour && curMinutes == endMinutes) {\n" +
+	"                                    stayActive = false;\n" +
+	"                                    if (typeof nodeOn.result.value == \"boolean\" && getBoolean(valueOff) != null){ nodeOn.result.value = getBoolean(valueOff);}\n" +
+	"                                    else { nodeOn.result.value = valueOff;}\n" +
+	"                                }\n" +
+	"                            } else if (daily || weekly && weekdays[curDayOfWeek] || monthly && (curDay == startDay || curDay == endDay) || yearly && (curDay == startDay && curMonth == startMonth || curDay == endDay && curMonth == endMonth)) {\n" +
+	"                                if (curHour == startHour && curMinutes == startMinutes) {\n" +
+	"                                    stayActive = true;\n" +
+	"                                    if (typeof nodeOn.result.value == \"boolean\" && getBoolean(valueOn) != null){ nodeOn.result.value = getBoolean(valueOn);}\n" +
+	"                                    else { nodeOn.result.value = valueOn;}\n" +
+	"                                }\n" +
+	"                                if (curHour == endHour && curMinutes == endMinutes) {\n" +
+	"                                    if (typeof nodeOn.result.value == \"boolean\" && getBoolean(valueOff) != null){ nodeOn.result.value = getBoolean(valueOff);}\n" +
+	"                                    else { nodeOn.result.value = valueOff;}\n" +
+	"                                    if (curTime > endTime) {\n" +
+	"                                        stayActive = false\n" +
+	"                                    }\n" +
+	"                                }\n" +
+	"                            }\n" +
+	"                            if (!stayActive) setInactive(globalConfig,config.row);\n" +
+	"                        }\n" +
+	"						if (!inTime && curTime > endTime){\n" +
+	"                            setInactive(globalConfig,config.row);\n" +
+	"						}\n" +
+	"                    }\n" +
+	"                }\n" +
+	"            }\n" +
+	"        }\n" +
+	"    }\n" +
+	"	if (change){\n" +
+	"		configN.result.value = JSON.stringify(globalConfig)\n" +
+	"		change = false;\n" +
+	"	}\n" +
+	"}";
+]]></script>
+</svg>

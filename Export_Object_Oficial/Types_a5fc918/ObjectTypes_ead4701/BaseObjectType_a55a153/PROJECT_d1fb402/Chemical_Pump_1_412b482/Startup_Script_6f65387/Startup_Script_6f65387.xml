@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Trigger" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Parameters</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Startup</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <code><![CDATA[//External Variables
+var Object_Conditions = Ua.findNode((base)+".Parameters.Object_Conditions");
+var Initial_Values = Ua.findNode((base)+".Parameters.Initial_Values");
+var Root_Path = Ua.findNode((base)+".Parameters.Root_Path");
+
+console.log("---------------Startup Script----------------");
+//Global Variables
+var Global_Conditions=alarming.conditions;
+var Object_ConditionsI=new Array();
+var Initial_ValuesI=new Array();
+var Alert_Nodes=new Array();
+var Ranges=new Array();
+
+//----------------Rootpath logic---------------//
+
+var Root_PathI=server.script.origin; //Script name
+//Asign to the node
+Root_Path.result.assign({value: Root_PathI.substring(0, Root_PathI.lastIndexOf('.'))}); //Asign complete array
+
+//----------------Conditions logic----------------//
+for (var i=0; i<Global_Conditions.length; i++){
+	
+	var Config_conditions=alarming.configuration(Global_Conditions[i])[0];
+	//Save the conditions that belong to the corresponding node
+	if (Global_Conditions[i].includes(base.nodeid.split('=').pop())) {
+		
+		//Save initial state in global variable
+		var Temp_variable = Ua.findNode(Config_conditions.input);		
+		
+	    if (Config_conditions.lowerLimit!=undefined){ //High Alarm
+			Object_ConditionsI.push({Condition_name:Global_Conditions[i],Condition_node:Config_conditions.input,Condition_type:"Max",Condition_limit:Config_conditions.lowerLimit,Initial_value:Temp_variable.result.value});
+		}
+		else //Low Alarm
+		{
+			Object_ConditionsI.push({Condition_name:Global_Conditions[i],Condition_node:Config_conditions.input,Condition_type:"Min",Condition_limit:Config_conditions.upperLimit,Initial_value:Temp_variable.result.value});
+		}
+		
+		//Keep a variable with the nodes separately
+		if (isElementIncluded(Alert_Nodes,Config_conditions.input)!=true){ //It doesn´t exist anymore
+			Alert_Nodes.push(Config_conditions.input);
+			Ranges.push([]);
+		}
+		//Assign initial values for later comparison
+		Initial_ValuesI.push(Temp_variable.result.value);
+		Initial_Values.result.assign({value: Initial_ValuesI});		
+    }		
+}
+
+//Extract pairs of limits for each node
+for (var i=0; i<Alert_Nodes.length; i++){
+	for (var j=0; j<Object_ConditionsI.length; j++){
+		if (Alert_Nodes[i]==Object_ConditionsI[j].Condition_node){
+			Ranges[i].push(Object_ConditionsI[j].Condition_limit);
+		}
+	}
+	
+	if (Ranges[i].length==1){ //Only one limit
+			Ranges[i].push(0); //Add a zero so that I always have a partner
+		}
+}
+
+//Calculate and enter the Ranges
+for (var i=0; i<Alert_Nodes.length; i++){
+	for (var j=0; j<Object_ConditionsI.length; j++){
+		if (Alert_Nodes[i]==Object_ConditionsI[j].Condition_node){
+			Object_ConditionsI[j].Range=Math.abs(Ranges[i][0]-Ranges[i][1]);
+			Object_ConditionsI[j]=JSON.stringify(Object_ConditionsI[j]);
+		}
+	}
+}
+
+
+//Assign the value to the node
+Object_Conditions.result.assign({value: Object_ConditionsI}); //Asigno al array Completo
+
+
+
+//Complementary functions
+function isElementIncluded(array, element) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === element) {
+      return true; // Element found in the array
+    }
+  }
+  return false; // Element not found in the array
+}]]></code>
+</script>

@@ -157,7 +157,7 @@
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="5" width="5"/>
  </metadata>
- <text atv:refpx="196.738" atv:refpy="13.5" fill="$Color$" font-family="Arial" font-size="14" font-weight="bold" id="Title" x="175.5" y="19">Name</text>
+ <text atv:refpx="190.738" atv:refpy="11.5" fill="$Color$" font-family="Arial" font-size="14" font-weight="bold" id="Title" text-anchor="middle" x="188.5" y="17">Name</text>
  <polygon atv:refpx="63.671" atv:refpy="38.519" fill="#fdf90a" id="alert_increasing" points="51.67,50.518 75.67,50.518 63.003,26.518" stroke="#000000" stroke-width="1"/>
  <g atv:refpx="63.062" atv:refpy="335.547" id="maintenance" transform="matrix(1,0,0,1,38.4176,180.9027)">
   <rect atv:refpx="46.171" atv:refpy="204.643" fill="#2b9de8" height="24.544" id="id_39" stroke="#000000" stroke-width="1" transform="matrix(0.7071,-0.7071,0.7071,0.7071,0,0)" width="24.544" x="-104.196" y="114.505"/>
@@ -993,5 +993,5 @@ function generateColorIntensity(colorHex, intensityfactor) {
   <atv:argument name="Color_Banda" value="SYSTEM.GLOBALS.Color_Global_3"/>
   <atv:argument name="Display_PopUp" value="ObjectTypes.PROJECT.Water_Tank_1.General_Configuration"/>
  </svg>
- <rect atv:refpx="198.5" atv:refpy="188" fill="#000000" fill-opacity="0" height="366" id="click_area" stroke="#0000ff" stroke-width="0" width="215" x="91" y="5"/>
+ <rect atv:refpx="197.5" atv:refpy="188" fill="#000000" fill-opacity="0" height="366" id="click_area" stroke="#0000ff" stroke-width="0" width="215" x="90" y="5"/>
 </svg>

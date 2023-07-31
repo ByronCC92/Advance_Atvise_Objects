@@ -24,10 +24,10 @@
  <text atv:refpx="384.45" atv:refpy="151" fill="$Color$" font-family="Arial" font-size="24" id="id_5" x="345.5" y="155.5">Required Time</text>
  <text atv:refpx="530.076" atv:refpy="201" fill="$Color$" font-family="Arial" font-size="24" id="id_9" x="515.5" y="205.5">Hours</text>
  <text atv:refpx="535.375" atv:refpy="251" fill="$Color$" font-family="Arial" font-size="24" id="id_11" x="515.5" y="255.5">Minutes</text>
- <svg atv:refpx="188.497" atv:refpy="67.497" height="30" id="id_4" transform="matrix(2.2188,0,0,1.1667,0,0)" width="160" x="4.958" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.combobox_Mantenimiento" y="42.856">
+ <svg atv:refpx="187.496" atv:refpy="67.497" height="30" id="id_4" transform="matrix(2.2188,0,0,1.1667,0,0)" width="160" x="4.507" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.combobox_Mantenimiento" y="42.856">
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="mode" value="Enum List"/>
-  <atv:argument name="enumList" value="SYSTEM.GLOBALS.Mantenimiento_Base"/>
+  <atv:argument name="enumList" value="SYSTEM.GLOBALS.Water_Tank_Maintenance"/>
   <atv:argument name="name" value="Maintenance_Type"/>
   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.4507,0,0,0.8571,0,0)" width="351.008"/>
   <atv:overwrite id="button_stroke" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="7.501"/>

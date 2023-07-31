@@ -54,7 +54,7 @@ var Conditions=new Array();
 var Alarm_Range;
 
 webMI.addOnload(function(e) {
-
+	
 	// Read Initial variables from the object's own Conditions
 	if(Object_ConditionsR!=undefined && Alert_RangeR!=undefined){
 		webMI.data.read([Object_ConditionsR,Alert_RangeR], function(e) {
@@ -87,6 +87,7 @@ webMI.addOnload(function(e) {
 					min=0;
 				}
 				
+			
 				//Write Max and Min
 				webMI.gfx.setText("id_4", max);
 				webMI.gfx.setText("id_3", min);

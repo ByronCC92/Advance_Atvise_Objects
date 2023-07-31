@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Add" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Mant_Notification</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Remove" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Mant_Ind_Rm</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <code><![CDATA[//External Variables
+var Mant_Active  = Ua.findNode((base)+".Mant_Active");
+var Mant_Notification = Ua.findNode((base)+".Mant_Notification");
+var Mant_Ind_Rm = Ua.findNode((base)+".Mant_Ind_Rm");
+var Mant_Hist=Ua.findNode((base)+".Mant_Hist");
+
+
+//Internal Variables
+var Mant_ActiveI=Mant_Active.result.value;
+var Mant_NotificationI=Mant_Notification.result.value;
+var Mant_HistI=Mant_Hist.result.value;
+var Mant_Ind_RmI=Mant_Ind_Rm.result.value;
+var Trigger=(script.trigger).name
+
+if (Trigger=="Add"){ //Add active maintenance
+	if (Mant_NotificationI!="{}"&&Mant_NotificationI!=""){ //There are Pending maintenance
+		
+		var Mant_NotificationIParsed= JSON.parse(Mant_NotificationI); //Parse Notification	
+	
+		//If the Mant_Active is empty  	
+				
+		if (Mant_ActiveI.length==0||Mant_ActiveI[0]==""){ //If it is empty		
+			Mant_ActiveI[0]=(Mant_NotificationI);				
+	   }	
+	
+	   else{ //If they already have elements
+		var Presence=isIDPresent(Mant_ActiveI,Mant_NotificationIParsed.Ind_M);
+			 if (!Presence){ //If it doesn´t exist			
+				Mant_ActiveI.push(Mant_NotificationI);
+			}
+	   }		   
+	   Mant_Active.result.assign({value: Mant_ActiveI}); //Asign complete array
+	 
+	}	  
+}	  
+
+else if (Trigger=="Remove"){ //Remove active maintenance
+
+	 //-----Save Historic Maintenance	 
+	  Mant_ActiveII=JSON.parse(Mant_ActiveI[Mant_Ind_RmI]);	   
+	  var Actual_Time=(new Date()).getTime();
+	  var Used_Time=(Actual_Time-Mant_ActiveII.Tiempo_M)/1000;//Tiempo requerido en s
+	  var MSC=((Used_Time)/Mant_ActiveII.Required_Time)*100; //Maintenance Schedule Compliance 
+	  var Mant_HistII;
+	  console.log(Mant_HistI.length); 
+	  console.log(Mant_HistI); 
+	  
+	  if (Mant_HistI.length<=0 || Mant_HistI[0]==""){ //Empty Scenario
+	    Mant_HistII=[JSON.stringify({Text_M:Mant_ActiveII.Text_M,Time_M:Mant_ActiveII.Tiempo_M,Actual_Time:Actual_Time,Required_Time:Mant_ActiveII.Required_Time,Used_Time:Used_Time,MSC:MSC})];
+	  }
+	  else{//Not Empty
+	    Mant_HistII=Mant_HistI;
+	    Mant_HistII.push(JSON.stringify({Text_M:Mant_ActiveII.Text_M,Time_M:Mant_ActiveII.Tiempo_M,Actual_Time:Actual_Time,Required_Time:Mant_ActiveII.Required_Time,Used_Time:Used_Time,MSC:MSC}));
+	  }
+	  
+	  Mant_Hist.result.assign({value: Mant_HistII}); //Asign complete array
+	  
+	 //-----Remove from active Maintenance
+	 Mant_ActiveI.splice(Mant_Ind_RmI, 1);	
+	 Mant_Active.result.assign({value: Mant_ActiveI}); //Asign complete array
+	 
+	 
+}	
+
+//Function to find ID
+function isIDPresent(arrayOfStrings, searchedID) {
+	
+	
+	  for (let i = 0; i < arrayOfStrings.length; i++) {
+		
+		try {
+		  const parsedObject = JSON.parse(arrayOfStrings[i]);
+		  //console.log("IDparsed: "+parsedObject.Ind_M+" === "+"searchedID: "+searchedID);
+		  if (parsedObject.Ind_M === searchedID) {
+			return true;
+		  }
+		} catch (error) {
+		  // If JSON parsing fails for a particular element, move to the next one.
+		}
+	  }
+	
+	  return false;
+}]]></code>
+</script>

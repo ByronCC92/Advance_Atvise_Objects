@@ -297,11 +297,12 @@ webMI.addEvent("id_17", "click", function(e) {
 		webMI.data.read(configNode, function(e) {
 			
 			//Configure On Value
-			var row="_"+String(new Date().getTime());
-			var valueOn="{Ind_M:"+row+".Text_M:"+Text_M+".Tiempo_M:"+Initial_Date+"}"; //Indice 0 por defectp
-			
-			//Create Config
 			var Total_Seconds=((Hour_M*60)+(Min_M))*60; //Required_Time
+			var row="_"+String(new Date().getTime());
+			//var valueOn="{Ind_M:"+row+".Text_M:"+Text_M+".Tiempo_M:"+Initial_Date+"Required_Time:"+Total_Seconds+"}"; //Indice 0 por defectp
+			var valueOn=JSON.stringify({Ind_M:row,Text_M:Text_M,Tiempo_M:Initial_Date,Required_Time:Total_Seconds});
+			
+			//Create Config			
 			var Config=	{
 					  "row": row,
 					  "active": "true",

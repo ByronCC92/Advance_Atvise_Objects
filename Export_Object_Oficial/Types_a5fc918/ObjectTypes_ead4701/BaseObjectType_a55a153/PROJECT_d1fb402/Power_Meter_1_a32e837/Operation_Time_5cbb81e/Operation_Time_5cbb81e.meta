@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Power_Meter_1.Operation_Time
+NodeClass: Variable
+BrowseName: 1:Operation_Time
+DisplayName: en|Operation_Time
+Description: en|Operation_Time
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.ScriptCode

@@ -30,7 +30,7 @@ var Time = Ua.findNode(base + ".Time"); //Variable de Caudal_Dif
 /*
 if (Apertura.result.value){
 	//Caudal
-	Tiempo.result.assign({value: Tiempo.result.value+1}); //Le sumo un Segundo
+	Time.result.assign({value: Time.result.value+1}); //Le sumo un Segundo
 }
 */]]></code>
 </script>

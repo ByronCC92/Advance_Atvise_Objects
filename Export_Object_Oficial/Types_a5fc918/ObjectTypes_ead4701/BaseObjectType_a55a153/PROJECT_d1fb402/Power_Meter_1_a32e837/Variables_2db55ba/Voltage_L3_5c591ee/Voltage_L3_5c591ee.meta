@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Power_Meter_1.Variables.Voltage_L3
+NodeClass: Variable
+BrowseName: 1:Voltage_L3
+DisplayName: en|Voltage_L3
+Description: en|Voltage_L3
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

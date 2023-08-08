@@ -5,6 +5,7 @@
   <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
   <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_2" desc="Color 2" name="Color2" substitute="$Color2$" valuetype="global"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Display" name="Display" valuetype="display"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Display_Mant" name="Display_Mant" valuetype="display"/>
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
@@ -25,7 +26,6 @@ var Color2=webMI.query["Color2"];
 var Root_Path;
 var Root_PathR=webMI.query["base"]+".Parameters.Root_Path";
 
-console.log(webMI.query["Display"]);
 
 /*********When display loads**********/
 
@@ -33,7 +33,8 @@ webMI.addOnload(function(e) {
 
 	//Read Root_Path
 	webMI.data.read(Root_PathR, function(e) {
-	    Root_Path=e.value;		
+	    Root_Path=e.value;	
+	    webMI.query["Display_Mant"]=Root_Path+".Maintenance_Blank";		    	
 	})	
 
 	var id = "Conditions";

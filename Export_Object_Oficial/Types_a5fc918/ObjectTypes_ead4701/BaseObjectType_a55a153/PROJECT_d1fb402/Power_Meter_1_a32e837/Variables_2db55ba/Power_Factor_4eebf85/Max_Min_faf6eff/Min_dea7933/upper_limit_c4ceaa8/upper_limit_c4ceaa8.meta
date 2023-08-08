@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Power_Meter_1.Variables.Power_Factor.Max_Min.Min.upper_limit
+NodeClass: Variable
+BrowseName: 1:upper_limit
+DisplayName: en|upper_limit
+Description: en|upper_limit
+DataType: BaseDataType
+ValueRank: -1
+AccessLevel: 103
+ValueType: Double
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

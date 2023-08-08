@@ -32,6 +32,7 @@
 var self;
 var tableData = [];
 var Ind_Mant=0; //Variable for the finished maintenance
+var item; //Variable for current maintenance info
 var Table_Id;
 var data_ready=[];
 var configNode="AGENT.OBJECTS.TimerConfig"; //Configuration node
@@ -58,7 +59,7 @@ webMI.table.loadResources(function () {
 			{   id: "Number", name: "Number", field: "Number", sortable: false, filter: false, visible: true},
 			{   id: "ID Global", name: "ID Global", field: "ID Global", sortable: false, filter: false, visible: false},
 			{	id: "Name", name: "Name", field: "Name", sortable: false, filter: false, visible: true},
-			{   id: "Initial Date", name: "Initial Date", field: "Initial Date", sortable: false, filter: true},
+			{   id: "Initial_Date", name: "Initial Date", field: "Initial Date", sortable: false, filter: true},
 		];
 
 	/* Configuration of the runtime behavior */
@@ -66,7 +67,7 @@ webMI.table.loadResources(function () {
 	
 	/* Configuration selection of data */
 	config["onClickCallback"] = function(e, info){   
-		var item = info.item;     
+		item = info.item;     
         Ind_Mant = info.rowIndex;
         Global_Id=item["ID Global"];
         Table_Id = item.id                  
@@ -107,7 +108,7 @@ webMI.table.loadResources(function () {
 //Pick finished maintenance
 webMI.addEvent("Finished_Maint", "click", function(e) {
 	
-	   
+	   console.log(item);
 	   //Remove de Mant_Active							
 	   webMI.data.write(Mant_Ind_RmR, Ind_Mant);//Upadta active maintenance node
 	   
@@ -140,8 +141,6 @@ webMI.addEvent("Finished_Maint", "click", function(e) {
 		   webMI.data.read(Mant_ActiveR, function(j) {
 			   var Mant_Active=j.value;
 			   //Hide maintenance icon
-			   console.log(Mant_Active.length);
-			   console.log(Mant_Active);
 			   if (Mant_Active.length<=0 || Mant_Active=="{}"){ //Hide if Mant_active is empty
 					webMI.data.write(Mant_Notification, "{}");//Entry new active maintenace
 					//Finished maintenance Notification
@@ -162,7 +161,7 @@ webMI.addEvent("Finished_Maint", "click", function(e) {
 					},750);
 				}	
 			});
-		},100);			
+		},100);		
 	});
 });
 ]]></script>

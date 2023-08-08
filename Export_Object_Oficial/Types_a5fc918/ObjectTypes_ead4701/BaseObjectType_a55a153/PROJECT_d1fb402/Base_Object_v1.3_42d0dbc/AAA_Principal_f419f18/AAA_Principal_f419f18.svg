@@ -226,7 +226,7 @@ webMI.addOnload(function(e) {
 
 //Open Config Window  
 webMI.addEvent("click_area", "click", function(e) {
-	webMI.display.openWindow({display:Root_Path+".General_Configuration",extern:false,height:660,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Configuracion General }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:603,query:webMI.query});
+	webMI.display.openWindow({display:Root_Path+".General_Configuration",extern:false,height:660,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Configuracion General }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:585,query:webMI.query});
 });
 
 

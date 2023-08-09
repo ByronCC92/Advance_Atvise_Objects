@@ -883,6 +883,22 @@ webMI.trigger.connect("addItem", function (e) {
 	menuObj[cnt + 1] = {text: value.text, value: getFn(value.text, value.value, cnt)};
 });
 
+//Custom entry
+webMI.trigger.connect("addItem_"+name, function (e) {
+	var value = e.value.value;
+	var menuObjI={};
+	menuObjI[0]={text: value.text, value: getFn(value.text, value.value, cnt)};
+	
+	var cnt = 0;
+	for (var i in menuObj) {
+		menuObjI[cnt+1]=menuObj[cnt];
+		cnt++;
+		
+	}
+	menuObj=menuObjI;
+});
+
+
 webMI.trigger.connect("getSelectedItem", function (e) {
 	var id = "";
 	var value = e.value;

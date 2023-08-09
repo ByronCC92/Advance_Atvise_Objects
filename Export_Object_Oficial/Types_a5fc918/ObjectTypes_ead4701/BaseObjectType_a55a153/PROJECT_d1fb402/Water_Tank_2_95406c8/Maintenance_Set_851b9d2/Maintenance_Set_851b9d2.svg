@@ -26,7 +26,7 @@
  <svg atv:refpx="154.995" atv:refpy="-18.503" height="30" id="id_4" transform="matrix(1.6875,0,0,1.1667,0,0)" width="160" x="11.852" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.combobox_Mantenimiento" y="0">
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="mode" value="Enum List"/>
-  <atv:argument name="enumList" value="SYSTEM.GLOBALS.Water_Tank_Maintenance"/>
+  <atv:argument name="enumList" value="SYSTEM.GLOBALS.Maintenance_Water_Tank"/>
   <atv:argument name="name" value="Maintenance_Type"/>
   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5926,0,0,0.8571,0,0)" width="266"/>
   <atv:overwrite id="button_stroke" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="7.501"/>

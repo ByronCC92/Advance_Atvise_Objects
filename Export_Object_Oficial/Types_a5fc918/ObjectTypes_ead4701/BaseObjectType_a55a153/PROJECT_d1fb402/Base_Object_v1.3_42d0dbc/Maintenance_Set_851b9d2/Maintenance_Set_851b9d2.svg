@@ -325,7 +325,7 @@ webMI.addEvent("id_17", "click", function(e) {
 			if (e.value!=undefined){	
 				  
 				 //TimerConfig is not empty 
-				 if (e.value!=""){ 
+				 if (e.value!=""&&(e.value)!="[]"&&(e.value).length!=0){ 
 					
 					
 					//Get required array 
@@ -337,7 +337,7 @@ webMI.addEvent("id_17", "click", function(e) {
 				}
 				
 				//TimerConfig is empty
-				else if (e.value=="") {	
+				else if (e.value==""||(e.value).length<=0||(e.value)=="[]") {	
 					
 					
 					//Define new configuration
@@ -356,7 +356,7 @@ webMI.addEvent("id_17", "click", function(e) {
 			}		
 			
 			//TimerConfig doesn´t exist
-			else if (e.value==undefined) {	
+			else if (e.value==undefined||(e.value).length<=0) {	
 				
 				//Define config
 				var New_Config=[

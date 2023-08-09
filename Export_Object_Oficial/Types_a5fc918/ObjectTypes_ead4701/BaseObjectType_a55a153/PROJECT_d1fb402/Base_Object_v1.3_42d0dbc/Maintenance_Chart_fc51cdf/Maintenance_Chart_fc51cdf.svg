@@ -622,13 +622,17 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 		var result=e.result;
 		
 		if(result.length>0){//Is not empty
-			var Mant_HistV=result[result.length-1].value; //Latest
+			
+			var Mant_HistV=new Array();
+			for (var i=0; i<result.length; i++)	 {
+				 Mant_HistV.push(result[i].value);
+			}
 			var Mant_HistVI=new Array();	
 			console.log(Mant_HistV);
 			
 			 for(var i=0; i<Mant_HistV.length; i++)	 { 
 				const myArray = JSON.parse(Mant_HistV[i]);
-				if (myArray.Actual_Time>=Initial_Date&&myArray.Actual_Time<=Final_Date&&((Text_M==undefined||Text_M=="All maintenance")||(Text_M!=undefined&&myArray.Text_M==Text_M))){
+				if (((Text_M==undefined||Text_M=="All maintenance")||(Text_M!=undefined&&myArray.Text_M==Text_M))){
 					Mant_HistVI.push(Mant_HistV[i]);
 					data2.push(Math.abs(myArray.Required_Time));
 					data3.push(Math.abs(myArray.Used_Time));

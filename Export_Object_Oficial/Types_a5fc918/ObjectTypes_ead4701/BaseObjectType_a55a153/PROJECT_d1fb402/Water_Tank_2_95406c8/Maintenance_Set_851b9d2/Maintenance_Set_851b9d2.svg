@@ -324,8 +324,8 @@ webMI.addEvent("id_17", "click", function(e) {
 			//TimerConfig exists			
 			if (e.value!=undefined){	
 				  
-				 //TimerConfig is not empty 
-				 if (e.value!=""){ 
+				//TimerConfig is not empty 
+				 if (e.value!=""&&(e.value)!="[]"&&(e.value).length!=0){ 
 					
 					
 					//Get required array 
@@ -337,7 +337,7 @@ webMI.addEvent("id_17", "click", function(e) {
 				}
 				
 				//TimerConfig is empty
-				else if (e.value=="") {	
+				else if (e.value==""||(e.value).length<=0||(e.value)=="[]") {	
 					
 					
 					//Define new configuration

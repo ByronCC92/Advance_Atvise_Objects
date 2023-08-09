@@ -155,7 +155,12 @@ webMI.table.loadResources(function () {
 				webMI.data.queryFilter(filter, function(e){
 					var result=e.result;
 					if(result.length>0){//Is not empty
-						var Mant_HistV=result[result.length-1].value; //Latest									    
+						
+						var Mant_HistV=new Array();
+						for (var i=0; i<result.length; i++)	 {
+							 Mant_HistV.push(result[i].value);
+						}					
+														    
 						for (var i=0; i<Mant_HistV.length; i++){
 							const myArray = JSON.parse(Mant_HistV[i]);
 							if (myArray.Actual_Time>=Initial_Date.getTime()&&myArray.Actual_Time<=Final_Date.getTime()&&((Text_M==undefined||Text_M=="All maintenance")||(Text_M!=undefined&&myArray.Text_M==Text_M))){
@@ -163,7 +168,7 @@ webMI.table.loadResources(function () {
 									"Name": myArray.Text_M,
 									"Completion_Time":(new Date(myArray.Actual_Time).toString()).slice(0,-33),
 									"Initial_Time":(new Date(myArray.Time_M).toString()).slice(0,-33),									
-									"Duration":myArray.Used_Time,
+									"Duration":Math.abs(myArray.Used_Time),
 									"MSC":(Math.abs(myArray.MSC)).toFixed(2)+"%",	
 								});	
 							}					    

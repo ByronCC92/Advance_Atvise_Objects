@@ -68,21 +68,17 @@ if (Trigger=="Add"){ //Add active maintenance
 else if (Trigger=="Remove"){ //Remove active maintenance
 
 	 //-----Save Historic Maintenance	 
-	  Mant_ActiveII=JSON.parse(Mant_ActiveI[Mant_Ind_RmI]);	   
+	  var Mant_ActiveII=JSON.parse(Mant_ActiveI[Mant_Ind_RmI]);	
 	  var Actual_Time=(new Date()).getTime();
 	  var Used_Time=(Actual_Time-Mant_ActiveII.Tiempo_M)/1000;//Tiempo requerido en s
 	  var MSC=((Used_Time)/Mant_ActiveII.Required_Time)*100; //Maintenance Schedule Compliance 
 	  var Mant_HistII;
 	  
-	  if (Mant_HistI.length<=0 || Mant_HistI[0]==""){ //Empty Scenario
-	    Mant_HistII=[JSON.stringify({Text_M:Mant_ActiveII.Text_M,Time_M:Mant_ActiveII.Tiempo_M,Actual_Time:Actual_Time,Required_Time:Mant_ActiveII.Required_Time,Used_Time:Used_Time,MSC:MSC})];
-	  }
-	  else{//Not Empty
-	    Mant_HistII=Mant_HistI;
-	    Mant_HistII.push(JSON.stringify({Text_M:Mant_ActiveII.Text_M,Time_M:Mant_ActiveII.Tiempo_M,Actual_Time:Actual_Time,Required_Time:Mant_ActiveII.Required_Time,Used_Time:Used_Time,MSC:MSC}));
-	  }
+	  //Write To Historic Maintenance
+	  Mant_HistII=JSON.stringify({Text_M:Mant_ActiveII.Text_M,Time_M:Mant_ActiveII.Tiempo_M,Actual_Time:Actual_Time,Required_Time:Mant_ActiveII.Required_Time,Used_Time:Used_Time,MSC:MSC});
 	  
-	  Mant_Hist.result.assign({value: Mant_HistII}); //Asign complete array
+	 //-----Write to Historic Maintenance
+	 Mant_Hist.result.assign({value: Mant_HistII}); //Asign complete array
 	  
 	 //-----Remove from active Maintenance
 	 Mant_ActiveI.splice(Mant_Ind_RmI, 1);	

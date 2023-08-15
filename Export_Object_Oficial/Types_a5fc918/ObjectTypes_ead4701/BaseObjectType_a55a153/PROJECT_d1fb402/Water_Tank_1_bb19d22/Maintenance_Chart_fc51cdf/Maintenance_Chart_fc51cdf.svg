@@ -785,7 +785,7 @@ function getUniqueDates(unixDates) {
   unixDates.forEach((unixDate) => {
     const date = new Date(unixDate); // Convert Unix timestamp to JavaScript Date object
     const dateString = date.toISOString().split('T')[0]; // Extract date portion
-
+	console.log((new Date(unixDate)).toDateString());
     if (!seenDates.has(dateString)) {
       uniqueDates.push(dateString);
       uniqueDatesN.push(date.getTime());

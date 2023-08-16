@@ -23,7 +23,6 @@
  <svg atv:refpx="154.995" atv:refpy="-18.503" height="30" id="id_4" transform="matrix(1.6875,0,0,1.1667,0,0)" width="160" x="11.852" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.combobox_Mantenimiento" y="0">
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="mode" value="Enum List"/>
-  <atv:argument name="enumList" value="SYSTEM.GLOBALS.Mantenimiento_Base"/>
   <atv:argument name="name" value="Maintenance_Type"/>
   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5926,0,0,0.8571,0,0)" width="266"/>
   <atv:overwrite id="button_stroke" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="7.501"/>
@@ -92,8 +91,18 @@ webMI.addOnload(function() {
     webMI.trigger.fire("com.atvise.datepicker_Initial_Date", Initial_Date); 
     webMI.trigger.fire("com.atvise.datepicker_Final_Date", Final_Date);   
     
-  	//Add value to maintenance list
-  	webMI.trigger.fire("addItem_Maintenance_Type", {value:{value:0, text:"All maintenance"}});
+  	//Add values to the maintenance list
+  	webMI.data.read(webMI.query["base"]+".Parameters.Mant_Elements", function(e) {
+	   var Mant_ElementsI=JSON.parse(e.value);
+	   
+	   webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:0, text:"All maintenance"}});
+	   
+	   for (var i in Mant_ElementsI) {
+			var Mant_ElementsII=Mant_ElementsI[i];
+			webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
+	   }
+	});
+  	
   	
   	
   	//Chart Config elements

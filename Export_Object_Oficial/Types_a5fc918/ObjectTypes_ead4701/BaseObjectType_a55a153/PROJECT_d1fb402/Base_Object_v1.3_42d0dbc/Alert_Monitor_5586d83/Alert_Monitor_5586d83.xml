@@ -101,7 +101,7 @@ for (var i=0; i<Object_ConditionsI.length; i++){
 	else if(Temp_Limit_Type=="Min"){
 		Temp_Alert_Limit=Temp_Limit+parseInt((Temp_Alarm_Range*(Alert_RangeI)/100));
 		//console.log("----------Condition Min---------");
-		//console.log("Temp_VarI: "+Temp_VarI+" <= "+"Temp_Alert_Limit: "+Temp_Alert_Limit +" && "+ "Temp_VarI: "+ Temp_VarI+" > "+ "Temp_Limit: "+Temp_Limit);			
+		console.log("Temp_VarI: "+Temp_VarI+" <= "+"Temp_Alert_Limit: "+Temp_Alert_Limit +" && "+ "Temp_VarI: "+ Temp_VarI+" > "+ "Temp_Limit: "+Temp_Limit);			
 		if (Temp_VarI<=Temp_Alert_Limit && Temp_VarI>Temp_Limit){	//Se encuentra en el rango de alerta inferior
 			if(Temp_VarI<=Initial_valuesI[i]){	//It´s increasing or the same
 				Alert_ActiveI[i]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Increasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:Actual_Time,eventText:"Increasing Alert"});

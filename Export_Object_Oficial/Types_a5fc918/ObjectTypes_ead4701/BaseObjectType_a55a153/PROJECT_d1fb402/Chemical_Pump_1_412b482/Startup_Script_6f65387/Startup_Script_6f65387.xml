@@ -27,6 +27,7 @@
 var Object_Conditions = Ua.findNode((base)+".Parameters.Object_Conditions");
 var Initial_Values = Ua.findNode((base)+".Parameters.Initial_Values");
 var Root_Path = Ua.findNode((base)+".Parameters.Root_Path");
+var Global_Maintenance = Ua.findNode("AGENT.OBJECTS.Global_Maintenance");
 
 console.log("---------------Startup Script----------------");
 //Global Variables
@@ -35,6 +36,7 @@ var Object_ConditionsI=new Array();
 var Initial_ValuesI=new Array();
 var Alert_Nodes=new Array();
 var Ranges=new Array();
+var Global_MaintenanceI=new Array();
 
 //----------------Rootpath logic---------------//
 
@@ -96,7 +98,46 @@ for (var i=0; i<Alert_Nodes.length; i++){
 
 
 //Assign the value to the node
-Object_Conditions.result.assign({value: Object_ConditionsI}); //Asigno al array Completo
+Object_Conditions.result.assign({value: Object_ConditionsI}); //Asign Complete array	
+
+
+//----------------Global Maintenance logic----------------//
+//Global_Maintenance exists			
+
+if (Global_Maintenance.result!=undefined){
+	
+	//Push address
+	var Global_MaintenanceII=((base)).split('=').pop();
+	Global_MaintenanceI=Global_Maintenance.result.value;
+	
+	//Check if it exist
+	if (!(Global_MaintenanceI.includes(Global_MaintenanceII))){
+		
+		if (Global_Maintenance.result.value==[""]){
+			Global_MaintenanceI[0]=(Global_MaintenanceII);
+		}
+		else{
+			Global_MaintenanceI.push(Global_MaintenanceII);
+		}
+		Global_Maintenance.result.assign({value: Global_MaintenanceI}); //Asign Complete array	 
+	}
+	 
+}
+//Global_Maintenance doesn´t exists	
+else if(Global_Maintenance.result==undefined){	
+	//Create node
+	Global_MaintenanceI[0]=((base)).split('=').pop();
+	var Global_MaintenanceN="AGENT.OBJECTS.Global_Maintenance";
+	Ua.createNode(Global_MaintenanceN, {
+		nodeClass: Ua.NodeClass.VARIABLE,
+		parent: "AGENT.OBJECTS",
+		typeDefinition: Ua.VariableType.BASEVARIABLETYPE,
+		reference: Ua.Reference.HASCOMPONENT,
+		dataType: Ua.DataType.STRING,
+		valueRank: Ua.ValueRank.ONEDIMENSION,
+		value: Global_MaintenanceI
+	});
+}
 
 
 

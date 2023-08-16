@@ -898,6 +898,17 @@ webMI.trigger.connect("addItem_"+name, function (e) {
 	menuObj=menuObjI;
 });
 
+//Custom entry 2
+webMI.trigger.connect("addItemT_"+name, function (e) {
+	var value = e.value.value;
+	var cnt = 0;
+	for (var i in menuObj) {
+		cnt++;
+	}
+	
+	menuObj[cnt + 1] = {text: value.text, value: getFn(value.text, value.value, cnt)};
+});
+
 
 webMI.trigger.connect("getSelectedItem", function (e) {
 	var id = "";

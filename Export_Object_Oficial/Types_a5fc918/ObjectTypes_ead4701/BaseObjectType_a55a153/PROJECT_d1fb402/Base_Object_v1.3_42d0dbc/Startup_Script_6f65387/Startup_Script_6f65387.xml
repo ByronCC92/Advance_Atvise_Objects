@@ -107,7 +107,7 @@ Object_Conditions.result.assign({value: Object_ConditionsI}); //Asign Complete a
 if (Global_Maintenance.result!=undefined){
 	
 	//Push address
-	var Global_MaintenanceII=((base)+".Mant_Hist").split('=').pop();
+	var Global_MaintenanceII=((base)).split('=').pop();
 	Global_MaintenanceI=Global_Maintenance.result.value;
 	
 	//Check if it exist
@@ -126,7 +126,7 @@ if (Global_Maintenance.result!=undefined){
 //Global_Maintenance doesn´t exists	
 else if(Global_Maintenance.result==undefined){	
 	//Create node
-	Global_MaintenanceI[0]=((base)+".Mant_Hist").split('=').pop();
+	Global_MaintenanceI[0]=((base)).split('=').pop();
 	var Global_MaintenanceN="AGENT.OBJECTS.Global_Maintenance";
 	Ua.createNode(Global_MaintenanceN, {
 		nodeClass: Ua.NodeClass.VARIABLE,

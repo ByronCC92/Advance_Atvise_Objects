@@ -105,23 +105,28 @@ Object_Conditions.result.assign({value: Object_ConditionsI}); //Asign Complete a
 //Global_Maintenance exists			
 
 if (Global_Maintenance.result!=undefined){
-	if (Global_Maintenance.result.value!=[""]||(Global_Maintenance.result.value).length>0){
-		//Push address
-		var Global_MaintenanceII=((base)+".Mant_Hist").split('=').pop();
-		Global_MaintenanceI=Global_Maintenance.result.value;
+	
+	//Push address
+	var Global_MaintenanceII=((base)).split('=').pop();
+	Global_MaintenanceI=Global_Maintenance.result.value;
+	
+	//Check if it exist
+	if (!(Global_MaintenanceI.includes(Global_MaintenanceII))){
 		
-		//Check if it exist
-		if (!(Global_MaintenanceI.includes(Global_MaintenanceII))){
+		if (Global_Maintenance.result.value==[""]){
+			Global_MaintenanceI[0]=(Global_MaintenanceII);
+		}
+		else{
 			Global_MaintenanceI.push(Global_MaintenanceII);
-			Global_Maintenance.result.assign({value: Global_MaintenanceI}); //Asign Complete array	 
-		} 
-	} 
+		}
+		Global_Maintenance.result.assign({value: Global_MaintenanceI}); //Asign Complete array	 
+	}
+	 
 }
-
 //Global_Maintenance doesn´t exists	
 else if(Global_Maintenance.result==undefined){	
 	//Create node
-	Global_MaintenanceI[0]=((base)+".Mant_Hist").split('=').pop();
+	Global_MaintenanceI[0]=((base)).split('=').pop();
 	var Global_MaintenanceN="AGENT.OBJECTS.Global_Maintenance";
 	Ua.createNode(Global_MaintenanceN, {
 		nodeClass: Ua.NodeClass.VARIABLE,

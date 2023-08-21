@@ -909,6 +909,11 @@ webMI.trigger.connect("addItemT_"+name, function (e) {
 	menuObj[cnt + 1] = {text: value.text, value: getFn(value.text, value.value, cnt)};
 });
 
+//Custom entry 3
+webMI.trigger.connect("clearItems_"+name, function (e) {	
+	menuObj= [];
+});
+
 
 webMI.trigger.connect("getSelectedItem", function (e) {
 	var id = "";

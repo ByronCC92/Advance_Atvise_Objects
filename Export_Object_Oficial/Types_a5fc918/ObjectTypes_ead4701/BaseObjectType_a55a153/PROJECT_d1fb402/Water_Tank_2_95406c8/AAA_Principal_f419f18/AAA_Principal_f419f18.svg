@@ -169,7 +169,7 @@
  </defs>
  <metadata>
   <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
-  <atv:parameter behavior="optional" defaultvalue="AGENT.OBJECTS.Global_Maintenance" desc="Global Maintenance" name="Global_Maintenance" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Maintenance_Water_Tank" desc="Global Maintenance" name="Global_Maintenance" valuetype="global"/>
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="5" width="5"/>
  </metadata>

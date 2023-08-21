@@ -28,95 +28,12 @@
   <path atv:refpx="358.821" atv:refpy="28.853" d="M354.5,30.696L367.773,17.423C367.773,17.423 367.773,15.381 367.773,15.381C367.773,15.381 373.899,12.318 373.899,12.318C373.899,12.318 375.431,13.85 375.431,13.85C375.431,13.85 372.878,19.465 372.878,19.465C372.878,19.465 370.836,19.465 370.836,19.465C370.836,19.465 356.542,33.248 356.542,33.248C356.542,33.248 358.074,34.78 358.074,34.78C358.074,34.78 348.374,44.479 348.374,44.479C348.374,44.479 345.311,46.521 343.27,44.479C341.228,42.437 342.759,40.396 342.759,39.885C342.759,39.375 353.021,29.16 353.021,29.16C353.021,29.16 354.5,31.207 354.5,30.696" fill="#ffffff" id="id_25" stroke="#ffffff" stroke-width="1"/>
  </g>
  <rect atv:refpx="450" atv:refpy="30" fill="#000000" fill-opacity="0" height="40" id="click_area_set" stroke="none" stroke-width="2" width="40" x="430" y="10"/>
- <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Initialize Variables*******/
-//Menu Variables
-var Backgrounds=["background_set","background_chart","background_history"];
-var Click_Area=["click_area_set","click_area_chart","click_area_history"];
-var Displays;
-var Color=webMI.query["Color"];
-var SetI=true; //Starts with set
-var Root_Path;
-var Root_PathR=webMI.query["base"]+".Parameters.Root_Path";
-
-
-/*******Initial Conditions******/
-webMI.addOnload(function() {
-
-	//Read Root_Path
-	webMI.data.read(Root_PathR, function(e) {
-	    Root_Path=e.value;		
-	})	
-	
-	//Menu Initial Conditions
-	webMI.gfx.setFill(Backgrounds[0], Color);
-	webMI.gfx.setFill(Backgrounds[1], "#000000");
-	webMI.gfx.setFill(Backgrounds[2], "#000000");
-    SetI=true;
-	
-	//Give time to read Root_Path
-	setTimeout(function() {
-		//Set Displays
-		Displays=[Root_Path+".Maintenance_Set",Root_Path+".Maintenance_Chart",Root_Path+".Maintenance_Hist"]
-		
-		//Open Maintenance_Set
-		webMI.display.openDisplay(Root_Path+".Maintenance_Set", webMI.query, "maintframe");
-	},200);
-	
-});
-
-/*******Menu Section*******/
-
-//Set Maintenance
-webMI.addEvent(Click_Area[0], "click", function(e) {
-
-	webMI.gfx.setFill(Backgrounds[0], Color);
-	webMI.gfx.setFill(Backgrounds[1], "#000000");
-	webMI.gfx.setFill(Backgrounds[2], "#000000");
-    SetI=true;  
-    
-	
-	//Open Window
-	webMI.display.openDisplay(Displays[0], webMI.query, "maintframe");
-	
-	
-});
-
-//Chart Data
-webMI.addEvent(Click_Area[1], "click", function(e) {
-
-	webMI.gfx.setFill(Backgrounds[1], Color);
-	webMI.gfx.setFill(Backgrounds[0], "#000000");
-	webMI.gfx.setFill(Backgrounds[2], "#000000");
-    SetI=false;
-      
-    //Open Window
-	webMI.display.openDisplay(Displays[1], webMI.query, "maintframe");
-	
-    
-});
-
-
-//Histotical Data
-webMI.addEvent(Click_Area[2], "click", function(e) {
-
-	webMI.gfx.setFill(Backgrounds[2], Color);
-	webMI.gfx.setFill(Backgrounds[0], "#000000");
-	webMI.gfx.setFill(Backgrounds[1], "#000000");
-    SetI=false;
-      
-    //Open Window
-	webMI.display.openDisplay(Displays[2], webMI.query, "maintframe");
-	
-    
-});
-
-
-
-]]></script>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.Maintenance_Display_Script" atv:name="" atv:type="text/ecmascript"/>
  <text atv:refpx="64.048" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_1" x="14.5" y="35.5">Maintenance Type</text>
  <rect atv:refpx="500" atv:refpy="30" fill="#000000" height="40" id="background_chart" stroke="none" stroke-width="2" width="40" x="480" y="10"/>
  <svg atv:refpx="500" atv:refpy="30" height="20" id="id_36" transform="matrix(1.75,0,0,1.75,0,0)" width="20" x="275.714" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Symbols.20x20.chart" y="7.143">
   <atv:argument name="symbolColor" value="#ffffff"/>
  </svg>
  <rect atv:refpx="500" atv:refpy="30" fill="#000000" fill-opacity="0" height="40" id="click_area_chart" stroke="none" stroke-width="2" width="40" x="480" y="10"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"/>
 </svg>

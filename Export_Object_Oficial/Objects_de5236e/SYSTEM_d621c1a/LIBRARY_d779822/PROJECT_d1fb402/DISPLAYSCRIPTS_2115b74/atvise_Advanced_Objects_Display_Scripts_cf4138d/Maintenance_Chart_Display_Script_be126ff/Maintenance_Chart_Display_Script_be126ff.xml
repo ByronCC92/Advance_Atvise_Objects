@@ -42,6 +42,9 @@ webMI.addOnload(function() {
 			var Mant_ElementsII=Mant_ElementsI[i];
 			webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
 	   }
+	  
+	  //Set All maintenance as default 
+	  webMI.trigger.fire("setSelectedItem_Maintenance_Type", {value:{value:0, text:"All maintenance"}});
 	});
   	
   	
@@ -67,7 +70,7 @@ webMI.addOnload(function() {
 				text: 'Maintenance Finished'
 			},
 			subtitle: {
-				text: 'Last...'
+				text: 'Last 24 hours'
 			},
 			xAxis: {
 				categories: e.CategoriesF,
@@ -315,6 +318,8 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 	prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, function(e){	
 	
 		
+		var currentTime=formatTime(Final_Date-Initial_Date);
+		
 		chart_1 = Highcharts.chart(chartDiv1, {
 			chart: {
 				type: 'column'
@@ -323,7 +328,7 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 				text: 'Maintenance Finished'
 			},
 			subtitle: {
-				text: 'Last...'
+				text: 'Last '+currentTime
 			},
 			xAxis: {
 				categories: e.CategoriesF,
@@ -792,6 +797,42 @@ function Mono_colors (Cantidad,ColorBase){
         colors.push(Highcharts.color(ColorBase).brighten((i-1) / 5).get());
     }
     return colors;
+}
+
+//Give format time
+function formatTime(milliseconds) {
+  const MS_PER_MINUTE = 60000;
+  const MS_PER_HOUR = 3600000;
+  const MS_PER_DAY = 86400000;
+  const MS_PER_WEEK = 604800000;
+  const MS_PER_MONTH = 2592000000; // Approximation
+
+  let remainingMs = milliseconds;
+
+  if (milliseconds < MS_PER_HOUR) {
+    const minutes = Math.floor(remainingMs / MS_PER_MINUTE);
+    return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`;
+  } else if (milliseconds < MS_PER_DAY) {
+    const hours = Math.floor(remainingMs / MS_PER_HOUR);
+    remainingMs %= MS_PER_HOUR;
+    const minutes = Math.floor(remainingMs / MS_PER_MINUTE);
+    return `${hours} ${hours === 1 ? 'hour' : 'hours'} ${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`;
+  } else if (milliseconds < MS_PER_WEEK) {
+    const days = Math.floor(remainingMs / MS_PER_DAY);
+    remainingMs %= MS_PER_DAY;
+    const hours = Math.floor(remainingMs / MS_PER_HOUR);
+    return `${days} ${days === 1 ? 'day' : 'days'} ${hours} ${hours === 1 ? 'hour' : 'hours'}`;
+  } else if (milliseconds < MS_PER_MONTH) {
+    const weeks = Math.floor(remainingMs / MS_PER_WEEK);
+    remainingMs %= MS_PER_WEEK;
+    const days = Math.floor(remainingMs / MS_PER_DAY);
+    return `${weeks} ${weeks === 1 ? 'week' : 'weeks'} ${days} ${days === 1 ? 'day' : 'days'}`;
+  } else {
+    const months = Math.floor(remainingMs / MS_PER_MONTH);
+    remainingMs %= MS_PER_MONTH;
+    const days = Math.floor(remainingMs / MS_PER_DAY);
+    return `${months} ${months === 1 ? 'month' : 'months'} ${days} ${days === 1 ? 'day' : 'days'}`;
+  }
 }
 
 

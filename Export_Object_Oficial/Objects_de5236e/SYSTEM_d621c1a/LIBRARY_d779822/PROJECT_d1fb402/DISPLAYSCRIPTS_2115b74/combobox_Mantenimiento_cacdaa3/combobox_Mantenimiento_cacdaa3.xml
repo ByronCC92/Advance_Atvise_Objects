@@ -873,6 +873,26 @@ webMI.trigger.connect("setItems", function (e) {
 	}
 });
 
+
+//Custom
+webMI.trigger.connect("setSelectedItem_"+name, function (e) {
+	var item = e.value.value.text;
+	console.log("item")
+	console.log(item);
+	webMI.gfx.setText("combobox_label", item);
+	if (item == "") {
+		
+		getFn("", "", null)();
+		return;
+	}
+	for (var i in menuObj) {
+		if (item == menuObj[i]["text"]) {
+			menuObj[i]["value"]();
+			break;
+		}
+	}
+});
+
 webMI.trigger.connect("addItem", function (e) {
 	var value = e.value;
 	var cnt = 0;

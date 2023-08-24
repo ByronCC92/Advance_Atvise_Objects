@@ -104,7 +104,7 @@ webMI.addOnload(function() {
 					}
 				},
 				series: {
-					pointWidth: 30						
+					pointWidth: 15						
 				}
 			},
 			series: e.Series
@@ -327,7 +327,10 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 			},
 			xAxis: {
 				categories: e.CategoriesF,
-				crosshair: true
+				crosshair: true,
+				scrollbar: {
+					enabled: true // This enables the scrollbar
+				}
 			},
 			yAxis: {
 				min: 0,
@@ -348,7 +351,8 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 			},
 			plotOptions: {
 				column: {
-					pointPadding: 0.2,
+					pointPadding: 0.1,
+					groupPadding: 0.1,
 					borderWidth: 0,
 					//stacking: 'normal',
 					dataLabels: {
@@ -360,7 +364,7 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 					}
 				},
 				series: {
-					pointWidth: 30						
+					pointWidth: 15						
 				}
 			},
 			series: e.Series

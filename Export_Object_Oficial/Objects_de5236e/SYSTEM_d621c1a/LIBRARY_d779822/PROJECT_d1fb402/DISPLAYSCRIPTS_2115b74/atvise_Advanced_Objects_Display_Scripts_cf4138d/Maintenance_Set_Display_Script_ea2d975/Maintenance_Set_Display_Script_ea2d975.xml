@@ -41,6 +41,9 @@ webMI.addOnload(function() {
 			var Mant_ElementsII=Mant_ElementsI[i];
 			webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
 	   }
+	   
+	   //Set All maintenance as default 
+	  webMI.trigger.fire("setSelectedItem_Maintenance_Type", {value:{value:Mant_ElementsI[0].value, text:Mant_ElementsI[0].text}});
 	});
 });
 

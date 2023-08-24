@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Diesel_Generator_1
+NodeClass: ObjectType
+BrowseName: 1:Diesel_Generator_1
+DisplayName: en|Diesel_Generator_1
+Description: en|Diesel_Generator_1
+IsAbstract: false

@@ -81,7 +81,7 @@ var Color=webMI.query["Color"];
 var Backgrounds=["background_set","background_calendar","background_chart","background_history","background_pdf"];
 var Click_Area=["click_area_set","click_area_calendar","click_area_chart","click_area_history","click_area_pdf"];
 var Displays=["SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Dashboards.Maintenance_Dashboard.Maintenance_set","SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Dashboards.Maintenance_Dashboard.Maintenance_calendar","SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Dashboards.Maintenance_Dashboard.Maintenance_chart","SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Dashboards.Maintenance_Dashboard.Maintenance_history","SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Dashboards.Maintenance_Dashboard.Maintenance_pdf"];
-
+var ElementsR;
 
 //----------Initial Conditions----------//
 webMI.addOnload(function() {
@@ -95,14 +95,24 @@ webMI.addOnload(function() {
 	
 	//Read Existing Elements
 	webMI.data.read(Global_MaintenanceR, function(e) {
-		var Elements=e.value;
-		for (var i in Elements) {
-			var Mant_ElementsI=Elements[i].split('.').pop();
+		ElementsR=e.value;
+		for (var i in ElementsR) {
+			var Mant_ElementsI=ElementsR[i].split('.').pop();
 			webMI.trigger.fire("addItemT_Maintenance_Element", {value:{value:i, text:Mant_ElementsI}});
 	   }
 	});
 	
 	
+});
+
+
+//-----------Triggers--------------//
+//Monitor Global Maintenance Element
+
+webMI.trigger.connect("com.atvise.combobox_Maintenance_Element", function (e) {
+	var Index=Number(e.value.value);
+	var ElementsRI=ElementsR[Index];
+	webMI.trigger.fire("Global_Object_Current_Addres", ElementsRI);
 });
 
 

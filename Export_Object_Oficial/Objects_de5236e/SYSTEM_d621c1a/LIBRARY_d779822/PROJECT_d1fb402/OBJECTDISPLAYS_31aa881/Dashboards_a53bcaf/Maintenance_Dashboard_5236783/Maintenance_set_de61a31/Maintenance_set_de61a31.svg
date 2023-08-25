@@ -175,8 +175,7 @@ webMI.addOnload(function() {
 	//Define initial text
     webMI.gfx.setText("id_info", "Press to add a Maintenance");
     
-    /*
-   */
+    
 	
 });
 
@@ -186,7 +185,6 @@ webMI.addOnload(function() {
 
 //Monitor Global Maintenance Element
 webMI.trigger.connect("Global_Object_Current_Addres", function (e) {
-	
 	//Update Mant Necessary Elements
 	Mant_Notification=e.value+".Mant_Notification";
 	Mant_Elements=e.value+".Parameters.Mant_Elements";
@@ -417,8 +415,8 @@ webMI.addEvent("id_17", "click", function(e) {
 //Function to fill the maintenance Combobox
 function fill_combobox(Mant_ElementsR){
 	 //Add values to the maintenance list
-  	webMI.data.read(Mant_ElementsR, function(e) {
-	   if(e.value!=undefined){
+  	webMI.data.read(Mant_ElementsR, function(e) {    	
+		if(e.value!=undefined&&e.value!=""&&e.value.length>2){
 		   var Mant_ElementsI=JSON.parse(e.value);
 		   webMI.trigger.fire("clearItems_Global_Maintenance_Type", 0);
 			   
@@ -426,9 +424,16 @@ function fill_combobox(Mant_ElementsR){
 				var Mant_ElementsII=Mant_ElementsI[i];
 				webMI.trigger.fire("addItemT_Global_Maintenance_Type", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
 		   }
-	   }	  
+		   //Set All maintenance as default 
+		   webMI.trigger.fire("setSelectedItem_Global_Maintenance_Type", {value:{value:Mant_ElementsI[0].value, text:Mant_ElementsI[0].text}});
+		}		
+		else{	 
+			webMI.trigger.fire("clearItems_Global_Maintenance_Type", 0);
+			webMI.trigger.fire("addItemT_Global_Maintenance_Type", {value:{value:0, text:"No Maintenance Configured"}});
+			webMI.trigger.fire("setSelectedItem_Global_Maintenance_Type", {value:{value:0, text:"No Maint. Configured"}});
+			
+		}  	  
 	});
-
 }
 
 //Code required to create the node when it is empty
@@ -652,4 +657,5 @@ var scriptCode =
 
 //Read CSV logic
 ]]></script>
+ <text atv:refpx="795.797" atv:refpy="39" fill="$Color$" font-family="Arial" font-size="26" id="id_18" x="754.5" y="43.5">Load From File</text>
 </svg>

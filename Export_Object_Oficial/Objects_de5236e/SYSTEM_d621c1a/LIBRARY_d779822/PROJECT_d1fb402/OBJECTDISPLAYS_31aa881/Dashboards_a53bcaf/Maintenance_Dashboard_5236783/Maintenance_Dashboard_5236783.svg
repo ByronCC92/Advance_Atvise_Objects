@@ -87,22 +87,10 @@ var ElementsR;
 webMI.addOnload(function() {
 	   
 	//Menu Initial Conditions
-	setactive(0);	
-		
-		
-	//Add the all maintenance Option
-	webMI.trigger.fire("addItemT_Maintenance_Element", {value:{value:0, text:"All maintenance"}});
+	setactive(0);		
 	
-	//Read Existing Elements
-	webMI.data.read(Global_MaintenanceR, function(e) {
-		ElementsR=e.value;
-		for (var i in ElementsR) {
-			var Mant_ElementsI=ElementsR[i].split('.').pop();
-			webMI.trigger.fire("addItemT_Maintenance_Element", {value:{value:i, text:Mant_ElementsI}});
-	   }
-	});
-	
-	
+	//Update Combobox
+	updateCombobox(true);
 });
 
 
@@ -119,40 +107,57 @@ webMI.trigger.connect("com.atvise.combobox_Maintenance_Element", function (e) {
 //Maintenance_Set
 webMI.addEvent(Click_Area[0], "click", function(e) {
 
-	setactive(0);	 	
+	setactive(0);
+	
+	
+	//Update Combobox
+	updateCombobox(true);
+	
 	
 });
 
 //Maintenance_Calendar
 webMI.addEvent(Click_Area[1], "click", function(e) {
 
-	setactive(1);	 	
+	setactive(1);	 
+	//Update Combobox
+	updateCombobox(false);
 	
 });
 
 //Maintenance_Chart
 webMI.addEvent(Click_Area[2], "click", function(e) {
-
-	setactive(2);	 	
+	
+	setactive(2);
+	//Update Combobox
+	updateCombobox(false);
+	
+		 	
 	
 });
 
 //Maintenance_Hist
 webMI.addEvent(Click_Area[3], "click", function(e) {
 
-	setactive(3);	 	
+	setactive(3);	 
+	//Update Combobox
+	updateCombobox(false);
+	
 	
 });
 
 //Maintenance_PDF
 webMI.addEvent(Click_Area[4], "click", function(e) {
 
-	setactive(4);	 	
+	setactive(4);	
+	//Update Combobox
+	updateCombobox(false);
+		
 	
 });
 
 
-
+//Function to set active window
 function setactive(ID){
 	
 	//Set active only the current icon
@@ -170,6 +175,41 @@ function setactive(ID){
 	webMI.display.openDisplay(Displays[ID], webMI.query, "mainmaintframe");
 	
 };
+
+
+//Function to set combobox
+function updateCombobox(set){
+
+	webMI.trigger.fire("clearItems_Maintenance_Element", 0);
+	
+	if (set!=true){
+		//Add the all maintenance Option
+		webMI.trigger.fire("addItem_Maintenance_Element", {value:{value:0, text:"All maintenance"}});
+	}
+	
+	//Read Existing Elements
+	webMI.data.read(Global_MaintenanceR, function(e) {
+		ElementsR=e.value;
+		for (var i in ElementsR) {
+			var Mant_ElementsI=ElementsR[i].split('.').pop();
+			webMI.trigger.fire("addItemT_Maintenance_Element", {value:{value:i, text:Mant_ElementsI}});
+	   }
+	   
+	   if (set==true){
+		   //Set First maintenance
+		   webMI.trigger.fire("setSelectedItem_Maintenance_Element", {value:{value:0, text:ElementsR[0].split('.').pop()}});
+		   
+		  setTimeout(function(){
+			webMI.trigger.fire("Global_Object_Current_Addres", ElementsR[0]);
+		  },200);
+	   }
+	   else  {
+		   //Set All maintenance as default 
+		   webMI.trigger.fire("setSelectedItem_Maintenance_Element", {value:{value:0, text:"All maintenance"}});
+	   }
+	});
+	
+}
 
 ]]></script>
 </svg>

@@ -874,24 +874,6 @@ webMI.trigger.connect("setItems", function (e) {
 });
 
 
-//Custom
-webMI.trigger.connect("setSelectedItem_"+name, function (e) {
-	var item = e.value.value.text;
-	console.log("item")
-	console.log(item);
-	webMI.gfx.setText("combobox_label", item);
-	if (item == "") {
-		
-		getFn("", "", null)();
-		return;
-	}
-	for (var i in menuObj) {
-		if (item == menuObj[i]["text"]) {
-			menuObj[i]["value"]();
-			break;
-		}
-	}
-});
 
 webMI.trigger.connect("addItem", function (e) {
 	var value = e.value;
@@ -903,15 +885,15 @@ webMI.trigger.connect("addItem", function (e) {
 	menuObj[cnt + 1] = {text: value.text, value: getFn(value.text, value.value, cnt)};
 });
 
-//Custom entry
+//Custom entry 1
 webMI.trigger.connect("addItem_"+name, function (e) {
 	var value = e.value.value;
 	var menuObjI={};
 	menuObjI[0]={text: value.text, value: getFn(value.text, value.value, cnt)};
-	
+
 	var cnt = 0;
-	for (var i in menuObj) {
-		menuObjI[cnt+1]=menuObj[cnt];
+	for (var i in menuObj) {		
+		menuObjI[cnt+1]=menuObj[cnt+1];
 		cnt++;
 		
 	}
@@ -933,6 +915,32 @@ webMI.trigger.connect("addItemT_"+name, function (e) {
 webMI.trigger.connect("clearItems_"+name, function (e) {	
 	menuObj= [];
 });
+
+//Custom Entry 4
+webMI.trigger.connect("setSelectedItem_"+name, function (e) {
+	var item = e.value.value.text;
+
+	webMI.gfx.setText("combobox_label", item);
+	if (item == "") {
+		
+		getFn("", "", null)();
+		return;
+	}
+	for (var i in menuObj) {
+		if (item == menuObj[i]["text"]) {
+			menuObj[i]["value"]();
+			break;
+		}
+	}
+});
+
+
+//Custom entry 3
+webMI.trigger.connect("removeItem_"+name, function (e) {	
+	delete menuObj[e];	
+	console.log(menuObj);
+});
+
 
 
 webMI.trigger.connect("getSelectedItem", function (e) {

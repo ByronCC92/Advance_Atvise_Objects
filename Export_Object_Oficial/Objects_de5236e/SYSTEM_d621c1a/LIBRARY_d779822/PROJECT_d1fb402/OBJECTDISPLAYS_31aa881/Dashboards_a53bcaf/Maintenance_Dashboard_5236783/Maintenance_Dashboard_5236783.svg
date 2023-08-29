@@ -98,9 +98,18 @@ webMI.addOnload(function() {
 //Monitor Global Maintenance Element
 
 webMI.trigger.connect("com.atvise.combobox_Maintenance_Element", function (e) {
+	var ElementsRI;	
+	var TextI=e.value.text;
 	var Index=Number(e.value.value);
-	var ElementsRI=ElementsR[Index];
-	webMI.trigger.fire("Global_Object_Current_Addres", ElementsRI);
+
+	if (TextI=="All machines"){
+		ElementsRI=ElementsR;
+	}
+	else if (TextI!="All machines"){
+		ElementsRI=[ElementsR[Index]];
+	}
+
+	webMI.trigger.fire("Global_Object_Current_Addres", {Text:TextI, Elements:ElementsRI});
 });
 
 
@@ -184,7 +193,8 @@ function updateCombobox(set){
 	
 	if (set!=true){
 		//Add the all maintenance Option
-		webMI.trigger.fire("addItem_Maintenance_Element", {value:{value:0, text:"All maintenance"}});
+		webMI.trigger.fire("addItem_Maintenance_Element", {value:{value:0, text:"All machines"}});
+		
 	}
 	
 	//Read Existing Elements
@@ -193,20 +203,24 @@ function updateCombobox(set){
 		for (var i in ElementsR) {
 			var Mant_ElementsI=ElementsR[i].split('.').pop();
 			webMI.trigger.fire("addItemT_Maintenance_Element", {value:{value:i, text:Mant_ElementsI}});
-	   }
-	   
-	   if (set==true){
+		}
+		
+		if (set==true){
 		   //Set First maintenance
 		   webMI.trigger.fire("setSelectedItem_Maintenance_Element", {value:{value:0, text:ElementsR[0].split('.').pop()}});
 		   
 		  setTimeout(function(){
-			webMI.trigger.fire("Global_Object_Current_Addres", ElementsR[0]);
+			webMI.trigger.fire("Global_Object_Current_Addres", {Text:ElementsR[0].split('.').pop(), Elements:[ElementsR[0]]});
 		  },200);
-	   }
-	   else  {
-		   //Set All maintenance as default 
-		   webMI.trigger.fire("setSelectedItem_Maintenance_Element", {value:{value:0, text:"All maintenance"}});
-	   }
+		}
+		else  {
+			//Set All maintenance as default 
+			webMI.trigger.fire("setSelectedItem_Maintenance_Element", {value:{value:0, text:"All machines"}});
+			
+			setTimeout(function(){
+				webMI.trigger.fire("Global_Object_Current_Addres", {Text:"All machines", Elements:ElementsR});
+			},300);
+		}
 	});
 	
 }

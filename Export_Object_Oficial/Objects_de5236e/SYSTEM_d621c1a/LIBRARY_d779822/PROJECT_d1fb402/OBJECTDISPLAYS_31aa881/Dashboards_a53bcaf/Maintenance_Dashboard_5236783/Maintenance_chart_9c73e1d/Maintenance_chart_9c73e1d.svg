@@ -3,10 +3,10 @@
  <defs/>
  <metadata>
   <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
-  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
-  <atv:snapconfig enabled="false" height="10" width="10"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
- <svg atv:refpx="200.826" atv:refpy="198.496" height="30" id="id_2" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="36.856" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="150.853">
+ <svg atv:refpx="447.478" atv:refpy="75.416" height="30" id="id_2" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="180.359" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="45.359">
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="name" value="Initial_Date"/>
   <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
@@ -19,8 +19,8 @@
   <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
  </svg>
- <text atv:refpx="94.081" atv:refpy="157" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="67.848" y="161.5">Intial Date</text>
- <svg atv:refpx="198.343" atv:refpy="57.497" height="30" id="id_4" transform="matrix(1.6875,0,0,1.1667,0,0)" width="160" x="37.54" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.combobox_Mantenimiento" y="65.141">
+ <text atv:refpx="340.733" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="314.5" y="35.5">Intial Date</text>
+ <svg atv:refpx="148.343" atv:refpy="34.417" height="30" id="id_4" transform="matrix(1.6875,0,0,1.1667,0,0)" width="160" x="7.91" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.combobox_Mantenimiento" y="45.359">
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="mode" value="Enum List"/>
   <atv:argument name="name" value="Global_Maintenance_Type_Chart"/>
@@ -34,7 +34,7 @@
   <atv:overwrite height="33.001" id="id_1" transform="matrix(0.5926,0,0,0.8571,0,0)" width="268"/>
   <atv:overwrite height="35.001" id="id_0" transform="matrix(0.5926,0,0,0.8571,0,0)" width="270"/>
  </svg>
- <svg atv:refpx="490.827" atv:refpy="193.496" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="205.578" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="150.853">
+ <svg atv:refpx="737.479" atv:refpy="70.416" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="349.081" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="45.359">
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="name" value="Final_Date"/>
   <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
@@ -47,19 +47,23 @@
   <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
  </svg>
- <text atv:refpx="384.111" atv:refpy="157" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="357.848" y="161.5">Final Date</text>
- <line atv:refpx="343.348" atv:refpy="126" id="id_24" stroke="$Color$" stroke-width="2" x1="43.348" x2="643.348" y1="126" y2="126"/>
- <foreignObject height="220" id="chart_container1" width="603" x="43.348" y="376">
+ <text atv:refpx="630.763" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="604.5" y="35.5">Final Date</text>
+ <line atv:refpx="525" atv:refpy="110" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="1050" y1="110" y2="110"/>
+ <foreignObject height="350" id="chart_container1" width="840" x="0" y="450">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
  </foreignObject>
- <foreignObject height="160" id="chart_container3" width="201" x="244.348" y="216">
+ <foreignObject height="300" id="chart_container2" width="300" x="240" y="150">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
  </foreignObject>
- <foreignObject height="160" id="chart_container4" width="201" x="445.348" y="216">
+ <foreignObject height="300" id="chart_container3" width="300" x="540" y="150">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
  </foreignObject>
- <text atv:refpx="124.348" atv:refpy="237" fill="#333333" font-family="Arial" font-size="20" id="id_5" x="79.848" y="241.5">Scheduled Time</text>
- <text atv:refpx="88.057" atv:refpy="313" fill="$Color$" font-family="Arial" font-size="34" id="Text_2" x="88.848" y="317.5">I</text>
+ <text atv:refpx="80" atv:refpy="169" fill="#333333" font-family="Arial" font-size="20" id="id_5" x="35.5" y="173.5">Scheduled Time</text>
+ <text atv:refpx="32.709" atv:refpy="308" fill="$Color$" font-family="Arial" font-size="48" id="Text_2" x="33.5" y="312.5">I</text>
+ <text atv:refpx="58.416" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_6" x="24.5" y="35.5">Maintenance</text>
+ <foreignObject height="300" id="chart_container4" width="420" x="840" y="150">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/highcharts.js"/>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/highcharts-more.js"/>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/solid-gauge.js"/>
@@ -69,7 +73,7 @@ var Text_M; //Maintenance Type Text
 var Initial_Date;//Initial Date for Maintenance
 var Final_Date;//Final Date for Maintenance
 var tableData = [];
-var Mant_HistR;
+var Mant_HistR=new Array;
 var Mant_Elements;
 
 var Color=webMI.query["Color"];
@@ -77,6 +81,8 @@ var Color=webMI.query["Color"];
 //Charts
 var chart_1; //Reference Chart 1
 var chart_2; //Reference Chart 2
+var chart_3; //Reference Chart 3
+var chart_4; //Reference Chart 4
 var chartDiv1;
 var chartDiv2;
 var chartDiv3;
@@ -91,244 +97,25 @@ webMI.addOnload(function() {
 	Final_Date=T_Actual.getTime();
     webMI.trigger.fire("com.atvise.datepicker_Initial_Date", Initial_Date); 
     webMI.trigger.fire("com.atvise.datepicker_Final_Date", Final_Date);   
-    
-  	//Add values to the maintenance list
-  	webMI.data.read(webMI.query["base"]+".Parameters.Mant_Elements", function(e) {
-	   var Mant_ElementsI=JSON.parse(e.value);
-	   
-	   webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:0, text:"All maintenance"}});
-	   
-	   for (var i in Mant_ElementsI) {
-			var Mant_ElementsII=Mant_ElementsI[i];
-			webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
-	   }
-	});
-  	
-  	
-  	
+     	
   	//Chart Config elements
   	chartDiv1 = document.getElementById("chart_container1");
   	chartDiv2 = document.getElementById("chart_container2");
   	chartDiv3 = document.getElementById("chart_container3");
   	chartDiv4 = document.getElementById("chart_container4");
   	
-	webMI.gfx.setScaledEvents(chartDiv1); 
-  	
+	webMI.gfx.setScaledEvents(chartDiv1);
+	
+	(async () => {
+	  await waitForCondition();
+	  updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	 
+	})();
+
+	/*
+  	setTimeout(function() {
 	//Preapare data and create chart
-	prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, function(e){	
-	  //Create Chart
-		 
-		 //Column Chart
-		 chart_1 = Highcharts.chart(chartDiv1, {
-			chart: {
-				type: 'column'
-			},
-			title: {
-				text: 'Maintenance Finished'
-			},
-			subtitle: {
-				text: 'Last...'
-			},
-			xAxis: {
-				categories: e.CategoriesF,
-				crosshair: true
-			},
-			yAxis: {
-				min: 0,
-				title: {
-					text: 'Minutes'
-				},
-				stackLabels: {
-					enabled: true
-				}
-			},
-			tooltip: {
-				headerFormat: '<span style="font-size:10px"><b>{point.key}</b></span><table>',
-				pointFormat: '<tr><td style="color:{series.color};padding:0"><b>{series.name}:</b> </td>' +
-					'<td style="padding:0"><b>{point.y:.1f} s</b></td></tr>',
-				footerFormat: '</table>',
-				shared: true,
-				useHTML: true
-			},
-			plotOptions: {
-				column: {
-					pointPadding: 0.2,
-					borderWidth: 0,
-					//stacking: 'normal',
-					dataLabels: {
-						enabled: true,
-						formatter: function () {							
-							return e.Labels[this.series.index][this.point.x]; 								
-						}								
-						
-					}
-				},
-				series: {
-					pointWidth: 30						
-				}
-			},
-			series: e.Series
-		});
-		//Scheduled time Chart
-		webMI.gfx.setText("Text_2", (e.dataF2/3600).toFixed(1)+"Hours");
-		
-		//Used time Chart
-		chart3 = Highcharts.chart(chartDiv3, {
-			chart: {
-				type: 'solidgauge',
-				backgroundColor: 'transparent',
-				height: '100%',
-				marginTop: -10 // Adjust this value to reduce the distance	
-			},
-		
-		
-			title: {
-				text: 'Used Time',
-				fontFamily: 'Arial, sans-serif'
-			},
-		
-			tooltip: {
-				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.3f} %</b></td></tr>',
-				footerFormat: '</table>',
-				shared: true,
-				useHTML: true
-			},
-				
-			pane: {
-				startAngle: 0,
-				endAngle: 360,
-				background: [{ // Track for Move
-					outerRadius: '60%',
-					innerRadius: '45%',
-					backgroundColor: Highcharts.color(Color)
-						.setOpacity(0.3)
-						.get(),
-					borderWidth: 0
-				}]
-			},
-		
-			yAxis: {
-				min: 0,
-				max: (e.dataF2/3600),
-				lineWidth: 0,
-				tickPositions: []
-			},
-		
-			plotOptions: {
-				solidgauge: {
-					dataLabels: {
-						enabled: true,
-						backgroundColor: 'none',
-						borderWidth: 0,
-						color: Color,
-						format: '{point.y:.2f}H',
-						shadow: false,
-						style: {
-							fontSize: "16px",
-						},
-						valueSuffix: 'H',					
-						y:-14,
-						align: 'center',
-					},
-					linecap: 'square',
-					stickyTracking: false,            
-				}
-			},
-			credits: {
-				enabled: false
-			},
-			series: [{
-				name: "Scheduled Time",			
-				data: [{
-					color: Color,
-					radius: '60%',
-					innerRadius: '45%',				
-					y: Number(e.dataF3/3600)
-				}]
-			}]
-			
-		});		
-		
-		
-		//MSC Chart
-		chart4 = Highcharts.chart(chartDiv4, {
-			chart: {
-				type: 'solidgauge',
-				backgroundColor: 'transparent',
-				height: '100%',
-				marginTop: -10 // Adjust this value to reduce the distance	
-			},
-		
-		
-			title: {
-				text: 'MSC',
-				fontFamily: 'Arial, sans-serif'
-			},
-		
-			tooltip: {
-				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.3f} %</b></td></tr>',
-				footerFormat: '</table>',
-				shared: true,
-				useHTML: true
-			},
-				
-			pane: {
-				startAngle: 0,
-				endAngle: 360,
-				background: [{ // Track for Move
-					outerRadius: '60%',
-					innerRadius: '45%',
-					backgroundColor: Highcharts.color(Color)
-						.setOpacity(0.3)
-						.get(),
-					borderWidth: 0
-				}]
-			},
-		
-			yAxis: {
-				min: 0,
-				max: 100,
-				lineWidth: 0,
-				tickPositions: []
-			},
-		
-			plotOptions: {
-				solidgauge: {
-					dataLabels: {
-						enabled: true,
-						backgroundColor: 'none',
-						borderWidth: 0,
-						color: Color,
-						format: '{point.y:.2f}%',
-						shadow: false,
-						style: {
-							fontSize: "16px",
-						},
-						valueSuffix: 'H',					
-						y:-14,
-						align: 'center',
-					},
-					linecap: 'square',
-					stickyTracking: false,            
-				}
-			},
-			credits: {
-				enabled: false
-			},
-			series: [{
-				name: "Scheduled Time",			
-				data: [{
-					color: Color,
-					radius: '60%',
-					innerRadius: '45%',				
-					y: Number(e.dataF4)
-				}]
-			}]
-			
-		});		
-	}); 	 	
+		updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	 
+	},500);	*/
 });
 
 //------Triggers-----------//
@@ -338,9 +125,23 @@ webMI.addOnload(function() {
 //Monitor Global Maintenance Element
 webMI.trigger.connect("Global_Object_Current_Addres", function (e) {
 	
+	console.log(e);
+	var Elements=e.value.Elements;
+	var TextI=e.value.Text;
+	Mant_HistR=new Array();
+	
+	//Mant Hist nodes
+	for(var i=0; i<Elements.length; i++)	 {
+		Mant_HistR.push(Elements[i]+".Mant_Hist");
+	}
+
 	//Update Mant Necessary Elements
-	Mant_HistR=e.value+".Mant_Hist";
-	Mant_Elements=e.value+".Parameters.Mant_Elements";
+	if (TextI=="All machines"){
+		Mant_Elements="All machines";
+	}
+	else{
+		Mant_Elements=e.value.Elements[0]+".Parameters.Mant_Elements";
+	}
 	console.log(Mant_Elements);
 	fill_combobox(Mant_Elements);
 });
@@ -351,7 +152,7 @@ webMI.trigger.connect("com.atvise.datepicker_Initial_Date", function (e) {
 	Initial_Date=(new Date(e.value)).getTime();
 	console.log("Update Chart");
 	if (chart_1!=undefined){
-		updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M);	
+		updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	
 	}
 });
 
@@ -361,7 +162,7 @@ webMI.trigger.connect("com.atvise.datepicker_Final_Date", function (e) {
 		Final_Date=(new Date(e.value)).getTime();
 		console.log("Update Chart");
 		if (chart_1!=undefined){
-			updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M);	
+			updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	
 		}
 	},200);
 });
@@ -373,14 +174,14 @@ webMI.trigger.connect("com.atvise.combobox_Global_Maintenance_Type_Chart", funct
 	Text_M=e.value.text;	
 	console.log("Update Chart");
 	if (chart_1!=undefined){
-		updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M);	
+		updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	
 	}
 });
 
 
 
 //-------Update Charts------//
-function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
+function updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M){
 	console.log("Update Chart");
 	//Update chart
 	prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, function(e){	
@@ -441,7 +242,7 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 		webMI.gfx.setText("Text_2", (e.dataF2/3600).toFixed(1)+"Hours");
 		
 		//Used time Chart
-		chart3 = Highcharts.chart(chartDiv3, {
+		chart_2 = Highcharts.chart(chartDiv2, {
 			chart: {
 				type: 'solidgauge',
 				backgroundColor: 'transparent',
@@ -467,8 +268,8 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 				startAngle: 0,
 				endAngle: 360,
 				background: [{ // Track for Move
-					outerRadius: '60%',
-					innerRadius: '45%',
+					outerRadius: '70%',
+					innerRadius: '55%',
 					backgroundColor: Highcharts.color(Color)
 						.setOpacity(0.3)
 						.get(),
@@ -493,10 +294,10 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 						format: '{point.y:.2f}H',
 						shadow: false,
 						style: {
-							fontSize: "16px",
+							fontSize: "26px",
 						},
 						valueSuffix: 'H',					
-						y:-14,
+						y:-18,
 						align: 'center',
 					},
 					linecap: 'square',
@@ -510,8 +311,8 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 				name: "Scheduled Time",			
 				data: [{
 					color: Color,
-					radius: '60%',
-					innerRadius: '45%',				
+					radius: '70%',
+					innerRadius: '55%',				
 					y: Number(e.dataF3/3600)
 				}]
 			}]
@@ -520,7 +321,7 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 		
 		
 		//MSC Chart
-		chart4 = Highcharts.chart(chartDiv4, {
+		chart_3 = Highcharts.chart(chartDiv3, {
 			chart: {
 				type: 'solidgauge',
 				backgroundColor: 'transparent',
@@ -546,8 +347,8 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 				startAngle: 0,
 				endAngle: 360,
 				background: [{ // Track for Move
-					outerRadius: '60%',
-					innerRadius: '45%',
+					outerRadius: '70%',
+					innerRadius: '55%',
 					backgroundColor: Highcharts.color(Color)
 						.setOpacity(0.3)
 						.get(),
@@ -572,10 +373,10 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 						format: '{point.y:.2f}%',
 						shadow: false,
 						style: {
-							fontSize: "16px",
+							fontSize: "26px",
 						},
 						valueSuffix: 'H',					
-						y:-14,
+						y:-18,
 						align: 'center',
 					},
 					linecap: 'square',
@@ -589,13 +390,63 @@ function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
 				name: "Scheduled Time",			
 				data: [{
 					color: Color,
-					radius: '60%',
-					innerRadius: '45%',				
+					radius: '70%',
+					innerRadius: '55%',				
 					y: Number(e.dataF4)
 				}]
-			}]
-			
+			}]			
 		});	
+		
+		chart_4= Highcharts.chart(chartDiv4, {
+			chart: {
+				type: 'pie',		
+			},
+			
+			title: {
+				text: "Maintenance Distribution"
+			},	
+			tooltip: {
+				headerFormat: '<span style="font-size:12px"><b>{point.key}</b></span><table>',
+				pointFormat: '<tr><td style="color:'+Color+';font-weight:bold; padding:0;">Tiempo: </td>' +
+				'<td style="padding:0"><b>{point.y:.1f} min</b></td></tr>' +
+				'<tr> <td style="color:'+Color+';font-weight:bold; padding:0;">Porcentaje: </td>' + 
+				'<td style="padding:0"><b>{point.percentage:.1f} %</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},	
+			legend: {
+				align: 'bottom',
+				verticalAlign: 'top',
+				layout: 'vertical',
+				x: 220,
+				y: 180
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					center: [120, 60],
+					size: 180,
+					dataLabels: {
+						enabled: true,
+						style: {
+						  fontSize: "12px",					
+						},
+						format: '<br>{point.y:.1f} min',
+						distance: -50,
+					},
+					showInLegend: true
+				},		
+			},
+			credits: {
+				enabled: false
+			},
+			series:[{
+					name:"Maintenance",
+					data: e.Series2 						
+				}]
+		});
 	});			
 }
 
@@ -611,6 +462,9 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 	var Mant_Ele = new Array();
 	var Mant_Dates= new Array();
 	var Mant_DatesN= new Array();
+	var Mant_HistRI=new Array();
+	var ResultI=new Array();
+	var MantAddresses=new Array();
 	
 	var data = new Array();
 	var dataF = new Array();
@@ -618,6 +472,7 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 	var CategoriesF = new Array();
 	var Labels= new Array();
 	var Series = new Array();
+	var Series2 = new Array();
 	
 	//Gauge Chart Scheduled hours
 	var data2=new Array(); // Array Scheduled hours
@@ -634,35 +489,43 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 	var filter = {};
 	
 	
+	//Prepare filter
+	for (var i=0; i<Mant_HistR.length; i++)	 {
+		Mant_HistRI.push("g:"+Mant_HistR[i]);
+	}
+	
 	filter.type = ["v:1"]; //Values			
 	filter.timestamp = ["n:>=" + Initial_Date + "<" + Final_Date];
-	filter.address = ["g:"+Mant_HistR];			
+	filter.address = Mant_HistRI;			
 	
 	//Ask for data           
 	webMI.data.queryFilter(filter, function(e){
 		var result=e.result;
-		
+		console.log("result------------");
+		console.log(result);
 		if(result.length>0){//Is not empty
 			
 			var Mant_HistV=new Array();
 			for (var i=0; i<result.length; i++)	 {
 				 Mant_HistV.push(result[i].value);
+				 ResultI.push(JSON.stringify(result[i]));
+				 MantAddresses.push(result[i].address);
 			}
 			var Mant_HistVI=new Array();	
 			console.log(Mant_HistV);
 			
 			 for(var i=0; i<Mant_HistV.length; i++)	 { 
 				const myArray = JSON.parse(Mant_HistV[i]);
-				if (((Text_M==undefined||Text_M=="All maintenance")||(Text_M!=undefined&&myArray.Text_M==Text_M))){
+				if (((Text_M==undefined||Text_M=="All maintenance"||Text_M=="All machines")||(Text_M!="All machines"&&Text_M!=undefined&&myArray.Text_M==Text_M))){
 					Mant_HistVI.push(Mant_HistV[i]);
 					data2.push(Math.abs(myArray.Required_Time));
 					data3.push(Math.abs(myArray.Used_Time));
 				}
 			 }
 			 
-			dataF2=sumArray(data2);
-			dataF3=sumArray(data3);
-			dataF4=(dataF3/dataF2)*100;
+			dataF2=sumArray(data2);//Scheduled time
+			dataF3=sumArray(data3);//Used time
+			dataF4=(dataF3/dataF2)*100; //MSC
 			
 			console.log("dataF2");
 			console.log(dataF2);
@@ -671,7 +534,14 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 			console.log(Mant_HistVI);
 			
 			//Find all the Maintenance elements present
-			var Mant_Ele=getUniqueValuesByKey(Mant_HistVI,"Text_M");
+			var Mant_Ele;
+			if (Text_M=="All machines"){
+				Mant_Ele=getUniqueValuesByKey(ResultI,"address");
+				
+			}
+			else{
+				Mant_Ele=getUniqueValuesByKey(Mant_HistVI,"Text_M");
+			}
 			
 			console.log("Mant_Ele");
 			console.log(Mant_Ele);
@@ -711,7 +581,7 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 					for(var k=0; k<Mant_HistVI.length; k++){	
 						const myArray = JSON.parse(Mant_HistVI[k])	
 						const Mant_DateI=(new Date(myArray.Actual_Time)).toISOString().split('T')[0];			
-						if(Mant_Dates[j]==Mant_DateI && Mant_Ele[i]==myArray.Text_M){
+						if((Text_M!="All machines"&&Mant_Dates[j]==Mant_DateI && Mant_Ele[i]==myArray.Text_M)||(Text_M=="All machines"&&Mant_Dates[j]==Mant_DateI && Mant_Ele[i]==MantAddresses[k])){
 							coincidence=true;	
 							dataii=dataii+Math.abs(myArray.Used_Time);		
 						}
@@ -752,10 +622,24 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 			var Colors=Mono_colors(Mant_Ele.length,Color);
 			//Prepare Series
 			 for(var i=0; i<Mant_Ele.length; i++)	 { 
+				var SeriesNI;
+				if (Text_M=="All machines"){
+					SeriesNI=getSecondToLastElement(Mant_Ele[i]);				
+				}
+				else{
+					SeriesNI=Mant_Ele[i];
+				}
+				
 				Series.push({
 					color:Colors[i],
-					name: Mant_Ele[i],			
+					name: SeriesNI,			
 					data: dataF[i] 	
+				});	
+				
+				Series2.push({
+					color:Colors[i],
+					name: SeriesNI,			
+					y: arraySum(dataF[i])	
 				});					
 			 }
 		 }
@@ -773,7 +657,7 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 		
 		
 			 
-		 callback({CategoriesF:CategoriesF[0],Series:Series, Labels:Labels, dataF2:dataF2, dataF3:dataF3, dataF4:dataF4});
+		 callback({CategoriesF:CategoriesF[0],Series:Series, Series2:Series2, Labels:Labels, dataF2:dataF2, dataF3:dataF3, dataF4:dataF4});
 	});
 }
 
@@ -781,19 +665,31 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 //Function to fill the maintenance Combobox
 function fill_combobox(Mant_ElementsR){
 	 //Add values to the maintenance list
-  	webMI.data.read(Mant_ElementsR, function(e) {
-	   if(e.value!=undefined){
-		   var Mant_ElementsI=JSON.parse(e.value);
-		   webMI.trigger.fire("clearItems_Global_Maintenance_Type_Chart", 0);
-		   webMI.trigger.fire("addItemT_Global_Maintenance_Type_Chart", {value:{value:0, text:"All maintenance"}});
+	 
+	 if (Mant_ElementsR=="All machines"){
+		 webMI.trigger.fire("clearItems_Global_Maintenance_Type_Chart", 0);
+		 webMI.trigger.fire("addItemT_Global_Maintenance_Type_Chart", {value:{value:0, text:"All machines"}});
+		 webMI.trigger.fire("addItemT_Global_Maintenance_Type_Chart", {value:{value:0, text:"All maintenance"}});
+		 //Set All maintenance as default 
+		 webMI.trigger.fire("setSelectedItem_Global_Maintenance_Type_Chart", {value:{value:0, text:"All machines"}});
+	 }
+	 else{
+		webMI.data.read(Mant_ElementsR, function(e) {
+		   if(e.value!=undefined){
+			   var Mant_ElementsI=JSON.parse(e.value);
+			   webMI.trigger.fire("clearItems_Global_Maintenance_Type_Chart", 0);
+			   webMI.trigger.fire("addItemT_Global_Maintenance_Type_Chart", {value:{value:0, text:"All maintenance"}});
+				   
+			   for (var i in Mant_ElementsI) {
+					var Mant_ElementsII=Mant_ElementsI[i];
+					webMI.trigger.fire("addItemT_Global_Maintenance_Type_Chart", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
+			   }
 			   
-		   for (var i in Mant_ElementsI) {
-				var Mant_ElementsII=Mant_ElementsI[i];
-				webMI.trigger.fire("addItemT_Global_Maintenance_Type_Chart", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
-		   }
-	   }	  
-	});
-
+			//Set All maintenance as default 
+			webMI.trigger.fire("setSelectedItem_Global_Maintenance_Type_Chart", {value:{value:0, text:"All maintenance"}});
+		   }	  
+		});
+	}
 }
 
 //Get unique value keys
@@ -877,5 +773,39 @@ function Mono_colors (Cantidad,ColorBase){
         colors.push(Highcharts.color(ColorBase).brighten((i-1) / 5).get());
     }
     return colors;
+}
+
+//Get SecondToLastElement
+function getSecondToLastElement(string) {
+  // Split the string by dot ('.') separator
+  const elements = string.split('.');
+
+  // Return the second-to-last element
+  return elements[elements.length - 2];
+}
+
+
+//Array Sum
+function arraySum(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+//Wait for data to be ready
+
+function waitForCondition() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+	var condition=(Mant_HistR!=undefined&&Mant_Elements!=undefined);
+	console.log(condition);
+      if (condition) {
+        clearInterval(interval);
+        resolve(true);
+      }
+    }, 100);
+  });
 }]]></script>
 </svg>

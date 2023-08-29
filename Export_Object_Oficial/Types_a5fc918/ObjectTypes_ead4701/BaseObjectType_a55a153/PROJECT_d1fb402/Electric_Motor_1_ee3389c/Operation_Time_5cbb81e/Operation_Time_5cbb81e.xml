@@ -24,19 +24,18 @@
     </RelativePath>
   </parameter>
   <parameter name="Timer" type="interval" trigger="true" relative="false" value="" offset="00:00:00" interval="00:00:01"/>
-  <code><![CDATA[/**********Declaro las variables**********/
+  <code><![CDATA[/**********Declare Variables**********/
 
-//Externas Caudal
-var OnOff = Ua.findNode(base+".OnOff"); //Variable de Caudal_Dif
-var Time = Ua.findNode(base + ".Time"); //Variable de Caudal_Dif
+//External Variables
+var OnOff = Ua.findNode(base+".Variables.OnOff"); //Variable On OFF
+var Time = Ua.findNode(base + ".Time"); //Variable Time
 
-/**********Ejecuto lógica**********/
+/**********Execute Logic**********/
 
-//Si esta encendida
+//If it is on
 
 if (OnOff.result.value){
-	//Caudal
+	//Time
 	Time.result.assign({value: Time.result.value+1}); //Le sumo un Segundo
-}
-]]></code>
+}]]></code>
 </script>

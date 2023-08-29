@@ -185,9 +185,11 @@ webMI.addOnload(function() {
 
 //Monitor Global Maintenance Element
 webMI.trigger.connect("Global_Object_Current_Addres", function (e) {
+	
+	console.log(e);
 	//Update Mant Necessary Elements
-	Mant_Notification=e.value+".Mant_Notification";
-	Mant_Elements=e.value+".Parameters.Mant_Elements";
+	Mant_Notification=e.value.Elements[0]+".Mant_Notification";
+	Mant_Elements=e.value.Elements[0]+".Parameters.Mant_Elements";
 	fill_combobox(Mant_Elements);
 });
 

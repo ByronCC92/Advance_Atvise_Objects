@@ -5,32 +5,31 @@
     <owner>root</owner>
     <runcontext>caller</runcontext>
   </metadata>
-  <parameter name="Encendido" type="node" trigger="true" relative="true">
+  <parameter name="OnOff" type="node" trigger="true" relative="true">
     <RelativePath>
       <Elements>
         <RelativePathElement>
           <TargetName>
             <NamespaceIndex>1</NamespaceIndex>
-            <Name>Apertura</Name>
+            <Name>OnOff</Name>
           </TargetName>
         </RelativePathElement>
       </Elements>
     </RelativePath>
   </parameter>
-  <parameter name="Timer" type="interval" trigger="true" relative="false" value="" offset="00:00:00" interval="00:00:01"/>
-  <code><![CDATA[/**********Declaro las variables**********/
+  <parameter name="Timer" type="interval" trigger="false" relative="false" value="" offset="00:00:00" interval="00:00:01"/>
+  <code><![CDATA[/**********Declare Variables**********/
 
-//Externas Caudal
-//var Apertura = Ua.findNode(base+".Apertura"); //Variable de Caudal_Dif
-var Time = Ua.findNode(base + ".Time"); //Variable de Caudal_Dif
+//External Variables
+var OnOff = Ua.findNode(base+".Variables.OnOff"); //Variable On OFF
+var Time = Ua.findNode(base + ".Time"); //Variable Time
 
-/**********Ejecuto lógica**********/
+/**********Execute Logic**********/
 
-//Si esta encendida
-/*
-if (Apertura.result.value){
-	//Caudal
+//If it is on
+
+if (OnOff.result.value){
+	//Time
 	Time.result.assign({value: Time.result.value+1}); //Le sumo un Segundo
-}
-*/]]></code>
+}]]></code>
 </script>

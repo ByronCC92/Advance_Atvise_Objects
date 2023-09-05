@@ -61,15 +61,19 @@
  <text atv:refpx="80" atv:refpy="169" fill="#333333" font-family="Arial" font-size="20" id="id_5" x="35.5" y="173.5">Scheduled Time</text>
  <text atv:refpx="32.709" atv:refpy="308" fill="$Color$" font-family="Arial" font-size="48" id="Text_2" x="33.5" y="312.5">I</text>
  <text atv:refpx="58.416" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_6" x="24.5" y="35.5">Maintenance</text>
- <foreignObject height="300" id="chart_container4" width="420" x="840" y="500">
+ <foreignObject height="300" id="chart_container4" width="420" x="840" y="150">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
  </foreignObject>
- <foreignObject height="350" id="chart_container5" width="840" x="840" y="150">
+ <foreignObject height="350" id="chart_container5" width="840" x="840" y="450">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <foreignObject height="300" id="chart_container6" width="420" x="1260" y="150">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
  </foreignObject>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/highcharts.js"/>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/highcharts-more.js"/>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/solid-gauge.js"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/funnel.js"/>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/exporting.js"/>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//------Initialize Variables-----------//
 var Type_M; //Maintenance Type Number
@@ -88,10 +92,13 @@ var chart_2; //Reference Chart 2
 var chart_3; //Reference Chart 3
 var chart_4; //Reference Chart 4
 var chart_5; //Reference Chart 5
+var chart_6; //Reference Chart 6
 var chartDiv1;
 var chartDiv2;
 var chartDiv3;
 var chartDiv4;
+var chartDiv5;
+var chartDiv6;
 
 //------Initial Conditions-----------//
 webMI.addOnload(function() {
@@ -109,12 +116,14 @@ webMI.addOnload(function() {
   	chartDiv3 = document.getElementById("chart_container3");
   	chartDiv4 = document.getElementById("chart_container4");
   	chartDiv5 = document.getElementById("chart_container5");
+  	chartDiv6 = document.getElementById("chart_container6");
   	
 	webMI.gfx.setScaledEvents(chartDiv1);
 	webMI.gfx.setScaledEvents(chartDiv2);	
 	webMI.gfx.setScaledEvents(chartDiv3);
 	webMI.gfx.setScaledEvents(chartDiv4);
 	webMI.gfx.setScaledEvents(chartDiv5);
+	webMI.gfx.setScaledEvents(chartDiv6);
 	
 	(async () => {
 	  await waitForCondition();
@@ -499,7 +508,7 @@ function updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M){
 		
 			tooltip: {
 				headerFormat: '<b>{series.name}</b><br/>',
-				pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+				pointFormat: '{point.y:.2f}'
 			},
 			
 			 plotOptions: {
@@ -521,6 +530,38 @@ function updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M){
 		
 			series: e.Series3
 		});
+		
+		
+		//Pyramid Chart
+		chart_6=Highcharts.chart(chartDiv6, {
+			chart: {
+				type: 'pyramid'
+			},
+			title: {
+				text: 'MSC Distribution'
+			},
+			plotOptions: {
+				series: {
+					dataLabels: {
+						enabled: true,
+						format: '<b>{point.name}</b> ({point.y:,.1f})',
+						softConnector: true,
+						position: 'left',
+					},
+					center: ['60%', '50%'],
+					width: '60%'
+				}
+			},
+			tooltip: {
+				headerFormat: '<b>{series.name}</b><br/>{point.name}',
+				pointFormat: '{point.y:.2f}%'
+			},
+			
+			series: [{
+				name: 'MSC',
+				data: e.dataF5 // Your prepared and sorted data
+			}]
+		});	
 	});			
 }
 
@@ -542,6 +583,8 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 	
 	var data = new Array();
 	var dataF = new Array();
+	var dataRT = new Array();
+	var dataRTF = new Array();
 	var Categories = new Array();
 	var CategoriesF = new Array();
 	var Labels= new Array();
@@ -635,12 +678,12 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 				Mant_Ele=getUniqueValuesByKey(Mant_HistVI,"Text_M");
 			}
 			
-			console.log("Mant_Ele");
-			console.log(Mant_Ele);
+			
 			//Create Spaces for data				
 			 for(var i=0; i<Mant_Ele.length; i++)	 { 
 				data.push([]);
 				dataF.push([]);
+				dataRT.push([]);
 				CategoriesF.push([]);
 				Labels.push([]);
 			 }
@@ -674,12 +717,14 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 			 for (var i=0; i<Mant_Ele.length; i++){					
 				for(var j=0; j<Mant_Dates.length; j++){
 					var dataii=0;
+					var dataiiRT=0;
 					for(var k=0; k<Mant_HistVI.length; k++){	
 						const myArray = Mant_HistVI[k];	
 						const Mant_DateI=(new Date(myArray.Actual_Time)).toISOString().split('T')[0];			
 						if((Text_M!="All machines"&&Mant_Dates[j]==Mant_DateI && Mant_Ele[i]==myArray.Text_M)||(Text_M=="All machines"&&Mant_Dates[j]==Mant_DateI && Mant_Ele[i]==MantAddresses[k])){
 							coincidence=true;	
-							dataii=dataii+Math.abs(myArray.Used_Time);		
+							dataii=dataii+Math.abs(myArray.Used_Time);
+							dataiiRT=dataiiRT+Math.abs(myArray.Required_Time);		
 						}
 						else if (Mant_Dates[j]!=Mant_DateI){
 							if(coincidence!=true){ //Only if it was never true
@@ -689,9 +734,11 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 					}						
 					if(coincidence==true){
 						data[i].push(dataii/60);//Convert to minutes
+						dataRT[i].push(dataiiRT/60);//Convert to minutes
 					}
 					else{
 						data[i].push(0);
+						dataRT[i].push(0);
 					}
 				}
 			
@@ -700,11 +747,20 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 			 console.log(data);		 
 			 
 			//Filter data
+			var SeriesNI=new Array();//Names
 			for (var i=0; i<Mant_Ele.length; i++){				
 					for (var j=0; j<Mant_Dates.length; j++){	
 							CategoriesF[i].push(Mant_Dates[j]);	
 							dataF[i].push(data[i][j]);	
-							Labels[i].push(convertSecondsToTime(data[i][j]*60));				    
+							Labels[i].push(convertSecondsToTime(data[i][j]*60));		    
+					}
+					dataRTF.push((sumArray(data[i])/sumArray(dataRT[i]))*100);
+					
+					if (Text_M=="All machines"){
+						SeriesNI.push(getSecondToLastElement(Mant_Ele[i]));				
+					}
+					else{
+						SeriesNI.push(Mant_Ele[i]);
 					}
 			}
 			
@@ -713,36 +769,34 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 			console.log(dataF);		
 			
 			console.log("Labels");		
-			console.log(Labels);		
+			console.log(Labels);
+			
+			console.log("dataRTF");		
+			console.log(dataRTF);			
 			
 			var Colors=Mono_colors(Mant_Ele.length,Color);
 			//Prepare Series
 			 for(var i=0; i<Mant_Ele.length; i++)	 { 
-				var SeriesNI;
-				if (Text_M=="All machines"){
-					SeriesNI=getSecondToLastElement(Mant_Ele[i]);				
-				}
-				else{
-					SeriesNI=Mant_Ele[i];
-				}
+				
+				
 				
 				//Bar Chart
 				Series.push({
 					color:Colors[i],
-					name: SeriesNI,			
+					name: SeriesNI[i],			
 					data: dataF[i] 	
 				});	
 				
 				//Pie Chart
 				Series2.push({
 					color:Colors[i],
-					name: SeriesNI,			
+					name: SeriesNI[i],			
 					y: sumArray(dataF[i])	
 				});					
 			 }
 			 
 			 //Prepare Series 3		
-			 Colors=Mono_colors(data5.length,Color);
+			 var Colors2=Mono_colors(data5.length,Color);
 			 var count=0;
 			 var yAxisI=0;	 
 			 var Pattern=data5[0];
@@ -763,13 +817,19 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 				 
 				 Series3.push({
 							name:key,
-							color:Colors[count],
+							color:Colors2[count],
 							yAxis: yAxisI,
 							data:dataI3
 							
 				 });
 				count++;				 		
 			 }
+			 console.log("Colors");
+			 console.log(Colors);
+			 console.log("Mant_Ele");
+			console.log(Mant_Ele);
+			 //Prepare data 5 MSC Pyramid
+			 dataF5=prepareDataForPyramidHighcharts(SeriesNI,dataRTF,Colors);
 			 
 		 }
 		 else{ //No data found
@@ -786,7 +846,7 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 		
 		
 			 
-		 callback({CategoriesF:CategoriesF[0],Series:Series, Series2:Series2, Series3:Series3, Labels:Labels, dataF2:dataF2, dataF3:dataF3, dataF4:dataF4});
+		 callback({CategoriesF:CategoriesF[0],Series:Series, Series2:Series2, Series3:Series3, Labels:Labels, dataF2:dataF2, dataF3:dataF3, dataF4:dataF4, dataF5:dataF5});
 	});
 }
 
@@ -897,7 +957,7 @@ function sumArray(numbers) {
 //Monocromatic colors
 function Mono_colors (Cantidad,ColorBase){
     var colors = [];
-    for (var i = 0; i <= Cantidad; i++) {
+    for (var i = 0; i < Cantidad; i++) {
         
         colors.push(Highcharts.color(ColorBase).brighten((i-1) / 5).get());
     }
@@ -1022,5 +1082,24 @@ function calculateTimeStats(timeArray, dataArray) {
   });
 
   return results;
+}
+
+//Prepare data for Pyramid data
+function prepareDataForPyramidHighcharts(labels, numbers, colors) {
+  if (labels.length !== numbers.length || labels.length !== colors.length) {
+    throw new Error('Length of labels, numbers, and colors arrays must be the same.');
+  }
+
+  // Pair the labels with their corresponding numbers and colors
+  const pairedData = labels.map((label, index) => ({
+    name: label,
+    y: numbers[index],
+    color: colors[index]
+  }));
+
+  // Sort the paired data based on the numbers (smallest to biggest)
+  const sortedData = pairedData.sort((a, b) => a.y - b.y);
+
+  return sortedData;
 }]]></script>
 </svg>

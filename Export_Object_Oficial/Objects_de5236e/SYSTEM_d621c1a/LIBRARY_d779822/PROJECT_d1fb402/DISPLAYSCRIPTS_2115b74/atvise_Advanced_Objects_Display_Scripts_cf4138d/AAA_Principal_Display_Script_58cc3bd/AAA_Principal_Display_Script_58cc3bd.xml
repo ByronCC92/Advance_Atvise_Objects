@@ -74,11 +74,37 @@ var Global_Maintenance=webMI.query["Global_Maintenance"];
 webMI.addOnload(function(e) {
 
 	//Get reference position for Popups
+	var Pop_PositionX;
+	var Pop_PositionY;
+	const windowsize={width:740,height:230};
 	const thisElement = document.getElementById('click_area_alarm_min'); //Any element in child
 	const parentElement = thisElement.parentElement; //Get parent html element reference
+	
+	const width = screen.availWidth;
+	const height = screen.availHeight;
+	
+	console.log("width: "+width+", "+"height: "+height);
 	const absolutePosition= [parentElement.getAttribute('x'),parentElement.getAttribute('y')];
-	Pop_Position=[Number(absolutePosition[0])+80,Number(absolutePosition[1])+120]; //Position where the Pop Up Hides
-
+	
+	//Pop_Position=[Number(absolutePosition[0])+80,Number(absolutePosition[1])+120]; //Position where the Pop Up Hides
+	if ((Number(absolutePosition[0])+80+windowsize.width)<=width){
+		Pop_PositionX=Number(absolutePosition[0])+80;
+		
+	}
+	else if((Number(absolutePosition[0])+80+windowsize.width)>width){
+		Pop_PositionX=width-windowsize.width;
+	}
+	
+	if ((Number(absolutePosition[1])+135+windowsize.height)<=height){
+		Pop_PositionY=Number(absolutePosition[1])+135;
+		
+	}
+	else if((Number(absolutePosition[1])+135+windowsize.height)>height){
+		Pop_PositionY=height-windowsize.height-200;
+	}
+	
+	Pop_Position=[Pop_PositionX,Pop_PositionY]; //Position where the Pop Up Hides
+	
 	
 	//Read Root Node path
 	webMI.data.read(Root_PathR, function(e) {

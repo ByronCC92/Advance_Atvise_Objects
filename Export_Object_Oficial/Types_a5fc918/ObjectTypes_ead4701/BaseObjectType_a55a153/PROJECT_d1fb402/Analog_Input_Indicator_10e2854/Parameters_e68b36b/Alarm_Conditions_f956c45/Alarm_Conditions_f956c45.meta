@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Analog_Input_Indicator.Parameters.Alarm_Conditions
+NodeClass: Variable
+BrowseName: 1:Alarm_Conditions
+DisplayName: en|Alarm_Conditions
+Description: en|Alarm_Conditions
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

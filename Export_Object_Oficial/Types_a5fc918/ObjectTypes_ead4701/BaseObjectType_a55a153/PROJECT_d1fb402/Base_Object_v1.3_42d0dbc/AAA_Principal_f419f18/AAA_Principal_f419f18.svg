@@ -61,7 +61,7 @@
  <text atv:refpx="92.123" atv:refpy="161.5" fill="#195c88" font-family="Arial" font-size="12" font-weight="bold" id="id_49" x="74.967" y="166">On/Off</text>
  <polygon atv:refpx="65.671" atv:refpy="46.035" fill="#fdf90a" id="alert_increasing" points="53.67,58.034 77.67,58.034 65.003,34.034" stroke="#000000" stroke-width="1"/>
  <rect atv:refpx="123" atv:refpy="99" fill="#185b85" height="50" id="Image1" stroke="#0000ff" stroke-width="0" width="50" x="98" y="74"/>
- <rect atv:refpx="128" atv:refpy="75" fill="#000000" fill-opacity="0" height="110" id="click_area" stroke="#0000ff" stroke-width="0" width="120" x="68" y="20"/>
+ <rect atv:refpx="128" atv:refpy="78" fill="#000000" fill-opacity="0" height="110" id="click_area" stroke="#0000ff" stroke-width="0" width="120" x="68" y="23"/>
  <g atv:refpx="26.062" atv:refpy="176.062" id="maintenance" transform="matrix(1,0,0,1,1.4181,21.4175)">
   <rect atv:refpx="46.171" atv:refpy="204.643" fill="#2b9de8" height="24.544" id="id_39" stroke="#000000" stroke-width="1" transform="matrix(0.7071,-0.7071,0.7071,0.7071,0,0)" width="24.544" x="-104.196" y="114.505"/>
   <text atv:refpx="28" atv:refpy="149.5" fill="#000000" font-family="Arial" font-size="14" id="id_40" x="18.5" y="160">M</text>

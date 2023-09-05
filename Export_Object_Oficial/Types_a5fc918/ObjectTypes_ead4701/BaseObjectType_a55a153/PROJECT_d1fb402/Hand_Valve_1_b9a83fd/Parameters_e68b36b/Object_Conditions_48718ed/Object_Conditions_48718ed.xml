@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+	<uax:ListOfString>
+		<uax:String>{&quot;Condition_name&quot;:&quot;ns=1;s=ObjectTypes.PROJECT.Hand_Valve_1.Variables.Control_Signal.Max_Min.Max&quot;,&quot;Condition_node&quot;:&quot;ns=1;s=ObjectTypes.PROJECT.Hand_Valve_1.Variables.Control_Signal&quot;,&quot;Condition_type&quot;:&quot;Max&quot;,&quot;Condition_limit&quot;:22,&quot;Initial_value&quot;:20,&quot;Range&quot;:22}</uax:String>
+	</uax:ListOfString>
+</Value>

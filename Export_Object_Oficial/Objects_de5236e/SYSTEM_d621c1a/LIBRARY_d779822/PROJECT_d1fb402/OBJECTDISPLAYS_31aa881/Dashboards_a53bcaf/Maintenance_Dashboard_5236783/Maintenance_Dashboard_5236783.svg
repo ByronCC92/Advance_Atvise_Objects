@@ -61,6 +61,7 @@
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="mode" value="Enum List"/>
   <atv:argument name="name" value="Maintenance_Element"/>
+  <atv:argument name="itemsCount" value="10"/>
   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5926,0,0,0.8571,0,0)" width="266"/>
   <atv:overwrite id="button_stroke" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="7.501"/>
   <atv:overwrite id="id_7" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="8.501"/>

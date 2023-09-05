@@ -48,7 +48,7 @@
   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
  </svg>
  <text atv:refpx="630.763" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="604.5" y="35.5">Final Date</text>
- <line atv:refpx="525" atv:refpy="110" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="1050" y1="110" y2="110"/>
+ <line atv:refpx="825" atv:refpy="110" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="1650" y1="110" y2="110"/>
  <foreignObject height="350" id="chart_container1" width="840" x="0" y="450">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
  </foreignObject>
@@ -61,12 +61,16 @@
  <text atv:refpx="80" atv:refpy="169" fill="#333333" font-family="Arial" font-size="20" id="id_5" x="35.5" y="173.5">Scheduled Time</text>
  <text atv:refpx="32.709" atv:refpy="308" fill="$Color$" font-family="Arial" font-size="48" id="Text_2" x="33.5" y="312.5">I</text>
  <text atv:refpx="58.416" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_6" x="24.5" y="35.5">Maintenance</text>
- <foreignObject height="300" id="chart_container4" width="420" x="840" y="150">
+ <foreignObject height="300" id="chart_container4" width="420" x="840" y="500">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <foreignObject height="350" id="chart_container5" width="840" x="840" y="150">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
  </foreignObject>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/highcharts.js"/>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/highcharts-more.js"/>
  <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/solid-gauge.js"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/exporting.js"/>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//------Initialize Variables-----------//
 var Type_M; //Maintenance Type Number
 var Text_M; //Maintenance Type Text
@@ -83,6 +87,7 @@ var chart_1; //Reference Chart 1
 var chart_2; //Reference Chart 2
 var chart_3; //Reference Chart 3
 var chart_4; //Reference Chart 4
+var chart_5; //Reference Chart 5
 var chartDiv1;
 var chartDiv2;
 var chartDiv3;
@@ -103,19 +108,20 @@ webMI.addOnload(function() {
   	chartDiv2 = document.getElementById("chart_container2");
   	chartDiv3 = document.getElementById("chart_container3");
   	chartDiv4 = document.getElementById("chart_container4");
+  	chartDiv5 = document.getElementById("chart_container5");
   	
 	webMI.gfx.setScaledEvents(chartDiv1);
+	webMI.gfx.setScaledEvents(chartDiv2);	
+	webMI.gfx.setScaledEvents(chartDiv3);
+	webMI.gfx.setScaledEvents(chartDiv4);
+	webMI.gfx.setScaledEvents(chartDiv5);
 	
 	(async () => {
 	  await waitForCondition();
 	  updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	 
 	})();
 
-	/*
-  	setTimeout(function() {
-	//Preapare data and create chart
-		updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	 
-	},500);	*/
+
 });
 
 //------Triggers-----------//
@@ -397,6 +403,7 @@ function updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M){
 			}]			
 		});	
 		
+		//Pie Chart
 		chart_4= Highcharts.chart(chartDiv4, {
 			chart: {
 				type: 'pie',		
@@ -447,6 +454,73 @@ function updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M){
 					data: e.Series2 						
 				}]
 		});
+		
+		
+		//Spline Chart
+		chart_5=Highcharts.chart(chartDiv5, {
+			chart: {
+				type: 'spline',
+			},
+		
+			time: {
+				useUTC: false
+			},
+		
+			title: {
+				text: 'Maintenance Behavior'
+			},	
+		
+			xAxis: {
+				type: 'datetime',
+				tickPixelInterval: 75,
+				maxPadding: 0.1,
+				crosshair: true
+			},
+		
+			yAxis:[{
+				title: {
+						text: 'Time (h)'
+					   },
+					   opposite: true, // Position the secondary axis on the opposite side
+				},					
+				{
+					title: {
+						text: 'MSC (%)'
+					},
+					
+				}],
+				plotLines: [
+					{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}
+				],
+		
+			tooltip: {
+				headerFormat: '<b>{series.name}</b><br/>',
+				pointFormat: '{point.x:%Y-%m-%d %H:%M:%S}<br/>{point.y:.2f}'
+			},
+			
+			 plotOptions: {
+				spline: {
+					dataLabels: {
+						enabled: true,
+						format: '{point.y:.1f}'
+					},
+				}
+			},
+		
+			legend: {
+				enabled: true
+			},
+		
+			exporting: {
+				enabled: false
+			},
+		
+			series: e.Series3
+		});
 	});			
 }
 
@@ -473,6 +547,8 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 	var Labels= new Array();
 	var Series = new Array();
 	var Series2 = new Array();
+	var Series3 = new Array();
+	var Times= new Array();
 	
 	//Gauge Chart Scheduled hours
 	var data2=new Array(); // Array Scheduled hours
@@ -484,6 +560,9 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 	
 	//Global MSC
 	var dataF4=0;
+	
+	//MSC Chart
+	var data5=new Array(); // Array Scheduled hours
 
 
 	var filter = {};
@@ -505,6 +584,7 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 		console.log(result);
 		if(result.length>0){//Is not empty
 			
+			//Extract needed elements from query
 			var Mant_HistV=new Array();
 			for (var i=0; i<result.length; i++)	 {
 				 Mant_HistV.push(result[i].value);
@@ -514,14 +594,26 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 			var Mant_HistVI=new Array();	
 			console.log(Mant_HistV);
 			
+			
+			//Keep only filtered data 
 			 for(var i=0; i<Mant_HistV.length; i++)	 { 
 				const myArray = JSON.parse(Mant_HistV[i]);
 				if (((Text_M==undefined||Text_M=="All maintenance"||Text_M=="All machines")||(Text_M!="All machines"&&Text_M!=undefined&&myArray.Text_M==Text_M))){
-					Mant_HistVI.push(Mant_HistV[i]);
+					Mant_HistVI.push(myArray);
 					data2.push(Math.abs(myArray.Required_Time));
 					data3.push(Math.abs(myArray.Used_Time));
 				}
 			 }
+			 
+			 //Define times for Statistical Chart
+			Times=getTimeArray(Initial_Date,Final_Date);
+			console.log("Times");
+			console.log(Times);
+			
+			data5=calculateTimeStats(Times,Mant_HistVI)
+			
+			console.log("data5");
+			console.log(data5);
 			 
 			dataF2=sumArray(data2);//Scheduled time
 			dataF3=sumArray(data3);//Used time
@@ -536,7 +628,7 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 			//Find all the Maintenance elements present
 			var Mant_Ele;
 			if (Text_M=="All machines"){
-				Mant_Ele=getUniqueValuesByKey(ResultI,"address");
+				Mant_Ele=getUniqueValuesByKey(result,"address");
 				
 			}
 			else{
@@ -555,7 +647,7 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 			
 			//Extract categories				
 			 for(var i=0; i<Mant_HistVI.length; i++)	 { 
-				const myArray = JSON.parse(Mant_HistVI[i]);
+				const myArray = Mant_HistVI[i];
 				Categories.push(myArray.Actual_Time);
 			 }
 			 
@@ -570,6 +662,10 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 			 console.log(Mant_Dates);
 			 
 			 
+			 //
+			 
+			 
+			 
 			 //----------------Prepare data-----------------//
 			  var coincidence=false;
 				 
@@ -579,7 +675,7 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 				for(var j=0; j<Mant_Dates.length; j++){
 					var dataii=0;
 					for(var k=0; k<Mant_HistVI.length; k++){	
-						const myArray = JSON.parse(Mant_HistVI[k])	
+						const myArray = Mant_HistVI[k];	
 						const Mant_DateI=(new Date(myArray.Actual_Time)).toISOString().split('T')[0];			
 						if((Text_M!="All machines"&&Mant_Dates[j]==Mant_DateI && Mant_Ele[i]==myArray.Text_M)||(Text_M=="All machines"&&Mant_Dates[j]==Mant_DateI && Mant_Ele[i]==MantAddresses[k])){
 							coincidence=true;	
@@ -630,18 +726,51 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 					SeriesNI=Mant_Ele[i];
 				}
 				
+				//Bar Chart
 				Series.push({
 					color:Colors[i],
 					name: SeriesNI,			
 					data: dataF[i] 	
 				});	
 				
+				//Pie Chart
 				Series2.push({
 					color:Colors[i],
 					name: SeriesNI,			
-					y: arraySum(dataF[i])	
+					y: sumArray(dataF[i])	
 				});					
 			 }
+			 
+			 //Prepare Series 3		
+			 Colors=Mono_colors(data5.length,Color);
+			 var count=0;
+			 var yAxisI=0;	 
+			 var Pattern=data5[0];
+			 for (const key in Pattern) {
+				 var dataI3=new Array();
+				 for(var i=0; i<data5.length; i++)	 {
+					  dataI3.push({ x:Times[i], y:data5[i][key]});
+				 }	
+				 
+				 //Define corresponding yAxis
+				 if(count<2) {
+					yAxisI=0;
+				 }
+				 else
+				 {
+					yAxisI=1;
+				 }
+				 
+				 Series3.push({
+							name:key,
+							color:Colors[count],
+							yAxis: yAxisI,
+							data:dataI3
+							
+				 });
+				count++;				 		
+			 }
+			 
 		 }
 		 else{ //No data found
 			CategoriesF[0]=("No Data")
@@ -657,7 +786,7 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 		
 		
 			 
-		 callback({CategoriesF:CategoriesF[0],Series:Series, Series2:Series2, Labels:Labels, dataF2:dataF2, dataF3:dataF3, dataF4:dataF4});
+		 callback({CategoriesF:CategoriesF[0],Series:Series, Series2:Series2, Series3:Series3, Labels:Labels, dataF2:dataF2, dataF3:dataF3, dataF4:dataF4});
 	});
 }
 
@@ -698,7 +827,7 @@ function getUniqueValuesByKey(arr, key) {
   const seenValues = new Set();
   
   arr.forEach((obj) => {
-	const obji=JSON.parse(obj);
+	const obji=obj;
     const value = obji[key];
     if (!seenValues.has(value)) {
       uniqueValues.push(value);
@@ -785,14 +914,6 @@ function getSecondToLastElement(string) {
 }
 
 
-//Array Sum
-function arraySum(arr) {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
-  }
-  return sum;
-}
 
 //Wait for data to be ready
 
@@ -807,5 +928,99 @@ function waitForCondition() {
       }
     }, 100);
   });
+}
+
+
+//Create array of times
+function getTimeArray(initialTime, lastTime) {
+  // Calculate the time difference
+  const diff = lastTime - initialTime;
+
+  // Define time units in milliseconds
+  const SECOND = 1000;
+  const MINUTE = 60 * SECOND;
+  const HOUR = 60 * MINUTE;
+  const DAY = 24 * HOUR;
+  const MONTH_AND_A_HALF = 45 * DAY; // 1.5 months approximated to 45 days
+  const YEAR = 365 * DAY; // Approximate year length
+
+  // Initialize the result array
+  const result = [];
+
+  // Check the time difference and populate the result array accordingly
+  if (diff >= YEAR) {
+    for (let time = initialTime; time <= lastTime; time += YEAR) {
+      result.push(time);
+    }
+  } else if (diff >= MONTH_AND_A_HALF) {
+    let date = new Date(initialTime);
+    while (date.getTime() <= lastTime) {
+      result.push(date.getTime());
+      date.setMonth(date.getMonth() + 1); // Move to the next month
+    }
+  } else if (diff >= DAY) {
+    for (let time = initialTime; time <= lastTime; time += DAY) {
+      result.push(time);
+    }
+  } else if (diff >= HOUR) {
+    for (let time = initialTime; time <= lastTime; time += HOUR) {
+      result.push(time);
+    }
+  } else if (diff >= MINUTE) {
+    for (let time = initialTime; time <= lastTime; time += MINUTE) {
+      result.push(time);
+    }
+  } else if (diff >= SECOND) {
+    for (let time = initialTime; time <= lastTime; time += SECOND) {
+      result.push(time);
+    }
+  }
+
+  return result;
+}
+
+
+//Calculate Stats per time
+function calculateTimeStats(timeArray, dataArray) {
+  const results = [];
+  let totalRequiredTime = 0;
+  let totalUsedTime = 0;
+  let totalRatio = 0;
+  let count = 0;
+  let highestUsedTime = Number.MIN_VALUE;
+  let lowestUsedTime = Number.MAX_VALUE;
+
+  let dataIndex = 0;
+
+  timeArray.forEach((timeLimit, index) => {
+    // Loop through the dataArray and filter by the time range
+    for (let i = dataIndex; i < dataArray.length; i++) {
+      const data = dataArray[i];
+      if (data.Time_M <= timeLimit) {
+        totalRequiredTime += Math.abs(data.Required_Time)/3600;
+        totalUsedTime += Math.abs(data.Used_Time)/3600;
+        totalRatio = (totalUsedTime / totalRequiredTime)*100;
+        count++;
+        highestUsedTime = Math.max(highestUsedTime, data.Used_Time);
+        lowestUsedTime = Math.min(lowestUsedTime, data.Used_Time);
+        dataIndex = i + 1; // Move the index to avoid re-processing
+      } else {
+        break;
+      }
+    }
+
+    const averageUsedTime = count === 0 ? 0 : totalUsedTime / count;
+
+    results.push({
+      'Total_Required_Time': totalRequiredTime,
+      'Total_Used_Time': totalUsedTime,
+      'MSC': totalRatio,
+      //'Average_Used_Time': averageUsedTime,
+      //'Highest_Used_Time': highestUsedTime === Number.MIN_VALUE ? 0 : highestUsedTime,
+      //'Lowest_Used_Time': lowestUsedTime === Number.MAX_VALUE ? 0 : lowestUsedTime
+    });
+  });
+
+  return results;
 }]]></script>
 </svg>

@@ -95,11 +95,11 @@ webMI.addOnload(function(e) {
 		Pop_PositionX=width-windowsize.width;
 	}
 	
-	if ((Number(absolutePosition[1])+120+windowsize.height)<=height){
-		Pop_PositionY=Number(absolutePosition[1])+120;
+	if ((Number(absolutePosition[1])+135+windowsize.height)<=height){
+		Pop_PositionY=Number(absolutePosition[1])+135;
 		
 	}
-	else if((Number(absolutePosition[1])+120+windowsize.height)>height){
+	else if((Number(absolutePosition[1])+135+windowsize.height)>height){
 		Pop_PositionY=height-windowsize.height-200;
 	}
 	

@@ -1,8 +1,0 @@
-NodeId: ns=1;s=ObjectTypes.PROJECT.Electric_Motor_1.Variables.Power_Factor.Max_Min.REPLACEMENTS
-NodeClass: Object
-BrowseName: 1:REPLACEMENTS
-DisplayName: en|REPLACEMENTS
-Description: en|REPLACEMENTS
-EventNotifier: 0
-Reference: forward HasModellingRule New
-Reference: forward HasTypeDefinition FolderType

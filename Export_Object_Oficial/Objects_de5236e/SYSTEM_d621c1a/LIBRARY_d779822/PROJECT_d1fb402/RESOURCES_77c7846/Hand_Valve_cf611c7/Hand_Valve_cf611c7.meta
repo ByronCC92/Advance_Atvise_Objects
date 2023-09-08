@@ -1,7 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/Hand_Valve
-NodeClass: Object
-BrowseName: 1:Hand_Valve
-DisplayName: en|Hand_Valve
-Description: en|Hand_Valve
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

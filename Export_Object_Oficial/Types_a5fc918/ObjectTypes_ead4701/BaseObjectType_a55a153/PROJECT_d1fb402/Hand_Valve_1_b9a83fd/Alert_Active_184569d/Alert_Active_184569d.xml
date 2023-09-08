@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
-	<uax:ListOfString>
-		<uax:String>{&quot;Alert&quot;:&quot;ns=1;s=ObjectTypes.PROJECT.Hand_Valve_1.Variables.Control_Signal.Max_Min.Max&quot;,&quot;Status&quot;:&quot;Increasing&quot;,&quot;Condition_type&quot;:&quot;Max&quot;,&quot;value&quot;:20,&quot;Timestamp&quot;:&quot;2023-09-05T13:48:22.224Z&quot;,&quot;eventText&quot;:&quot;Increasing Alert&quot;}</uax:String>
-		<uax:String>&quot;&quot;</uax:String>
-		<uax:String>&quot;&quot;</uax:String>
-		<uax:String>&quot;&quot;</uax:String>
-	</uax:ListOfString>
-</Value>

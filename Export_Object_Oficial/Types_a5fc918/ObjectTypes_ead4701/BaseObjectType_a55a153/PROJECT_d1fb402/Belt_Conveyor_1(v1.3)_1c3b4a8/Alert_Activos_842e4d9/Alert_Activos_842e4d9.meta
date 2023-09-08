@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Belt_Conveyor_1(v1.3).Alert_Activos
+NodeClass: Variable
+BrowseName: 1:Alert_Activos
+DisplayName: en|Alert_Activos
+Description: en|Alert_Activos
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

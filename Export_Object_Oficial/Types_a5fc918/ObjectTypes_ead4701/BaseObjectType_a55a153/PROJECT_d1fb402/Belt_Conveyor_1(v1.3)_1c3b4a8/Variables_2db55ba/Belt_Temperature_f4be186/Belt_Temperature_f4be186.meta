@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Belt_Conveyor_1(v1.3).Variables.Belt_Temperature
+NodeClass: Variable
+BrowseName: 1:Belt_Temperature
+DisplayName: en|Belt_Temperature
+Description: en|Belt_Temperature
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

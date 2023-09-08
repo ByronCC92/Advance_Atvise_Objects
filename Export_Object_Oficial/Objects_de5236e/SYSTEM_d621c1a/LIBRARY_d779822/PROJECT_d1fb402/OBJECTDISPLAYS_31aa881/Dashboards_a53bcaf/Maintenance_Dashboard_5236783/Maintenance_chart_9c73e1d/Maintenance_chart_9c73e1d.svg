@@ -81,7 +81,7 @@ var Text_M; //Maintenance Type Text
 var Initial_Date;//Initial Date for Maintenance
 var Final_Date;//Final Date for Maintenance
 var tableData = [];
-var Mant_HistR=new Array;
+var Mant_HistR=new Array();
 var Mant_Elements;
 
 var Color=webMI.query["Color"];
@@ -606,7 +606,7 @@ function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
 	
 	//MSC Chart
 	var data5=new Array(); // Array Scheduled hours
-
+	var dataF5;
 
 	var filter = {};
 	

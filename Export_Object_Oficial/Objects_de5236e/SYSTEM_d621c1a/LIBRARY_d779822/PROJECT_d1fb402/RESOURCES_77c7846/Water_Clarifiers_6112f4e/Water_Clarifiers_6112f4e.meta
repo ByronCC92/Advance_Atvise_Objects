@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/Water Clarifiers
+NodeClass: Object
+BrowseName: 1:Water Clarifiers
+DisplayName: en|Water Clarifiers
+Description: en|Water Clarifiers
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

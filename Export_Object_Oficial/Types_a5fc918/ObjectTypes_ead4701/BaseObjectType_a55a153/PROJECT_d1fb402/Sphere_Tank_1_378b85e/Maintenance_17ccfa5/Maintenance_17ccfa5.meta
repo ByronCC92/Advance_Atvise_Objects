@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Sphere_Tank_1.Maintenance
+NodeClass: Variable
+BrowseName: 1:Maintenance
+DisplayName: en|Maintenance
+Description: en|Maintenance
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

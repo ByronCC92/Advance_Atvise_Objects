@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="660" version="1.2" width="603" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_2" desc="Color 2" name="Color2" substitute="$Color2$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Display" name="Display" valuetype="display"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <svg atv:refpx="301.5" atv:refpy="369.997" height="600" id="id_0" transform="matrix(0.7538,0,0,0.9667,0,0)" width="800" x="0" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.hmi.iframe" y="82.756">
+  <atv:argument name="frameName" value="info_frame"/>
+  <atv:argument name="display" prefix="Display"/>
+ </svg>
+ <text atv:refpx="258.5" atv:refpy="46" fill="$Color$" font-family="Arial" font-size="28" id="Alarmas" x="236" y="50.5">Alarmas</text>
+ <text atv:refpx="427.882" atv:refpy="46" fill="$Color$" font-family="Arial" font-size="28" id="Mantenimiento" x="385.5" y="50.5">Mantenimiento</text>
+ <text atv:refpx="70.518" atv:refpy="46" fill="$Color$" font-family="Arial" font-size="28" id="Condiciones" x="35.5" y="50.5">Condiciones</text>
+ <rect atv:refpx="110" atv:refpy="40" fill="#195c88" fill-opacity="0" height="40" id="click_area_condiciones" stroke="#0000ff" stroke-width="0" width="160" x="30" y="20"/>
+ <rect atv:refpx="285" atv:refpy="40" fill="#195c88" fill-opacity="0" height="40" id="click_area_alarmas" stroke="#0000ff" stroke-width="0" width="110" x="230" y="20"/>
+ <rect atv:refpx="475" atv:refpy="40" fill="#195c88" fill-opacity="0" height="40" id="click_area_mantenimiento" stroke="#0000ff" stroke-width="0" width="190" x="380" y="20"/>
+ <line atv:refpx="300" atv:refpy="70.5" id="id_1" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="70" y2="70"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//Inicializo Variables
+var Color=webMI.query["Color"];
+var Color2=webMI.query["Color2"];
+var Raiz_Ruta;
+var Raiz_RutaR=webMI.query["base"]+".Parametros.Raiz_Ruta";
+
+/*********Al cargar Pantalla**********/
+
+webMI.addOnload(function(e) {
+
+	//Leo Raiz Ruta del nodo
+	webMI.data.read(Raiz_RutaR, function(e) {
+	    Raiz_Ruta=e.value;		
+	})	
+
+	var id = "Condiciones";
+	webMI.gfx.setFill(id, Color2);
+	webMI.gfx.setFill("Alarmas", Color);
+	webMI.gfx.setFill("Mantenimiento", Color);
+	
+	setTimeout(function() {
+		//Abro Condiciones
+		webMI.display.openDisplay(Raiz_Ruta+".Condiciones", webMI.query, "info_frame");
+	},200);
+
+});
+
+
+/*********Configuración de Botones**********/
+
+//Si presiono Condiciones
+webMI.addEvent("click_area_condiciones", "click", function(e) {
+	var id = "Condiciones";
+	webMI.gfx.setFill(id, Color2);
+	webMI.gfx.setFill("Alarmas", Color);
+	webMI.gfx.setFill("Mantenimiento", Color);
+	
+	//Abro Condiciones
+	webMI.display.openDisplay(Raiz_Ruta+".Condiciones", webMI.query, "info_frame");
+});
+
+
+//Si presiono Alarmas
+webMI.addEvent("click_area_alarmas", "click", function(e) {
+	var id = "Alarmas";
+	webMI.gfx.setFill("Condiciones", Color);
+	webMI.gfx.setFill(id, Color2);
+	webMI.gfx.setFill("Mantenimiento", Color);
+	
+	//Abro Alarmas
+	webMI.display.openDisplay(Raiz_Ruta+".Alarmas", webMI.query, "info_frame");
+});
+
+
+
+//Si presiono Mantenimiento
+webMI.addEvent("click_area_mantenimiento", "click", function(e) {
+	var id = "Mantenimiento";
+	webMI.gfx.setFill("Condiciones", Color);
+	webMI.gfx.setFill("Alarmas", Color);
+	webMI.gfx.setFill(id, Color2);
+	
+	//Abro Mantenmiento
+	webMI.display.openDisplay(Raiz_Ruta+".Configuracion", webMI.query, "info_frame");
+	
+});
+
+
+
+
+
+
+]]></script>
+</svg>

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Hand_Valve_1
+NodeClass: ObjectType
+BrowseName: 1:Hand_Valve_1
+DisplayName: en|Hand_Valve_1
+Description: en|Hand_Valve_1
+IsAbstract: false

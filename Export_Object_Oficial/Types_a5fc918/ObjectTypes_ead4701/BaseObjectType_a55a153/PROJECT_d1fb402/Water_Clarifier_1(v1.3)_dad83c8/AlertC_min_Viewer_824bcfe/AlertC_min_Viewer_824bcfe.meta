@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Water_Clarifier_1(v1.3).AlertC_min_Viewer
+NodeClass: Variable
+BrowseName: 1:AlertC_min_Viewer
+DisplayName: en|AlertC_min_Viewer
+Description: en|AlertC_min_Viewer
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

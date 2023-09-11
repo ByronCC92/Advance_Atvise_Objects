@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Belt_Conveyor_1(v1.3)
+NodeClass: ObjectType
+BrowseName: 1:Belt_Conveyor_1(v1.3)
+DisplayName: en|Belt_Conveyor_1(v1.3)
+Description: en|Belt_Conveyor_1(v1.3)
+IsAbstract: false

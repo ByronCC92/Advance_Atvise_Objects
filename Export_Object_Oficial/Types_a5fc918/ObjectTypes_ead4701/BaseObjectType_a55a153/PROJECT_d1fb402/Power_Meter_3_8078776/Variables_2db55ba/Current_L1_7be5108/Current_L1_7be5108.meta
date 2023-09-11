@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Power_Meter_3.Variables.Current_L1
+NodeClass: Variable
+BrowseName: 1:Current_L1
+DisplayName: en|Current_L1
+Description: en|Current_L1
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

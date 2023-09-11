@@ -2,5 +2,14 @@
 <Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
 	<uax:ListOfDouble>
 		<uax:Double>0</uax:Double>
+		<uax:Double>0</uax:Double>
+		<uax:Double>0</uax:Double>
+		<uax:Double>0</uax:Double>
+		<uax:Double>0</uax:Double>
+		<uax:Double>0</uax:Double>
+		<uax:Double>0</uax:Double>
+		<uax:Double>0</uax:Double>
+		<uax:Double>0</uax:Double>
+		<uax:Double>0</uax:Double>
 	</uax:ListOfDouble>
 </Value>

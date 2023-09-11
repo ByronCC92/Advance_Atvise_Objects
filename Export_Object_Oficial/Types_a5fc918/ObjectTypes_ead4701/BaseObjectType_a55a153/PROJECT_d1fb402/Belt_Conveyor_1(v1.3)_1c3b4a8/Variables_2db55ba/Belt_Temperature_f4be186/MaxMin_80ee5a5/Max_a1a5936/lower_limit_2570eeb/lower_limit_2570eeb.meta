@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Belt_Conveyor_1(v1.3).Variables.Belt_Temperature.MaxMin.Max.lower_limit
+NodeClass: Variable
+BrowseName: 1:lower_limit
+DisplayName: en|lower_limit
+Description: en|lower_limit
+DataType: BaseDataType
+ValueRank: -1
+AccessLevel: 103
+ValueType: Double
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

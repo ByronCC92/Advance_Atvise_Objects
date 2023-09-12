@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Diesel_Generator_2.Variables.Coolant_Temperature
+NodeClass: Variable
+BrowseName: 1:Coolant_Temperature
+DisplayName: en|Coolant_Temperature
+Description: en|Coolant_Temperature
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

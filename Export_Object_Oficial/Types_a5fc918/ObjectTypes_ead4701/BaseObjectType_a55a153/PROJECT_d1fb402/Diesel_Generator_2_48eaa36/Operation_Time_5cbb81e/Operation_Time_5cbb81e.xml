@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Encendido" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Apertura</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Timer" type="interval" trigger="true" relative="false" value="" offset="00:00:00" interval="00:00:01"/>
+  <code><![CDATA[/**********Declaro las variables**********/
+
+//Externas Caudal
+//var Apertura = Ua.findNode(base+".Apertura"); //Variable de Caudal_Dif
+var Time = Ua.findNode(base + ".Time"); //Variable de Caudal_Dif
+
+/**********Ejecuto lógica**********/
+
+//Si esta encendida
+/*
+if (Apertura.result.value){
+	//Caudal
+	Time.result.assign({value: Time.result.value+1}); //Le sumo un Segundo
+}
+*/]]></code>
+</script>

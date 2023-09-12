@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="OnOff" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Variables</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>OnOff</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Timer" type="interval" trigger="true" relative="false" value="" offset="00:00:00" interval="00:00:01"/>
+  <code><![CDATA[/**********Declare Variables**********/
+
+//External Variables
+var OnOff = Ua.findNode(base+".Variables.OnOff"); //Variable On OFF
+var Time = Ua.findNode(base + ".Time"); //Variable Time
+
+/**********Execute Logic**********/
+
+//If it is on
+
+if (OnOff.result.value){
+	//Time
+	Time.result.assign({value: Time.result.value+1}); //Le sumo un Segundo
+}]]></code>
+</script>

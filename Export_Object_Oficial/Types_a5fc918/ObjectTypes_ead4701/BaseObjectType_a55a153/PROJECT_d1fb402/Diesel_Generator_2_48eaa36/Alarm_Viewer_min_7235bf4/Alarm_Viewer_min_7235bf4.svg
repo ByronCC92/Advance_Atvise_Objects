@@ -6,6 +6,13 @@
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.Alarm_Viewer_min_Display_Script" atv:name="" atv:type="text/ecmascript"/>
+ <svg atv:refpx="370" atv:refpy="115" height="230" id="id_1" width="740" x="0" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.table_alarm" y="0">
+  <atv:argument name="tableID" value="Alarm_Table"/>
+  <atv:argument name="globalBorderColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
+  <atv:argument name="globalFillColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
+  <atv:argument name="globalFontColor" value="SYSTEM.GLOBALS.atvFontColor2"/>
+ </svg>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//Initialize Variables
 var self;
 var tableData = [];
@@ -76,10 +83,4 @@ webMI.table.loadResources(function () {
 
 
 ]]></script>
- <svg atv:refpx="370" atv:refpy="115" height="230" id="id_1" width="740" x="0" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.table_alarm" y="0">
-  <atv:argument name="tableID" value="Alarm_Table"/>
-  <atv:argument name="globalBorderColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
-  <atv:argument name="globalFillColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
-  <atv:argument name="globalFontColor" value="SYSTEM.GLOBALS.atvFontColor2"/>
- </svg>
 </svg>

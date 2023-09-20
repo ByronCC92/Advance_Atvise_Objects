@@ -1,9 +1,0 @@
-NodeId: ns=1;s=AGENT.OBJECTS.Boiler_1.Maintenance
-NodeClass: Variable
-BrowseName: 1:Maintenance
-DisplayName: en|Maintenance
-Description: en|Maintenance
-DataType: XmlElement
-ValueRank: -1
-AccessLevel: 103
-Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

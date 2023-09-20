@@ -1,7 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/SphereTank
-NodeClass: Object
-BrowseName: 1:SphereTank
-DisplayName: en|SphereTank
-Description: en|SphereTank
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

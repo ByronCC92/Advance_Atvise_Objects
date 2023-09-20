@@ -1,0 +1,29 @@
+NodeId: ns=1;s=AGENT.OBJECTS.Boiler_1
+NodeClass: Object
+BrowseName: 1:Boiler_1
+DisplayName: en|Boiler_1
+Description: en|Boiler_1
+EventNotifier: 0
+Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.PROJECT.Boiler_1
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.AAA_Principal
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Alarm_Monitor
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Alarm_Viewer
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Alarm_Viewer_min
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Alarms
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.AlertC_Viewer
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.AlertC_Viewer_min
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.AlertC_min_Viewer
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.AlertD_Viewer
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.AlertD_Viewer_min
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Alert_Monitor
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Conditions
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Conditions_Blank
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.General_Configuration
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Indicator_Slider
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Maintenance_Blank
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Maintenance_Chart
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Maintenance_Hist
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Mant_Monitor
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Mant_Viewer
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Operation_Time
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Startup_Script

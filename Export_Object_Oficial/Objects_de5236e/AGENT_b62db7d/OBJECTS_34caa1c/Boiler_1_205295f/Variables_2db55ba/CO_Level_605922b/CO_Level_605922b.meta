@@ -1,0 +1,10 @@
+NodeId: ns=1;s=AGENT.OBJECTS.Boiler_1.Variables.CO_Level
+NodeClass: Variable
+BrowseName: 1:CO_Level
+DisplayName: en|CO_Level
+Description: en|CO_Level
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasComponent ns=1;s=ObjectTypes.PROJECT.Boiler_1.Variables.CO_Level.MaxMin

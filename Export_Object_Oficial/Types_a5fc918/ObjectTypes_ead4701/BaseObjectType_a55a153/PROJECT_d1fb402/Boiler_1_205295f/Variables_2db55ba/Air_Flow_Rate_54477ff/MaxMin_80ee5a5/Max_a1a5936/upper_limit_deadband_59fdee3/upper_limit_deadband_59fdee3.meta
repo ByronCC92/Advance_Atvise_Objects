@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Boiler_1.Variables.Air_Flow_Rate.MaxMin.Max.upper_limit_deadband
+NodeClass: Variable
+BrowseName: 1:upper_limit_deadband
+DisplayName: en|upper_limit_deadband
+Description: en|upper_limit_deadband
+DataType: BaseDataType
+ValueRank: -1
+AccessLevel: 103
+ValueType: i=0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

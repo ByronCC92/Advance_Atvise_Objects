@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.Maintenance_Boiler
+NodeClass: Variable
+BrowseName: 1:Maintenance_Boiler
+DisplayName: en|Maintenance_Boiler
+Description: en|Maintenance_Boiler
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

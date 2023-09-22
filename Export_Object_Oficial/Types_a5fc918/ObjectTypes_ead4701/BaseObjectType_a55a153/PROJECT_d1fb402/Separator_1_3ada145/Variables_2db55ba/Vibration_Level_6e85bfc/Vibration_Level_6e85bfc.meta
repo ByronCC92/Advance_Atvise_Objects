@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Separator_1.Variables.Vibration_Level
+NodeClass: Variable
+BrowseName: 1:Vibration_Level
+DisplayName: en|Vibration_Level
+Description: en|Vibration_Level
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Separator_1
+NodeClass: ObjectType
+BrowseName: 1:Separator_1
+DisplayName: en|Separator_1
+Description: en|Separator_1
+IsAbstract: false

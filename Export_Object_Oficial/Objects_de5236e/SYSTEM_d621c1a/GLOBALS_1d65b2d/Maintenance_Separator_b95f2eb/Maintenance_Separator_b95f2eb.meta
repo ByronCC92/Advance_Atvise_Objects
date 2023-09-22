@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.Maintenance_Separator
+NodeClass: Variable
+BrowseName: 1:Maintenance_Separator
+DisplayName: en|Maintenance_Separator
+Description: en|Maintenance_Separator
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

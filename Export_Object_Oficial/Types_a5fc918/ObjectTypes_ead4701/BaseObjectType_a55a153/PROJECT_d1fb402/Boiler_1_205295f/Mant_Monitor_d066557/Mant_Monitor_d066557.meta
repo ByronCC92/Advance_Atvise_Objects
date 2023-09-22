@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Boiler_1.Mant_Monitor
+NodeClass: Variable
+BrowseName: 1:Mant_Monitor
+DisplayName: en|Mant_Monitor
+Description: en|Mant_Monitor
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.ScriptCode

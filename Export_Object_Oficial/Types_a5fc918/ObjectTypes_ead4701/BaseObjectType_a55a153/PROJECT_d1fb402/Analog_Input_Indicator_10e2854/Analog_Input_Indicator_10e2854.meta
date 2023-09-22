@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Analog_Input_Indicator
+NodeClass: ObjectType
+BrowseName: 1:Analog_Input_Indicator
+DisplayName: en|Analog_Input_Indicator
+Description: en|Analog_Input_Indicator
+IsAbstract: false

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Belt_Conveyor_1(v1.3).Variables.Energy_Consumption.MaxMin.display
+NodeClass: Variable
+BrowseName: 1:display
+DisplayName: en|display
+Description: en|display
+DataType: NodeId
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

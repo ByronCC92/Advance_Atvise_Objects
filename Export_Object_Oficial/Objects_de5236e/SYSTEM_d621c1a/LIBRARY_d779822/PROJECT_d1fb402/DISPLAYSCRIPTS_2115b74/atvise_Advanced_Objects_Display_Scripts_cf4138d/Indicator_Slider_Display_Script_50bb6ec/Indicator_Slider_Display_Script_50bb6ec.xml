@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[//External Variables
+var Input= webMI.query["Input"];
+var Alert_RangeR= webMI.query["Alert_Range"];
+var Object_ConditionsR= webMI.query["Object_Conditions"];
+var Color_Linea = webMI.query["Color_Linea"];
+var Color_Banda = webMI.query["Color_Banda"];
+
+
+//Internal Variables 
+var min;	
+var max;
+var alarmHigh;
+var alarmLow;
+var alertHigh;
+var alertLow;
+var Conditions=new Array();
+var Alarm_Range;
+
+webMI.addOnload(function(e) {
+
+	// Read Initial variables from the object's own Conditions
+	if(Object_ConditionsR!=undefined && Alert_RangeR!=undefined){
+		webMI.data.read([Object_ConditionsR,Alert_RangeR], function(e) {
+		   var Object_Conditions=e[0].value;
+		   var Alert_Range=e[1].value;
+		   if(Object_Conditions.length!=0){ //Not Empty
+				for (var i=0; i<Object_Conditions.length; i++){
+					//Look up Conditions of the corresponding node
+					var Object_ConditionsI=JSON.parse(Object_Conditions[i]);
+					if (Object_ConditionsI.Condition_node.split('ns=1;s=').pop()==Input) { 
+						Conditions.push(Object_ConditionsI);
+						if (Object_ConditionsI.Condition_type=="Max"){ //High Alarm
+							alarmHigh=Object_ConditionsI.Condition_limit;
+						}
+						else if (Object_ConditionsI.Condition_type=="Min"){ //Low Alarm
+							alarmLow=Object_ConditionsI.Condition_limit;
+						}
+					}
+				}
+				Alarm_Range=Conditions[0].Range;//Get Range
+				
+				//Alert Calculation	
+				alertHigh=alarmHigh-(Alert_Range*Alarm_Range/100);
+				alertLow=alarmLow+(Alert_Range*Alarm_Range/100);
+				
+				//Alarm Calculation
+				max=alarmHigh+(Alert_Range*Alarm_Range/100);
+				min=alarmLow-(Alert_Range*Alarm_Range/100);
+				if (min<0){
+					min=0;
+				}
+				
+				//Write Max and Min
+				webMI.gfx.setText("id_4", max);
+				webMI.gfx.setText("id_3", min);
+			   }
+		});
+	}
+
+	webMI.gfx.setVisible("id_12", false);
+	webMI.gfx.setVisible("id_13", false);
+	webMI.gfx.setVisible("id_23", false);
+	webMI.gfx.setVisible("id_26", false);
+	
+	//Write Max and Min
+	webMI.gfx.setText("id_4", max);
+
+});
+
+
+
+
+
+webMI.data.subscribe(webMI.query["Input"], function(e) {
+
+
+	var value=e.value;
+
+	
+	
+	///////Change Text
+	
+	webMI.gfx.setText("id_20", webMI.sprintf(("T{%.2f}"+webMI.query["Unit"]), value));
+	
+	///////Change Bar
+	
+	
+	webMI.gfx.setScaleX("id_2", webMI.translate((value <= min)? (min) : ((value >= max) ? (max) : (value)), min,max, 0, 1));
+	
+	///////Alert Symbol
+	
+	//Low Alert
+	if (alarmLow <= value && value <= alertLow){
+		webMI.gfx.setVisible("id_23", true);	
+		webMI.gfx.setVisible("id_12", false);
+		
+		//Always hide alarms
+		webMI.gfx.setVisible("id_26", false);
+		webMI.gfx.setVisible("id_13", false);
+		}	
+	
+	//High Alert
+	if (alertHigh <= value && value <= alarmHigh){
+		webMI.gfx.setVisible("id_12", true);
+		webMI.gfx.setVisible("id_23", false);
+		
+		//Always hide alarms
+		webMI.gfx.setVisible("id_26", false);
+		webMI.gfx.setVisible("id_13", false);
+		}		
+		
+	//Within Operating range
+	if (alertLow < value && value < alertHigh){
+		webMI.gfx.setVisible("id_12", false);	
+		webMI.gfx.setVisible("id_23", false);	
+		}
+		
+
+	///////Alarm Symbol
+	
+	//Low Alarm
+	if (min <= value && value < alarmLow) {
+		webMI.gfx.setVisible("id_26", true);
+		webMI.gfx.setVisible("id_23", false);
+		webMI.gfx.setVisible("id_12", false);
+		webMI.gfx.setVisible("id_13", false);
+		}
+	
+	//High Alarm
+	if (alarmHigh < value && value < max) {
+		webMI.gfx.setVisible("id_13", true); 		
+		webMI.gfx.setVisible("id_23", false);
+		webMI.gfx.setVisible("id_12", false);
+		webMI.gfx.setVisible("id_26", false);
+		}		
+	
+	//Within Alarm range
+	if (alarmLow < value && value < alarmHigh){
+		webMI.gfx.setVisible("id_26", false);
+		webMI.gfx.setVisible("id_13", false);
+		}
+		
+	//Out of Max or Min Ranges
+	
+	//After Minimun
+	if (min >= value) {
+		webMI.gfx.setVisible("id_26", true); 
+		webMI.gfx.setVisible("id_23", false);
+		webMI.gfx.setVisible("id_12", false);
+		webMI.gfx.setVisible("id_13", false);
+		webMI.gfx.setFill("id_2", "#a30002");
+		}
+	
+	//After Maximun
+	if (value >= max) {
+		webMI.gfx.setVisible("id_13", true); 
+		webMI.gfx.setVisible("id_23", false);
+		webMI.gfx.setVisible("id_12", false);
+		webMI.gfx.setVisible("id_26", false);
+		webMI.gfx.setFill("id_2", "#a30002");
+		}
+		
+		
+		//Within Range between Maximum and Minimum
+	if (min < value && value < max){		
+		webMI.gfx.setFill("id_2", webMI.query["Color"]);
+		}
+		
+		
+});
+
+
+
+
+
+
+
+
+
+
+
+]]></code>
+</script>

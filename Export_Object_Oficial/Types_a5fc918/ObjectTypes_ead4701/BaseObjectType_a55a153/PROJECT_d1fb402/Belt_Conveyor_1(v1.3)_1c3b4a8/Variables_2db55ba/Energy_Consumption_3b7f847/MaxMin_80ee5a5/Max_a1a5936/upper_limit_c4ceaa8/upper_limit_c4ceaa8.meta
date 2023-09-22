@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Belt_Conveyor_1(v1.3).Variables.Energy_Consumption.MaxMin.Max.upper_limit
+NodeClass: Variable
+BrowseName: 1:upper_limit
+DisplayName: en|upper_limit
+Description: en|upper_limit
+DataType: BaseDataType
+ValueRank: -1
+AccessLevel: 103
+ValueType: i=0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

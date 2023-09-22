@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Objeto_Base_v1.3.Visor_Alarmas_min
+NodeClass: Variable
+BrowseName: 1:Visor_Alarmas_min
+DisplayName: en|Visor_Alarmas_min
+Description: en|Visor_Alarmas_min
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

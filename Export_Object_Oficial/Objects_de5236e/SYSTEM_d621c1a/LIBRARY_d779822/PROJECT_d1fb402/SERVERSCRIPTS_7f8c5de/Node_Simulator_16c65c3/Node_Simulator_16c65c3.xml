@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <code><![CDATA[//External Variables
+var NodeI = Ua.findNode("Drag and drop node here");
+
+//Variables Internas
+var Nmax=80;
+var Nmin=20;
+
+//Ejecuto Logica
+NodeI.result.assign({value: Nmin + (Math.random()*(Nmax-Nmin))});]]></code>
+</script>

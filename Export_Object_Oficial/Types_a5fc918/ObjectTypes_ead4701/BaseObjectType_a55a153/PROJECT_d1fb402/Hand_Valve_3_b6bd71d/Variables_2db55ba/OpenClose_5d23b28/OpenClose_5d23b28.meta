@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Hand_Valve_3.Variables.OpenClose
+NodeClass: Variable
+BrowseName: 1:OpenClose
+DisplayName: en|OpenClose
+Description: en|OpenClose
+DataType: Boolean
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

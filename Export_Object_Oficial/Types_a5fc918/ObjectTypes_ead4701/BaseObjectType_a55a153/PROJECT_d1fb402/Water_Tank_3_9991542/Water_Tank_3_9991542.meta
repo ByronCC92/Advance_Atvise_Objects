@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Water_Tank_3
+NodeClass: ObjectType
+BrowseName: 1:Water_Tank_3
+DisplayName: en|Water_Tank_3
+Description: en|Water_Tank_3
+IsAbstract: false

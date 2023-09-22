@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Electric_Motor_1.Variables.Current.Max_Min.exclusive
+NodeClass: Variable
+BrowseName: 1:exclusive
+DisplayName: en|exclusive
+Description: en|exclusive
+DataType: Boolean
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Sphere_Tank_1.Conditions_Blank
+NodeClass: Variable
+BrowseName: 1:Conditions_Blank
+DisplayName: en|Conditions_Blank
+Description: en|Conditions_Blank
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

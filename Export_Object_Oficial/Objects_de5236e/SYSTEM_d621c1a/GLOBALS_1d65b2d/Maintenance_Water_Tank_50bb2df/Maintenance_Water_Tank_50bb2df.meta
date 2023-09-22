@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.Maintenance_Water_Tank
+NodeClass: Variable
+BrowseName: 1:Maintenance_Water_Tank
+DisplayName: en|Maintenance_Water_Tank
+Description: en|Maintenance_Water_Tank
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

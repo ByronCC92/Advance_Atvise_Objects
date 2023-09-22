@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Objeto_Base_v1.3.Parametros.Raiz_Ruta
+NodeClass: Variable
+BrowseName: 1:Raiz_Ruta
+DisplayName: en|Raiz_Ruta
+Description: en|Raiz_Ruta
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

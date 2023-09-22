@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Trigger" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Parameters</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Startup</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <code><![CDATA[//External Variables
+var Alarm_Conditions = Ua.findNode((base)+".Parameters.Alarm_Conditions");
+var Alarm_Names = Ua.findNode((base)+".Parameters.Alarm_Names");
+var Startup = Ua.findNode((base)+".Parameters.Startup");
+
+//Internal Variables
+var Alarm_ConditionsI=Alarm_Conditions.result.value;
+var Alert_Range=10; //10% 
+var Egu_Range=10; //10%
+var DB_Range=5; //5%
+
+
+//Only if it is true
+if (Startup.result.value){
+	console.log("---------------Startup Script----------------");
+	
+	//Analize Alarm Conditions and Update
+	if(Alarm_ConditionsI==""||Alarm_ConditionsI.length<=0){ //Value has not been initialized
+		console.log("Writting from 0");
+		Alarm_ConditionsI={HH: 0 ,H:0, L: 0, LL: 0, DB: 0, HIEGU: 0, LOEGU: 0, Disablealarms: false, CustomChange:false};
+	}
+	else {	
+		console.log("Keeping previous config");
+		Alarm_ConditionsI=JSON.parse(Alarm_ConditionsI);
+	}
+	var Alarm_NamesI=Alarm_Names.result.value;
+	
+	if (Alarm_NamesI.length>0){
+	
+		//Internal Variables		
+		for (var i=0; i<Alarm_NamesI.length; i++){
+			
+			var Config_conditions=alarming.configuration(Alarm_NamesI[i])[0];
+			
+			if (Config_conditions.lowerLimit!=undefined){ //High Alarm
+					
+				Alarm_ConditionsI.HH=Config_conditions.lowerLimit;			
+			}
+			else //Low Alarm
+			{
+				Alarm_ConditionsI.LL=Config_conditions.upperLimit;	
+			}
+		}
+		
+		if (!Alarm_ConditionsI.CustomChange){ //Not custom changed made
+			
+			var Limit_Range=Math.abs(Alarm_ConditionsI.HH-Alarm_ConditionsI.LL);
+			
+			//Alerts
+			Alarm_ConditionsI.H=Alarm_ConditionsI.HH-(Limit_Range*Alert_Range/100);
+			Alarm_ConditionsI.L=Alarm_ConditionsI.LL+(Limit_Range*Alert_Range/100);
+			
+			//EGU
+			Alarm_ConditionsI.HIEGU=Alarm_ConditionsI.HH+(Limit_Range*Egu_Range/100);
+			Alarm_ConditionsI.LOEGU=Alarm_ConditionsI.LL-(Limit_Range*Egu_Range/100);	
+			
+			//DB
+			Alarm_ConditionsI.DB=Alarm_ConditionsI.LL-(DB_Range*Egu_Range/100);
+		}
+	
+	}
+	
+		//Assing to alarm conditions
+		Alarm_Conditions.result.assign({value: JSON.stringify(Alarm_ConditionsI)});		
+		
+		//Restart Startup
+		Startup.result.assign({value: false});	
+}]]></code>
+</script>

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Objeto_Base_v1.3.Visor_Mant
+NodeClass: Variable
+BrowseName: 1:Visor_Mant
+DisplayName: en|Visor_Mant
+Description: en|Visor_Mant
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

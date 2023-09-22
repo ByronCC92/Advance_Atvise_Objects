@@ -1,8 +1,0 @@
-NodeId: i=85
-NodeClass: Object
-BrowseName: Objects
-DisplayName: en|Objects
-Description: en|Objects
-EventNotifier: 0
-Reference: forward Organizes Server
-Reference: forward HasTypeDefinition FolderType

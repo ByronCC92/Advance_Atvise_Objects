@@ -1,7 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/Belt_Conveyors
-NodeClass: Object
-BrowseName: 1:Belt_Conveyors
-DisplayName: en|Belt_Conveyors
-Description: en|Belt_Conveyors
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

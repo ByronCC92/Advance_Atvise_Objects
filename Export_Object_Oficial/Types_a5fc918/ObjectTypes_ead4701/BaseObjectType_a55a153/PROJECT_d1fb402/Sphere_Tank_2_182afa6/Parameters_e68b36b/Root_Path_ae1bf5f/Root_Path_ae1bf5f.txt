@@ -1,1 +1,0 @@
-ObjectTypes.PROJECT.Sphere_Tank_2

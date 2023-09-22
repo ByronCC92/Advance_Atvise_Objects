@@ -1,8 +1,0 @@
-NodeId: ns=1;s=ObjectTypes.PROJECT.Electric_Motor_2.Variables.RPM.Max_Min
-NodeClass: Object
-BrowseName: 1:Max_Min
-DisplayName: en|Max_Min
-Description: en|Max_Min
-EventNotifier: 0
-Reference: forward HasModellingRule Shared
-Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConfiguration

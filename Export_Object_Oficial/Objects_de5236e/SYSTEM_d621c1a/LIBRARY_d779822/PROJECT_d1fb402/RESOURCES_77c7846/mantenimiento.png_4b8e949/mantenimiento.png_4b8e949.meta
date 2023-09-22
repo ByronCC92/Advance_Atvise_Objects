@@ -1,9 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/mantenimiento.png
-NodeClass: Variable
-BrowseName: 1:mantenimiento.png
-DisplayName: en|mantenimiento.png
-Description: en|mantenimiento.png
-DataType: ByteString
-ValueRank: -1
-AccessLevel: 103
-Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Resource.Png

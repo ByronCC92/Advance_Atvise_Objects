@@ -1,9 +1,0 @@
-NodeId: ns=1;s=SYSTEM.GLOBALS.Maintenance_Belt_Conveyor
-NodeClass: Variable
-BrowseName: 1:Maintenance_Belt_Conveyor
-DisplayName: en|Maintenance_Belt_Conveyor
-Description: en|Maintenance_Belt_Conveyor
-DataType: String
-ValueRank: 1
-AccessLevel: 103
-Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

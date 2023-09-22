@@ -1,0 +1,10 @@
+NodeId: ns=1;s=AGENT.OBJECTS.ButtonCfg.NodePermission
+NodeClass: Variable
+BrowseName: 1:NodePermission
+DisplayName: en|NodePermission
+Description: en|NodePermission
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule SharedExclusive
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.AccessControl.Node

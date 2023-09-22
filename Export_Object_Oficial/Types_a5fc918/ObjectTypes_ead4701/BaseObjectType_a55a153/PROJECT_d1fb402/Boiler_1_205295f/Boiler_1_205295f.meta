@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Boiler_1
+NodeClass: ObjectType
+BrowseName: 1:Boiler_1
+DisplayName: en|Boiler_1
+Description: en|Boiler_1
+IsAbstract: false

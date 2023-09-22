@@ -29,27 +29,32 @@ var tabHandler = webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Tab Ha
 /**
  * DECLARATION SECTION
  */
-
-var base = webMI.query["base"];
+var alarmActiveColor=webMI.query["alarmActiveColor"] == undefined ? "dpt" : webMI.query["alarmActiveColor"];
+var base = webMI.query["Input"];//webMI.query["Input"];
 var name = webMI.query["name"] == undefined ? "dpt" : webMI.query["name"];
 var consistencyGroup = webMI.query["consistencyGroup"];
 var decimalFraction = parseInt(webMI.query["decimalFraction"], 10);
 var enumList = webMI.query["enumList"];
 var inputMode = webMI.query["validation"]; // implement if hasFeature html5 input types
 var leadingZeros = parseInt(webMI.query["leadingZeros"], 10);
-var outputNode = webMI.query["outputNode"] != "" ? webMI.query["outputNode"] : webMI.query["base"];
+var outputNode = webMI.query["outputNode"] != "" ? webMI.query["outputNode"] : webMI.query["Input"];
 var passwordMode = webMI.query["validation"] == "Password" || webMI.query["password"] == "Yes";
 var postDecimal = parseInt(webMI.query["postDecimal"], 10);
 var sign = webMI.query["sign"] == "true";
 var unit = webMI.query["unit"];
 
+
 /** style & colors **/
 var borderColor = webMI.query["borderColor"];
 var backgroundColor = typeof webMI.query["fill"] != "undefined" ? webMI.query["fill"] : webMI.query["inputFillColor"];
+var BadConnectionColor=webMI.query["BadConnectionColor"];
+var fontColorBadConnection=webMI.query["fontColorBadConnection"];
 var fillColorInactive = webMI.query["fillColorInactive"];
 var fillNotEditable = webMI.query["fillNotEditable"];
 var fontSize = webMI.query["fontSize"];
 var fontColor = webMI.query["fontColor"];
+var fontColorActiveUnacknowledge = webMI.query["fontColorActiveUnacknowledge"];
+var fontColorActiveAcknowledge = webMI.query["fontColorActiveAcknowledge"];
 var focusStrokeColor = webMI.query["focusStrokeColor"];
 var limitLowLowFill = webMI.query["limitLowLowFill"];
 var limitLowFill = webMI.query["limitLowFill"];
@@ -64,9 +69,12 @@ var keyboard = webMI.query["keyboard"];
 var number_keyboard = webMI.query["number_keyboard"];
 var selectTextOnFocus = webMI.query["selectTextOnFocus"];
 
-/** input fo **/
+
+//---- input fo---/
 var inputFO = webMI.dom.createElement("http://www.w3.org/1999/xhtml", "input");
 document.getElementById("svg_input").appendChild(inputFO);
+
+
 inputFO.type = inputMode == "Number" ? "number" : passwordMode ? "password" : "text"; //implement e-mail when browsers support it
 inputFO.id = "html_input_" + document.getElementById("svg_input").id;
 inputFO.className = "hideArrows";
@@ -83,8 +91,14 @@ inputFO.style.fontFamily = webMI.query["fontFamily"];
 inputFO.style.fontSize = parseFloat(fontSize) + "px";
 inputFO.onblur = _inputBlurHandler;
 
+
+
+
+
+
 /** status **/
 var alarmToSubscribe = webMI.query["alarm"];
+var alarmToSubscribe2 = webMI.query["alarm2"];
 var alarmIndication = webMI.query["alarmIndication"];
 var activeNode = webMI.query["activeNode"];
 var activeValue = webMI.query["activeValue"];
@@ -157,11 +171,13 @@ if (isIOSDevice) {
 webMI.addOnload(function (e) {
 	var doc = document.getElementById("svg_input").ownerDocument;
 	tabHandler.register(tabIndex, _inputKeyHandler, doc);
+	
+	_updateLabelColors("input_label",fontColor);
 });
 
-AggregateManager.isAggregates(webMI.query["base"], function (aggregate, aggregateNodeRights) {
-	var address = aggregate ? webMI.query["base"].replace(aggregate, "") : webMI.query["base"];
-	var baseForOutput = webMI.query["outputNode"] ? webMI.query["outputNode"] : webMI.query["base"];
+AggregateManager.isAggregates(webMI.query["Input"], function (aggregate, aggregateNodeRights) {
+	var address = aggregate ? webMI.query["Input"].replace(aggregate, "") : webMI.query["Input"];
+	var baseForOutput = webMI.query["outputNode"] ? webMI.query["outputNode"] : webMI.query["Input"];
 	var baseNotify = baseForOutput == webMI.query["outputNode"];
 
 	var notifierConfig = {
@@ -350,8 +366,8 @@ function inputEnableDisplay() {
 		for (var i in webMI.query) passObj[i] = webMI.query[i];
 		passObj["minValue"] = runTimeNodeConfig["min"]["value"];
 		passObj["maxValue"] = runTimeNodeConfig["max"]["value"];
-		if (webMI.query["base"] != "" && consistencyGroup == "") passObj["target"] = webMI.query["base"];
-		if (webMI.query["base"] == "" || consistencyGroup != "") passObj["trigger"] = communicationID;
+		if (webMI.query["Input"] != "" && consistencyGroup == "") passObj["target"] = webMI.query["Input"];
+		if (webMI.query["Input"] == "" || consistencyGroup != "") passObj["trigger"] = communicationID;
 		if (passwordMode) passObj["password"] = "Yes";
 		return passObj;
 	}
@@ -464,9 +480,9 @@ function inputWriteNodeOrGroup(newValue) {
 
 	runTimeNodeConfig.base.value = newValue;
 	webMI.trigger.fire("com.atvise.inout_" + name, newValue);
-	if (consistencyGroup == "" && webMI.query["base"] != "") {
-		//webMI.data.write(webMI.query["base"], newValue);
-	} else if (webMI.query["base"] != "") {
+	if (consistencyGroup == "" && webMI.query["Input"] != "") {
+		//webMI.data.write(webMI.query["Input"], newValue);
+	} else if (webMI.query["Input"] != "") {
 		// consistency
 		handleInput(newValue);
 	} else {
@@ -650,6 +666,10 @@ function _updateColors() {
 		lockUpdateColorValue = currentColor;
 		_setBackground(currentColor);
 	}
+}
+
+function _updateLabelColors(component,color) {
+	webMI.gfx.setFill(component, color);
 }
 
 /**

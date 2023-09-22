@@ -83,7 +83,7 @@ webMI.addOnload(function(e) {
 	const width = screen.availWidth;
 	const height = screen.availHeight;
 	
-	console.log("width: "+width+", "+"height: "+height);
+	
 	const absolutePosition= [parentElement.getAttribute('x'),parentElement.getAttribute('y')];
 	
 	//Pop_Position=[Number(absolutePosition[0])+80,Number(absolutePosition[1])+120]; //Position where the Pop Up Hides

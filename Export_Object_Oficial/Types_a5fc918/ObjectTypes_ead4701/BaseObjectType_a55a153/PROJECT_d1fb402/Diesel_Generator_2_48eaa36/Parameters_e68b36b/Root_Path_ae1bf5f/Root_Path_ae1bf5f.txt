@@ -1,1 +1,0 @@
-ObjectTypes.PROJECT.Diesel_Generator_2

@@ -1,1 +1,0 @@
-ObjectTypes.PROJECT.Power_Meter_3

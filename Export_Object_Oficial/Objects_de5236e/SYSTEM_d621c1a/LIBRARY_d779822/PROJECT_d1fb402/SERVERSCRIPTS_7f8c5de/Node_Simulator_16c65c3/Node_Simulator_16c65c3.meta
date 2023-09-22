@@ -1,9 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.SERVERSCRIPTS.Node_Simulator
-NodeClass: Variable
-BrowseName: 1:Node_Simulator
-DisplayName: en|Node_Simulator
-Description: en|Node_Simulator
-DataType: XmlElement
-ValueRank: -1
-AccessLevel: 103
-Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.ScriptCode

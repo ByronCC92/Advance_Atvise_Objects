@@ -1,7 +1,0 @@
-NodeId: ns=1;s=AGENT.HISTORY
-NodeClass: Object
-BrowseName: 1:HISTORY
-DisplayName: en|HISTORY
-Description: en|HISTORY
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

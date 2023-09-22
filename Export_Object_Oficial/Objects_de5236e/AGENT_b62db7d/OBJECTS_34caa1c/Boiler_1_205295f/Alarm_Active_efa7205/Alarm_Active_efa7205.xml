@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
-	<uax:ListOfString>
-		<uax:String>{&quot;Alarma&quot;:&quot;Boiler_1.Variables.Fuel_Level.Min&quot;,&quot;Condition_type&quot;:&quot;Min&quot;,&quot;Status&quot;:true,&quot;value&quot;:0,&quot;Timestamp&quot;:1695147839565.9028,&quot;eventText&quot;:&quot;Low Limit Has Been Reached&quot;}</uax:String>
-	</uax:ListOfString>
-</Value>

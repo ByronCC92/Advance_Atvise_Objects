@@ -1,7 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Graficos
-NodeClass: Object
-BrowseName: 1:Graficos
-DisplayName: en|Graficos
-Description: en|Graficos
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

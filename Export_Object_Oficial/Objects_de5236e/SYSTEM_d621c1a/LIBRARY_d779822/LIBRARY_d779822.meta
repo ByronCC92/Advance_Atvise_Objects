@@ -1,7 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY
-NodeClass: Object
-BrowseName: 1:LIBRARY
-DisplayName: en|LIBRARY
-Description: en|LIBRARY
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

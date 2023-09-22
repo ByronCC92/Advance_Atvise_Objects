@@ -1,6 +1,0 @@
-NodeId: ns=1;s=ObjectTypes.PROJECT.Power_Meter_1
-NodeClass: ObjectType
-BrowseName: 1:Power_Meter_1
-DisplayName: en|Power_Meter_1
-Description: en|Power_Meter_1
-IsAbstract: false

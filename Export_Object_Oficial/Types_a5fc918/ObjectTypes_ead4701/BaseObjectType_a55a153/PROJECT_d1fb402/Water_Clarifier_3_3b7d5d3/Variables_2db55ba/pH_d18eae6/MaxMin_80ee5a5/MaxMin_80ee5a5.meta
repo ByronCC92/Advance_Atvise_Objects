@@ -1,8 +1,0 @@
-NodeId: ns=1;s=ObjectTypes.PROJECT.Water_Clarifier_3.Variables.pH.MaxMin
-NodeClass: Object
-BrowseName: 1:MaxMin
-DisplayName: en|MaxMin
-Description: en|MaxMin
-EventNotifier: 0
-Reference: forward HasModellingRule Shared
-Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConfiguration

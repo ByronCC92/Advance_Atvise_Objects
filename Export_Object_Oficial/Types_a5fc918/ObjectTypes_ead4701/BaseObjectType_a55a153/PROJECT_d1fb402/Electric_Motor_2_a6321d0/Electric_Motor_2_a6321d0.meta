@@ -1,6 +1,0 @@
-NodeId: ns=1;s=ObjectTypes.PROJECT.Electric_Motor_2
-NodeClass: ObjectType
-BrowseName: 1:Electric_Motor_2
-DisplayName: en|Electric_Motor_2
-Description: en|Electric_Motor_2
-IsAbstract: false

@@ -1,6 +1,0 @@
-NodeId: ns=1;s=ObjectTypes.PROJECT.Water_Clarifier_3
-NodeClass: ObjectType
-BrowseName: 1:Water_Clarifier_3
-DisplayName: en|Water_Clarifier_3
-Description: en|Water_Clarifier_3
-IsAbstract: false

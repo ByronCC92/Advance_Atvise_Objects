@@ -1,7 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento
-NodeClass: Object
-BrowseName: 1:Objetos_Mantenimiento
-DisplayName: en|Objetos_Mantenimiento
-Description: en|Objetos_Mantenimiento
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

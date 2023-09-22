@@ -1,1 +1,0 @@
-{"0":{"text":"Inspect Pressure Relief Valves","value":"1"},"1":{"text":"Inspect thermocouples sensors.","value":"2"},"2":{"text":"Test water control system","value":"3"},"3":{"text":"Check fuel tank and fuel level sensors.","value":"4"},"4":{"text":"Inspect emission control systems.","value":"5"},"5":{"text":"Inspect dampers","value":"6"}}

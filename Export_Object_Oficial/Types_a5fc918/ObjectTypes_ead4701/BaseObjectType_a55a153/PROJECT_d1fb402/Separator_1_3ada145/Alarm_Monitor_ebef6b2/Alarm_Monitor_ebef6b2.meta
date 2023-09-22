@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Separator_1.Alarm_Monitor
+NodeClass: Variable
+BrowseName: 1:Alarm_Monitor
+DisplayName: en|Alarm_Monitor
+Description: en|Alarm_Monitor
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.ScriptCode

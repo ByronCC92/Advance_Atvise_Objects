@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Power_Meter_3.Variables.Frecuency
+NodeClass: Variable
+BrowseName: 1:Frecuency
+DisplayName: en|Frecuency
+Description: en|Frecuency
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.combobox_Mantenimiento
+NodeClass: Variable
+BrowseName: 1:combobox_Mantenimiento
+DisplayName: en|combobox_Mantenimiento
+Description: en|combobox_Mantenimiento
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

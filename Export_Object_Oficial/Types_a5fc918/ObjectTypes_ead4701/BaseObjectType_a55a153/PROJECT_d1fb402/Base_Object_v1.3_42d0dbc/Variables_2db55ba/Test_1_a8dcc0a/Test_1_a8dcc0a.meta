@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.3.Variables.Test_1
+NodeClass: Variable
+BrowseName: 1:Test_1
+DisplayName: en|Test_1
+Description: en|Test_1
+DataType: UInt16
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

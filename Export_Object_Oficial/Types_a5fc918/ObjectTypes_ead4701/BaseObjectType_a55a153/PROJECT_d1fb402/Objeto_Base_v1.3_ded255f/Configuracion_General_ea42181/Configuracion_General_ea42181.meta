@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Objeto_Base_v1.3.Configuracion_General
+NodeClass: Variable
+BrowseName: 1:Configuracion_General
+DisplayName: en|Configuracion_General
+Description: en|Configuracion_General
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

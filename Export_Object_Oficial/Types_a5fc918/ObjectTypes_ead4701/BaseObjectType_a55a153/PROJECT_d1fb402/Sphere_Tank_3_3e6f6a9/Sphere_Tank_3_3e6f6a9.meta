@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Sphere_Tank_3
+NodeClass: ObjectType
+BrowseName: 1:Sphere_Tank_3
+DisplayName: en|Sphere_Tank_3
+Description: en|Sphere_Tank_3
+IsAbstract: false

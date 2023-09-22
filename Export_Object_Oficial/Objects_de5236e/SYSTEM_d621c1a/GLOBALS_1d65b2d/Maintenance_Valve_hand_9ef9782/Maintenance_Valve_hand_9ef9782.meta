@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.Maintenance_Valve_hand
+NodeClass: Variable
+BrowseName: 1:Maintenance_Valve_hand
+DisplayName: en|Maintenance_Valve_hand
+Description: en|Maintenance_Valve_hand
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

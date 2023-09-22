@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Indicators.in_value_custom
+NodeClass: Variable
+BrowseName: 1:in_value_custom
+DisplayName: en|in_value_custom
+Description: en|in_value_custom
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

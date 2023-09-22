@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+	<uax:ListOfString>
+		<uax:String>&quot;0&quot;:{&quot;text&quot;:&quot;Mantenimiento_1&quot;,&quot;value&quot;:&quot;0&quot;}</uax:String>
+		<uax:String>&quot;1&quot;:{&quot;text&quot;:&quot;Mantenimiento_2&quot;,&quot;value&quot;:&quot;1&quot;}</uax:String>
+		<uax:String>&quot;2&quot;:{&quot;text&quot;:&quot;Mantenimiento_3&quot;,&quot;value&quot;:&quot;2&quot;}</uax:String>
+		<uax:String>&quot;3&quot;:{&quot;text&quot;:&quot;Mantenimiento_4&quot;,&quot;value&quot;:&quot;3&quot;}</uax:String>
+	</uax:ListOfString>
+</Value>

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Sphere_Tank_1.Mant_Viewer
+NodeClass: Variable
+BrowseName: 1:Mant_Viewer
+DisplayName: en|Mant_Viewer
+Description: en|Mant_Viewer
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

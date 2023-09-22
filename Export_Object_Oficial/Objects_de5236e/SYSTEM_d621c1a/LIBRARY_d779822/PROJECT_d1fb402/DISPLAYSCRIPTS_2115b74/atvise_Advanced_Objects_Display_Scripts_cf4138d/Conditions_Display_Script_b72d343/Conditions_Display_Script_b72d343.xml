@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[/*******Initialize Variables*******/
+
+
+/*******Initial Conditions*******/
+webMI.addOnload(function() {
+
+	//Define Initial Text
+    webMI.gfx.setText("id_info", "Conditions of: "+(webMI.query["base"]).split('.').pop());
+});
+
+
+]]></code>
+</script>

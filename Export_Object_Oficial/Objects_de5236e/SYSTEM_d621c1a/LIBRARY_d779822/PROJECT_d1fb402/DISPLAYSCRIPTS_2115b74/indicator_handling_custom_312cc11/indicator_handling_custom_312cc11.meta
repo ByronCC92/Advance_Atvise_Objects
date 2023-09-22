@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.indicator_handling_custom
+NodeClass: Variable
+BrowseName: 1:indicator_handling_custom
+DisplayName: en|indicator_handling_custom
+Description: en|indicator_handling_custom
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.DisplayScript

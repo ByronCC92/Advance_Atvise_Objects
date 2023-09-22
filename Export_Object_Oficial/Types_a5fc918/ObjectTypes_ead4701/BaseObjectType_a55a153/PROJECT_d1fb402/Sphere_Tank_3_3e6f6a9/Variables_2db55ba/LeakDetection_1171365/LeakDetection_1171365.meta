@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Sphere_Tank_3.Variables.LeakDetection
+NodeClass: Variable
+BrowseName: 1:LeakDetection
+DisplayName: en|LeakDetection
+Description: en|LeakDetection
+DataType: Boolean
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

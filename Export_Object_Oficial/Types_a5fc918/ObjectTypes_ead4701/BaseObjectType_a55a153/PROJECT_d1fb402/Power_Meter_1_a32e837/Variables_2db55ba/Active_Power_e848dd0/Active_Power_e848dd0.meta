@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Power_Meter_1.Variables.Active_Power
+NodeClass: Variable
+BrowseName: 1:Active_Power
+DisplayName: en|Active_Power
+Description: en|Active_Power
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

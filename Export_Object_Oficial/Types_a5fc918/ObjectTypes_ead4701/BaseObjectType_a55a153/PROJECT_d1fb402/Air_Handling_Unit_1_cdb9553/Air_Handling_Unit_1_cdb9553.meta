@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Air_Handling_Unit_1
+NodeClass: ObjectType
+BrowseName: 1:Air_Handling_Unit_1
+DisplayName: en|Air_Handling_Unit_1
+Description: en|Air_Handling_Unit_1
+IsAbstract: false

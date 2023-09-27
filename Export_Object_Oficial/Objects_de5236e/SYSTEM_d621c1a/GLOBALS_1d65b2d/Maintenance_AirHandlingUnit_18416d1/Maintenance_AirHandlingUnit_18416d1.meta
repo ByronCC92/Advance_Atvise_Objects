@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.Maintenance_AirHandlingUnit
+NodeClass: Variable
+BrowseName: 1:Maintenance_AirHandlingUnit
+DisplayName: en|Maintenance_AirHandlingUnit
+Description: en|Maintenance_AirHandlingUnit
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

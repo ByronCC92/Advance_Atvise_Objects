@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Air_Handling_Unit_1.Variables.Temperature_out
+NodeClass: Variable
+BrowseName: 1:Temperature_out
+DisplayName: en|Temperature_out
+Description: en|Temperature_out
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

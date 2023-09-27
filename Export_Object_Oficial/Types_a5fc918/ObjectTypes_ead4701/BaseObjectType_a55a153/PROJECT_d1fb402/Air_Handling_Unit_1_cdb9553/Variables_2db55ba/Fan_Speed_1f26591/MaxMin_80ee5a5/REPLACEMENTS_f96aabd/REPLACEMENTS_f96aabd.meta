@@ -1,0 +1,8 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Air_Handling_Unit_1.Variables.Fan_Speed.MaxMin.REPLACEMENTS
+NodeClass: Object
+BrowseName: 1:REPLACEMENTS
+DisplayName: en|REPLACEMENTS
+Description: en|REPLACEMENTS
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition FolderType

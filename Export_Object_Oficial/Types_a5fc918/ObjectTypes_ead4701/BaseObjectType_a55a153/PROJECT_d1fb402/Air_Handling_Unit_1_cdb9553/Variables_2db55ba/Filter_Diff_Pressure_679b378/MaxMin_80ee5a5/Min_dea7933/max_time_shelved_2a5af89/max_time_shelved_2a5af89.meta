@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Air_Handling_Unit_1.Variables.Filter_Diff_Pressure.MaxMin.Min.max_time_shelved
+NodeClass: Variable
+BrowseName: 1:max_time_shelved
+DisplayName: en|max_time_shelved
+Description: en|max_time_shelved
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

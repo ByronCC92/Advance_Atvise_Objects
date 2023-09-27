@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/Air Handling Unit
+NodeClass: Object
+BrowseName: 1:Air Handling Unit
+DisplayName: en|Air Handling Unit
+Description: en|Air Handling Unit
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

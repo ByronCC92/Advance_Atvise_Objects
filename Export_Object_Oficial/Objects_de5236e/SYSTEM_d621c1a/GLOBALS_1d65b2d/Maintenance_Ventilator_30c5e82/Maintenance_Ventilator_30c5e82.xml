@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+	<uax:ListOfString>
+		<uax:String>&quot;0&quot;:{&quot;text&quot;:&quot;Bearings inspection&quot;,&quot;value&quot;:&quot;1&quot;}</uax:String>
+		<uax:String>&quot;1&quot;:{&quot;text&quot;:&quot;Air Filter inspection and cleaning&quot;,&quot;value&quot;:&quot;2&quot;}</uax:String>
+		<uax:String>&quot;2&quot;:{&quot;text&quot;:&quot;Electrical panel inspection and cleaning&quot;,&quot;value&quot;:&quot;3&quot;}</uax:String>
+		<uax:String>&quot;3&quot;:{&quot;text&quot;:&quot;Lubrication of moving parts&quot;,&quot;value&quot;:&quot;4&quot;}</uax:String>
+	</uax:ListOfString>
+</Value>

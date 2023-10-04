@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Ventilator_1
+NodeClass: ObjectType
+BrowseName: 1:Ventilator_1
+DisplayName: en|Ventilator_1
+Description: en|Ventilator_1
+IsAbstract: false

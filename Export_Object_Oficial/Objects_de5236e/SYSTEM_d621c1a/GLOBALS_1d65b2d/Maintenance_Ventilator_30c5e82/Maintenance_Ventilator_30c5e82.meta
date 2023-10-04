@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.Maintenance_Ventilator
+NodeClass: Variable
+BrowseName: 1:Maintenance_Ventilator
+DisplayName: en|Maintenance_Ventilator
+Description: en|Maintenance_Ventilator
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

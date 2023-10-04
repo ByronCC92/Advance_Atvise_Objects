@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Ventilator_1.Variables.Status
+NodeClass: Variable
+BrowseName: 1:Status
+DisplayName: en|Status
+Description: en|Status
+DataType: Boolean
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

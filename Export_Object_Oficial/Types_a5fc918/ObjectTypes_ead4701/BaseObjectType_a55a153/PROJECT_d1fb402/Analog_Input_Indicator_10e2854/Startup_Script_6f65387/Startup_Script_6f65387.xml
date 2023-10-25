@@ -5,7 +5,7 @@
     <owner>root</owner>
     <runcontext>caller</runcontext>
   </metadata>
-  <parameter name="Trigger" type="node" trigger="true" relative="true">
+  <parameter name="Start" type="node" trigger="true" relative="true">
     <RelativePath>
       <Elements>
         <RelativePathElement>
@@ -34,6 +34,7 @@ var Alert_Range=10; //10%
 var Egu_Range=10; //10%
 var DB_Range=5; //5%
 
+var Trigger=(script.trigger).name
 
 //Only if it is true
 if (Startup.result.value){

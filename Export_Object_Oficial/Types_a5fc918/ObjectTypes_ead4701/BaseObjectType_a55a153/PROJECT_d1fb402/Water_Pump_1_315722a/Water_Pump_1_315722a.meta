@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Water_Pump_1
+NodeClass: ObjectType
+BrowseName: 1:Water_Pump_1
+DisplayName: en|Water_Pump_1
+Description: en|Water_Pump_1
+IsAbstract: false

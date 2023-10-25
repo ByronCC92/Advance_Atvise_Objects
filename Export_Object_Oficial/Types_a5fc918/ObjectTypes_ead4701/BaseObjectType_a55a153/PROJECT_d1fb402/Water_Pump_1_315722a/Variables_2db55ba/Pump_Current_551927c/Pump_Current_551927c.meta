@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Water_Pump_1.Variables.Pump_Current
+NodeClass: Variable
+BrowseName: 1:Pump_Current
+DisplayName: en|Pump_Current
+Description: en|Pump_Current
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

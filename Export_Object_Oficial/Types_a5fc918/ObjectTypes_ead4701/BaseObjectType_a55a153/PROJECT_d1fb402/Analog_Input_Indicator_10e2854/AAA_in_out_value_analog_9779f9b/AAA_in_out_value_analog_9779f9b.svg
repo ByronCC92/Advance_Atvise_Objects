@@ -7,6 +7,7 @@
   <!-- menu -->
   <atv:parameter behavior="optional" desc="base" name="base" valuetype="address"/>
   <atv:parameter behavior="mandatory" defaultvalue="" desc="Input" name="Input" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="11" desc="Factor 4-20 mA" name="Factor420mA" valuetype="number"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="alarm address 1" name="alarm" valuetype="address"/>
   <atv:parameter behavior="optional" desc="alarm address 2" name="alarm2" valuetype="address"/>
   <atv:parameter behavior="optional" config="Number;Boolean;String;Password" defaultvalue="Number" desc="input mode" name="validation" valuetype="enum"/>

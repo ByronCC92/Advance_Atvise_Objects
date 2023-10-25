@@ -86,13 +86,21 @@ webMI.addOnload(function(e) {
 	
 	const absolutePosition= [parentElement.getAttribute('x'),parentElement.getAttribute('y')];
 	
+	console.log("Absolute Position X"+webMI.query["base"]);	
+	console.log(absolutePosition[0]);
+	console.log("(Number(absolutePosition[0])+80+windowsize.width");	
+	console.log((Number(absolutePosition[0])+80+windowsize.width));
+	console.log("width");	
+	console.log(width);
+	
+	
 	//Pop_Position=[Number(absolutePosition[0])+80,Number(absolutePosition[1])+120]; //Position where the Pop Up Hides
 	if ((Number(absolutePosition[0])+80+windowsize.width)<=width){
 		Pop_PositionX=Number(absolutePosition[0])+80;
 		
 	}
 	else if((Number(absolutePosition[0])+80+windowsize.width)>width){
-		Pop_PositionX=width-windowsize.width;
+		Pop_PositionX=width-windowsize.width-320;
 	}
 	
 	if ((Number(absolutePosition[1])+135+windowsize.height)<=height){

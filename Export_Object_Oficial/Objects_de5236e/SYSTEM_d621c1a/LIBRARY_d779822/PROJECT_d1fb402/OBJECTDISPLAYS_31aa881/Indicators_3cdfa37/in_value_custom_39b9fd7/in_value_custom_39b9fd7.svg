@@ -17,7 +17,7 @@
  </foreignObject>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//External Variables
 var name= webMI.query["Name"];
-
+var ChangeReason="Normal"; //"Normal":Normal change, "Fixing":Fixing Change not allowed
 
 // Global variable to hold the value
 let globalValue = '';
@@ -48,8 +48,12 @@ function makeEditable(element) {
 
 		// Update the global variable
 		globalValue = spanElement.textContent;
-		webMI.trigger.fire("read_value_"+name, globalValue);
-		
+		if (ChangeReason=="Normal"){
+			webMI.trigger.fire("read_value_"+name, globalValue);
+		}
+		else{
+			ChangeReason="Normal";
+		}
 	}, { once: true });
 	
 	spanElement.addEventListener('keydown', function(event) {
@@ -88,10 +92,12 @@ function makeEditable(element) {
 
 
 webMI.trigger.connect("write_value_"+name, function(e) {
-		console.log("Writting: "+e.value);
+		console.log("Writting: "+e.value.value);
+		ChangeReason=e.value.reason;
 		const spanElement = childdiv2.querySelector('span');
-		var newText=e.value;
+		var newText=e.value.value;
 		spanElement.textContent = newText;
+		
 });
 ]]></script>
 </svg>

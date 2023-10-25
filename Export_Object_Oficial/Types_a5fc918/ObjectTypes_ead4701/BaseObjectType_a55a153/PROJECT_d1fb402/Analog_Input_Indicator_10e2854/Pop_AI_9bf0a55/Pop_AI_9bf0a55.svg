@@ -8,6 +8,9 @@
   </linearGradient>
  </defs>
  <metadata>
+  <atv:parameter behavior="optional" desc="Input" name="Input" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Unit" name="unit" substitute="" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Factor 4-20 mA" name="Factor420mA" valuetype="number"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Name" name="Name" substitute="$Name$" valuetype="string"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Title" name="Title" substitute="$Ttile$" valuetype="string"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Sudtitle" name="Subtitle" substitute="$Subtitle$" valuetype="string"/>
@@ -19,7 +22,7 @@
   <atv:parameter behavior="optional" desc="Alarm 1" name="alarm" valuetype="address"/>
   <atv:parameter behavior="optional" desc="Alarm 2" name="alarm2" valuetype="address"/>
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
-  <atv:snapconfig enabled="true" height="10" width="10"/>
+  <atv:snapconfig enabled="true" height="2" width="2"/>
  </metadata>
  <rect atv:refpx="400" atv:refpy="75" fill="$HeaderColorPopUp$" height="150" id="id_3" stroke="none" stroke-width="2" width="800" x="0" y="0"/>
  <text atv:refpx="356" atv:refpy="43" fill="$FontColorPopUp$" font-family="Arial" font-size="36" id="id_0" text-anchor="middle" x="400" y="47.5">$Name$</text>
@@ -66,17 +69,29 @@
   <atv:argument name="Name" value="LOEGU"/>
  </svg>
  <text atv:refpx="57.425" atv:refpy="801" fill="$FontColorPopUp$" font-family="Arial" font-size="24" id="id_26" text-anchor="middle" x="73" y="805.5">LO EGU:</text>
+ <text atv:refpx="52.894" atv:refpy="871" fill="$FontColorPopUp$" font-family="Arial" font-size="24" id="Notification_Text" text-anchor="start" x="24.5" y="875.5">Console</text>
+ <text atv:refpx="306.077" atv:refpy="301" fill="$FontColorPopUp$" font-family="Arial" font-size="24" id="id_27" text-anchor="middle" x="438.5" y="305.5">CURRENT VALUE:</text>
+ <rect atv:refpx="635" atv:refpy="295" fill="#000000" height="50" id="id_29" stroke="none" stroke-width="2" width="170" x="550" y="270"/>
+ <text atv:refpx="698" atv:refpy="298" fill="#ffffff" font-family="Arial" font-size="24" id="Current_Value" text-anchor="end" x="706.5" y="302.5">0</text>
+ <text atv:refpx="410.944" atv:refpy="351" fill="$FontColorPopUp$" font-family="Arial" font-size="24" id="id_32" text-anchor="middle" x="485" y="355.5">4 - 20 mA:</text>
+ <rect atv:refpx="635" atv:refpy="355" fill="#000000" height="50" id="id_34" stroke="none" stroke-width="2" width="170" x="550" y="330"/>
+ <text atv:refpx="698" atv:refpy="358" fill="#ffffff" font-family="Arial" font-size="24" id="420mA_Value" text-anchor="end" x="706.5" y="362.5">0</text>
+ <rect atv:refpx="174" atv:refpy="762" fill="$HeaderColorPopUp$" height="430" id="Column" stroke="none" stroke-width="2" width="70" x="140" y="332"/>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//External variables
 var FontColorPopUp = webMI.query["FontColorPopUp"];
 var HeaderColorPopUp = webMI.query["HeaderColorPopUp"];
 var Alarm_ConditionsR = webMI.query["base"]+".Parameters.Alarm_Conditions";
+var InputR=webMI.query["Input"];
+var Unit=webMI.query["unit"];
+var Factor420mA=(webMI.query["Factor420mA"]==0 ||  webMI.query["Factor420mA"]==undefined ? 1 : webMI.query["Factor420mA"]);
+
 
 
 //Internal Variables
 var Limits;
 var textIds=["text_over_range","text_under_range","text_brooken_loop"];
 var textstatus=[false,false,false];
-
+var Load_Completed=false;
 
 //Set Text Address
 webMI.addOnload(function(e) {
@@ -85,6 +100,8 @@ webMI.addOnload(function(e) {
 	//Set Address Text
 	webMI.gfx.setText("text_Address", webMI.query["AddressPopUp"]);
 
+	//Initial Value of Notification
+	webMI.gfx.setText("Notification_Text", "");
 	
 	//Update conditions
 	update_Text(textIds,textstatus);
@@ -93,81 +110,167 @@ webMI.addOnload(function(e) {
 		
 		var LimitsI=JSON.parse(e.value);
 		
-	    webMI.trigger.fire("write_value_HH", LimitsI.HH);
-	    webMI.trigger.fire("write_value_H", LimitsI.H);
-	    webMI.trigger.fire("write_value_LL", LimitsI.LL);
-	    webMI.trigger.fire("write_value_L", LimitsI.L);
-	    webMI.trigger.fire("write_value_DB", LimitsI.DB);
-	    webMI.trigger.fire("write_value_HIEGU", LimitsI.HIEGU);
-	    webMI.trigger.fire("write_value_LOEGU", LimitsI.LOEGU);
+	    webMI.trigger.fire("write_value_HH", {value:LimitsI.HH, reason:"Normal"});
+	    webMI.trigger.fire("write_value_H", {value:LimitsI.H, reason:"Normal"});
+	    webMI.trigger.fire("write_value_LL", {value:LimitsI.LL, reason:"Normal"});
+	    webMI.trigger.fire("write_value_L", {value:LimitsI.L, reason:"Normal"});
+	    webMI.trigger.fire("write_value_DB", {value:LimitsI.DB, reason:"Normal"});
+	    webMI.trigger.fire("write_value_HIEGU", {value:LimitsI.HIEGU, reason:"Normal"});
+	    webMI.trigger.fire("write_value_LOEGU", {value:LimitsI.LOEGU, reason:"Normal"});
 	    
 	    Limits=LimitsI;
+	    
+	    webMI.data.read(InputR, function(e) {
+			var value=e.value;
+			var MaxValue= Number(Limits.HIEGU);
+			var MinValue= Number(Limits.LOEGU);
+		   //Scale Grafic Representation
+			webMI.gfx.setScaleY("Column", webMI.translate((value <= MinValue)? (MinValue) : ((value >= MaxValue) ? (MaxValue) : (value)), MinValue,MaxValue, 0, 1));
+			webMI.gfx.setMoveY("Indicator_Arrow", webMI.translate((value <= MinValue)? (MinValue) : ((value >= MaxValue) ? (MaxValue) : (value)), MinValue,MaxValue, 0, -430));
+			update_Arrow_Text(value,Limits);
+			Load_Completed=true;
+		});	    
 	});	
 });
+
+
+//Change Current Value
+webMI.data.subscribe(InputR, function(e) {
+	
+	//Current value	
+	var value = e.value;
+	webMI.gfx.setText("Current_Value", String((value.toFixed(2)))+Unit);
+	
+	//4-20mA value
+	var value420 = e.value/Factor420mA;	
+	webMI.gfx.setText("420mA_Value", String((value420.toFixed(2)))+"mA");	
+	
+	if (Load_Completed==true){
+		var MaxValue= Number(Limits.HIEGU);
+		var MinValue= Number(Limits.LOEGU);
+		//Scale Grafic Representation
+		webMI.gfx.setScaleY("Column", webMI.translate((value <= MinValue)? (MinValue) : ((value >= MaxValue) ? (MaxValue) : (value)), MinValue,MaxValue, 0, 1));
+			webMI.gfx.setMoveY("Indicator_Arrow", webMI.translate((value <= MinValue)? (MinValue) : ((value >= MaxValue) ? (MaxValue) : (value)), MinValue,MaxValue, 0, -430));
+		update_Arrow_Text(value,Limits);
+	}
+});
+
 
 
 
 //Trigger Handeling Section
 //HH Input
 webMI.trigger.connect("read_value_HH", function(e) {
-	//console.log({HH: e.value});
-	//writeValidChange(Limits,{HH: e.value});
-	Limits.HH=e.value;
-	webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	
+	//Check if change is valid
+	var LimitsI=(applyValidChanges(Limits,{HH: Number(e.value)}));
+	Limits=LimitsI.data;
+	
+	if (LimitsI.changeValid){ //Change is valid
+		webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	}
+	else { //Change is not valid
+		webMI.trigger.fire("write_value_HH", {value:Limits.HH, reason:"Fixing"});//Keep values
+	}
 });
 
 //H Input
 webMI.trigger.connect("read_value_H", function (e) {
-	//Custom Change
-	Limits.CustomChange=true;		
+	//Check if change is valid
+	var LimitsI=(applyValidChanges(Limits,{H: Number(e.value)}));
+	Limits=LimitsI.data;
 	
-	Limits.H=e.value;
-	webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	if (LimitsI.changeValid){ //Change is valid		
+		webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	}
+	else { //Change is not valid
+		webMI.trigger.fire("write_value_H", {value:Limits.H, reason:"Fixing"});//Keep values
+	}
 });
 
 //L Input
 webMI.trigger.connect("read_value_L", function (e) {
-	//Custom Change
-	Limits.CustomChange=true;	
-
-	Limits.L=e.value;
-	webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	//Check if change is valid
+	var LimitsI=(applyValidChanges(Limits,{L: Number(e.value)}));
+	Limits=LimitsI.data;
+	
+	if (LimitsI.changeValid){ //Change is valid
+		webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	}
+	else { //Change is not valid
+		webMI.trigger.fire("write_value_L", {value:Limits.L, reason:"Fixing"});//Keep values
+	}
 });
 
 //LL Input
 webMI.trigger.connect("read_value_LL", function (e) {	
-	Limits.LL=e.value;
-	webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	//Check if change is valid
+	var LimitsI=(applyValidChanges(Limits,{LL: Number(e.value)}));
+	Limits=LimitsI.data;
+	
+	if (LimitsI.changeValid){ //Change is valid
+		webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	}
+	else { //Change is not valid
+		webMI.trigger.fire("write_value_LL", {value:Limits.LL, reason:"Fixing"});//Keep values
+	}
 });
 
 //DB Input
 webMI.trigger.connect("read_value_DB", function (e) {
-	//Custom Change
-	Limits.CustomChange=true;
-
-	Limits.DB=e.value;
-	webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	//Check if change is valid
+	var LimitsI=(applyValidChanges(Limits,{DB: Number(e.value)}));
+	Limits=LimitsI.data;
+	
+	if (LimitsI.changeValid){ //Change is valid
+		webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	}
+	else { //Change is not valid
+		webMI.trigger.fire("write_value_DB", {value:Limits.DB, reason:"Fixing"});//Keep values
+	}
 });
 
 
 //HIEGU Input
 webMI.trigger.connect("read_value_HIEGU", function (e) {
-	//Custom Change
-	Limits.CustomChange=true;	
+	//Check if change is valid
+	var LimitsI=(applyValidChanges(Limits,{HIEGU: Number(e.value)}));
+	Limits=LimitsI.data;
 	
-	Limits.HIEGU=e.value;
-	webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
-	//writeValidChange(Limits,{HIEGU: e.value})
+	if (LimitsI.changeValid){ //Change is valid
+		webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	}
+	else { //Change is not valid
+		webMI.trigger.fire("write_value_HIEGU", {value:Limits.HIEGU, reason:"Fixing"});//Keep values
+	}
 });
 
 
 //LOEGU Input
 webMI.trigger.connect("read_value_LOEGU", function (e) {
-	//Custom Change
-	Limits.CustomChange=true;
+	//Check if change is valid
+	var LimitsI=(applyValidChanges(Limits,{LOEGU: Number(e.value)}));
+	Limits=LimitsI.data;
+	
+	if (LimitsI.changeValid){ //Change is valid
+		webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+	}
+	else { //Change is not valid
+		webMI.trigger.fire("write_value_LOEGU", {value:Limits.LOEGU, reason:"Fixing"});//Keep values
+	}
+});
 
-	Limits.LOEGU=e.value;
-	webMI.data.write(Alarm_ConditionsR, JSON.stringify(Limits));
+//Change Notification Text
+webMI.trigger.connect("Change_Notification_Text", function (e) {
+
+	//Notify that it was written
+		
+	webMI.gfx.setText("Notification_Text", e.value);
+    
+	setTimeout(function(){
+		webMI.gfx.setText("Notification_Text", "");
+	},1500);	
+	
 });
 
 
@@ -184,67 +287,81 @@ function update_Text(textIds,textstatus){
 	}
 }
 
-//Checks if changed in Limits is valid and applies it
-function writeValidChange(originalObj, changeObj) {
-  // Create a copy of the original object to test changes
-  let testObj = { ...originalObj, ...changeObj };
-
-  // Extract relevant values
-  let { HH, H, L, LL, DB, HIEGU, LOEGU } = testObj;
-
-  // Array to store conflict messages
-  let conflicts = [];
-
-  // Boolean to indicate if the change is approved
-  let isChangeApproved = true;
-
-  // Check conditions
-  if (HIEGU < HH) {
-    conflicts.push("HIEGU should be the biggest number.");
-    isChangeApproved = false;
-  }
-
-  if (HH <= H) {
-    conflicts.push("HH should be the second biggest number or equal to H.");
-    isChangeApproved = false;
-  }
-
-  if (H < LOEGU || H < DB || H < LL || H < L) {
-    conflicts.push("H should be the third biggest number or equal to HH.");
-    isChangeApproved = false;
-  }
-
-  if (LOEGU > DB) {
-    conflicts.push("LOEGU should be the lowest number.");
-    isChangeApproved = false;
-  }
-
-  if (DB > LL) {
-    conflicts.push("DB should be the second lowest number.");
-    isChangeApproved = false;
-  }
-
-  if (LL > L) {
-    conflicts.push("LL should be the third lowest number or equal to L.");
-    isChangeApproved = false;
-  }
-
-  if (L > HIEGU || L > HH || L > H) {
-    conflicts.push("L should be the fourth lowest number or equal to LL.");
-    isChangeApproved = false;
-  }
-
-  // Output conflicts, if any
-  if (!isChangeApproved) {
-    console.log("Conflict: " + conflicts.join(" "));
-  }
-  else
-  {
-    webMI.data.write(Alarm_ConditionsR, JSON.stringify(testObj));
-  }
-
-  return { isChangeApproved, object: isChangeApproved ? testObj : originalObj };
+function update_Arrow_Text(value,Limits){
+	if (value<=Limits.LOEGU){ //Below or Equal Loegu
+		webMI.gfx.setText("Indicator_Text", "LOEGU");
+	}
+	else if (value>Limits.LOEGU&&value<=Limits.DB){ //Below or Equal DB
+		webMI.gfx.setText("Indicator_Text", "DB");
+	}
+	else if (value>Limits.DB&&value<=Limits.LL){ //Below or Equal LL
+		webMI.gfx.setText("Indicator_Text", "LL"); 
+	}
+	else if (value>Limits.LL&&value<=Limits.L){ //Below or Equal L
+		webMI.gfx.setText("Indicator_Text", "L"); 
+	}
+	else if (value>Limits.L&&value<Limits.H){ //Between L and H
+		webMI.gfx.setText("Indicator_Text", "Normal"); 
+	}
+	else if (value>=Limits.H&&value<Limits.HH){ //Above or Equal H
+		webMI.gfx.setText("Indicator_Text", "H"); 
+	}
+	else if (value>=Limits.HH&&value<Limits.HIEGU){ //Above or Equal HH
+		webMI.gfx.setText("Indicator_Text", "HH"); 
+	}
+	else if (value>=Limits.HIEGU){ //Above or Equal HIEGU
+		webMI.gfx.setText("Indicator_Text", "HIEGU"); 
+	}
 }
 
+function applyValidChanges(originalObj, changeObj) {
+    let changeValid = true;
+
+    // Convert originalObj numeric strings to numbers
+    for (let key of ['HH', 'H', 'L', 'LL', 'DB', 'HIEGU', 'LOEGU']) {
+        originalObj[key] = Number(originalObj[key]);
+    }
+
+    // Merging the original object with the proposed changes
+    const newObj = { ...originalObj, ...changeObj };
+
+    // Define the accepted order
+    const order = ['LOEGU', 'DB', 'LL', 'L', 'H', 'HH', 'HIEGU'];
+
+    for (let i = 0; i < order.length - 1; i++) {
+        // Check if the order is maintained
+        if (newObj[order[i]] > newObj[order[i + 1]]) {
+            console.log(`Conflict: ${order[i]} should be less than or equal to ${order[i + 1]}.`);
+            webMI.trigger.fire("Change_Notification_Text", `Conflict: ${order[i]} should be less than or equal to ${order[i + 1]}.`)
+            changeValid = false;
+            break;
+        }
+    }
+
+    if (changeValid) {
+        console.log("Change was successful.");
+        webMI.trigger.fire("Change_Notification_Text", "Change was successful.");
+    }
+
+    // Return the result as an object containing 'data' and 'changeValid'
+    return {
+        data: changeValid ? newObj : originalObj,
+        changeValid:changeValid
+    };
+}
+
+
+
+
+
+
+
+
+
+
 ]]></script>
+ <g atv:refpx="105" atv:refpy="764" id="Indicator_Arrow">
+  <polyline atv:refpx="120" atv:refpy="763" fill="#000000" id="id_30" points="100,754 140,762 100,772 100,754" stroke="none" stroke-width="2"/>
+  <text atv:refpx="78.827" atv:refpy="767" fill="$FontColorPopUp$" font-family="Arial" font-size="24" id="Indicator_Text" text-anchor="end" x="90.5" y="771.5">C</text>
+ </g>
 </svg>

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Water_Pump_1.Alarm_Activos
+NodeClass: Variable
+BrowseName: 1:Alarm_Activos
+DisplayName: en|Alarm_Activos
+Description: en|Alarm_Activos
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

@@ -1,8 +1,0 @@
-NodeId: ns=1;s=ObjectTypes.PROJECT.Hand_Valve_3.Variables.Fluid_Composition.Max_Min.REPLACEMENTS
-NodeClass: Object
-BrowseName: 1:REPLACEMENTS
-DisplayName: en|REPLACEMENTS
-Description: en|REPLACEMENTS
-EventNotifier: 0
-Reference: forward HasModellingRule New
-Reference: forward HasTypeDefinition FolderType

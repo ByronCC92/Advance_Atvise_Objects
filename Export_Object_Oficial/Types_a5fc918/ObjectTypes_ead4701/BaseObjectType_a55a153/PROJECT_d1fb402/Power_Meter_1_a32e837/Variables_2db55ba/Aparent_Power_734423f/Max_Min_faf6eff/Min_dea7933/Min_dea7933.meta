@@ -1,9 +1,0 @@
-NodeId: ns=1;s=ObjectTypes.PROJECT.Power_Meter_1.Variables.Aparent_Power.Max_Min.Min
-NodeClass: Object
-BrowseName: 1:Min
-DisplayName: en|Min
-Description: en|Min
-EventNotifier: 0
-Reference: forward HasModellingRule New
-Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConditionControl.Limit
-Reference: forward HasComponent ns=1;s=AGENT.ALARMING.Categories.Error

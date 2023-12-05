@@ -1,8 +1,0 @@
-NodeId: ns=1;s=ObjectTypes.PROJECT.Water_Tank_1.Variables.Chlorine_Level.Max_Min.REPLACEMENTS
-NodeClass: Object
-BrowseName: 1:REPLACEMENTS
-DisplayName: en|REPLACEMENTS
-Description: en|REPLACEMENTS
-EventNotifier: 0
-Reference: forward HasModellingRule New
-Reference: forward HasTypeDefinition FolderType

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA31_Water_Tank_2
+NodeClass: ObjectType
+BrowseName: 1:WA31_Water_Tank_2
+DisplayName: en|WA31_Water_Tank_2
+Description: en|WA31_Water_Tank_2
+IsAbstract: false

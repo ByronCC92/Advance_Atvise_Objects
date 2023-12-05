@@ -1,0 +1,8 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA25_Water_Pump_1.Variables.Temperature.Max_Min
+NodeClass: Object
+BrowseName: 1:Max_Min
+DisplayName: en|Max_Min
+Description: en|Max_Min
+EventNotifier: 0
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConfiguration

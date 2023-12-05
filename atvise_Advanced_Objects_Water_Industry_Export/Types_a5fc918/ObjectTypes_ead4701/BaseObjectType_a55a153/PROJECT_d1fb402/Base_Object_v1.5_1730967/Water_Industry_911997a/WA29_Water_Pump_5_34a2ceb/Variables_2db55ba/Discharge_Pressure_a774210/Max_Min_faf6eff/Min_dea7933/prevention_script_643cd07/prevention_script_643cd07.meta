@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA29_Water_Pump_5.Variables.Discharge_Pressure.Max_Min.Min.prevention_script
+NodeClass: Variable
+BrowseName: 1:prevention_script
+DisplayName: en|prevention_script
+Description: en|prevention_script
+DataType: NodeId
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

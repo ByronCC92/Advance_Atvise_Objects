@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA04_Covered_Dome_Tank_1.Variables.Pressure.Max_Min.Max.active_message
+NodeClass: Variable
+BrowseName: 1:active_message
+DisplayName: en|active_message
+Description: en|active_message
+DataType: LocalizedText
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

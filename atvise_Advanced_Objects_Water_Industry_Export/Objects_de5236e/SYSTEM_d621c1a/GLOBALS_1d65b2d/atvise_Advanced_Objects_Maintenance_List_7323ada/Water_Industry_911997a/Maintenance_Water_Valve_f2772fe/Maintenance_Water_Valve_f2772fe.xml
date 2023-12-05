@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+	<uax:ListOfString>
+		<uax:String>&quot;0&quot;:{&quot;text&quot;:&quot;Calibrate pressure sensors&quot;,&quot;value&quot;:&quot;1&quot;}</uax:String>
+		<uax:String>&quot;1&quot;:{&quot;text&quot;:&quot;Calibrate temperature sensors&quot;,&quot;value&quot;:&quot;2&quot;}</uax:String>
+		<uax:String>&quot;2&quot;:{&quot;text&quot;:&quot;Inspect for blockages&quot;,&quot;value&quot;:&quot;3&quot;}</uax:String>
+		<uax:String>&quot;3&quot;:{&quot;text&quot;:&quot;Lubricate valve stems&quot;,&quot;value&quot;:&quot;4&quot;}</uax:String>
+		<uax:String>&quot;4&quot;:{&quot;text&quot;:&quot;Calibrate signal sensors.&quot;,&quot;value&quot;:&quot;5&quot;}</uax:String>
+	</uax:ListOfString>
+</Value>

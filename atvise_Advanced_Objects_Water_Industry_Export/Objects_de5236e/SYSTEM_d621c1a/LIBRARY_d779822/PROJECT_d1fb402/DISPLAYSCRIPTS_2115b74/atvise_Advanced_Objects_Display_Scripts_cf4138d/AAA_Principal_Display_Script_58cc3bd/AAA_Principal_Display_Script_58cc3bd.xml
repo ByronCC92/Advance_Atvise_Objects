@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[//------------------Variables Declaration------------------//
+
+//External Variables
+var Root_Path;
+var Root_PathR=webMI.query["base"]+".Parameters.Root_Path";
+var Global_Maintenance=webMI.query["Global_Maintenance"];
+var Global_Maintenance_Address=webMI.query["Global_Maintenance_Address"];
+var Global_Maintenance_AddressR=webMI.query["base"]+".Parameters.Mant_Address";
+var StartupR=webMI.query["base"]+".Parameters.Startup";
+var Mant_ElementsR=webMI.query["base"]+".Parameters.Mant_Elements";
+
+
+//---------------General Section---------------//
+
+//Initial Conditions
+webMI.addOnload(function(e) {	
+	
+	//-------------------Settings	
+	
+	//Excute Script Startup	
+	webMI.data.write(StartupR, true);
+	
+	//Write the mainteance Elements
+	webMI.data.write(Mant_ElementsR, JSON.stringify(Global_Maintenance));	
+	
+	//Write the mainteance Address
+	webMI.data.write(Global_Maintenance_AddressR, Global_Maintenance_Address);		
+	
+	//Read Root Node path
+	webMI.data.read(Root_PathR, function(e) {
+	    Root_Path=e.value;		
+	    webMI.query["Display"]="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Conditions_Blank_Object_Display";	
+	})		
+	
+	//Initialize Title	
+	webMI.gfx.setText("Title", (webMI.query["base"]).split('.').pop());
+});
+
+
+//Open Config Window  
+webMI.addEvent("click_area", "click", function(e) {
+	webMI.display.openWindow({display:"SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.General_Configuration_Object_Display",extern:false,height:697,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Configuracion General }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:560,query:webMI.query});
+});
+
+
+//---------------Apereance Section---------------//
+
+//Change color
+
+//---------------Functions Section---------------//
+
+
+
+]]></code>
+</script>

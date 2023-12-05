@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA09_High_Elevated_Tank_3.Alert_Monitor
+NodeClass: Variable
+BrowseName: 1:Alert_Monitor
+DisplayName: en|Alert_Monitor
+Description: en|Alert_Monitor
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.ScriptCode

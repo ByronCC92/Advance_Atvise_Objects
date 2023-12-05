@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA34_Water_Valve_2.Variables.Temperature.Max_Min.Min.explicit_acknowledgement
+NodeClass: Variable
+BrowseName: 1:explicit_acknowledgement
+DisplayName: en|explicit_acknowledgement
+Description: en|explicit_acknowledgement
+DataType: Boolean
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

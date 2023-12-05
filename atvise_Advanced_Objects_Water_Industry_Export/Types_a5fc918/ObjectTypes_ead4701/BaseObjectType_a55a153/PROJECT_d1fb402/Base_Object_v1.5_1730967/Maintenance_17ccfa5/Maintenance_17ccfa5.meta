@@ -1,0 +1,8 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Maintenance
+NodeClass: Object
+BrowseName: 1:Maintenance
+DisplayName: en|Maintenance
+Description: en|Maintenance
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition FolderType

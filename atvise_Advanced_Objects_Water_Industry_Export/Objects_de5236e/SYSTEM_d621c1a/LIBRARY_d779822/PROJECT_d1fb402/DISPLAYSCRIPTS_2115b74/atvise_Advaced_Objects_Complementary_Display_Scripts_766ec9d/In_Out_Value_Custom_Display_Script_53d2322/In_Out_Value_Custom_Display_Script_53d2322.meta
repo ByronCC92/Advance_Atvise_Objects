@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advaced_Objects_Complementary_Display_Scripts.In_Out_Value_Custom_Display_Script
+NodeClass: Variable
+BrowseName: 1:In_Out_Value_Custom_Display_Script
+DisplayName: en|In_Out_Value_Custom_Display_Script
+Description: en|In_Out_Value_Custom_Display_Script
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.DisplayScript

@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[var Alarm_ActiveR=webMI.query["base"]+".Alarm.Alarm_Active";
+var AlertR=webMI.query["base"]+".Alarm.Alert_Active";
+
+
+//Alarms window variable
+ var Pop_Position; 
+ var alarmWindow; 
+ var alertWindowC; 
+ var alertWindowD; 
+ var alarmWindow_min; 
+ var alertWindowC_min; 
+ var alertWindowD_min; 
+ var alarmWindow_fixed=false;
+ var alertWindowC_fixed=false;
+ var alertWindowD_fixed=false;
+ var alarmWindow_fixed_min=false;
+ var alertWindowC_fixed_min=false;
+ var alertWindowD_fixed_min=false;
+ 
+ //Alert Variables
+ var alertCActive=false;
+ var alertDActive=false;
+ var alertCActive_min=false;
+ var alertDActive_min=false;
+ 
+ //Animation Variables
+ 
+ //Alarms
+ var alarmActive=false;
+ var alarmActive_min=false;
+ var increment=0.0;
+ var isGrowing=true;
+ var ColorIni="#bd070d";
+ 
+ //Alerts
+ const Movement_Range=8; //Pixels
+ const Step_size=0.5; //Pixels
+ 
+ //AlertC
+ var incrementAlerC=0.0;
+ var incrementAlerC_min=0.0;
+ var ColorIniAlerC="#fdf90a";
+ var ColorActAlerC=ColorIniAlerC;
+ 
+ //AlertD
+ var incrementAlerD=0.0;
+ var incrementAlerD_min=0.0;
+ var ColorIniAlerD="#fdbf21";
+ var ColorActAlerD=ColorIniAlerD;
+
+//---------------General Section---------------//
+
+//Initial Conditions
+webMI.addOnload(function(e) {
+
+	//-------------------Pop Up
+	//Get reference position for Popups
+	
+	const thisElement = document.getElementById('click_area_alarm_min'); //Any element in child
+	const parentElement = thisElement.parentNode; //Get parent html element reference
+	const parentElementI = parentElement.parentNode; //Get parent html element reference
+	const parentElementII = parentElementI.parentNode; //Get parent html element reference
+	const parentElementIII = parentElementII.parentNode; //Get parent html element reference
+	const parentElementIIII = parentElementIII.parentNode; //Get parent html element reference
+	const parentElementIIIII = parentElementIIII.parentNode; //Get parent html element reference
+	let parentElementIIIII_Sizes = (parentElementIIIII.getAttribute('viewBox')).split(" ");
+	
+	
+	 
+	console.log(parentElementIIIII);
+	console.log((parentElementIIIII.getAttribute('width')));
+	console.log((parentElementIIIII.getAttribute('viewBox')));
+	//Pop_up Window Size
+	const Window_Size={width:1029,height:320}; 	
+
+	//Screen Size
+	const Screen_size={width:Number(parentElementIIIII_Sizes[parentElementIIIII_Sizes.length - 2]),height:Number(parentElementIIIII_Sizes[parentElementIIIII_Sizes.length - 1])};
+	//const Screen_size={width:parseFloat(parentElementIIIIII_style.width),height:parseFloat(parentElementIIIIII_style.height)};
+	console.log("Screen_size");
+	console.log(Screen_size);
+	
+	//Indicator Forbiden space
+	const absoluteXi=Number(parentElementII.getAttribute('x'))+Number(parentElement.getAttribute('x'));
+	const absoluteYi=Number(parentElementII.getAttribute('y'))+Number(parentElement.getAttribute('y'));
+	const Indicator_size={width:Number(parentElement.getAttribute('width')),height:Number(parentElement.getAttribute('height'))};
+	const Absolute_Position= {Xi:absoluteXi,Xf:absoluteXi+Indicator_size.width,Yi:absoluteYi,Yf:absoluteYi+Indicator_size.height}; 
+	
+	console.log("Absolute_Position");
+	console.log(Absolute_Position);
+	const Pop_PostionI=findOptimalPosition(Window_Size.width,Window_Size.height,Screen_size.width,Screen_size.height,Absolute_Position,10,20);
+	
+	Pop_Position=[Pop_PostionI.optimalX,Pop_PostionI.optimalY]; //Position where the Pop Up Hides
+	
+	console.log("Pop_Position"); 
+	console.log(Pop_Position);
+	//-------------------Settings	
+	
+	//Hide Barra
+	webMI.gfx.setVisible("Ind_Bar", false);
+	
+	//Hide Alarma	
+	webMI.gfx.setVisible("alarm_square", false);
+	webMI.gfx.setVisible("alarm_text", false);	
+	webMI.gfx.setVisible("alarm_square_min", false);
+	webMI.gfx.setVisible("alarm_text_min", false);
+	webMI.gfx.setVisible("click_area_alarm", false);
+	webMI.gfx.setVisible("click_area_alarm_min", false);
+	
+	//Hide Alertas	
+	webMI.gfx.setVisible("alert_increasing", false);
+	webMI.gfx.setVisible("alertC_text", false);
+	webMI.gfx.setVisible("alert_decreasing", false);	
+	webMI.gfx.setVisible("alertD_text", false);
+	webMI.gfx.setVisible("click_area_alertC", false);
+	webMI.gfx.setVisible("click_area_alertC_min", false);
+	
+	webMI.gfx.setVisible("alert_increasing_min", false);
+	webMI.gfx.setVisible("alertC_text_min", false);
+	webMI.gfx.setVisible("alert_decreasing_min", false);	
+	webMI.gfx.setVisible("alertD_text_min", false);
+	webMI.gfx.setVisible("click_area_alertD", false);
+	webMI.gfx.setVisible("click_area_alertD_min", false);
+	
+});
+
+
+//--------Alarm Window---------------//
+
+//Open Window Alarms Viewer Quick Look
+webMI.addEvent("click_area_alarm", "mouseover", function(e) {
+
+	if (alarmWindow==undefined ||alarmWindow.closed==true){ //Don´t Open if it was already open
+		alarmWindow = webMI.display.openWindow({display:"SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Alarm_Viewer_Object_Display",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{High Active Alarms: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		
+	alarmWindow_fixed=false;
+	}
+});
+
+//Open Window Alarms Viewer Permanent Look
+webMI.addEvent("click_area_alarm", "click", function(e) {
+	alarmWindow_fixed=true;
+});
+
+//Close Window Alarms Viewer
+webMI.addEvent("click_area_alarm", "mouseout", function(e) {
+	
+	if(alarmWindow_fixed!=true){
+		alarmWindow.close();
+	}
+});
+
+//--------Window Increasing Alert---------------//
+
+//Open Window AlerC_Viewer Quick Look
+webMI.addEvent("click_area_alertC", "mouseover", function(e) {
+
+	if (alertWindowC==undefined ||alertWindowC.closed==true){ //Don´t Open if it was already open
+		alertWindowC = webMI.display.openWindow({display:"SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.AlertC_Viewer_Object_Display",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{High Active Increasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		
+		alertWindowC_fixed=false;
+	}
+});
+
+//Open Window AlerC_Viewer Permanent Look
+webMI.addEvent("click_area_alertC", "click", function(e) {
+	alertWindowC_fixed=true;
+});
+
+//Close Window AlerC_Viewer
+webMI.addEvent("click_area_alertC", "mouseout", function(e) {
+	
+	if(alertWindowC_fixed!=true){
+		alertWindowC.close();
+	}
+});
+
+//--------Window Decreasing Alert---------------//
+
+//Open Window AlerD_Viewer Quick Look
+webMI.addEvent("click_area_alertD", "mouseover", function(e) {
+
+	if (alertWindowD==undefined ||alertWindowD.closed==true){ //Don´t Open if it was already open
+		alertWindowD = webMI.display.openWindow({display:"SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.AlertD_Viewer_Object_Display",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{High Active Decreasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		
+		alertWindowD_fixed=false;
+	}
+});
+
+//Open Window AlerD_Viewer Permanent Look
+webMI.addEvent("click_area_alertD", "click", function(e) {
+	alertWindowD_fixed=true;
+});
+
+//Close Window AlerD_Viewer
+webMI.addEvent("click_area_alertD", "mouseout", function(e) {
+	
+	if(alertWindowD_fixed!=true){
+		alertWindowD.close();
+	}
+});
+
+//--------Window de Alarms Min---------------//
+
+//Open Window Alarms Viewer min Quick Look
+webMI.addEvent("click_area_alarm_min", "mouseover", function(e) {
+
+	if (alarmWindow_min==undefined ||alarmWindow_min.closed==true){ //Don´t Open if it was already open
+		alarmWindow_min = webMI.display.openWindow({display:"SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Alarm_Viewer_min_Object_Display",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Low Active Alarms: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		
+	alarmWindow_fixed_min=false;
+	}
+});
+
+//Open Window Alarms Viewer min Permanent Look
+webMI.addEvent("click_area_alarm_min", "click", function(e) {
+	alarmWindow_fixed_min=true;
+});
+
+//Close Alarms Viewer min
+webMI.addEvent("click_area_alarm_min", "mouseout", function(e) {
+	
+	if(alarmWindow_fixed_min!=true){
+		alarmWindow_min.close();
+	}
+});
+
+//--------Window Increasing Alert min---------------//
+
+//Open Window AlerC_Viewer_min Quick Look
+webMI.addEvent("click_area_alertC_min", "mouseover", function(e) {
+
+	if (alertWindowC_min==undefined ||alertWindowC_min.closed==true){ //Don´t Open if it was already open
+		alertWindowC_min= webMI.display.openWindow({display:"SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.AlertC_Viewer_min_Object_Display",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Low Active Increasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		
+		alertWindowC_fixed_min=false;
+	}
+});
+
+//Open Window AlerC_Viewer_min Permanent Look
+webMI.addEvent("click_area_alertC_min", "click", function(e) {
+	alertWindowC_fixed_min=true;
+});
+
+//Close Window AlerC_Viewer_min
+webMI.addEvent("click_area_alertC_min", "mouseout", function(e) {
+	
+	if(alertWindowC_fixed_min!=true){
+		alertWindowC_min.close();
+	}
+});
+
+//--------Window de Alertas Decreciendo Min---------------//
+
+//Open Window AlerD_Viewer_min Quick Look
+webMI.addEvent("click_area_alertD_min", "mouseover", function(e) {
+
+	if (alertWindowD_min==undefined ||alertWindowD_min.closed==true){ //Don´t Open if it was already open
+		alertWindowD_min = webMI.display.openWindow({display:"SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.AlertD_Viewer_min_Object_Display",extern:false,height:233,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Low Active Decreasing Alerts: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:686,x:Pop_Position[0],y:Pop_Position[1],query:webMI.query});
+		
+		alertWindowD_fixed_min=false;
+	}
+});
+
+//Open Window AlerD_Viewer_min Quick Look Permanent Look
+webMI.addEvent("click_area_alertD_min", "click", function(e) {
+	alertWindowD_fixed_min=true;
+});
+
+//Close Window AlerD_Viewer_min 
+webMI.addEvent("click_area_alertD_min", "mouseout", function(e) {
+	
+	if(alertWindowD_fixed_min!=true){
+		alertWindowD_min.close();
+	}
+});
+
+
+
+
+
+//--------------Alarms Section---------------//
+
+setTimeout(function(){ //Give the server some time
+	//Alarm Activation
+	webMI.data.subscribe(Alarm_ActiveR, function(e) {		
+		
+		var timestamp= (new Date()).getTime();
+		
+		//Initialize Variables
+		var result=e.value;	
+		var contador_Max=0;
+		var contador_Min=0;
+		
+		for(var i=0; i<result.length;i++){
+			if(result[i]!=""){//It is not empty
+				var AlarmaAct = JSON.parse(result[i]);//Alarm being analized
+				//Alarm High
+				if(AlarmaAct.Condition_type=="Max"){
+					contador_Max=contador_Max+1;
+				}	
+				
+				//Alarm Min
+				else{
+						contador_Min=contador_Min+1;
+				}
+			}
+		}		
+		
+		//Alarm High Section
+		if(contador_Max>0){ //Active Alarm
+				webMI.gfx.setVisible("alarm_square", true);
+				webMI.gfx.setVisible("click_area_alarm", true);
+				webMI.gfx.setVisible("alarm_text", true);					
+				
+				//Set Active Alarm counter
+				webMI.gfx.setText("alarm_text", contador_Max);				
+		
+				//Active alarm
+				alarmActive=true;
+				
+		}
+		else{
+			webMI.gfx.setVisible("alarm_square", false);
+			webMI.gfx.setVisible("click_area_alarm", false);
+			webMI.gfx.setVisible("alarm_text", false);
+			
+			//Inactive Alarm
+			alarmActive=false;					
+		}	
+		
+		//Alarm Min Section
+		if(contador_Min>0){ //Active Alarm
+				webMI.gfx.setVisible("alarm_square_min", true);
+				webMI.gfx.setVisible("click_area_alarm_min", true);
+				webMI.gfx.setVisible("alarm_text_min", true);					
+				
+				//Set count of active alarms min
+				webMI.gfx.setText("alarm_text_min", contador_Min);				
+		
+				//Active alarm
+				alarmActive_min=true;
+				
+		}
+		else{
+			webMI.gfx.setVisible("alarm_square_min", false);
+			webMI.gfx.setVisible("click_area_alarm_min", false);
+			webMI.gfx.setVisible("alarm_text_min", false);
+			
+			//Inactive Alarm
+			alarmActive_min=false;					
+		}	
+		
+		//Bar Section
+		if(!alarmActive&&!alertCActive&&!alertDActive&&!alarmActive_min&&!alertCActive_min&&!alertDActive_min){	//Si todas las Alarms y alertas estan en false
+			webMI.gfx.setVisible("Ind_Bar", false);
+		}
+		else{	//If at least one alert or alarm is active
+			webMI.gfx.setVisible("Ind_Bar", true);
+		}
+	});	
+},400);
+
+
+//---------------Alert Section---------------//
+//Alert Activation
+webMI.data.subscribe(AlertR, function(e) {
+	//Initialize Variables
+	var result=e.value;		
+	var AlertC=0;
+	var AlertD=0;
+	var AlertC_min=0;
+	var AlertD_min=0;
+	
+	for(var i=0; i<result.length;i++){ //Go through all the alerts
+		var InstantAlert=JSON.parse(result[i]);
+		if (InstantAlert!=""){ //If there is an alert
+			if (InstantAlert.Status=="Increasing"){ //It is Increasing
+				if (InstantAlert.Condition_type=="Max"){ //It is Max		
+					AlertC=AlertC+1;
+				}
+				else if (InstantAlert.Condition_type=="Min"){ //It is Min
+					AlertC_min=AlertC_min+1;
+				}			
+			}
+			else if (InstantAlert.Status=="Decreasing"){ //It is Decreasing
+				if (InstantAlert.Condition_type=="Max"){ //It is Max			
+					AlertD=AlertD+1;
+				}
+				else if (InstantAlert.Condition_type=="Min"){ //It is Min
+					AlertD_min=AlertD_min+1;
+				}	
+			}
+		}	
+	}
+	
+	////////////Max Section
+	
+	//Increasing Max Analysis
+	if (AlertC>0){ //There are Increasing Alerts
+		webMI.gfx.setVisible("alert_increasing", true);
+		webMI.gfx.setVisible("alertC_text", true);
+		webMI.gfx.setVisible("click_area_alertC", true);	
+		
+		
+		//Set Count of Increasing Alerts
+		webMI.gfx.setText("alertC_text", AlertC);
+		
+		alertCActive=true;	
+	}
+	else{ //There are not Increasing Alerts
+		webMI.gfx.setVisible("alert_increasing", false);
+		webMI.gfx.setVisible("alertC_text", false);
+		webMI.gfx.setVisible("click_area_alertC", false);
+		
+		alertCActive=false;
+	}
+	
+	
+	//Decreasing Max Analysis
+	if (AlertD>0){ //There are Decreasing Alerts
+		webMI.gfx.setVisible("alert_decreasing", true);
+		webMI.gfx.setVisible("alertD_text", true);
+		webMI.gfx.setVisible("click_area_alertD", true);	
+		
+		
+		//Set Count of Decreasing Alerts
+		webMI.gfx.setText("alertD_text", AlertD);	
+		
+		alertDActive=true;
+	}
+	else{ //There are not Increasing Alerts
+		webMI.gfx.setVisible("alert_decreasing", false);
+		webMI.gfx.setVisible("alertD_text", false);
+		webMI.gfx.setVisible("click_area_alertD", false);
+		
+		alertDActive=false;
+	}
+	
+	////////////Min Section
+	
+	//Increasing Min Analysis
+	if (AlertC_min>0){ //There are Increasing Alerts
+		webMI.gfx.setVisible("alert_increasing_min", true);
+		webMI.gfx.setVisible("alertC_text_min", true);
+		webMI.gfx.setVisible("click_area_alertC_min", true);	
+		
+		
+		//Set Count of Increasing Alerts
+		webMI.gfx.setText("alertC_text_min", AlertC_min);
+		
+		alertCActive_min=true;	
+	}
+	else{ //There are not Increasing Alerts
+		webMI.gfx.setVisible("alert_increasing_min", false);
+		webMI.gfx.setVisible("alertC_text_min", false);
+		webMI.gfx.setVisible("click_area_alertC_min", false);
+		
+		alertCActive_min=false;
+	}
+	
+	
+	//Decreasing Min Analysis
+	if (AlertD_min>0){ //There are Decreasing Alerts
+		webMI.gfx.setVisible("alert_decreasing_min", true);
+		webMI.gfx.setVisible("alertD_text_min", true);
+		webMI.gfx.setVisible("click_area_alertD_min", true);	
+		
+		
+		//Set Count of Decreasing Alerts
+		webMI.gfx.setText("alertD_text_min", AlertD_min);	
+		
+		alertDActive_min=true;
+	}
+	else{ //There are not Increasing Alerts
+		webMI.gfx.setVisible("alert_decreasing_min", false);
+		webMI.gfx.setVisible("alertD_text_min", false);
+		webMI.gfx.setVisible("click_area_alertD_min", false);
+		
+		alertDActive_min=false;
+	}
+	
+	
+	//Bar Section
+	if(!alarmActive&&!alertCActive&&!alertDActive&&!alarmActive_min&&!alertCActive_min&&!alertDActive_min){	//Si todas las Alarms y alertas estan en false
+		webMI.gfx.setVisible("Ind_Bar", false);
+	}
+	else{	//If at least one alert or alarm is active
+		webMI.gfx.setVisible("Ind_Bar", true);
+	}
+
+});
+
+//---------------Functions Section---------------//
+
+
+//Animation function Alarms and alerts Pulsating
+
+//Alarm Max
+setInterval(() => {
+	if(alarmActive){
+		const initialfactor=1;
+		const targetfactor=1.2;
+		
+		const id="alarm_square";
+		
+		//Color Calculation
+		ColorAct=generateColorIntensity(ColorIni,(initialfactor+(increment*1.2)));
+		webMI.gfx.setScaleX(id, initialfactor+increment);
+		webMI.gfx.setScaleY(id, initialfactor+increment);
+		webMI.gfx.setFill(id, ColorAct);
+		
+		if (isGrowing) {
+		  // If it is increasing, increase Size
+		  increment=increment+0.02;
+		  if (initialfactor+increment >= targetfactor) {
+			isGrowing = false;
+		  }
+		} 
+		
+		else {		
+		  // If it is decreasing, reduce size		  
+		  increment=increment-0.02;
+		  if (initialfactor+increment <= initialfactor) {
+			isGrowing = true;
+		  }
+		}  
+	 }	 
+}, 75); // Interval in Miliseconds
+
+
+//Alarm Min
+setInterval(() => {
+	if(alarmActive_min){
+		const initialfactor=1;
+		const targetfactor=1.2;
+		
+		const id="alarm_square_min";
+		
+		//Color Calculation
+		ColorAct=generateColorIntensity(ColorIni,(initialfactor+(increment*1.2)));
+		webMI.gfx.setScaleX(id, initialfactor+increment);
+		webMI.gfx.setScaleY(id, initialfactor+increment);
+		webMI.gfx.setFill(id, ColorAct);
+		
+		if (isGrowing) {
+		  // If it is increasing, increase Size
+		  increment=increment+0.02;
+		  if (initialfactor+increment >= targetfactor) {
+			isGrowing = false;
+		  }
+		} 
+		
+		else {		
+		  // If it is decreasing, reduce size		  
+		  increment=increment-0.02;
+		  if (initialfactor+increment <= initialfactor) {
+			isGrowing = true;
+		  }
+		}  
+	 }	 
+}, 75); // Interval in Miliseconds
+
+
+//Increasing Alert Max
+setInterval(() => {	
+
+	 if(alertCActive){		
+		const initialposition=0;
+		const targetposition=-Movement_Range; //Advance X Pixels
+		const id="alert_increasing";
+		const id2="alertC_text";
+				
+		//Color Calculation
+		//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
+		webMI.gfx.setMoveY(id,initialposition+incrementAlerC);
+		webMI.gfx.setFill(id, ColorActAlerC);
+		
+		webMI.gfx.setMoveY(id2,initialposition+incrementAlerC);
+		
+		// If it is increasing, increase Size
+		incrementAlerC=incrementAlerC-Step_size;
+		if (initialposition+incrementAlerC <= targetposition) {
+			incrementAlerC=0;
+		}		
+	 }
+}, 50); // Interval in Miliseconds
+
+//Decreasing Alert Max
+setInterval(() => {	
+
+	 if(alertDActive){	
+		const initialposition=0;
+		const targetposition=Movement_Range; //Advance X Pixels
+		const id="alert_decreasing";
+		const id2="alertD_text";
+				
+		//Color Calculation
+		//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
+		webMI.gfx.setMoveY(id,initialposition+incrementAlerD);
+		webMI.gfx.setFill(id, ColorActAlerD);
+		
+		webMI.gfx.setMoveY(id2,initialposition+incrementAlerD);
+		
+		// If it is increasing, increase Size
+		incrementAlerD=incrementAlerD+Step_size;
+		if (initialposition+incrementAlerD >= targetposition) {
+			incrementAlerD=0;
+		}		
+	 }
+}, 50); // Interval in Miliseconds
+
+
+//Increasing Alert Min
+setInterval(() => {	
+
+	 if(alertCActive_min){	
+	 	
+		const initialposition=0;
+		const targetposition=Movement_Range; //Advance X Pixels
+		const id="alert_increasing_min";
+		const id2="alertC_text_min";
+				
+		//Color Calculation
+		
+		webMI.gfx.setMoveY(id,initialposition+incrementAlerC_min);
+		webMI.gfx.setFill(id, ColorActAlerC);
+		
+		webMI.gfx.setMoveY(id2,initialposition+incrementAlerC_min);
+		
+		// If it is increasing, increase Size
+		incrementAlerC_min=incrementAlerC_min+Step_size;
+		if (initialposition+incrementAlerC_min >= targetposition) {
+			incrementAlerC_min=0;
+		}		
+	 }
+}, 50); // Interval in Miliseconds
+
+//Decreasing Alert Min
+setInterval(() => {	
+
+	 if(alertDActive_min){	
+		const initialposition=0;
+		const targetposition=-Movement_Range; //Advance X Pixels
+		const id="alert_decreasing_min";
+		const id2="alertD_text_min";
+				
+		//Color Calculation
+		//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
+		webMI.gfx.setMoveY(id,initialposition+incrementAlerD_min);
+		webMI.gfx.setFill(id, ColorActAlerD);
+		
+		webMI.gfx.setMoveY(id2,initialposition+incrementAlerD_min);
+		
+		// If it is increasing, increase Size
+		incrementAlerD_min=incrementAlerD_min-Step_size;
+		if (initialposition+incrementAlerD_min <=targetposition) {
+			incrementAlerD_min=0;
+		}		
+	 }
+}, 50); // Interval in Miliseconds
+
+
+
+
+//Color Generation Function
+function generateColorIntensity(colorHex, intensityfactor) {
+  // Validate that the colorHex has a valid format
+  if (!/^#([0-9A-F]{3}){1,2}$/i.test(colorHex)) {
+    throw new Error('Hexadecimal color is not in a valid format.');
+  }
+
+  // Remove the '#' symbol and split the color into RGB components
+  const hex = colorHex.substring(1);
+  const rgb = [
+    parseInt(hex.substring(0, 2), 16),
+    parseInt(hex.substring(2, 4), 16),
+    parseInt(hex.substring(4, 6), 16)
+  ];
+
+  // Adjust the intensity of each RGB component
+  const newRGB = rgb.map(component => {
+    const newValue = Math.round(component * intensityfactor);
+    return Math.min(Math.max(newValue, 0), 255); // Ensure that the value is within the range [0, 255]
+  });
+
+  // Convert the new RGB to a hexadecimal color
+  const newHex = newRGB
+    .map(component => component.toString(16).padStart(2, '0'))
+    .join('');
+
+  return `#${newHex}`;
+}
+
+
+function findOptimalPosition(windowWidth, windowHeight, screenWidth, screenHeight, absolutePosition, paddingX, paddingY) {
+    const { Xi, Xf, Yi, Yf } = absolutePosition;
+	
+	var optimalX=0;
+	var optimalY=0;
+		
+    // Define potential positions
+    const positions = [
+        { x: Xi, y: Yi - windowHeight - paddingY }, // Above forbidden area
+        { x: Xf - (windowWidth/2)-((Xf-Xi)/2), y: Yi - windowHeight - paddingY }, // Above and Middle of forbidden area
+        { x: Xi, y: Yf + paddingY },               // Below forbidden area
+        { x: Xf - (windowWidth/2)-((Xf-Xi)/2), y: Yf + paddingY}, // Below and Middle of forbidden area
+        { x: Xi - windowWidth - paddingX, y: Yi }, // Left of forbidden area
+        { x: Xf + paddingX, y: Yi }                // Right of forbidden area
+        
+    ];
+    var result0y=(Yi - windowHeight - paddingY);
+    var result1y=(Yf + paddingY);
+    var result2x=(Xi - windowWidth - paddingX);
+    var result3x=(Xf + paddingX);
+    console.log("Option 0: ");
+    console.log(Xi);
+    console.log("Yi: "+Yi+" - windowHeight: "+windowHeight+"- paddingY: "+paddingY+" = "+result0y);
+    console.log("Option 1: ");
+    console.log(Xi);
+    console.log("Yf: "+Yf+"+ paddingY: "+paddingY+" = "+result1y);
+    console.log("Option 2: ");
+    console.log("Xi: "+Xi+" - windowWidth: "+windowWidth+" - paddingX: "+paddingX+" = "+result2x);
+    console.log(Yi);
+    console.log("Option 3: ");
+    console.log("Xf: "+Xf+" + paddingX: "+paddingX+" = "+result3x);
+    console.log(Yi);
+	var i=0;
+    for (let pos of positions) {
+        // Check if the position is within the screen bounds
+        if (pos.x >= 0 && pos.x + windowWidth <= screenWidth && pos.y >= 0 && pos.y + windowHeight <= screenHeight){
+			optimalX  =   pos.x;
+			optimalY= pos.y ;
+			console.log("X In position: "+i);
+        }
+        
+        console.log("pos.y: "+pos.y+"+ windowHeight: "+windowHeight+"<= screenHeight: "+screenHeight);
+        
+        i++;
+    }
+
+    // Return null if no suitable position is found 
+    return {optimalX:optimalX,optimalY:optimalY};
+}
+
+
+]]></code>
+</script>

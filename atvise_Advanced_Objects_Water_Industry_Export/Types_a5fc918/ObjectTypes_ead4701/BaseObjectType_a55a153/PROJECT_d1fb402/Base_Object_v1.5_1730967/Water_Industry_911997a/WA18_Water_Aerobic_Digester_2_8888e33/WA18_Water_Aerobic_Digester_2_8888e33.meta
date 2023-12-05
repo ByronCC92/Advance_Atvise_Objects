@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA18_Water_Aerobic_Digester_2
+NodeClass: ObjectType
+BrowseName: 1:WA18_Water_Aerobic_Digester_2
+DisplayName: en|WA18_Water_Aerobic_Digester_2
+Description: en|WA18_Water_Aerobic_Digester_2
+IsAbstract: false

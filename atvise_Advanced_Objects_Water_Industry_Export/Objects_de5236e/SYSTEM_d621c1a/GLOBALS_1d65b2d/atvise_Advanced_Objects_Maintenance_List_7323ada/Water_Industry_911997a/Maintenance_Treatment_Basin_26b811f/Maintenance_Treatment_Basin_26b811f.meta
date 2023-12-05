@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Water_Industry.Maintenance_Treatment_Basin
+NodeClass: Variable
+BrowseName: 1:Maintenance_Treatment_Basin
+DisplayName: en|Maintenance_Treatment_Basin
+Description: en|Maintenance_Treatment_Basin
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

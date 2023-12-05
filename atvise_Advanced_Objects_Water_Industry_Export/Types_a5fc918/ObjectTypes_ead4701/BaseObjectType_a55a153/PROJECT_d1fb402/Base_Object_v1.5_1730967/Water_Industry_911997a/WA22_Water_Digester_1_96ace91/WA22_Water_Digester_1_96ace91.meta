@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA22_Water_Digester_1
+NodeClass: ObjectType
+BrowseName: 1:WA22_Water_Digester_1
+DisplayName: en|WA22_Water_Digester_1
+Description: en|WA22_Water_Digester_1
+IsAbstract: false

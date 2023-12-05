@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA10_Sludge_Digester_1.Variables.Mixing_Rate.Max_Min.Max.lower_limit_compare
+NodeClass: Variable
+BrowseName: 1:lower_limit_compare
+DisplayName: en|lower_limit_compare
+Description: en|lower_limit_compare
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

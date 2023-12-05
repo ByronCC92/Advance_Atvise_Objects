@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA03_Anaerobic_Reactor_1.Variables.Gas_Production_Rate.Max_Min.Min.max_time_shelved
+NodeClass: Variable
+BrowseName: 1:max_time_shelved
+DisplayName: en|max_time_shelved
+Description: en|max_time_shelved
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA26_Water_Pump_2.Variables.Vibration.Max_Min.Min.modify_script
+NodeClass: Variable
+BrowseName: 1:modify_script
+DisplayName: en|modify_script
+Description: en|modify_script
+DataType: NodeId
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

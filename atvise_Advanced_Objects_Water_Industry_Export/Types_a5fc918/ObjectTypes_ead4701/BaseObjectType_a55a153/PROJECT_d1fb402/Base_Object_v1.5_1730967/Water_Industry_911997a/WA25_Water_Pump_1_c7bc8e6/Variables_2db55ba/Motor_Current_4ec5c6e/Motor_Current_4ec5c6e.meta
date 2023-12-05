@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA25_Water_Pump_1.Variables.Motor_Current
+NodeClass: Variable
+BrowseName: 1:Motor_Current
+DisplayName: en|Motor_Current
+Description: en|Motor_Current
+DataType: Int32
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

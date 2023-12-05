@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA22_Water_Digester_1.Variables.pH
+NodeClass: Variable
+BrowseName: 1:pH
+DisplayName: en|pH
+Description: en|pH
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

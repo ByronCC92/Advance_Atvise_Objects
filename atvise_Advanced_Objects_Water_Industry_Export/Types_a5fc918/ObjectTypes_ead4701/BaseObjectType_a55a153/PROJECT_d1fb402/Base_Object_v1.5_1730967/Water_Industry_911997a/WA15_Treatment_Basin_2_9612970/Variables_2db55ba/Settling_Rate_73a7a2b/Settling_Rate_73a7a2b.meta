@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA15_Treatment_Basin_2.Variables.Settling_Rate
+NodeClass: Variable
+BrowseName: 1:Settling_Rate
+DisplayName: en|Settling_Rate
+Description: en|Settling_Rate
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

@@ -1,0 +1,9 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA03_Anaerobic_Reactor_1.Variables.Temperature.Max_Min.Max
+NodeClass: Object
+BrowseName: 1:Max
+DisplayName: en|Max
+Description: en|Max
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConditionControl.Limit
+Reference: forward HasComponent ns=1;s=AGENT.ALARMING.Categories.Error

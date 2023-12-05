@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="32" version="1.2" width="92" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" name="Name" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Border Color" name="Border_Color" substitute="$BorderColor$" valuetype="color"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <rect atv:refpx="46" atv:refpy="16" fill="#ffffff" height="30" id="id_0" rx="2.672" ry="2.672" stroke="#000000" stroke-width="2" width="90" x="1" y="1"/>
+ <foreignObject height="30" id="id_1" width="90" x="1" y="1">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml">
+   <div id="inputSquare">
+    <span style="display: flex; align-items: center; justify-content: center; width:90px; height:30px; font-size: 24px; padding-right: 10px;">0</span>
+   </div>
+  </div>
+ </foreignObject>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//External Variables
+var name= webMI.query["Name"];
+var ChangeReason="Normal"; //"Normal":Normal change, "Fixing":Fixing Change not allowed
+
+// Global variable to hold the value
+let globalValue = '';
+
+//Reference HTML elements
+const elementdiv=document.getElementById('id_1');
+const childdiv = elementdiv.children[0]; // Index is zero-based
+const childdiv2 = childdiv.children[0]; // Index is zero-based
+
+
+// Attach the event listener
+childdiv2.addEventListener('click', function() {
+	makeEditable(this);
+});
+
+
+function makeEditable(element) {
+	const spanElement = element.querySelector('span');
+	spanElement.setAttribute('contenteditable', 'true');
+	element.classList.add('editable');
+
+	// Focus the span element for editing
+	spanElement.focus();
+
+	spanElement.addEventListener('blur', function() {
+		spanElement.setAttribute('contenteditable', 'false');
+		element.classList.remove('editable');
+
+		// Update the global variable
+		globalValue = spanElement.textContent;
+		if (ChangeReason=="Normal"){
+			webMI.trigger.fire("read_value_"+name, globalValue);
+		}
+		else{
+			ChangeReason="Normal";
+		}
+	}, { once: true });
+	
+	spanElement.addEventListener('keydown', function(event) {
+		const keyCode = event.keyCode;
+		if (keyCode === 8) {  // 8 is the keyCode for the backspace key
+			event.preventDefault();
+			// Manually remove the last character
+			const text = spanElement.textContent;
+			const newText = text.substring(0, text.length - 1);
+	
+			if (newText.length === 0) {
+				// Insert a predefined value to keep `contenteditable` alive
+				spanElement.textContent = ' ';
+			} else {
+				spanElement.textContent = newText;
+			}
+			
+			// Update the global variable
+			globalValue = newText || '0';
+		}
+		else if (keyCode === 13) {  // Handle Enter key
+			event.preventDefault();
+			// Trigger blur event to make it read-only again
+			spanElement.blur();
+		}
+		else if (keyCode > 105) {
+			event.preventDefault();  // Only allow numbers
+		}
+		
+		else if (keyCode < 48 || (keyCode > 57 && keyCode < 96) || keyCode > 105) {
+            event.preventDefault();  // Only allow numbers
+        }
+        console.log("Here");
+	});
+}
+
+
+webMI.trigger.connect("write_value_"+name, function(e) {
+		console.log("Writting: "+e.value.value);
+		ChangeReason=e.value.reason;
+		const spanElement = childdiv2.querySelector('span');
+		var newText=e.value.value;
+		spanElement.textContent = newText;
+		
+});
+]]></script>
+</svg>

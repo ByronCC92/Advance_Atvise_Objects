@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA34_Water_Valve_2.Variables.Control_Signal
+NodeClass: Variable
+BrowseName: 1:Control_Signal
+DisplayName: en|Control_Signal
+Description: en|Control_Signal
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

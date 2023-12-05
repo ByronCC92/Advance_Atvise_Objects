@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA28_Water_Pump_4.Variables.Vibration.Max_Min.variable
+NodeClass: Variable
+BrowseName: 1:variable
+DisplayName: en|variable
+Description: en|variable
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

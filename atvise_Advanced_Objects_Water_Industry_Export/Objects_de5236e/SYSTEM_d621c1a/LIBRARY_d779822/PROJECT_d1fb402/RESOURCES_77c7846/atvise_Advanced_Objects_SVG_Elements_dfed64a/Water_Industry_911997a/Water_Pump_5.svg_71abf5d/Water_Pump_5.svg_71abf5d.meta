@@ -1,0 +1,11 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/Water_Industry/Water_Pump_5.svg
+NodeClass: Variable
+BrowseName: 1:Water_Pump_5.svg
+DisplayName: en|Water_Pump_5.svg
+Description: en|Water_Pump_5.svg
+DataType: ByteString
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Resource.Svg
+Reference: forward HasProperty ns=1;s=VariableTypes.ATVISE.Resource.Svg.Compress
+Reference: forward HasProperty ns=1;s=VariableTypes.ATVISE.Resource.Svg.Translate

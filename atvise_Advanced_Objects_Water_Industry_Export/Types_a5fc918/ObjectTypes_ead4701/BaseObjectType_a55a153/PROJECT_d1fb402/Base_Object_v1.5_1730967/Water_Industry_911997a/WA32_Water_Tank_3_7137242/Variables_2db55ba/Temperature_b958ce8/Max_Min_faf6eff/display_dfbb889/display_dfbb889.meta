@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA32_Water_Tank_3.Variables.Temperature.Max_Min.display
+NodeClass: Variable
+BrowseName: 1:display
+DisplayName: en|display
+Description: en|display
+DataType: NodeId
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

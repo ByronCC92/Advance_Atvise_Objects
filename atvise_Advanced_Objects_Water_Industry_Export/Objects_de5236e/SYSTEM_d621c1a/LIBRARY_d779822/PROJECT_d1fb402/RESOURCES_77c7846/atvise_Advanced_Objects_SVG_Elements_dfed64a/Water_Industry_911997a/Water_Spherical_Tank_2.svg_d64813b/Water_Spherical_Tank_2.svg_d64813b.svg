@@ -1,0 +1,101 @@
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg enable-background="new 0 0 102.254 112.5" height="112.5" version="1.1" width="102.254" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_1_" x1="-1.47995e-05" x2="0.999956" y1="0.500015" y2="0.500015">
+   <stop offset="0" stop-color="#1F1F1F"/>
+   <stop offset="0.45" stop-color="#999999"/>
+   <stop offset="0.62" stop-color="#868686"/>
+   <stop offset="0.77" stop-color="#737373"/>
+   <stop offset="1" stop-color="#1F1F1F"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_2_" x1="-4.51467e-05" x2="0.99988" y1="0.500015" y2="0.500015">
+   <stop offset="0" stop-color="#1F1F1F"/>
+   <stop offset="0.45" stop-color="#999999"/>
+   <stop offset="0.62" stop-color="#868686"/>
+   <stop offset="0.77" stop-color="#737373"/>
+   <stop offset="1" stop-color="#1F1F1F"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_3_" x1="3.94633e-05" x2="1.00002" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#1F1F1F"/>
+   <stop offset="0.45" stop-color="#999999"/>
+   <stop offset="0.62" stop-color="#868686"/>
+   <stop offset="0.77" stop-color="#737373"/>
+   <stop offset="1" stop-color="#1F1F1F"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_4_" x1="-9.8668e-06" x2="0.99997" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#1F1F1F"/>
+   <stop offset="0.45" stop-color="#999999"/>
+   <stop offset="0.62" stop-color="#868686"/>
+   <stop offset="0.77" stop-color="#737373"/>
+   <stop offset="1" stop-color="#1F1F1F"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_6_" x1="-2.96657e-06" x2="0.999997" y1="0.500232" y2="0.500232">
+   <stop offset="0" stop-color="#1F1F1F"/>
+   <stop offset="0.45" stop-color="#999999"/>
+   <stop offset="0.62" stop-color="#868686"/>
+   <stop offset="0.77" stop-color="#737373"/>
+   <stop offset="1" stop-color="#1F1F1F"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_7_" x1="-1.50512e-05" x2="0.999925" y1="0.500015" y2="0.500015">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_8_" x1="-5.92066e-05" x2="0.999926" y1="0.500015" y2="0.500015">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_9_" x1="4.98902e-05" x2="1.00009" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_10_" x1="1.97336e-05" x2="0.99999" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <radialGradient cx="0.500002" cy="0.5" fx="0.500002" fy="0.5" gradientUnits="objectBoundingBox" id="SVGID_5_" r="0.500005">
+   <stop offset="0" stop-color="#ECECEC"/>
+   <stop offset="0.14" stop-color="#DDDDDD"/>
+   <stop offset="0.4" stop-color="#B8B8B8"/>
+   <stop offset="0.75" stop-color="#7C7C7C"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </radialGradient>
+ </defs>
+ <metadata>
+  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="false" height="10" width="10"/>
+ </metadata>
+ <g atv:refpx="51.127" atv:refpy="56.194" id="id_10">
+  <g atv:refpx="51.071" atv:refpy="91.61" id="Group_BackLegs">
+   <path atv:refpx="76.353" atv:refpy="90.765" d="M72.974,71.396L72.974,110.134L79.731,110.134L79.731,71.396Z" fill="url(#SVGID_1_)" id="id_0"/>
+   <path atv:refpx="25.846" atv:refpy="90.765" d="M22.524,71.396L22.524,110.134L29.169,110.134L29.169,71.396Z" fill="url(#SVGID_2_)" id="id_1"/>
+   <path atv:refpx="76.352" atv:refpy="110.98" d="M71.284,110.135L71.284,111.824L81.42,111.824L81.42,110.135Z" fill="url(#SVGID_3_)" id="id_2"/>
+   <path atv:refpx="25.79" atv:refpy="110.98" d="M20.722,110.135L20.722,111.824L30.857,111.824L30.857,110.135Z" fill="url(#SVGID_4_)" id="id_3"/>
+  </g>
+  <g atv:refpx="51.127" atv:refpy="51.126" id="Group_TankBody">
+   <circle atv:refpx="51.127" atv:refpy="51.126" cx="51.127" cy="51.126" fill="url(#SVGID_5_)" id="id_4" r="50.563"/>
+   <path atv:refpx="51.127" atv:refpy="70.101" d="M0.564,71.396L101.69,71.396L101.69,68.806L0.564,68.806Z" fill="url(#SVGID_6_)" id="id_5"/>
+  </g>
+  <g atv:refpx="51.127" atv:refpy="91.61" id="Group_FrontLegs">
+   <path atv:refpx="15.711" atv:refpy="90.765" d="M12.389,71.396L12.389,110.134L19.033,110.134L19.033,71.396Z" fill="url(#SVGID_7_)" id="id_6"/>
+   <path atv:refpx="86.488" atv:refpy="90.765" d="M83.11,71.396L83.11,110.134L89.866,110.134L89.866,71.396Z" fill="url(#SVGID_8_)" id="id_7"/>
+   <path atv:refpx="15.71" atv:refpy="110.98" d="M10.699,110.135L10.699,111.824L20.721,111.824L20.721,110.135" fill="url(#SVGID_9_)" id="id_8"/>
+   <path atv:refpx="86.488" atv:refpy="110.98" d="M81.42,110.135L81.42,111.824L91.555,111.824L91.555,110.135" fill="url(#SVGID_10_)" id="id_9"/>
+  </g>
+ </g>
+</svg>

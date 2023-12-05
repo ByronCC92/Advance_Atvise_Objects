@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Water_Industry.Maintenance_Covered_Dome_Tank
+NodeClass: Variable
+BrowseName: 1:Maintenance_Covered_Dome_Tank
+DisplayName: en|Maintenance_Covered_Dome_Tank
+Description: en|Maintenance_Covered_Dome_Tank
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

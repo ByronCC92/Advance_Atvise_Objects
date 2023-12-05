@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA23_Water_Digester_2.AAA_Principal
+NodeClass: Variable
+BrowseName: 1:AAA_Principal
+DisplayName: en|AAA_Principal
+Description: en|AAA_Principal
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

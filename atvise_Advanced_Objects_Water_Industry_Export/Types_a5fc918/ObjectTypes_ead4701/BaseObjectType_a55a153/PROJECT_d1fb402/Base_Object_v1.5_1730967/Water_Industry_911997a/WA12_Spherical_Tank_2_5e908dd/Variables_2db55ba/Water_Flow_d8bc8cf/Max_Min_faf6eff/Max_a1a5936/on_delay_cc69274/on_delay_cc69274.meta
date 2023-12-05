@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA12_Spherical_Tank_2.Variables.Water_Flow.Max_Min.Max.on_delay
+NodeClass: Variable
+BrowseName: 1:on_delay
+DisplayName: en|on_delay
+Description: en|on_delay
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

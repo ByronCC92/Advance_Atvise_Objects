@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA27_Water_Pump_3.Variables.Discharge_Pressure.Max_Min.variable
+NodeClass: Variable
+BrowseName: 1:variable
+DisplayName: en|variable
+Description: en|variable
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

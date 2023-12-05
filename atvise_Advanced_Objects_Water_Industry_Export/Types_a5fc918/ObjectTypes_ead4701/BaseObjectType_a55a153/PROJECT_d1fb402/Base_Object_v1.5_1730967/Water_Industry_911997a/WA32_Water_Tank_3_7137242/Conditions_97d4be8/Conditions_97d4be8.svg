@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="650" version="1.2" width="603" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <text atv:refpx="49.476" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14.5" y="25.5">Conditions of</text>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Initialize Variables*******/
+
+
+/*******Initial Conditions*******/
+webMI.addOnload(function() {
+
+	//Define Initial Text
+    webMI.gfx.setText("id_info", "Conditions of: "+(webMI.query["base"]).split('.').pop());
+});
+
+
+]]></script>
+ <svg atv:refpx="315" atv:refpy="555" height="30" id="id_11" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="480" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="540">
+  <atv:argument name="base" prefix="base"/>
+  <atv:argument name="unit" value="T{s}"/>
+  <atv:argument name="fontSize" value="14"/>
+  <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
+  <atv:overwrite id="blinking_frame" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
+  <atv:overwrite id="focus_frame" transform="matrix(1.7778,0,0,1,0,0)" width="86"/>
+  <atv:overwrite id="input_bg" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
+  <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
+  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+ </svg>
+ <text atv:refpx="128.105" atv:refpy="911.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_12" x="274.5" y="526">Operating Time</text>
+ <svg atv:refpx="215" atv:refpy="485" height="30" id="id_5" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="302.223" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="470">
+  <atv:argument name="base" prefix="base" value=".Variables.pH"/>
+  <atv:argument name="unit" value="T{pH}"/>
+  <atv:argument name="fontSize" value="14"/>
+  <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
+  <atv:overwrite id="blinking_frame" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
+  <atv:overwrite id="focus_frame" transform="matrix(1.7778,0,0,1,0,0)" width="86"/>
+  <atv:overwrite id="input_bg" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
+  <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
+  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+ </svg>
+ <text atv:refpx="135.646" atv:refpy="841.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_6" x="174.5" y="456">	pH</text>
+ <svg atv:refpx="324.999" atv:refpy="485" height="30" id="id_7" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="497.778" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="470">
+  <atv:argument name="base" prefix="base" value=".Variables.Chlorine_Level"/>
+  <atv:argument name="unit" value="T{ppm}"/>
+  <atv:argument name="fontSize" value="14"/>
+  <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
+  <atv:overwrite id="blinking_frame" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
+  <atv:overwrite id="focus_frame" transform="matrix(1.7778,0,0,1,0,0)" width="86"/>
+  <atv:overwrite id="input_bg" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
+  <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
+  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+ </svg>
+ <text atv:refpx="178.432" atv:refpy="841.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_8" x="284.5" y="456">Nivel Cloro</text>
+ <svg atv:refpx="435" atv:refpy="485" height="30" id="id_9" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="693.335" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="470">
+  <atv:argument name="base" prefix="base" value=".Variables.Electrical_Conductivity"/>
+  <atv:argument name="fontSize" value="14"/>
+  <atv:argument name="unit" value="T{µS/cm}"/>
+  <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
+  <atv:overwrite id="blinking_frame" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
+  <atv:overwrite id="focus_frame" transform="matrix(1.7778,0,0,1,0,0)" width="86"/>
+  <atv:overwrite id="input_bg" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
+  <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
+  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+ </svg>
+ <text atv:refpx="258.559" atv:refpy="841.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_10" x="394.5" y="456">Conductividad</text>
+ <svg atv:refpx="297.002" atv:refpy="104.001" height="106" id="id_2" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="72.272">
+  <atv:argument name="Label" value="Water Level"/>
+  <atv:argument name="Input" prefix="base" value=".Variables.Water_Level"/>
+  <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
+  <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
+  <atv:argument name="Unit" value="P"/>
+  <atv:argument name="Color" prefix="Color" value=""/>
+ </svg>
+ <svg atv:refpx="297.002" atv:refpy="204.001" height="106" id="id_3" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="192.725">
+  <atv:argument name="Label" value="Water Flow"/>
+  <atv:argument name="Input" prefix="base" value=".Variables.Water_Flow"/>
+  <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
+  <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
+  <atv:argument name="Unit" value="m3/s"/>
+  <atv:argument name="Color" prefix="Color" value=""/>
+ </svg>
+ <svg atv:refpx="297.002" atv:refpy="294.001" height="106" id="id_4" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="301.132">
+  <atv:argument name="Label" value="Temperature"/>
+  <atv:argument name="Input" prefix="base" value=".Variables.Temperature"/>
+  <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
+  <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
+  <atv:argument name="Unit" value="ºC"/>
+  <atv:argument name="Color" prefix="Color" value=""/>
+ </svg>
+ <svg atv:refpx="287.002" atv:refpy="394.001" height="106" id="id_13" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.96" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="421.585">
+  <atv:argument name="Label" value="Pressure"/>
+  <atv:argument name="Input" prefix="base" value=".Variables.Pressure"/>
+  <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
+  <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
+  <atv:argument name="Unit" value="Pa"/>
+  <atv:argument name="Color" prefix="Color" value=""/>
+ </svg>
+</svg>

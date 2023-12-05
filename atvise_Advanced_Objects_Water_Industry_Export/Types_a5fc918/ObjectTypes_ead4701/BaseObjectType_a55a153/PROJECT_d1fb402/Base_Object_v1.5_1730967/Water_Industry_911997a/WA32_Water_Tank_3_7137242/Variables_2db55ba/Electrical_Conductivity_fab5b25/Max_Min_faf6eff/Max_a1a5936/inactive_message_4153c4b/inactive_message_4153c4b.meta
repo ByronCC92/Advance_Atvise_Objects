@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA32_Water_Tank_3.Variables.Electrical_Conductivity.Max_Min.Max.inactive_message
+NodeClass: Variable
+BrowseName: 1:inactive_message
+DisplayName: en|inactive_message
+Description: en|inactive_message
+DataType: LocalizedText
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

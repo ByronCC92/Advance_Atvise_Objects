@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA05_Covered_Dome_Tank_2
+NodeClass: ObjectType
+BrowseName: 1:WA05_Covered_Dome_Tank_2
+DisplayName: en|WA05_Covered_Dome_Tank_2
+Description: en|WA05_Covered_Dome_Tank_2
+IsAbstract: false

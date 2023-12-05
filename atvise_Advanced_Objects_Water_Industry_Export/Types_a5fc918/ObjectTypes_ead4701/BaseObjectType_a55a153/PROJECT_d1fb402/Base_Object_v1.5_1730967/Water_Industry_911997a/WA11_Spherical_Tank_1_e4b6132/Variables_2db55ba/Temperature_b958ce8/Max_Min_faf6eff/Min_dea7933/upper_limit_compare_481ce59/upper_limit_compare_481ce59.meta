@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA11_Spherical_Tank_1.Variables.Temperature.Max_Min.Min.upper_limit_compare
+NodeClass: Variable
+BrowseName: 1:upper_limit_compare
+DisplayName: en|upper_limit_compare
+Description: en|upper_limit_compare
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

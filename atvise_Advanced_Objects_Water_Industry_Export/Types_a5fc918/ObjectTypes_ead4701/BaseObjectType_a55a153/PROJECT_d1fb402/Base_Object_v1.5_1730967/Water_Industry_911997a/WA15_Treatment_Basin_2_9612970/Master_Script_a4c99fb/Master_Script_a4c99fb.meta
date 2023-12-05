@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA15_Treatment_Basin_2.Master_Script
+NodeClass: Variable
+BrowseName: 1:Master_Script
+DisplayName: en|Master_Script
+Description: en|Master_Script
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.ScriptCode

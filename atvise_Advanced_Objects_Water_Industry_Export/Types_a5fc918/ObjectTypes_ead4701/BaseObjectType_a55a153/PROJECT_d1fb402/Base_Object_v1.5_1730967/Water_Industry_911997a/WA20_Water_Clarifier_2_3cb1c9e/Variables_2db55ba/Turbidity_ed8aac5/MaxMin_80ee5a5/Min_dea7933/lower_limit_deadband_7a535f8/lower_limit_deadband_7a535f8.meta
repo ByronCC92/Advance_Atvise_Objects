@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA20_Water_Clarifier_2.Variables.Turbidity.MaxMin.Min.lower_limit_deadband
+NodeClass: Variable
+BrowseName: 1:lower_limit_deadband
+DisplayName: en|lower_limit_deadband
+Description: en|lower_limit_deadband
+DataType: BaseDataType
+ValueRank: -1
+AccessLevel: 103
+ValueType: i=0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

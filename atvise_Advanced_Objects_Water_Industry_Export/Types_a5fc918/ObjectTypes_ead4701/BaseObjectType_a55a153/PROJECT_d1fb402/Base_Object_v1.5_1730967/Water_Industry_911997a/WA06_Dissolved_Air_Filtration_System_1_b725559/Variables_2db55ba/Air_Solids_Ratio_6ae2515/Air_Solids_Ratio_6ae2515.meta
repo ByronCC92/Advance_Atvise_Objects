@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA06_Dissolved_Air_Filtration_System_1.Variables.Air_Solids_Ratio
+NodeClass: Variable
+BrowseName: 1:Air_Solids_Ratio
+DisplayName: en|Air_Solids_Ratio
+Description: en|Air_Solids_Ratio
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

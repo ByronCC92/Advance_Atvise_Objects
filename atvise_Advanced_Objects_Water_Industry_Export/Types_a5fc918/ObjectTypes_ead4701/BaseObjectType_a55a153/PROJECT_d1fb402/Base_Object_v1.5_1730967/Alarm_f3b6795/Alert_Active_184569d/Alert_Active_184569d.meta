@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Alarm.Alert_Active
+NodeClass: Variable
+BrowseName: 1:Alert_Active
+DisplayName: en|Alert_Active
+Description: en|Alert_Active
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

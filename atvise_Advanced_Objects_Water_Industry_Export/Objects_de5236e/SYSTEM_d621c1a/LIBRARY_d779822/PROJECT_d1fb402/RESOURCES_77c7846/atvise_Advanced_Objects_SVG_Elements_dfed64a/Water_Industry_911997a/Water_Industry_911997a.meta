@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/Water_Industry
+NodeClass: Object
+BrowseName: 1:Water_Industry
+DisplayName: en|Water_Industry
+Description: en|Water_Industry
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

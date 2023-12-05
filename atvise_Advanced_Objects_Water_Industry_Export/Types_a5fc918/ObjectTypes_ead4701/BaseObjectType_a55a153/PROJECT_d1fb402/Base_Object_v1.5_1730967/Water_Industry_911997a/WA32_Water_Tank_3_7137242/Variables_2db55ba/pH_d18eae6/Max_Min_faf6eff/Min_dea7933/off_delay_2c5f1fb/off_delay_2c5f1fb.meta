@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA32_Water_Tank_3.Variables.pH.Max_Min.Min.off_delay
+NodeClass: Variable
+BrowseName: 1:off_delay
+DisplayName: en|off_delay
+Description: en|off_delay
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

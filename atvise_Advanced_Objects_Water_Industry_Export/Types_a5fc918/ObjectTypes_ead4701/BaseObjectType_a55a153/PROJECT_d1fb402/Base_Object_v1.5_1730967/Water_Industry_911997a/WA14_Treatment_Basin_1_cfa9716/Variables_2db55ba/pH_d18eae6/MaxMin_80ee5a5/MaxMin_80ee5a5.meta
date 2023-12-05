@@ -1,0 +1,8 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA14_Treatment_Basin_1.Variables.pH.MaxMin
+NodeClass: Object
+BrowseName: 1:MaxMin
+DisplayName: en|MaxMin
+Description: en|MaxMin
+EventNotifier: 0
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConfiguration

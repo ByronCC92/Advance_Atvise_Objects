@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA13_Spherical_Tank_3
+NodeClass: ObjectType
+BrowseName: 1:WA13_Spherical_Tank_3
+DisplayName: en|WA13_Spherical_Tank_3
+Description: en|WA13_Spherical_Tank_3
+IsAbstract: false

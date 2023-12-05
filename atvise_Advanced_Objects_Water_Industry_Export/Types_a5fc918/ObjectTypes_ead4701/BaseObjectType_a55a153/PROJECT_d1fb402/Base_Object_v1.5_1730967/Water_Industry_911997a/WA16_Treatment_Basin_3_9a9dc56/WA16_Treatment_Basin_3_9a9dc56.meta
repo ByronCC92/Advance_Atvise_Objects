@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA16_Treatment_Basin_3
+NodeClass: ObjectType
+BrowseName: 1:WA16_Treatment_Basin_3
+DisplayName: en|WA16_Treatment_Basin_3
+Description: en|WA16_Treatment_Basin_3
+IsAbstract: false

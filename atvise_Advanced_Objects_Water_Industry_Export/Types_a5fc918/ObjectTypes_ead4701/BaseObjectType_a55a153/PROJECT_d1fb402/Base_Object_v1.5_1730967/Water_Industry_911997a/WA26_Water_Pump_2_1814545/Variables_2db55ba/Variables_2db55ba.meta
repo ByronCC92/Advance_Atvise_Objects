@@ -1,0 +1,8 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA26_Water_Pump_2.Variables
+NodeClass: Object
+BrowseName: 1:Variables
+DisplayName: en|Variables
+Description: en|Variables
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition FolderType

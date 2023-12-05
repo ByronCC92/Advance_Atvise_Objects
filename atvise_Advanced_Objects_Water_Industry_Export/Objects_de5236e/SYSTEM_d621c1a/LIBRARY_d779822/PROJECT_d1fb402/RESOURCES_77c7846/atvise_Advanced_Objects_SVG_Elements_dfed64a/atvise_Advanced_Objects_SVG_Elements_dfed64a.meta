@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements
+NodeClass: Object
+BrowseName: 1:atvise_Advanced_Objects_SVG_Elements
+DisplayName: en|atvise_Advanced_Objects_SVG_Elements
+Description: en|atvise_Advanced_Objects_SVG_Elements
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

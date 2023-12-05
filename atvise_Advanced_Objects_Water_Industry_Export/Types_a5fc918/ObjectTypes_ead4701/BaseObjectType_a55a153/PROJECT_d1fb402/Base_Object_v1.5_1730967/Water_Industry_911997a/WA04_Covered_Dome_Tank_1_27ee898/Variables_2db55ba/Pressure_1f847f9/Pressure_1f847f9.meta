@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA04_Covered_Dome_Tank_1.Variables.Pressure
+NodeClass: Variable
+BrowseName: 1:Pressure
+DisplayName: en|Pressure
+Description: en|Pressure
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

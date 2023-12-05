@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[/*******Initialize Variables*******/
+//Internal Variables
+var to = new Date(); //milliseconds to this instant
+var range_mili=(24*60*60*1000);
+var from=new Date(to-range_mili);
+
+//Menu Variables
+var Backgrounds=["background_play","background_history"];
+var Click_Area=["click_area_play","click_area_history"];
+var Color=webMI.query["Color"];
+var Real_Time=true; //Comienza en tiempo real
+
+//Alarms
+var Alarms=new Array();
+var Object_ConditionsR=webMI.query["base"]+".Parameters.Object_Conditions";
+
+//Chart
+var chart_1;
+var Colors=['#3096D0', '#55AEE0', '#89C7EA', '#366078', '#1C4963', '#00A2FF','#2B3E49'];
+
+
+/*******Initial Conditions*******/
+webMI.addOnload(function() {
+	
+	
+	//Read the alarms that are monitored
+	webMI.data.read(Object_ConditionsR, function(e) {
+	   var Object_ConditionsI=e.value;
+	   
+		for(var i=0; i<Object_ConditionsI.length;i++){
+			var Object_ConditionsII=JSON.parse(Object_ConditionsI[i]);
+			Alarms.push((Object_ConditionsII.Condition_name).split('=').pop());
+		}
+	});	
+	
+	//DatePicker Configuration
+	webMI.trigger.fire("com.atvise.datepicker_Initial_Date", from.getTime()); //Initialize Start Date (1 day ago)
+	webMI.trigger.fire("com.atvise.datepicker_Final_Date", to.getTime()); //Initialized End Date
+
+	//Initial text definition
+    webMI.gfx.setText("id_info", "Alarms:"+(webMI.query["base"]).split('.').pop());
+    
+    //Start with Hidden Date Selection
+    webMI.gfx.setFill(Backgrounds[0], Color);
+    webMI.gfx.setVisible("Date_Selection", false);
+   
+   
+	/*******Chart Section*******/   
+    
+    setTimeout(function(){
+		Monitor_Alarms(Alarms,from,to,function(count) {										
+				
+						
+			 var chartDiv2 = document.getElementById("chart_container1");
+			 webMI.gfx.setScaledEvents(chartDiv2);
+			 
+			 //Prepare Data
+			 var Complete_Data=new Array();
+			 
+			 for (var i=0; i<count.length; i++){
+			 
+				var Namei= Alarms[i].split('.');
+				Complete_Data.push({
+					name: Namei.pop(),
+					custom: Namei[Namei.length - 2],
+					color:Colors[i],
+					y: count[i],			
+				});
+			 }
+			
+			chart_1=Highcharts.chart(chartDiv2, {
+				chart: {
+					type: 'pie'
+				},
+				title: {
+					text: 'Last 24h',
+					style: {
+								fontSize: '18px'
+						   }
+				},
+				tooltip: {
+					headerFormat: '',
+					pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.custom}</b> <p> {point.name}</p> <br/>' +
+						'Alarma: <b>{point.y}</b> <p>incidents</p>'					
+				},
+				
+				credits: {
+					enabled: false
+				},
+				plotOptions: {				 
+					  pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',            
+						dataLabels: {
+							enabled: true,
+							style: {
+								fontSize: '16px'
+							},
+							format: '<b>{point.name}</b><br>{point.y}',
+							distance: 0,
+							filter: {
+								property: 'percentage',
+								operator: '>',
+								value: 4
+							}
+						}
+					}
+				},
+				series: [{
+					minPointSize: 10,
+					innerSize: '50%',
+					zMin: 0,
+					data: Complete_Data
+				}]
+			});		
+		
+		});
+	},300);
+    
+    
+});
+
+
+/*******Triggers*******/
+
+//Monitoring Changes in Date Picker Initial Date
+webMI.trigger.connect("com.atvise.datepicker_Initial_Date", function (e) {
+	from=new Date(e.value);
+	Chart_Update();
+});
+
+//Monitoring Changes in Date Picker Final Date
+webMI.trigger.connect("com.atvise.datepicker_Final_Date", function (e) {
+	to=new Date(e.value);
+	Chart_Update();
+});
+
+
+//Subscribe to alarm
+setTimeout(function(){
+	webMI.alarm.subscribe(Alarms, function(e) {
+		if(Real_Time){
+			var value = e.ActiveStateId;
+			var indice=Alarms.findIndex(element => element == e.address); //Find the alarm that went off
+		
+			//If it is active
+			if (value){    
+				if (chart_1!=undefined){		
+					Monitor_Alarms(Alarms,from,new Date(),function(count) {
+						var SeriesA=chart_1.series[0];					
+						SeriesA.data[indice].update(count[indice]);									
+					});				
+				}
+			}
+		}	
+	});
+},300);
+
+/*******Menu Section*******/
+
+//Real Time
+webMI.addEvent(Click_Area[0], "click", function(e) {
+
+	webMI.gfx.setFill(Backgrounds[0], Color);
+	webMI.gfx.setFill(Backgrounds[1], "#000000");
+    webMI.gfx.setVisible("Date_Selection", false);
+    Real_Time=true;
+    
+    //Update Time
+    to = new Date(); //Miliseconds until now
+	from=new Date(to-range_mili);
+	
+	//DatePicker Configuration
+	webMI.trigger.fire("com.atvise.datepicker_Initial_Date", from.getTime()); //Initialize Start Date (1 day ago)
+	webMI.trigger.fire("com.atvise.datepicker_Final_Date", to.getTime()); //Initialize End Date   
+    
+    //Update Chart
+    chart_1.update({
+		title: {text: 'Ultimas 24h'},
+	});
+});
+
+//Histotical Data
+webMI.addEvent(Click_Area[1], "click", function(e) {
+
+	webMI.gfx.setFill(Backgrounds[1], Color);
+	webMI.gfx.setFill(Backgrounds[0], "#000000");
+    webMI.gfx.setVisible("Date_Selection", true);
+    Real_Time=false;
+      
+    //Update Chart
+    chart_1.update({
+		title: {text: 'Last 24h'},
+	});
+});
+
+
+
+
+/*******Auxiliary Functions*******/
+
+//Function that updates the entire graph
+function Chart_Update(){
+	if (chart_1!=undefined){
+		Monitor_Alarms(Alarms,from,new Date(),function(count) {
+		
+			//Prepare Data
+			 var Complete_Data=new Array();
+			 
+			 for (var i=0; i<count.length; i++){
+				var Namei= Alarms[i].split('.');
+				Complete_Data.push({
+					name: Namei.pop(),
+					custom: Namei[Namei.length - 2],
+					color:Colors[i],
+					y: count[i],			
+				});
+			 }	
+			
+			var minutes=(to.getTime()-from.getTime())/(1000*60);	
+			
+			//Update Chart
+			chart_1.update({
+				title: {text: 'Last '+ minutes.toFixed(2)+ " minutes"},
+				series: [{
+						minPointSize: 10,
+						innerSize: '50%',
+						zMin: 0,
+						data: Complete_Data
+				}]
+			}); 							
+		});
+	}	
+}
+
+//Function that prepares alarm data
+function Monitor_Alarms(Alarms,from,to,callback){		
+	
+	//Prepare addresses for the filter
+	var address=new Array();
+	var count=new Array(); //Carries the number of occurrences of each alarm
+	for (var i=0; i<Alarms.length; i++){	
+		address.push("g:"+Alarms[i]);		
+		count.push(0);
+	}
+	
+	///////////////Request Alarm data
+	
+	var filter2 = {};
+	filter2.type = ["v:2"]; //Raw Alarm Data
+	filter2.address = [address]; //Bring all data
+	filter2.timestamp = ["n:>=" + from.getTime() + "<" + to.getTime()];
+	
+	setTimeout(function(){ //Give the historian time
+	
+		//Bring the alarm information
+		webMI.data.queryFilter(filter2, function(e) {	
+		
+			//Raw data
+			var result = e.result; 
+			for(i=0; i<count.length; i++){ //For each count
+				for (j=0; j<result.length; j++){
+					
+					if(result[j].ActiveStateId && result[j].address==Alarms[i]){ //If the alarm is active and it is from the address
+						count[i]=count[i]+1; //Corresponding alarm counts and saves it
+					}				
+				}	
+			}
+			//Execute callback function
+			callback(count);				
+		});	
+	},750);
+}
+
+
+]]></code>
+</script>

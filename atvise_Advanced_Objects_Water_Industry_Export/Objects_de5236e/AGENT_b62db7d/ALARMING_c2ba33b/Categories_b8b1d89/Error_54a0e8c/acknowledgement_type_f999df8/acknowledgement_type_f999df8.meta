@@ -1,0 +1,9 @@
+NodeId: ns=1;s=AGENT.ALARMING.Categories.Error.acknowledgement_type
+NodeClass: Variable
+BrowseName: 1:acknowledgement_type
+DisplayName: en|acknowledgement_type
+Description: en|acknowledgement_type
+DataType: UInt16
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition BaseVariableType

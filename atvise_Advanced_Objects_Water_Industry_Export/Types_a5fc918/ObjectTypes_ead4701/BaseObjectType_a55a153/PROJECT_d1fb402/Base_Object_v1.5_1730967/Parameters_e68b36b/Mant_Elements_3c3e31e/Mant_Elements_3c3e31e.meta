@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Parameters.Mant_Elements
+NodeClass: Variable
+BrowseName: 1:Mant_Elements
+DisplayName: en|Mant_Elements
+Description: en|Mant_Elements
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

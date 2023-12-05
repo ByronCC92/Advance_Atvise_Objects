@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="baseN" type="string" trigger="false" relative="false" value=""/>
+  <code><![CDATA[//Exrternal Variables
+var Alert_Active  = Ua.findNode((baseN)+".Alarm.Alert_Active");
+var Object_Conditions  = Ua.findNode((baseN)+".Parameters.Object_Conditions");
+var Initial_Values  = Ua.findNode((baseN)+".Parameters.Initial_Values");
+var Alert_Range  = Ua.findNode((baseN)+".Parameters.Alert_Range");
+var Alarm_Nodes  = Ua.findNode((baseN)+".Parameters.Alarm_Nodes");
+
+//Local Variables
+var Alert_ActiveI=Alert_Active.result.value;
+var Object_ConditionsI=Object_Conditions.result.value;
+var Object_ConditionsIA;
+var Object_ConditionsIAA;
+var Object_ConditionsII=new Array();
+var Initial_valuesI=Initial_Values.result.value;
+var Initial_valuesIA;
+var Initial_valuesII=new Array();
+var Initial_valuesIIA;
+var Alert_RangeI=Alert_Range.result.value;
+var Alarm_NodesI=Alarm_Nodes.result.value;
+var Indexes=new Array();
+var IndexA;
+var Temp_Var;
+var Temp_VarI;
+var Temp_VarII;
+var Temp_VarIII;
+var Temp_Limit;
+var Temp_Limit_Type;
+var Temp_Alarm_Range;
+var Temp_Alert_Limit;
+var Current_Key; 
+var Orientation; //0:creciendo, 1:decreciendo
+var Actual_Time=new Date();
+
+//console.log("------Alert Monitor----");
+
+//Prepare Initial Values
+for (var i=0; i<Initial_valuesI.length; i++){
+	Initial_valuesII.push(JSON.parse(Initial_valuesI[i]));
+}
+//Analize variables that have changed
+for (var i=0; i<Alarm_NodesI.length; i++){
+	
+	//Current Value
+	Temp_VarII=Ua.findNode(Alarm_NodesI[i]); //Temp Variable
+	Temp_VarIII=Temp_VarII.result.value; //Current Value	
+	
+	//Initial Value
+	Current_Key=Alarm_NodesI[i];
+	
+	
+	var Initial_valuesIIA_Temp=findValueAndIndexByKey(Initial_valuesII, Current_Key)
+	Initial_valuesIIA=Initial_valuesIIA_Temp.value;
+	IndexA=Initial_valuesIIA_Temp.index;
+	
+	if(Temp_VarIII!=Initial_valuesIIA){ //Value has changed
+		for (var j=0; j<Object_ConditionsI.length; j++){
+			//Read condition by condition
+			Object_ConditionsIAA=(JSON.parse(Object_ConditionsI[j]));
+			//console.log("Object condition: "+j);
+			//console.log(Object_ConditionsI[j]);
+			
+			if(Object_ConditionsIAA.Condition_node.includes(Alarm_NodesI[i])){
+				Object_ConditionsII.push(Object_ConditionsI[j]);
+				Indexes.push(j);
+			}
+		}
+		
+		var Initial_valuesIIIA_Temp={};
+		
+		//Update Initial Values	
+		Initial_valuesIIIA_Temp[Current_Key]=Temp_VarIII;
+		Initial_valuesI[IndexA]=JSON.stringify(Initial_valuesIIIA_Temp);
+	}	
+}
+
+//console.log("Object_ConditionsII");
+//console.log(Object_ConditionsII);
+
+//Go over all the Object_Conditions
+for (var i=0; i<Object_ConditionsII.length; i++){
+	
+	//Read condition by condition
+	Object_ConditionsIA=(JSON.parse(Object_ConditionsII[i]));
+	//console.log("Insertion INDEX: "+Indexes[i])
+	
+	//Temporary variables for analysis
+	Temp_Var=Ua.findNode(Object_ConditionsIA.Condition_node);
+	Temp_VarI=Temp_Var.result.value;
+	Temp_Limit=Object_ConditionsIA.Condition_limit;
+	Temp_Limit_Type=Object_ConditionsIA.Condition_type;
+	Temp_Alarm_Range=Object_ConditionsIA.Range;
+	Current_Key=Object_ConditionsIA.Condition_node.split('=').pop();
+	var Initial_valuesIIA_Temp=findValueAndIndexByKey(Initial_valuesII, Current_Key);	
+	Initial_valuesIA=Initial_valuesIIA_Temp.value;
+	
+	//High Limit
+	if (Temp_Limit_Type=="Max"){
+		Temp_Alert_Limit=Temp_Limit-parseInt((Temp_Alarm_Range*(Alert_RangeI)/100));
+		//console.log("----------Condition Max---------");
+		//console.log("Condition Name: "+Object_ConditionsIA.Condition_name);
+		//console.log("Temp_VarI: "+Temp_VarI+" >= "+"Temp_Alert_Limit: "+Temp_Alert_Limit +" && "+ "Temp_VarI: "+ Temp_VarI+" < "+ "Temp_Limit: "+Temp_Limit);	
+		if (Temp_VarI>=Temp_Alert_Limit && Temp_VarI<=Temp_Limit){	//Se encuentra en el rango de alerta superior
+			//console.log("Dentro del rango de Alerta Maxima");			
+			if(Temp_VarI>=Initial_valuesIA){	//It´s increasing or the same
+				Alert_ActiveI[Indexes[i]]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Increasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:Actual_Time,eventText:"Increasing Alert"});
+			}
+			else if(Temp_VarI<Initial_valuesIA){	//It´s Decreasing
+				Alert_ActiveI[Indexes[i]]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Decreasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:Actual_Time,eventText:"Decreasing Alert"});
+			}
+			else if (Temp_VarI==Initial_valuesIA&& Alert_ActiveI[i]==""){ //Is the same and it has not being initialized
+				//console.log(Object_ConditionsIA.Condition_name+": Stays the same");				
+				Alert_ActiveI[Indexes[i]]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Increasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:Actual_Time,eventText:"Increasing Alert"});
+			}			
+		}
+		else{//It is outside the upper alert range
+			Alert_ActiveI[Indexes[i]]=JSON.stringify("");
+		}
+	}	
+	//Low Limit
+	else if(Temp_Limit_Type=="Min"){
+		Temp_Alert_Limit=Temp_Limit+parseInt((Temp_Alarm_Range*(Alert_RangeI)/100));
+		//console.log("----------Condition Min---------");
+		//console.log("Condition Name: "+Object_ConditionsIA.Condition_name);
+		//console.log("Temp_VarI: "+Temp_VarI+" <= "+"Temp_Alert_Limit: "+Temp_Alert_Limit +" && "+ "Temp_VarI: "+ Temp_VarI+" > "+ "Temp_Limit: "+Temp_Limit);			
+		if (Temp_VarI<=Temp_Alert_Limit && Temp_VarI>Temp_Limit){	//Se encuentra en el rango de alerta inferior
+			//console.log("Dentro del rango de Alerta Minima");
+			if(Temp_VarI<=Initial_valuesIA){	//It´s increasing or the same
+				Alert_ActiveI[Indexes[i]]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Increasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:Actual_Time,eventText:"Increasing Alert"});
+			}
+			else if(Temp_VarI>Initial_valuesIA){	//It´s Decreasing
+				Alert_ActiveI[Indexes[i]]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Decreasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:Actual_Time,eventText:"Decreasing Alert"});
+			}
+			else if (Temp_VarI==Initial_valuesIA && Alert_ActiveI[i]==""){ //Is the same and it has not being initialized
+				//console.log(Object_ConditionsIA.Condition_name+": Stays the same")			
+				Alert_ActiveI[Indexes[i]]=JSON.stringify({Alert:(Object_ConditionsIA.Condition_name).split('AGENT.OBJECTS.').pop(),Status:"Increasing",Condition_type:Object_ConditionsIA.Condition_type,value:Temp_VarI,Timestamp:Actual_Time,eventText:"Increasing Alert"});
+			}	
+			
+		}
+		else{//It is outside the upper alert range
+			Alert_ActiveI[Indexes[i]]=JSON.stringify("");
+		}
+	}
+}
+
+
+//Asign Initial Values
+Initial_Values.result.assign({value: Initial_valuesI}); //Asign complete array
+
+//Asign Value to the node
+Alert_Active.result.assign({value: Alert_ActiveI}); //Asign complete array
+
+
+function findValueAndIndexByKey(arrayOfObjects, keyToFind) {
+    // Find the index of the object that contains the key
+    const index = arrayOfObjects.findIndex(obj => obj.hasOwnProperty(keyToFind));
+
+    // If the key is found, return the value and the index
+    if (index !== -1) {
+        return { 
+            value: arrayOfObjects[index][keyToFind], 
+            index: index 
+        };
+    }
+
+    // Return null if the key is not found
+    return null;
+}]]></code>
+</script>

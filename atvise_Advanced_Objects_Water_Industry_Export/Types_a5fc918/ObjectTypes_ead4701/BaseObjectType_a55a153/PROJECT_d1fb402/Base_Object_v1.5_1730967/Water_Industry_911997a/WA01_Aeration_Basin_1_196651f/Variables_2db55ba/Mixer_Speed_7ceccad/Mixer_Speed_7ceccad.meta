@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA01_Aeration_Basin_1.Variables.Mixer_Speed
+NodeClass: Variable
+BrowseName: 1:Mixer_Speed
+DisplayName: en|Mixer_Speed
+Description: en|Mixer_Speed
+DataType: Int32
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

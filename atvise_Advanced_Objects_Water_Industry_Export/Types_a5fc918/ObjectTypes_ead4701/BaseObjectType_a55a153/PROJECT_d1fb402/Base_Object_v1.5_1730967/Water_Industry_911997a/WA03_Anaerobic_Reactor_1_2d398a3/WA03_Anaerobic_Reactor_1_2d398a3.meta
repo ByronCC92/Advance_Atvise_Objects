@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA03_Anaerobic_Reactor_1
+NodeClass: ObjectType
+BrowseName: 1:WA03_Anaerobic_Reactor_1
+DisplayName: en|WA03_Anaerobic_Reactor_1
+Description: en|WA03_Anaerobic_Reactor_1
+IsAbstract: false

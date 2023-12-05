@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Parameters.Object_Conditions
+NodeClass: Variable
+BrowseName: 1:Object_Conditions
+DisplayName: en|Object_Conditions
+Description: en|Object_Conditions
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

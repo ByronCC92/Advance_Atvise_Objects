@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Startup" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Parameters</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Startup</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Alarm_Monitor" type="alarm" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Variables</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>*</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Add" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Maintenance</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Mant_Notification</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Remove" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Maintenance</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Mant_Ind_Rm</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="OnOff" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>OnOff</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Timer" type="interval" trigger="false" relative="false" value="" offset="00:00:00" interval="00:00:01"/>
+  <code><![CDATA[//Define trigger source
+var Trigger=(script.trigger).name
+
+
+//------------------Startup Script
+
+if (Trigger=="Startup"){ //Add active maintenance
+	console.log("Excecuting Startup");
+	
+	var Startup=Ua.findNode((base)+".Parameters.Startup");; //Script name
+	
+	if (Startup.result.value==true){ //Only when is true
+		var Root_PathI=server.script.origin; //Script name
+		
+		//Call Startup Script
+		call("SYSTEM.LIBRARY.PROJECT.SERVERSCRIPTS.atvise_Advanced_Objects_Server_Scripts.Startup_Server_Script",{baseN:base,Root_PathI:Root_PathI});
+	}
+}
+
+
+//------------------Alarm_Monitor Script
+
+if (Trigger=="Alarm_Monitor"){ //Add active maintenance
+	console.log("Excecuting Alarm_Monitor");
+	
+	//Call Startup Script
+	call("SYSTEM.LIBRARY.PROJECT.SERVERSCRIPTS.atvise_Advanced_Objects_Server_Scripts.Alarm_Monitor_Server_Script",{baseN:base});
+
+}
+
+//------------------Mant_Monitor Script
+
+if (Trigger=="Add"||Trigger=="Remove"){ //Add active maintenance
+	console.log("Excecuting Mant_Monitor");
+	
+	//Call Startup Script
+	call("SYSTEM.LIBRARY.PROJECT.SERVERSCRIPTS.atvise_Advanced_Objects_Server_Scripts.Mant_Monitor_Server_Script",{baseN:base,Action:Trigger});
+
+}
+
+//------------------Operation_Time Script
+
+if (Trigger=="OnOff"||Trigger=="Timer"){ //Add active maintenance
+	console.log("Excecuting Operation_Time");
+	
+	//Call Startup Script
+	call("SYSTEM.LIBRARY.PROJECT.SERVERSCRIPTS.atvise_Advanced_Objects_Server_Scripts.Mant_Monitor_Server_Script",{baseN:base});
+
+}]]></code>
+</script>

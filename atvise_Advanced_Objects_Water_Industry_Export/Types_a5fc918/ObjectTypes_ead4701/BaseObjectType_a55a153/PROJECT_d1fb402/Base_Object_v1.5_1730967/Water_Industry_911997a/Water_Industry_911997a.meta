@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry
+NodeClass: ObjectType
+BrowseName: 1:Water_Industry
+DisplayName: en|Water_Industry
+Description: en|Water_Industry
+IsAbstract: false

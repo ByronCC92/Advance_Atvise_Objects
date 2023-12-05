@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA26_Water_Pump_2.Variables.Flow_Rate
+NodeClass: Variable
+BrowseName: 1:Flow_Rate
+DisplayName: en|Flow_Rate
+Description: en|Flow_Rate
+DataType: Int32
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

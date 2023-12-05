@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Water_Industry.Maintenance_Water_Gas_Digester_Tank
+NodeClass: Variable
+BrowseName: 1:Maintenance_Water_Gas_Digester_Tank
+DisplayName: en|Maintenance_Water_Gas_Digester_Tank
+Description: en|Maintenance_Water_Gas_Digester_Tank
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

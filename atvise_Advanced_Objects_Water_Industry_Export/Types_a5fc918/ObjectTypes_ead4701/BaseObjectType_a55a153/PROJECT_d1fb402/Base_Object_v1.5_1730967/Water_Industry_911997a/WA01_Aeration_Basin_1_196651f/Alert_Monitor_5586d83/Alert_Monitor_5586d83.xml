@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Trigger1" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Variables</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Ammonia_Concentration</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Trigger2" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Variables</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Mixer_Speed</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Trigger3" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Variables</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Oxygen_Level</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Trigger4" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Variables</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>pH</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Trigger5" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Variables</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Temperature</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <parameter name="Trigger6" type="node" trigger="true" relative="true">
+    <RelativePath>
+      <Elements>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Variables</Name>
+          </TargetName>
+        </RelativePathElement>
+        <RelativePathElement>
+          <TargetName>
+            <NamespaceIndex>1</NamespaceIndex>
+            <Name>Turbidity</Name>
+          </TargetName>
+        </RelativePathElement>
+      </Elements>
+    </RelativePath>
+  </parameter>
+  <code><![CDATA[//------------------Alert_Monitor Script
+
+//Call Startup Script
+call("SYSTEM.LIBRARY.PROJECT.SERVERSCRIPTS.atvise_Advanced_Objects_Server_Scripts.Alert_Monitor_Server_Script",{baseN:base});]]></code>
+</script>

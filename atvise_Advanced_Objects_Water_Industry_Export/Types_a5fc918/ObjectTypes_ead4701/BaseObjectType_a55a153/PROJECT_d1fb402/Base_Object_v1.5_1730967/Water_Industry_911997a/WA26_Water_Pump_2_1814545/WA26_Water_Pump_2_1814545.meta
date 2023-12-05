@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA26_Water_Pump_2
+NodeClass: ObjectType
+BrowseName: 1:WA26_Water_Pump_2
+DisplayName: en|WA26_Water_Pump_2
+Description: en|WA26_Water_Pump_2
+IsAbstract: false

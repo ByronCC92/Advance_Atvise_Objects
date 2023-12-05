@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/Water_Industry/Pipes
+NodeClass: Object
+BrowseName: 1:Pipes
+DisplayName: en|Pipes
+Description: en|Pipes
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

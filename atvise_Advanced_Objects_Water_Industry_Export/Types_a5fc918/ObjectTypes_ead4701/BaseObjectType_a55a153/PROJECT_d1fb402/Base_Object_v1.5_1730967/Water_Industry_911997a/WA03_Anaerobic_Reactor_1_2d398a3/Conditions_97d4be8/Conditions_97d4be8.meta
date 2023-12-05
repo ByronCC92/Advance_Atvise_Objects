@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA03_Anaerobic_Reactor_1.Conditions
+NodeClass: Variable
+BrowseName: 1:Conditions
+DisplayName: en|Conditions
+Description: en|Conditions
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

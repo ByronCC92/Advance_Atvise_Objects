@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA02_Aeration_Basin_2.Variables.Turbidity
+NodeClass: Variable
+BrowseName: 1:Turbidity
+DisplayName: en|Turbidity
+Description: en|Turbidity
+DataType: Int32
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA23_Water_Digester_2.Variables.Organic_Content
+NodeClass: Variable
+BrowseName: 1:Organic_Content
+DisplayName: en|Organic_Content
+Description: en|Organic_Content
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

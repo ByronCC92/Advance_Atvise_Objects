@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Water_Industry.WA35_Water_Valve_3
+NodeClass: ObjectType
+BrowseName: 1:WA35_Water_Valve_3
+DisplayName: en|WA35_Water_Valve_3
+Description: en|WA35_Water_Valve_3
+IsAbstract: false

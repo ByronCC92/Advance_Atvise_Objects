@@ -1,7 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/Separators
-NodeClass: Object
-BrowseName: 1:Separators
-DisplayName: en|Separators
-Description: en|Separators
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

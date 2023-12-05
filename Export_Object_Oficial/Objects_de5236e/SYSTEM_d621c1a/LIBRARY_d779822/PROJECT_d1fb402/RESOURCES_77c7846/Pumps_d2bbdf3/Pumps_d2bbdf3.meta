@@ -1,7 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/Pumps
-NodeClass: Object
-BrowseName: 1:Pumps
-DisplayName: en|Pumps
-Description: en|Pumps
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

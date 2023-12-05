@@ -1,7 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/Water_Tanks
-NodeClass: Object
-BrowseName: 1:Water_Tanks
-DisplayName: en|Water_Tanks
-Description: en|Water_Tanks
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

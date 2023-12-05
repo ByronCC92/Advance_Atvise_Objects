@@ -1,9 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.Objetos_Mantenimiento.rocker_switch_horizontal_Mantenimiento
-NodeClass: Variable
-BrowseName: 1:rocker_switch_horizontal_Mantenimiento
-DisplayName: en|rocker_switch_horizontal_Mantenimiento
-Description: en|rocker_switch_horizontal_Mantenimiento
-DataType: XmlElement
-ValueRank: -1
-AccessLevel: 103
-Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

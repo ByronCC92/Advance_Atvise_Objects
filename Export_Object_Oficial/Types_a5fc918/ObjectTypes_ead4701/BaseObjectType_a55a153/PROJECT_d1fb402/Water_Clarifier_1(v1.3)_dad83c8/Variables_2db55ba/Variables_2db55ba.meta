@@ -1,8 +1,0 @@
-NodeId: ns=1;s=ObjectTypes.PROJECT.Water_Clarifier_1(v1.3).Variables
-NodeClass: Object
-BrowseName: 1:Variables
-DisplayName: en|Variables
-Description: en|Variables
-EventNotifier: 0
-Reference: forward HasModellingRule New
-Reference: forward HasTypeDefinition FolderType

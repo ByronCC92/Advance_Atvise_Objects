@@ -1,7 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/Power_Meters
-NodeClass: Object
-BrowseName: 1:Power_Meters
-DisplayName: en|Power_Meters
-Description: en|Power_Meters
-EventNotifier: 0
-Reference: forward HasTypeDefinition FolderType

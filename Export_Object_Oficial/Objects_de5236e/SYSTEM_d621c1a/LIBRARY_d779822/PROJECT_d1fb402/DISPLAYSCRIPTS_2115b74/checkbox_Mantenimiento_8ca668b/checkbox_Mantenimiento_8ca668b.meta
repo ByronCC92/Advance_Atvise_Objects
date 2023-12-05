@@ -1,9 +1,0 @@
-NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.checkbox_Mantenimiento
-NodeClass: Variable
-BrowseName: 1:checkbox_Mantenimiento
-DisplayName: en|checkbox_Mantenimiento
-Description: en|checkbox_Mantenimiento
-DataType: XmlElement
-ValueRank: -1
-AccessLevel: 103
-Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.DisplayScript

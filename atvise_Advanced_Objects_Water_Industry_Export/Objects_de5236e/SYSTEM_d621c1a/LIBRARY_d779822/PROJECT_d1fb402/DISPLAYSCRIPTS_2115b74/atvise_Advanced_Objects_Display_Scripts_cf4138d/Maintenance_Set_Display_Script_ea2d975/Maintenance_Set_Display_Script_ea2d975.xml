@@ -8,6 +8,7 @@
 var Type_M; //Maintenance Type Number
 var Text_M; //Maintenance Type Text
 var Initial_Date;//Initial Date for Maintenance
+var Actual_Date; //Actual Time
 var Final_Date;//Final Date for Maintenance
 var Hour_M=0;//Maintenance Hours
 var Min_M=0; //Maintenance Min
@@ -15,6 +16,7 @@ var Rec_Act=0; //Activate Recurrency(inactive)
 var Type_R; //Recurrency Type
 var configNode="AGENT.OBJECTS.TimerConfig"; //Configuration node
 var Mant_Notification=webMI.query["base"]+".Maintenance.Mant_Notification";
+var Message_Time=1000;
 
 /*******Initial Conditions******/
 webMI.addOnload(function() {
@@ -107,7 +109,17 @@ webMI.addEvent("id_17", "click", function(e) {
 		-Hours + Min > 0 		
 	*/
 	
-	if (Type_M!=undefined && Initial_Date!=undefined && (Hour_M+Min_M)>0){
+	
+	
+	//Avoid scheduling in current time
+	Actual_Date= new Date();
+	var Actual_DateI=resetSecondsAndMilliseconds(new Date(Actual_Date));
+	
+	var Initial_DateI=resetSecondsAndMilliseconds(new Date(Initial_Date));
+	
+	console.log("Actual_DateI: "+Actual_DateI);
+	console.log("Initial_DateI: "+Initial_DateI);
+	if (Type_M!=undefined && Initial_Date!=undefined && (Hour_M+Min_M)>0 && Initial_DateI!=Actual_DateI){
 	
 		//Create Date Strings
 		var Initial_DateS=(new Date(Initial_Date)).toString();
@@ -253,21 +265,42 @@ webMI.addEvent("id_17", "click", function(e) {
 		setTimeout(function(){
 			webMI.gfx.setFill("id_info", webMI.query["Color"]);
 			webMI.gfx.setText("id_info", "Press to add a Maintenance");
-		},750);			
+		},Message_Time);			
 	} 
 	
 	else {
+		if(Initial_DateI==Actual_DateI){ //Same time
+			//Notify it wasn´t written	
+			webMI.gfx.setFill("id_info", "#aa0000");
+			webMI.gfx.setText("id_info", "Should be different than Current time");     
+			setTimeout(function(){
+				webMI.gfx.setFill("id_info", webMI.query["Color"]);
+				webMI.gfx.setText("id_info", "Press to add a Maintenance");
+			},Message_Time);	
+		}
+		else{
 		//Notify it wasn´t written	
-		webMI.gfx.setFill("id_info", "#aa0000");
-		webMI.gfx.setText("id_info", "Missing Information");     
-		setTimeout(function(){
-			webMI.gfx.setFill("id_info", webMI.query["Color"]);
-			webMI.gfx.setText("id_info", "Press to add a Maintenance");
-		},750);	
+			webMI.gfx.setFill("id_info", "#aa0000");
+			webMI.gfx.setText("id_info", "Missing Information");     
+			setTimeout(function(){
+				webMI.gfx.setFill("id_info", webMI.query["Color"]);
+				webMI.gfx.setText("id_info", "Press to add a Maintenance");
+			},Message_Time);	
+		}
 	} 
 	
 });
 
+
+
+//--------------------Functions Section-------------------------//
+
+
+function resetSecondsAndMilliseconds(date) {
+    // Set seconds to 0 and milliseconds to 0
+    date.setSeconds(0, 0);
+    return date.getTime();
+}
 
 /*
 	Code required to create the node when it is empty

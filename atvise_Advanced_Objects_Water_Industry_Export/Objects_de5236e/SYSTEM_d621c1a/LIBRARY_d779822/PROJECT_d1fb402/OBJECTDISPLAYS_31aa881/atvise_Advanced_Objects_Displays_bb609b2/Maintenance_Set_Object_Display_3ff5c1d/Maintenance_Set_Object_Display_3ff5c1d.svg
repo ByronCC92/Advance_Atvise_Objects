@@ -24,21 +24,21 @@
  <text atv:refpx="529.076" atv:refpy="151" fill="$Color$" font-family="Arial" font-size="24" id="id_9" x="514.5" y="155.5">Hours</text>
  <text atv:refpx="534.375" atv:refpy="206" fill="$Color$" font-family="Arial" font-size="24" id="id_11" x="514.5" y="210.5">Minutes</text>
  <text atv:refpx="50.204" atv:refpy="325" fill="$Color$" font-family="Arial" font-size="24" id="id_14" x="24.5" y="329.5">Recurrent</text>
- <svg atv:refpx="145" atv:refpy="544.991" height="30" id="id_17" transform="matrix(3.375,0,0,1.6667,0,0)" width="80" x="2.963" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="311.994">
+ <svg atv:refpx="125" atv:refpy="554.991" height="30" id="id_17" transform="matrix(2.875,0,0,1.6667,0,0)" width="80" x="3.478" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="317.994">
   <atv:argument name="label" value="T{Schedule Maintenance}"/>
   <atv:argument name="fontSize" value="20"/>
-  <atv:overwrite height="48.001" id="id_6" transform="matrix(0.2963,0,0,0.6,0,0)" width="268"/>
-  <atv:overwrite id="button_label_2" transform="matrix(0.2963,0,0,0.6,0,0)" x="135" y="36.501"/>
-  <atv:overwrite id="button_label_1" transform="matrix(0.2963,0,0,0.6,0,0)" x="135" y="21.501"/>
-  <atv:overwrite id="button_label" transform="matrix(0.2963,0,0,0.6,0,0)" x="135" y="29.501"/>
-  <atv:overwrite id="button_symbol_bottom" transform="matrix(0.1778,0,0,0.36,0,0)" x="214.833" y="42.96"/>
-  <atv:overwrite id="button_symbol_top" transform="matrix(0.1778,0,0,0.36,0,0)" x="214.833" y="21.627"/>
-  <atv:overwrite id="button_symbol" transform="matrix(0.2963,0,0,0.6,0,0)" x="125" y="15.001"/>
-  <atv:overwrite height="46.001" id="button_stroke" transform="matrix(0.2963,0,0,0.6,0,0)" width="266"/>
-  <atv:overwrite height="48.001" id="button_bg" transform="matrix(0.2963,0,0,0.6,0,0)" width="268"/>
-  <atv:overwrite height="50.001" id="outer_frame" transform="matrix(0.2963,0,0,0.6,0,0)" width="270"/>
+  <atv:overwrite height="48.001" id="id_6" transform="matrix(0.3478,0,0,0.6,0,0)" width="228"/>
+  <atv:overwrite id="button_label_2" transform="matrix(0.3478,0,0,0.6,0,0)" x="115" y="36.5"/>
+  <atv:overwrite id="button_label_1" transform="matrix(0.3478,0,0,0.6,0,0)" x="115" y="21.5"/>
+  <atv:overwrite id="button_label" transform="matrix(0.3478,0,0,0.6,0,0)" x="115" y="29.5"/>
+  <atv:overwrite id="button_symbol_bottom" transform="matrix(0.2087,0,0,0.36,0,0)" x="181.5" y="42.959"/>
+  <atv:overwrite id="button_symbol_top" transform="matrix(0.2087,0,0,0.36,0,0)" x="181.5" y="21.626"/>
+  <atv:overwrite id="button_symbol" transform="matrix(0.3478,0,0,0.6,0,0)" x="105" y="15"/>
+  <atv:overwrite height="46.001" id="button_stroke" transform="matrix(0.3478,0,0,0.6,0,0)" width="226"/>
+  <atv:overwrite height="48.001" id="button_bg" transform="matrix(0.3478,0,0,0.6,0,0)" width="228"/>
+  <atv:overwrite height="50.001" id="outer_frame" transform="matrix(0.3478,0,0,0.6,0,0)" width="230"/>
  </svg>
- <text atv:refpx="308" atv:refpy="548.999" fill="$Color$" font-family="Arial" font-size="20" id="id_info" x="294.5" y="553.499">Texto</text>
+ <text atv:refpx="268" atv:refpy="559" fill="$Color$" font-family="Arial" font-size="20" id="id_info" x="254.5" y="563.5">Texto</text>
  <line atv:refpx="300" atv:refpy="24" id="id_19" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="60" y2="60"/>
  <line atv:refpx="300" atv:refpy="270" id="id_23" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="270" y2="270"/>
  <line atv:refpx="300" atv:refpy="444" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="444" y2="444"/>

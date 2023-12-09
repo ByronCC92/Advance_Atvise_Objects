@@ -8,6 +8,7 @@
   <atv:parameter behavior="optional" desc="Alert Range" name="Alert_Range" valuetype="address"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Unit" name="Unit" valuetype="string"/>
   <atv:parameter behavior="optional" defaultvalue="#108a8e" desc="Color" group="Appereance" name="Color" substitute="$COLOR$" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="16" desc="Font Size" name="Font_Size" substitute="$Font_Size$" valuetype="number"/>
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="2" width="2"/>
  </metadata>
@@ -16,12 +17,12 @@
   <text atv:refpx="455.146" atv:refpy="94.629" fill="#000000" font-family="Arial" font-size="28" id="id_14" transform="matrix(0.6746,0,0.0061,0.6746,145.2789,25.0848)" x="452.905" y="107.589">1</text>
  </g>
  <rect atv:refpx="216.072" atv:refpy="408.806" fill="#8e8e8e" height="23.821" id="id_17" stroke="#ffffff" stroke-width="0" width="400" x="114.745" y="33.503"/>
- <text atv:refpx="-25.625" atv:refpy="404.904" fill="#000000" font-family="Arial" font-size="16" font-weight="bold" id="id_18" x="67" y="19.5">$LABEL$</text>
- <text atv:refpx="-132.213" atv:refpy="437.404" fill="$COLOR$" font-family="Arial" font-size="16" id="id_20" x="4.5" y="53.5">30ºC</text>
+ <text atv:refpx="-25.625" atv:refpy="404.904" fill="#000000" font-family="Arial" font-size="$Font_Size$" font-weight="bold" id="id_18" x="67" y="19.5">$LABEL$</text>
+ <text atv:refpx="-132.213" atv:refpy="437.404" fill="$COLOR$" font-family="Arial" font-size="$Font_Size$" id="id_20" x="4.5" y="53.5">30ºC</text>
  <line atv:refpx="115.5" atv:refpy="52" id="id_0" stroke="#626262" stroke-width="1" x1="115" x2="115" y1="34" y2="70"/>
  <line atv:refpx="510.5" atv:refpy="52" id="id_1" stroke="#626262" stroke-width="1" x1="514" x2="514" y1="34" y2="70"/>
- <text atv:refpx="55.742" atv:refpy="480.904" fill="#000000" font-family="Arial" font-size="16" font-weight="bold" id="id_3" text-anchor="middle" x="115" y="95.5">MIN</text>
- <text atv:refpx="444.633" atv:refpy="482.904" fill="#000000" font-family="Arial" font-size="16" font-weight="bold" id="id_4" text-anchor="middle" x="514" y="97.5">MAX</text>
+ <text atv:refpx="55.742" atv:refpy="480.904" fill="#000000" font-family="Arial" font-size="$Font_Size$" font-weight="bold" id="id_3" text-anchor="middle" x="115" y="95.5">MIN</text>
+ <text atv:refpx="444.633" atv:refpy="482.904" fill="#000000" font-family="Arial" font-size="$Font_Size$" font-weight="bold" id="id_4" text-anchor="middle" x="514" y="97.5">MAX</text>
  <rect atv:refpx="116" atv:refpy="45" fill="$COLOR$" height="18" id="id_2" stroke="#ffffff" stroke-width="0" width="398" x="116" y="36"/>
  <g atv:refpx="455.575" atv:refpy="86.374" id="id_12" transform="matrix(1,0,0,1,0,-0.9996)">
   <polygon atv:refpx="429" atv:refpy="-11.827" fill="#d9d900" id="id_10" points="436.011,102.612 455.976,69.999 475.138,102.612" stroke="#0000ff" stroke-width="0"/>
@@ -46,12 +47,17 @@ var Color_Banda = webMI.query["Color_Banda"];
 //Internal Variables 
 var min;	
 var max;
+var Cond_High_Active=false;
+var Cond_Low_Active=false;
 var alarmHigh;
 var alarmLow;
 var alertHigh;
 var alertLow;
 var Conditions=new Array();
 var Alarm_Range;
+var Alarm_CondI=new Array();
+var defaultmin_Number=0;
+
 
 webMI.addOnload(function(e) {
 
@@ -68,12 +74,29 @@ webMI.addOnload(function(e) {
 						Conditions.push(Object_ConditionsI);
 						if (Object_ConditionsI.Condition_type=="Max"){ //High Alarm
 							alarmHigh=Object_ConditionsI.Condition_limit;
+							Alarm_CondI.push("Max");
+							Cond_High_Active=true;
 						}
 						else if (Object_ConditionsI.Condition_type=="Min"){ //Low Alarm
 							alarmLow=Object_ConditionsI.Condition_limit;
+							Alarm_CondI.push("Min");
+							Cond_Low_Active=true;
 						}
 					}
 				}
+				
+				
+				//Deal with one Alarm conditions
+				if(Alarm_CondI.length<2){ //Just only one condition
+					if(Alarm_CondI[0]=="Max"){ //The only condition is max
+						alarmLow=defaultmin_Number;
+					}
+					else if(Alarm_CondI[0]=="Min"){ //The only condition is min
+						alarmHigh = (alarmLow==0) ? 100 : (2*alarmLow);
+					}
+				}
+				
+				
 				Alarm_Range=Conditions[0].Range;//Get Range
 				
 				//Alert Calculation	
@@ -88,19 +111,21 @@ webMI.addOnload(function(e) {
 				}
 				
 				//Write Max and Min
-				webMI.gfx.setText("id_4", max);
-				webMI.gfx.setText("id_3", min);
+				webMI.gfx.setText("id_4", max.toFixed(2));
+				webMI.gfx.setText("id_3", min.toFixed(2));
 			   }
 		});
+	}
+	else{ //No conditions
+		//Write Max and Min
+		webMI.gfx.setText("id_4", "NA");
+		webMI.gfx.setText("id_3", "NA");
 	}
 
 	webMI.gfx.setVisible("id_12", false);
 	webMI.gfx.setVisible("id_13", false);
 	webMI.gfx.setVisible("id_23", false);
 	webMI.gfx.setVisible("id_26", false);
-	
-	//Write Max and Min
-	webMI.gfx.setText("id_4", max);
 
 });
 
@@ -113,11 +138,8 @@ setTimeout(function(){
 	
 		var value=e.value;
 	
-		
-		
 		///////Change Text
-		
-		webMI.gfx.setText("id_20", webMI.sprintf(("T{%.2f}"+webMI.query["Unit"]), value));
+		webMI.gfx.setText("id_20", webMI.sprintf(("T{%.2f}"), value)+webMI.query["Unit"]);
 		
 		///////Change Bar
 		
@@ -128,7 +150,9 @@ setTimeout(function(){
 		
 		//Low Alert
 		if (alarmLow <= value && value <= alertLow){
-			webMI.gfx.setVisible("id_23", true);	
+			if(Cond_Low_Active){
+				webMI.gfx.setVisible("id_23", true); //Show LAle
+			}
 			webMI.gfx.setVisible("id_12", false);
 			
 			//Always hide alarms
@@ -138,7 +162,9 @@ setTimeout(function(){
 		
 		//High Alert
 		if (alertHigh <= value && value <= alarmHigh){
-			webMI.gfx.setVisible("id_12", true);
+			if(Cond_High_Active){
+				webMI.gfx.setVisible("id_12", true); //Show HAle
+			}
 			webMI.gfx.setVisible("id_23", false);
 			
 			//Always hide alarms
@@ -157,7 +183,9 @@ setTimeout(function(){
 		
 		//Low Alarm
 		if (min <= value && value < alarmLow) {
-			webMI.gfx.setVisible("id_26", true);
+			if(Cond_Low_Active){
+				webMI.gfx.setVisible("id_26", true); //Show LAla
+			}
 			webMI.gfx.setVisible("id_23", false);
 			webMI.gfx.setVisible("id_12", false);
 			webMI.gfx.setVisible("id_13", false);
@@ -165,11 +193,13 @@ setTimeout(function(){
 		
 		//High Alarm
 		if (alarmHigh < value && value < max) {
-			webMI.gfx.setVisible("id_13", true); 		
+			if(Cond_High_Active){
+				webMI.gfx.setVisible("id_13", true); //Show HAla
+			}	
 			webMI.gfx.setVisible("id_23", false);
 			webMI.gfx.setVisible("id_12", false);
 			webMI.gfx.setVisible("id_26", false);
-			}		
+		}		
 		
 		//Within Alarm range
 		if (alarmLow < value && value < alarmHigh){
@@ -179,9 +209,11 @@ setTimeout(function(){
 			
 		//Out of Max or Min Ranges
 		
-		//After Minimun
-		if (min >= value) {
-			webMI.gfx.setVisible("id_26", true); 
+		//Below Minimun
+		if (min >= value && Cond_Low_Active) {
+			if(Cond_Low_Active){
+				webMI.gfx.setVisible("id_26", true); 
+				}
 			webMI.gfx.setVisible("id_23", false);
 			webMI.gfx.setVisible("id_12", false);
 			webMI.gfx.setVisible("id_13", false);
@@ -190,12 +222,14 @@ setTimeout(function(){
 		
 		//After Maximun
 		if (value >= max) {
-			webMI.gfx.setVisible("id_13", true); 
+			if(Cond_High_Active){
+				webMI.gfx.setVisible("id_13", true); 
+			}
 			webMI.gfx.setVisible("id_23", false);
 			webMI.gfx.setVisible("id_12", false);
 			webMI.gfx.setVisible("id_26", false);
 			webMI.gfx.setFill("id_2", "#a30002");
-			}
+		}
 			
 			
 			//Within Range between Maximum and Minimum

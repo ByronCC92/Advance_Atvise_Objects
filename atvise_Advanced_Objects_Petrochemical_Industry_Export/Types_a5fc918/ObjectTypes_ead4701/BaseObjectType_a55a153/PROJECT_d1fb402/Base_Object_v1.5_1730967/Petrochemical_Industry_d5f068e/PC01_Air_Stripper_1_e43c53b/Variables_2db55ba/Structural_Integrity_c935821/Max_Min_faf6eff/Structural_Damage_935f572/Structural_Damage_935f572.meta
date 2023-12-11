@@ -1,0 +1,9 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC01_Air_Stripper_1.Variables.Structural_Integrity.Max_Min.Structural_Damage
+NodeClass: Object
+BrowseName: 1:Structural_Damage
+DisplayName: en|Structural_Damage
+Description: en|Structural_Damage
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConditionControl.Discrete
+Reference: forward HasComponent ns=1;s=AGENT.ALARMING.Categories.Error

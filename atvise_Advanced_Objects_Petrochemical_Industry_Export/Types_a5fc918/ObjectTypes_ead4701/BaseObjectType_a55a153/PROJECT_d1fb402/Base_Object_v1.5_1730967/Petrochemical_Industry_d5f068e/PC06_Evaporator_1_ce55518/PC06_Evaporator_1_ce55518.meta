@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC06_Evaporator_1
+NodeClass: ObjectType
+BrowseName: 1:PC06_Evaporator_1
+DisplayName: en|PC06_Evaporator_1
+Description: en|PC06_Evaporator_1
+IsAbstract: false

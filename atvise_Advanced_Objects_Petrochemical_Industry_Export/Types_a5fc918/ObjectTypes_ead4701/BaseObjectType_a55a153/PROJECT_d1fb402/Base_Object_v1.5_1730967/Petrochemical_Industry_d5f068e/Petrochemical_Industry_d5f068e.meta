@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry
+NodeClass: ObjectType
+BrowseName: 1:Petrochemical_Industry
+DisplayName: en|Petrochemical_Industry
+Description: en|Petrochemical_Industry
+IsAbstract: false

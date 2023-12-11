@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <code><![CDATA[//External Variables
+var Global_Maintenance = Ua.findNode("AGENT.OBJECTS.Global_Maintenance");
+
+//Internal Variables
+var Mant_Objects=new Array();
+var Mant_Root=".Maintenance.Mant_Hist";
+var Mant_List_Root=".Parameters.Mant_Address";
+var Addres=Ua.findNode("AGENT.OBJECTS"); //Search in Agent.Objects folder
+
+//-----------------Find Global Maintenance List
+
+//Browse recursively
+var ret = Addres.result.browse({
+    direction: Ua.Node.BROWSEDIRECTION_FORWARD,
+    reference: Ua.Reference.HIERARCHICALREFERENCES,
+    subType: true,
+    nodeClass: Ua.NodeClass.UNSPECIFIED,
+    maxResult: 0,
+    recursive : true
+});
+
+
+
+//Search within all the Nodes in Agent.Objects
+for (var i = 0; i < ret.result.length; ++i){
+	
+	var AddressI=ret.result[i]["node"]["nodeId"]["address"];
+	
+   //Catch all nodes with Mant_Root
+   if(AddressI.includes(Mant_Root)){	
+	
+		//Analize if Mant_List is not empty
+		var Temp_address=ret.result[i]["node"]["nodeId"]["address"].replace(Mant_Root,Mant_List_Root);
+		var Global_ListI = Ua.findNode(Temp_address);
+		var Global_ListII=Global_ListI.result.value;
+		
+		if (Global_ListII!=undefined &&Global_ListII.length>0){ //Only add if it has been initialized
+			Mant_Objects.push(ret.result[i]["node"]["nodeId"]["address"].replace(Mant_Root,""));
+		}	
+   }
+}
+
+
+//-----------------Update Global Maintenance
+
+//If it exists
+if (Global_Maintenance.result!=undefined){
+		
+	//Assing New List
+	Global_Maintenance.result.assign({value: Mant_Objects.sort()}); //Asign Complete array	 
+		
+}
+//Global_Maintenance doesn´t exists	
+else if(Global_Maintenance.result==undefined){	
+	var Global_MaintenanceN="AGENT.OBJECTS.Global_Maintenance";
+	Ua.createNode(Global_MaintenanceN, {
+		nodeClass: Ua.NodeClass.VARIABLE,
+		parent: "AGENT.OBJECTS",
+		typeDefinition: Ua.VariableType.baseNVARIABLETYPE,
+		reference: Ua.Reference.HASCOMPONENT,
+		dataType: Ua.DataType.STRING,
+		valueRank: Ua.ValueRank.ONEDIMENSION,
+		value: Mant_Objects.sort()
+	});
+}]]></code>
+</script>

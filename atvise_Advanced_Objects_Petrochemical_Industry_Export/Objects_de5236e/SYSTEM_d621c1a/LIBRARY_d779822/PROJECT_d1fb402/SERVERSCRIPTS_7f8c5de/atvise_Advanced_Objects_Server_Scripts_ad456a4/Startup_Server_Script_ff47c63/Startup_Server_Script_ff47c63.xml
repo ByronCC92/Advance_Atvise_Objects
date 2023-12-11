@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="baseN" type="string" trigger="false" relative="false" value=""/>
+  <parameter name="Root_PathI" type="string" trigger="false" relative="false" value=""/>
+  <code><![CDATA[//External Variables
+var Object_Conditions = Ua.findNode((baseN)+".Parameters.Object_Conditions");
+var Initial_Values = Ua.findNode((baseN)+".Parameters.Initial_Values");
+var Root_Path = Ua.findNode((baseN)+".Parameters.Root_Path");
+var Alarm_Nodes = Ua.findNode((baseN)+".Parameters.Alarm_Nodes");
+var Alert_Active = Ua.findNode((baseN)+".Alarm.Alert_Active");
+var Global_Maintenance = Ua.findNode("AGENT.OBJECTS.Global_Maintenance");
+
+console.log(baseN);
+console.log("---------------Startup Script----------------");
+//Global Variables
+var Global_Conditions=alarming.conditions;
+var Object_ConditionsI=new Array();
+var Initial_ValuesI=new Array();
+var Alarm_NodesI=new Array();
+var Alert_ActiveI=new Array();
+var Ranges=new Array();
+var Global_MaintenanceI=new Array();
+
+//----------------Rootpath logic---------------//
+
+
+//Asign to the node
+Root_Path.result.assign({value: Root_PathI.substring(0, Root_PathI.lastIndexOf('.'))}); //Asign complete array
+
+//----------------Conditions logic----------------//
+for (var i=0; i<Global_Conditions.length; i++){
+	
+	var Config_conditions=alarming.configuration(Global_Conditions[i])[0];
+	//Save the conditions that belong to the corresponding node
+	if (extractElement(Global_Conditions[i])==(baseN.nodeid.split('=').pop())) {
+		
+		//Save initial state in global variable
+		var Temp_variable = Ua.findNode(Config_conditions.input);		
+		
+	    if (Config_conditions.lowerLimit!=undefined){ //High Alarm
+			Object_ConditionsI.push({Condition_name:Global_Conditions[i],Condition_node:Config_conditions.input,Condition_type:"Max",Condition_limit:Config_conditions.lowerLimit,Initial_value:Temp_variable.result.value});
+		}
+		else //Low Alarm
+		{
+			Object_ConditionsI.push({Condition_name:Global_Conditions[i],Condition_node:Config_conditions.input,Condition_type:"Min",Condition_limit:Config_conditions.upperLimit,Initial_value:Temp_variable.result.value});
+		}
+		
+		//Start Alert Active
+		Alert_ActiveI.push(JSON.stringify(""));
+		
+		//Keep a variable with the nodes separately
+		if (isElementIncluded(Alarm_NodesI,Config_conditions.input)!=true){ //It doesn´t exist anymore
+			Alarm_NodesI.push((Config_conditions.input));
+			Ranges.push([]);	
+			
+			var currentkey=Config_conditions.input.split('=').pop();
+			var Initial_ValuesII={};
+			Initial_ValuesII[currentkey]=Temp_variable.result.value;
+			
+			//Assign initial values for later comparison
+			Initial_ValuesI.push(JSON.stringify(Initial_ValuesII));	
+			
+		}			
+    }		
+}
+
+//Extract pairs of limits for each node
+for (var i=0; i<Alarm_NodesI.length; i++){
+	for (var j=0; j<Object_ConditionsI.length; j++){
+		if (Alarm_NodesI[i]==Object_ConditionsI[j].Condition_node){
+			Ranges[i].push(Object_ConditionsI[j].Condition_limit);
+		}
+	}
+	
+	if (Ranges[i].length==1){ //Only one limit
+			Ranges[i].push(0); //Add a zero so that I always have a partner
+		}
+}
+
+//Calculate and enter the Ranges
+for (var i=0; i<Alarm_NodesI.length; i++){
+	for (var j=0; j<Object_ConditionsI.length; j++){
+		if (Alarm_NodesI[i]==Object_ConditionsI[j].Condition_node){
+			Object_ConditionsI[j].Range=Math.abs(Ranges[i][0]-Ranges[i][1]);
+			Object_ConditionsI[j]=JSON.stringify(Object_ConditionsI[j]);
+		}
+	}
+}
+console.log("Initial_Values");
+console.log(Initial_ValuesI);
+
+console.log("Alert_Active");
+console.log(Alert_ActiveI);
+
+//Assign Initial Values
+Initial_Values.result.assign({value: Initial_ValuesI});	
+
+//Assign Initial Values
+if (!(Alert_Active.result.value).some(element => element !== "" && element.length>2)){
+	Alert_Active.result.assign({value: Alert_ActiveI});	
+}
+
+//Assign Alarm Nodes
+Alarm_Nodes.result.assign({value: Alarm_NodesI.map((x)=> x.split('=').pop())}); //Asign Complete array	
+
+//Assign the value to the node
+Object_Conditions.result.assign({value: Object_ConditionsI}); //Asign Complete array	
+
+
+//Complementary functions
+function isElementIncluded(array, element) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === element) {
+      return true; // Element found in the array
+    }
+  }
+  return false; // Element not found in the array
+}
+
+//Check if it is from Object tipe
+function isFirstElementObjectTypes(arr) {
+  const firstElement = arr;
+  const splitElement = firstElement.split('.');
+  return splitElement[0] === 'ObjectTypes';
+}
+
+function extractElement(str) {
+    // Split the string at ';' and take the second part
+    var afterSemicolon = str.split(';')[1];
+
+    // Split this part at '=' and take the second element
+    var afterEqual = afterSemicolon.split('=')[1];
+
+    // Split at '.Variables' and take the first element
+    return afterEqual.split('.Variables')[0];
+}]]></code>
+</script>

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC08_Evaporator_3.Variables.Structural_Integrity
+NodeClass: Variable
+BrowseName: 1:Structural_Integrity
+DisplayName: en|Structural_Integrity
+Description: en|Structural_Integrity
+DataType: Boolean
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

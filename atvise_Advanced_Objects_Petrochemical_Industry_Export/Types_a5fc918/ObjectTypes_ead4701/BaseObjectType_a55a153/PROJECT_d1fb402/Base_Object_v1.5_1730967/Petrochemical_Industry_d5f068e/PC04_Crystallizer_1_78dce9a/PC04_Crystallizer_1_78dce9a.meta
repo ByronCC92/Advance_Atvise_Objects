@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC04_Crystallizer_1
+NodeClass: ObjectType
+BrowseName: 1:PC04_Crystallizer_1
+DisplayName: en|PC04_Crystallizer_1
+Description: en|PC04_Crystallizer_1
+IsAbstract: false

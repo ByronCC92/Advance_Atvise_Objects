@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Parameters.Mant_Address
+NodeClass: Variable
+BrowseName: 1:Mant_Address
+DisplayName: en|Mant_Address
+Description: en|Mant_Address
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

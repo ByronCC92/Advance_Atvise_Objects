@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC14_Reactor_1
+NodeClass: ObjectType
+BrowseName: 1:PC14_Reactor_1
+DisplayName: en|PC14_Reactor_1
+Description: en|PC14_Reactor_1
+IsAbstract: false

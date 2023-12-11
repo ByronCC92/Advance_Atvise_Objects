@@ -1,0 +1,11 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Maintenance_Object_Display
+NodeClass: Variable
+BrowseName: 1:Maintenance_Object_Display
+DisplayName: en|Maintenance_Object_Display
+Description: en|Maintenance_Object_Display
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

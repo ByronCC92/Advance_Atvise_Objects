@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><script><parameter name="mytimer" type="timer" trigger="true" relative="false" value="" starttime="00:00:00" repeat="00:00:20"/><code><![CDATA[function getLocalConfig(a) {
+    var b = {configs: []};
+    for (var i = 0; i < a.length; i++) {
+        if (a[i].config && a[i].config.configs) {
+            for (var j = 0; j < a[i].config.configs.length; j++) {
+                b.configs[b.configs.length] = a[i].config.configs[j];
+            }
+        }
+    }
+    return b;
+}
+function setInactive(a,b) {
+    for (var i = 0; i < a.length; i++) {
+        if (a[i].config && a[i].config.configs) {
+            for (var j = 0; j < a[i].config.configs.length; j++) {
+                if (a[i].config.configs[j].row == b) {
+                    a[i].config.configs[j].active = "false";
+					change = true;
+                }
+            }
+        }
+    }
+}
+function getBoolean(a) {
+    if (a == "1" || a == "true"){
+        return true;
+    } else if (a == "0" || a == "false"){
+        return false;
+    }
+	return null;
+}
+
+var configNAddress = base;
+var configN = Ua.findNode(configNAddress);
+var configNExist = Ua.Status(configN) != Ua.Status.BADNODEIDUNKNOWN;
+
+var change = false;
+if (configN.result.value != "") {
+    var globalConfig = JSON.parse(configN.result.value);
+    var timerConfig = getLocalConfig(globalConfig);
+    if (timerConfig != undefined && timerConfig.configs != undefined) {
+        for (var i = 0; i < timerConfig.configs.length; i++) {
+            var config = timerConfig.configs[i];
+            if (config != undefined && config != null && config.active == "true") {
+                var startDate = new Date(config.startDate);
+                var endDate = new Date(config.endDate);
+                var durationMS = config.duration*1000;
+                var repeat = config.repeat;
+                var repeatPeriod = config.repeatPeriod;
+                var valueOn = config.valueOn;
+                var valueOff = config.valueOff;
+                var weekdays = config.weekdays;
+                if (config.nodeOn != undefined) {
+                    var tempNodeOn = config.nodeOn;
+                    if (tempNodeOn.indexOf("AGENT.OBJECTS") == -1) {
+                        tempNodeOn = "AGENT.OBJECTS." + tempNodeOn
+                    }
+					 
+					 var nodeOnAddress = tempNodeOn;
+					 var nodeOn = Ua.findNode(nodeOnAddress);
+					 var nodeOnExist = Ua.Status(nodeOn) != Ua.Status.BADNODEIDUNKNOWN;
+					 
+                    if (nodeOnExist) {
+                        var activate = false;
+                        var curTime = mytimer.getTime();
+                        var curDayOfWeek = mytimer.getDay();
+                        var curDay = mytimer.getDate();
+                        var curMonth = mytimer.getMonth() + 1;
+                        var curYear = mytimer.getYear() + 1900;
+                        var curHour = mytimer.getHours();
+                        var curMinutes = mytimer.getMinutes();
+                        if (curDayOfWeek == 0) {
+                            curDayOfWeek = 7
+                        }
+                        var startTime = startDate.getTime();
+                        var startDay = startDate.getDate();
+                        var startMonth = startDate.getMonth() + 1;
+                        var startYear = startDate.getYear() + 1900;
+                        var startHour = startDate.getHours();
+                        var startMinutes = startDate.getMinutes();
+                        var endDay = endDate.getDate();
+                        var endMonth = endDate.getMonth() + 1;
+                        var endYear = endDate.getYear() + 1900;
+                        var endHour = new Date(startTime + durationMS).getHours();
+                        var endMinutes = new Date(startTime + durationMS).getMinutes();
+                        var endTime = new Date(endYear,endMonth-1, endDay,endHour,endMinutes)
+                        var once = repeatPeriod == 0;
+                        var daily = repeatPeriod == 1;
+                        var weekly = repeatPeriod == 2;
+                        var monthly = repeatPeriod == 3;
+                        var yearly = repeatPeriod == 4;
+                        var inTime = false;
+                        var stayActive = true;
+                        if (once) {
+                            inTime = ((curDay == startDay && curMonth == startMonth && curYear == startYear) || (curDay == endDay && curMonth == endMonth && curYear == endYear))
+                        } else if (daily || weekly) {
+                            inTime = startTime <= curTime && endTime >= curTime;
+                        } else if (monthly) {
+                            inTime = curTime <= endTime && (curDay == startDay || curDay == endDay);
+                        } else if (yearly) {
+                            inTime = curTime <= endTime && ((curDay == startDay && curMonth == startMonth) || (curDay == endDay && curMonth == endMonth)) ;
+                        }
+                        if (inTime) {
+                            if (once) {
+                                if (curDay == startDay && curMonth == startMonth && curYear == startYear && curHour == startHour && curMinutes == startMinutes) {
+                                    stayActive = true;
+                                    if (typeof nodeOn.result.value == "boolean" && getBoolean(valueOn) != null){ nodeOn.result.value = getBoolean(valueOn);}
+                                    else { nodeOn.result.value = valueOn;}
+                                }
+                                if (curDay == endDay && curMonth == endMonth && curYear == endYear && curHour == endHour && curMinutes == endMinutes) {
+                                    stayActive = false;
+                                    if (typeof nodeOn.result.value == "boolean" && getBoolean(valueOff) != null){ nodeOn.result.value = getBoolean(valueOff);}
+                                    else { nodeOn.result.value = valueOff;}
+                                }
+                            } else if (daily || weekly && weekdays[curDayOfWeek] || monthly && (curDay == startDay || curDay == endDay) || yearly && (curDay == startDay && curMonth == startMonth || curDay == endDay && curMonth == endMonth)) {
+                                if (curHour == startHour && curMinutes == startMinutes) {
+                                    stayActive = true;
+                                    if (typeof nodeOn.result.value == "boolean" && getBoolean(valueOn) != null){ nodeOn.result.value = getBoolean(valueOn);}
+                                    else { nodeOn.result.value = valueOn;}
+                                }
+                                if (curHour == endHour && curMinutes == endMinutes) {
+                                    if (typeof nodeOn.result.value == "boolean" && getBoolean(valueOff) != null){ nodeOn.result.value = getBoolean(valueOff);}
+                                    else { nodeOn.result.value = valueOff;}
+                                    if (curTime > endTime) {
+                                        stayActive = false
+                                    }
+                                }
+                            }
+                            if (!stayActive) setInactive(globalConfig,config.row);
+                        }
+						if (!inTime && curTime > endTime){
+                            setInactive(globalConfig,config.row);
+						}
+                    }
+                }
+            }
+        }
+    }
+	if (change){
+		configN.result.value = JSON.stringify(globalConfig)
+		change = false;
+	}
+}]]></code></script>

@@ -1,0 +1,9 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC11_Filter_3.Variables.Filter_Element_Status.Max_Min.Dirty
+NodeClass: Object
+BrowseName: 1:Dirty
+DisplayName: en|Dirty
+Description: en|Dirty
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConditionControl.Discrete
+Reference: forward HasComponent ns=1;s=AGENT.ALARMING.Categories.Error

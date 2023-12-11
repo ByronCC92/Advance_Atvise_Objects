@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC12_Process_Mixer_1.Variables.Structural_Integrity.Max_Min.Structural_Damage.value
+NodeClass: Variable
+BrowseName: 1:value
+DisplayName: en|value
+Description: en|value
+DataType: BaseDataType
+ValueRank: -1
+AccessLevel: 103
+ValueType: Boolean
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

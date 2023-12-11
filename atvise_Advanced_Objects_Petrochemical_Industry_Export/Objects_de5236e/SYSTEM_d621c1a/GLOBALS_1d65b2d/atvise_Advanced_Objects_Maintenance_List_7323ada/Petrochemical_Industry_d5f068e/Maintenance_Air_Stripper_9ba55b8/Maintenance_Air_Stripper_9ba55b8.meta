@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Petrochemical_Industry.Maintenance_Air_Stripper
+NodeClass: Variable
+BrowseName: 1:Maintenance_Air_Stripper
+DisplayName: en|Maintenance_Air_Stripper
+Description: en|Maintenance_Air_Stripper
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

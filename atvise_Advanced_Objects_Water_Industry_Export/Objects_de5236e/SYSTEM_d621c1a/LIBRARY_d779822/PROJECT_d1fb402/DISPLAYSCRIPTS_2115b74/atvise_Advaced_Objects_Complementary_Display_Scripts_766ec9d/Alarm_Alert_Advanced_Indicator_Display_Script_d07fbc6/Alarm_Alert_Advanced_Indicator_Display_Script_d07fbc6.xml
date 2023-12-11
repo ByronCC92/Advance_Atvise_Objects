@@ -71,29 +71,45 @@ webMI.addOnload(function(e) {
 	const parentElementIIIII = parentElementIIII.parentNode; //Get parent html element reference
 	let parentElementIIIII_Sizes = (parentElementIIIII.getAttribute('viewBox')).split(" ");
 	
-	
-	 
+	/*
+	console.log("parentElementIII");
+	console.log(parentElementIII);
 	console.log(parentElementIIIII);
 	console.log((parentElementIIIII.getAttribute('width')));
 	console.log((parentElementIIIII.getAttribute('viewBox')));
+	*/
+
+	//Get Scalling if present
+	const Scaling =	extractScaling(parentElementIII);
+	/*
+	console.log("Scaling");
+	console.log(Scaling);
+	console.log(Scaling.scaleX<0)
+	*/
+	
 	//Pop_up Window Size
 	const Window_Size={width:1029,height:320}; 	
 
 	//Screen Size
 	const Screen_size={width:Number(parentElementIIIII_Sizes[parentElementIIIII_Sizes.length - 2]),height:Number(parentElementIIIII_Sizes[parentElementIIIII_Sizes.length - 1])};
-	//const Screen_size={width:parseFloat(parentElementIIIIII_style.width),height:parseFloat(parentElementIIIIII_style.height)};
-	console.log("Screen_size");
-	console.log(Screen_size);
+
+	//console.log("Screen_size");
+	//console.log(Screen_size);
 	
+	
+
 	//Indicator Forbiden space
-	const absoluteXi=Number(parentElementII.getAttribute('x'))+Number(parentElement.getAttribute('x'));
-	const absoluteYi=Number(parentElementII.getAttribute('y'))+Number(parentElement.getAttribute('y'));
-	const Indicator_size={width:Number(parentElement.getAttribute('width')),height:Number(parentElement.getAttribute('height'))};
+	const absoluteXi=(Number(parentElementII.getAttribute('x'))*Scaling.scaleX)+Number(parentElement.getAttribute('x'));
+	const absoluteYi=(Number(parentElementII.getAttribute('y'))*Scaling.scaleY)+Number(parentElement.getAttribute('y'));
+	const Indicator_size={width:(Number(parentElement.getAttribute('width')))*Scaling.scaleX,height:Number(parentElement.getAttribute('height'))*Scaling.scaleY};
 	const Absolute_Position= {Xi:absoluteXi,Xf:absoluteXi+Indicator_size.width,Yi:absoluteYi,Yf:absoluteYi+Indicator_size.height}; 
 	
-	console.log("Absolute_Position");
-	console.log(Absolute_Position);
-	const Pop_PostionI=findOptimalPosition(Window_Size.width,Window_Size.height,Screen_size.width,Screen_size.height,Absolute_Position,10,20);
+	//console.log("Absolute_Position");
+	//console.log(Absolute_Position);
+	const PaddingX=Scaling.scaleX < 1 ? (10) : (10*Scaling.scaleX)
+	const PaddingY=Scaling.scaleY < 1 ? (40) : (20*Scaling.scaleY)
+
+	const Pop_PostionI=findOptimalPosition(Window_Size.width,Window_Size.height,Screen_size.width,Screen_size.height,Absolute_Position,PaddingX,PaddingY);
 	
 	Pop_Position=[Pop_PostionI.optimalX,Pop_PostionI.optimalY]; //Position where the Pop Up Hides
 	
@@ -711,25 +727,12 @@ function findOptimalPosition(windowWidth, windowHeight, screenWidth, screenHeigh
         { x: Xi, y: Yf + paddingY },               // Below forbidden area
         { x: Xf - (windowWidth/2)-((Xf-Xi)/2), y: Yf + paddingY}, // Below and Middle of forbidden area
         { x: Xi - windowWidth - paddingX, y: Yi }, // Left of forbidden area
-        { x: Xf + paddingX, y: Yi }                // Right of forbidden area
+        { x: Xi - windowWidth - paddingX, y: Yi - (windowHeight/2) }, // Left and Top of forbidden area
+        { x: Xf + paddingX, y: Yi },                // Right of forbidden area
+        { x: Xf + paddingX, y: Yi - (windowHeight/2)}, // Rigth and Top of forbidden area
         
     ];
-    var result0y=(Yi - windowHeight - paddingY);
-    var result1y=(Yf + paddingY);
-    var result2x=(Xi - windowWidth - paddingX);
-    var result3x=(Xf + paddingX);
-    console.log("Option 0: ");
-    console.log(Xi);
-    console.log("Yi: "+Yi+" - windowHeight: "+windowHeight+"- paddingY: "+paddingY+" = "+result0y);
-    console.log("Option 1: ");
-    console.log(Xi);
-    console.log("Yf: "+Yf+"+ paddingY: "+paddingY+" = "+result1y);
-    console.log("Option 2: ");
-    console.log("Xi: "+Xi+" - windowWidth: "+windowWidth+" - paddingX: "+paddingX+" = "+result2x);
-    console.log(Yi);
-    console.log("Option 3: ");
-    console.log("Xf: "+Xf+" + paddingX: "+paddingX+" = "+result3x);
-    console.log(Yi);
+      
 	var i=0;
     for (let pos of positions) {
         // Check if the position is within the screen bounds
@@ -748,6 +751,32 @@ function findOptimalPosition(windowWidth, windowHeight, screenWidth, screenHeigh
     return {optimalX:optimalX,optimalY:optimalY};
 }
 
+
+function extractScaling(element) {
+    // Check if the element has a 'transform' attribute
+    if (element.hasAttribute('transform')) {
+        // Get the value of the 'transform' attribute
+        const transformValue = element.getAttribute('transform');
+
+        // Extract the scale values from the transformation matrix
+        // The matrix is in the form matrix(scaleX, 0, 0, scaleY, translateX, translateY)
+        const matches = transformValue.match(/matrix\(([\d.]+),\s*0,\s*0,\s*([\d.]+),\s*[\d.]+,\s*[\d.]+\)/);
+
+        if (matches && matches.length === 3) {
+            // Convert the scale values to numbers and return them
+            return {
+                scaleX: parseFloat(matches[1]),
+                scaleY: parseFloat(matches[2])
+            };
+        }
+    }
+
+    // Return null if no scaling matrix is found
+    return {
+                scaleX: parseFloat(1),
+                scaleY: parseFloat(1)
+            };
+}
 
 ]]></code>
 </script>

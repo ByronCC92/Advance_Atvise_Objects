@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC03_Air_Stripper_3
+NodeClass: ObjectType
+BrowseName: 1:PC03_Air_Stripper_3
+DisplayName: en|PC03_Air_Stripper_3
+Description: en|PC03_Air_Stripper_3
+IsAbstract: false

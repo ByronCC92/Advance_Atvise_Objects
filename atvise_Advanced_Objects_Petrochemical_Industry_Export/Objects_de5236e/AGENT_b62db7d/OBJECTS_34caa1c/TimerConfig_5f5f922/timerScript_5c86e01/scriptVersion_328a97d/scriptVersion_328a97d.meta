@@ -1,0 +1,9 @@
+NodeId: ns=1;s=AGENT.OBJECTS.TimerConfig.timerScript.scriptVersion
+NodeClass: Variable
+BrowseName: 1:scriptVersion
+DisplayName: en|scriptVersion
+Description: en|scriptVersion
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition BaseVariableType

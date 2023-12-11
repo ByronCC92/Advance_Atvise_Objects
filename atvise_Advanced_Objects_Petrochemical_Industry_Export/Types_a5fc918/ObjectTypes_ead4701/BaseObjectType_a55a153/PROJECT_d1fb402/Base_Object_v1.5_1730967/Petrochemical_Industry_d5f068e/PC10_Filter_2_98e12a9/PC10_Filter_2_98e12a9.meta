@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC10_Filter_2
+NodeClass: ObjectType
+BrowseName: 1:PC10_Filter_2
+DisplayName: en|PC10_Filter_2
+Description: en|PC10_Filter_2
+IsAbstract: false

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC12_Process_Mixer_1
+NodeClass: ObjectType
+BrowseName: 1:PC12_Process_Mixer_1
+DisplayName: en|PC12_Process_Mixer_1
+Description: en|PC12_Process_Mixer_1
+IsAbstract: false

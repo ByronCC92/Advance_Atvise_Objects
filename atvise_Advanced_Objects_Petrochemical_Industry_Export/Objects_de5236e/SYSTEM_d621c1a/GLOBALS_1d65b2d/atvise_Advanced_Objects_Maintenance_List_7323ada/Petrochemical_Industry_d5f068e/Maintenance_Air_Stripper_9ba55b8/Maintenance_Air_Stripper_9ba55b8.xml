@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+	<uax:ListOfString>
+		<uax:String>&quot;0&quot;:{&quot;text&quot;:&quot;Adjust air stripper pressure&quot;,&quot;value&quot;:&quot;1&quot;}</uax:String>
+		<uax:String>&quot;1&quot;:{&quot;text&quot;:&quot;Calibrate temp sensors&quot;,&quot;value&quot;:&quot;2&quot;}</uax:String>
+		<uax:String>&quot;2&quot;:{&quot;text&quot;:&quot;Calibrate flow rate&quot;,&quot;value&quot;:&quot;3&quot;}</uax:String>
+		<uax:String>&quot;3&quot;:{&quot;text&quot;:&quot;Adjust contaminant levels&quot;,&quot;value&quot;:&quot;4&quot;}</uax:String>
+		<uax:String>&quot;4&quot;:{&quot;text&quot;:&quot;Optimize air stripper efficiency&quot;,&quot;value&quot;:&quot;5&quot;}</uax:String>
+		<uax:String>&quot;5&quot;:{&quot;text&quot;:&quot;Inspect air stripper structure&quot;,&quot;value&quot;:&quot;6&quot;}</uax:String>
+		<uax:String>&quot;6&quot;:{&quot;text&quot;:&quot;Inspect cooling system&quot;,&quot;value&quot;:&quot;7&quot;}</uax:String>
+	</uax:ListOfString>
+</Value>

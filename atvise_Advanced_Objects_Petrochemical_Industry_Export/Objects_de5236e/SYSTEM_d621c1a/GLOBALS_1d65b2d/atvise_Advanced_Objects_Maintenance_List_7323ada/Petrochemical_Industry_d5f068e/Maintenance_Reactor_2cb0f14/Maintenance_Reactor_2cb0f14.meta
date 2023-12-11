@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Petrochemical_Industry.Maintenance_Reactor
+NodeClass: Variable
+BrowseName: 1:Maintenance_Reactor
+DisplayName: en|Maintenance_Reactor
+Description: en|Maintenance_Reactor
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

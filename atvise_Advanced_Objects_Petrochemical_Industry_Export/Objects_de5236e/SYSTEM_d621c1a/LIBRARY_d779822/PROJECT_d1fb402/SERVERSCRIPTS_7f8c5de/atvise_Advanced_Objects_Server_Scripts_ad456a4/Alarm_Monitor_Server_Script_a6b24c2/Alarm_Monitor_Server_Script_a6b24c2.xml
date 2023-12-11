@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="baseN" type="string" trigger="false" relative="true">
+    <RelativePath>
+      <Elements/>
+    </RelativePath>
+  </parameter>
+  <code><![CDATA[//External Variables
+var Alarm_Active  = Ua.findNode((baseN)+".Alarm.Alarm_Active");
+
+//Global Variables
+var Global_Active_Alarms=alarming.list;
+var Active_Alarms=new Array();
+
+
+//Read all existing alarms
+for (var i=0; i<Global_Active_Alarms.length; i++){
+	var Active_Alarm=Global_Active_Alarms[i];
+	
+	//Save the active alarms that belong to the corresponding node
+	if (Active_Alarm.base.includes(baseN.nodeid.split('=').pop()) && Active_Alarm.ActiveStateId==true) {
+		var Config_conditions=alarming.configuration(Active_Alarm.address)[0];		
+		if (Config_conditions.lowerLimit!=undefined){ //High Alarm
+			Active_Alarms.push(JSON.stringify({Alarma:Active_Alarm.base.split('AGENT.OBJECTS.').pop()+"."+Active_Alarm.ConditionName,Condition_type:"Max",Status:Active_Alarm.ActiveStateId,value:Active_Alarm.value,Timestamp:Active_Alarm.timestamp,eventText:Active_Alarm.eventtext.en}));
+		}
+		else //Low Alarm
+		{
+			Active_Alarms.push(JSON.stringify({Alarma:Active_Alarm.base.split('AGENT.OBJECTS.').pop()+"."+Active_Alarm.ConditionName,Condition_type:"Min",Status:Active_Alarm.ActiveStateId,value:Active_Alarm.value,Timestamp:Active_Alarm.timestamp,eventText:Active_Alarm.eventtext.en}));
+		}
+		
+    }	
+}
+
+//Asign value to the node
+Alarm_Active.result.assign({value: Active_Alarms}); //Asign complete array
+
+
+//---------------Notification Section
+
+//Email
+
+
+//Alertzy]]></code>
+</script>

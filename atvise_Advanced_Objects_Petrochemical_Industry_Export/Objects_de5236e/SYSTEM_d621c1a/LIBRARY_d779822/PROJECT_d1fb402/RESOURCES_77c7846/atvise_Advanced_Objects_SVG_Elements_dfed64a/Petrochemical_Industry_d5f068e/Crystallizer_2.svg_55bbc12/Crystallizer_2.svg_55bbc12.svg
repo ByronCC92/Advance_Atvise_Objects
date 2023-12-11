@@ -1,0 +1,124 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" height="112.5" xmlns:atv="http://webmi.atvise.com/2007/svgext" width="61.438000000000002" enable-background="new 0 0 61.438 112.5" xml:space="preserve">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_1_" x1="1.72265e-05" x2="1.00001" y1="0.499861" y2="0.499861">
+   <stop offset="0" stop-color="#CC9933"/>
+   <stop offset="0.5" stop-color="#FFCC66"/>
+   <stop offset="1" stop-color="#CC9933"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_2_" x1="-8.61289e-06" x2="1.00001" y1="0.499993" y2="0.499993">
+   <stop offset="0" stop-color="#CC9933"/>
+   <stop offset="0.5" stop-color="#FFCC66"/>
+   <stop offset="1" stop-color="#CC9933"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_3_" x1="0" x2="0.999994" y1="0.500444" y2="0.500444">
+   <stop offset="0" stop-color="#CC9933"/>
+   <stop offset="0.5" stop-color="#FFCC66"/>
+   <stop offset="1" stop-color="#CC9933"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_4_" x1="-1.65815e-06" x2="1" y1="0.499989" y2="0.499989">
+   <stop offset="0" stop-color="#333399"/>
+   <stop offset="0.52" stop-color="#B0C7D4"/>
+   <stop offset="0.65" stop-color="#91A3C6"/>
+   <stop offset="0.94" stop-color="#4447A1"/>
+   <stop offset="1" stop-color="#333399"/>
+  </linearGradient>
+ </defs>
+ <metadata>
+  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="false" height="10" width="10"/>
+ </metadata>
+ <g atv:refpx="30.663" atv:refpy="56.307" id="Image_1">
+  <g atv:refpx="30.719" atv:refpy="26.095" id="Group_CrystallizerBody">
+   <rect atv:refpx="30.775" atv:refpy="3.671" fill="url(#SVGID_1_)" height="4.309" id="id_0" width="11.61" x="24.97" y="1.517"/>
+   <path atv:refpx="30.719" atv:refpy="28.458" d="M53.94,9.807L53.94,51.628L7.498,51.628L7.498,9.807C7.498,9.807 8.625,6.167 24.858,5.298C25.262,5.277 36.581,5.298 36.581,5.298C52.418,6.167 53.94,9.807 53.94,9.807" fill="url(#SVGID_2_)" id="id_1"/>
+   <rect atv:refpx="30.72" atv:refpy="1.127" fill="url(#SVGID_3_)" height="1.127" id="id_2" width="16.233" x="22.603" y="0.563"/>
+  </g>
+  <g atv:refpx="30.719" atv:refpy="76.034" id="Group_Baffle">
+   <path atv:refpx="30.719" atv:refpy="76.034" d="M53.884,40.018L53.884,51.629L60.873,63.127L60.873,86.349L46.894,112.05L39.906,112.05L35.284,102.695L26.04,102.695L21.418,112.05L14.43,112.05L0.565,86.348L0.565,63.126L7.441,51.628L7.441,40.018Z" fill="url(#SVGID_4_)" id="id_3"/>
+   <path atv:refpx="24.173" atv:refpy="94.803" d="M23.673,95.93L23.673,93.675" fill="none" id="id_4" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="24.173" atv:refpy="90.181" d="M23.673,91.308L23.673,89.053" fill="none" id="id_5" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="24.173" atv:refpy="85.502" d="M23.673,86.686L23.673,84.319" fill="none" id="id_6" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="24.173" atv:refpy="80.88" d="M23.673,82.064L23.673,79.696" fill="none" id="id_7" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="24.173" atv:refpy="76.203" d="M23.673,77.33L23.673,75.075" fill="none" id="id_8" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="24.173" atv:refpy="71.581" d="M23.673,72.708L23.673,70.453" fill="none" id="id_9" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="24.173" atv:refpy="66.959" d="M23.673,68.086L23.673,65.832" fill="none" id="id_10" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="24.173" atv:refpy="62.282" d="M23.673,63.465L23.673,61.098" fill="none" id="id_11" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="24.173" atv:refpy="57.66" d="M23.673,58.843L23.673,56.476" fill="none" id="id_12" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="24.173" atv:refpy="52.98" d="M23.673,54.108L23.673,51.852" fill="none" id="id_13" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="24.173" atv:refpy="48.359" d="M23.673,49.486L23.673,47.232" fill="none" id="id_14" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="94.803" d="M37.651,95.93L37.651,93.675" fill="none" id="id_15" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="90.181" d="M37.651,91.308L37.651,89.053" fill="none" id="id_16" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="85.502" d="M37.651,86.686L37.651,84.319" fill="none" id="id_17" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="80.88" d="M37.651,82.064L37.651,79.696" fill="none" id="id_18" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="76.203" d="M37.651,77.33L37.651,75.075" fill="none" id="id_19" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="71.581" d="M37.651,72.708L37.651,70.453" fill="none" id="id_20" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="66.959" d="M37.651,68.086L37.651,65.832" fill="none" id="id_21" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="62.282" d="M37.651,63.465L37.651,61.098" fill="none" id="id_22" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="57.66" d="M37.651,58.843L37.651,56.476" fill="none" id="id_23" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="52.98" d="M37.651,54.108L37.651,51.852" fill="none" id="id_24" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="38.151" atv:refpy="48.359" d="M37.651,49.486L37.651,47.232" fill="none" id="id_25" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="8.167" atv:refpy="85.502" d="M7.667,86.686L7.667,84.319" fill="none" id="id_26" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="8.167" atv:refpy="80.88" d="M7.667,82.064L7.667,79.696" fill="none" id="id_27" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="8.167" atv:refpy="76.203" d="M7.667,77.33L7.667,75.075" fill="none" id="id_28" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="8.167" atv:refpy="71.581" d="M7.667,72.708L7.667,70.453" fill="none" id="id_29" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="8.167" atv:refpy="66.959" d="M7.667,68.086L7.667,65.832" fill="none" id="id_30" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="8.167" atv:refpy="62.282" d="M7.667,63.465L7.667,61.098" fill="none" id="id_31" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="8.167" atv:refpy="57.66" d="M7.667,58.843L7.667,56.476" fill="none" id="id_32" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="8.167" atv:refpy="52.98" d="M7.667,54.108L7.667,51.852" fill="none" id="id_33" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="54.158" atv:refpy="85.502" d="M53.658,86.686L53.658,84.319" fill="none" id="id_34" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="54.158" atv:refpy="80.88" d="M53.658,82.064L53.658,79.696" fill="none" id="id_35" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="54.158" atv:refpy="76.203" d="M53.658,77.33L53.658,75.075" fill="none" id="id_36" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="54.158" atv:refpy="71.581" d="M53.658,72.708L53.658,70.453" fill="none" id="id_37" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="54.158" atv:refpy="66.959" d="M53.658,68.086L53.658,65.832" fill="none" id="id_38" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="54.158" atv:refpy="62.282" d="M53.658,63.465L53.658,61.098" fill="none" id="id_39" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="54.158" atv:refpy="57.66" d="M53.658,58.843L53.658,56.476" fill="none" id="id_40" stroke="#4C4C4C" stroke-width="0.25"/>
+   <path atv:refpx="54.158" atv:refpy="52.98" d="M53.658,54.108L53.658,51.852" fill="none" id="id_41" stroke="#4C4C4C" stroke-width="0.25"/>
+  </g>
+  <g atv:refpx="30.663" atv:refpy="69.044" id="Group_SettlingArea">
+   <path atv:refpx="57.379" atv:refpy="69.044" d="M53.884,51.628L53.884,86.461L60.873,86.461L60.873,63.238Z" fill="#B2B2E5" id="id_42"/>
+   <path atv:refpx="3.946" atv:refpy="69.044" d="M7.441,51.628L7.441,86.461L0.452,86.461L0.452,63.238Z" fill="#B2B2E5" id="id_43"/>
+  </g>
+  <g atv:refpx="30.662" atv:refpy="76.033" id="Group_Crystals">
+   <path atv:refpx="19.277" atv:refpy="110.865" d="M18.15,110.809L18.825,109.682L20.403,109.682L20.403,111.26L18.825,112.049Z" fill="#990000" id="id_44"/>
+   <path atv:refpx="15.558" atv:refpy="110.302" d="M15.67,109.118L16.685,109.907L16.459,111.485L14.994,111.373L14.431,109.682Z" fill="#990000" id="id_45"/>
+   <path atv:refpx="21.983" atv:refpy="106.357" d="M21.87,107.54L20.856,106.639L21.081,105.173L22.659,105.285L23.11,106.976Z" fill="#990000" id="id_46"/>
+   <path atv:refpx="16.853" atv:refpy="106.696" d="M16.459,105.512L17.698,105.962L18.15,107.54L16.572,107.879L15.556,106.525Z" fill="#990000" id="id_47"/>
+   <path atv:refpx="20.404" atv:refpy="104.046" d="M21.193,105.173L19.84,105.061L19.051,103.595L20.404,102.918L21.757,103.933Z" fill="#990000" id="id_48"/>
+   <path atv:refpx="20.63" atv:refpy="108.329" d="M19.502,109.006L19.84,107.54L21.193,106.977L21.757,108.442L20.63,109.682Z" fill="#990000" id="id_49"/>
+   <path atv:refpx="19.277" atv:refpy="106.526" d="M20.404,105.962L20.066,107.315L18.712,107.878L18.15,106.413L19.276,105.173Z" fill="#990000" id="id_50"/>
+   <path atv:refpx="17.811" atv:refpy="109.231" d="M16.91,110.246L16.684,108.892L17.811,107.878L18.938,109.005L18.262,110.583Z" fill="#990000" id="id_51"/>
+   <path atv:refpx="18.038" atv:refpy="104.44" d="M17.586,103.256L18.939,103.595L19.39,105.061L17.925,105.624L16.685,104.384Z" fill="#990000" id="id_52"/>
+   <path atv:refpx="15.614" atv:refpy="104.553" d="M16.797,104.158L16.346,105.512L14.768,105.85L14.43,104.384L15.783,103.256Z" fill="#990000" id="id_53"/>
+   <path atv:refpx="13.302" atv:refpy="105.906" d="M12.175,106.301L12.626,104.947L14.091,104.609L14.429,106.187L13.076,107.202Z" fill="#990000" id="id_54"/>
+   <path atv:refpx="14.712" atv:refpy="107.823" d="M15.783,106.977L15.783,108.442L14.43,109.231L13.641,107.992L14.542,106.414Z" fill="#990000" id="id_55"/>
+   <path atv:refpx="23.392" atv:refpy="103.933" d="M24.575,103.707L23.899,105.061L22.321,105.172L22.208,103.594L23.673,102.693Z" fill="#990000" id="id_56"/>
+   <path atv:refpx="41.765" atv:refpy="110.865" d="M42.949,110.809L42.16,109.682L40.581,109.682L40.581,111.26L42.16,112.049Z" fill="#990000" id="id_57"/>
+   <path atv:refpx="45.43" atv:refpy="110.302" d="M45.43,109.118L44.303,109.907L44.528,111.485L46.106,111.373L46.557,109.682Z" fill="#990000" id="id_58"/>
+   <path atv:refpx="39.004" atv:refpy="106.357" d="M39.117,107.54L40.131,106.639L39.906,105.173L38.44,105.285L37.876,106.976Z" fill="#990000" id="id_59"/>
+   <path atv:refpx="44.245" atv:refpy="106.696" d="M44.641,105.512L43.287,105.962L42.949,107.54L44.415,107.879L45.542,106.525Z" fill="#990000" id="id_60"/>
+   <path atv:refpx="40.695" atv:refpy="104.046" d="M39.906,105.173L41.259,105.061L42.048,103.595L40.695,102.918L39.341,103.933Z" fill="#990000" id="id_61"/>
+   <path atv:refpx="40.413" atv:refpy="108.329" d="M41.597,109.006L41.259,107.54L39.793,106.977L39.23,108.442L40.358,109.682Z" fill="#990000" id="id_62"/>
+   <path atv:refpx="41.822" atv:refpy="106.526" d="M40.695,105.962L40.92,107.315L42.386,107.878L42.949,106.413L41.709,105.173Z" fill="#990000" id="id_63"/>
+   <path atv:refpx="43.231" atv:refpy="109.231" d="M44.076,110.246L44.303,108.892L43.175,107.878L42.16,109.005L42.836,110.583Z" fill="#990000" id="id_64"/>
+   <path atv:refpx="42.95" atv:refpy="104.44" d="M43.514,103.256L42.16,103.595L41.597,105.061L43.063,105.624L44.303,104.384Z" fill="#990000" id="id_65"/>
+   <path atv:refpx="45.43" atv:refpy="104.553" d="M44.303,104.158L44.753,105.512L46.331,105.85L46.557,104.384L45.317,103.256Z" fill="#990000" id="id_66"/>
+   <path atv:refpx="47.74" atv:refpy="105.906" d="M48.924,106.301L48.473,104.947L46.894,104.609L46.556,106.187L48.022,107.202Z" fill="#990000" id="id_67"/>
+   <path atv:refpx="46.275" atv:refpy="107.823" d="M45.204,106.977L45.316,108.442L46.556,109.231L47.345,107.992L46.443,106.414Z" fill="#990000" id="id_68"/>
+   <path atv:refpx="37.708" atv:refpy="103.933" d="M36.523,103.707L37.201,105.061L38.666,105.172L38.892,103.594L37.314,102.693Z" fill="#990000" id="id_69"/>
+   <path atv:refpx="51.291" atv:refpy="45.147" d="M50.164,44.301L50.277,45.654L51.516,46.556L52.417,45.203L51.516,43.737Z" fill="#990000" id="id_70"/>
+   <path atv:refpx="52.757" atv:refpy="43.907" d="M53.884,44.301L53.434,42.948L51.968,42.61L51.629,44.188L52.983,45.203Z" fill="#990000" id="id_71"/>
+   <path atv:refpx="50.446" atv:refpy="41.877" d="M49.262,41.483L49.713,42.836L51.291,43.174L51.629,41.596L50.277,40.58Z" fill="#990000" id="id_72"/>
+   <path atv:refpx="47.966" atv:refpy="41.764" d="M48.473,40.581L47.12,40.919L46.556,42.384L48.022,42.947L49.376,41.707Z" fill="#990000" id="id_73"/>
+   <path atv:refpx="52.757" atv:refpy="41.371" d="M51.629,40.807L51.968,42.16L53.321,42.724L53.884,41.258L52.757,40.018Z" fill="#990000" id="id_74"/>
+   <path atv:refpx="49.206" atv:refpy="43.963" d="M49.6,42.836L48.248,43.287L47.91,44.752L49.488,45.09L50.502,43.737Z" fill="#990000" id="id_75"/>
+   <path atv:refpx="52.757" atv:refpy="47.514" d="M53.884,47.57L53.095,46.33L51.629,46.33L51.629,47.908L53.095,48.697Z" fill="#990000" id="id_76"/>
+   <path atv:refpx="10.09" atv:refpy="45.147" d="M11.161,44.301L11.161,45.654L9.808,46.556L9.019,45.203L9.921,43.737Z" fill="#990000" id="id_77"/>
+   <path atv:refpx="8.624" atv:refpy="43.907" d="M7.441,44.301L7.891,42.948L9.47,42.61L9.808,44.188L8.343,45.203Z" fill="#990000" id="id_78"/>
+   <path atv:refpx="10.992" atv:refpy="41.877" d="M12.175,41.483L11.612,42.836L10.034,43.174L9.808,41.596L11.161,40.58Z" fill="#990000" id="id_79"/>
+   <path atv:refpx="13.415" atv:refpy="41.764" d="M12.964,40.581L14.204,40.919L14.767,42.384L13.302,42.947L12.062,41.707Z" fill="#990000" id="id_80"/>
+   <path atv:refpx="8.625" atv:refpy="41.37" d="M9.808,40.807L9.47,42.159L8.004,42.723L7.441,41.257L8.681,40.016Z" fill="#990000" id="id_81"/>
+   <path atv:refpx="12.119" atv:refpy="43.963" d="M11.837,42.836L13.077,43.287L13.415,44.752L11.95,45.09L10.822,43.737Z" fill="#990000" id="id_82"/>
+   <path atv:refpx="8.624" atv:refpy="47.514" d="M7.441,47.57L8.23,46.33L9.808,46.33L9.808,47.908L8.23,48.697Z" fill="#990000" id="id_83"/>
+  </g>
+ </g>
+</svg>

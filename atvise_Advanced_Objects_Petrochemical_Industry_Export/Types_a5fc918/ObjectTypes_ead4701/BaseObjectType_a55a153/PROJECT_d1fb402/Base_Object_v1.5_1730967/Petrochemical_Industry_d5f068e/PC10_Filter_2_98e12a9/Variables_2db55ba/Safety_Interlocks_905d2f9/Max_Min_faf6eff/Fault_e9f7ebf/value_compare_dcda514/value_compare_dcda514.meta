@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Petrochemical_Industry.PC10_Filter_2.Variables.Safety_Interlocks.Max_Min.Fault.value_compare
+NodeClass: Variable
+BrowseName: 1:value_compare
+DisplayName: en|value_compare
+Description: en|value_compare
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

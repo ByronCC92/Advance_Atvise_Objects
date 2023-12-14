@@ -78,7 +78,7 @@ var Table_Id;
 
 //Maintenance
 var Mant_ElementsR;
-var Modify_Index;
+var Modify_Index=0;
 var Table_Initialized=false;
 var tableController;
 var Action="Add";
@@ -212,9 +212,9 @@ webMI.addEvent("Excecute", "click", function(e) {
 //Monitor change agreement
 webMI.trigger.connect(Action_Trigger_Name, function(e) {
 	var text=e.value;	
-	
+	var New_ValueI={"text":New_Maintenance,"value":New_Value};
 	//Excecute action
-	modifyElement(Global_List_Address,Action,Modify_Index,New_Maintenance,New_Value);
+	modifyElement(Global_List_Address,Action,Modify_Index,New_ValueI);
 });
 
 //---------------Table Section--------------//
@@ -230,7 +230,7 @@ webMI.table.loadResources(function () {
 			{   id: "ID", name: "ID", field: "ID", sortable: false, filter: false, visible: true, width:5},
 			{   id: "Maintenance", name: "Maintenance", field: "Maintenance", sortable: false, filter: false, visible: true, width:200}
 		];
-
+	
 	// Configuration of the runtime behavior //
 	config["mode"] = "live";
 	
@@ -278,6 +278,11 @@ webMI.table.loadResources(function () {
 						"Maintenance": Table_Data[i].text,	
 					});				
 				}
+				console.log("Columns_Config");
+				console.log(config["columns"]);
+				console.log("Ready_Data");
+				console.log(Ready_Data);
+				
 				var data = {};
 				data.result= Ready_Data;
 				tableData.push(data);
@@ -297,10 +302,11 @@ webMI.table.loadResources(function () {
 //---------------Functions Section--------------//
 
 // Function to modify the Global List
-function modifyElement(Global_List_Address,Action,Modify_Index,New_Element,New_Value) {
-	
+function modifyElement(Global_List_Address,Action,Modify_Index,New_Value) {
+	console.log("New_Value");
+	console.log(New_Value);
 	//Call Modification Script
-    webMI.data.call("Global_List_Modifier_webMI_Method_Script", {"Global_List":Global_List_Address , "Action": Action, "Modify_Index":Modify_Index, "New_Element":New_Element,"New_Value":New_Value}, function(e) {
+    webMI.data.call("Global_List_Modifier_webMI_Method_Script", {"Global_List":Global_List_Address , "Action": Action, "Modify_Index":Modify_Index, "New_Value":New_Value}, function(e) {
 		//Update Table
 		if (tableController!=undefined){
 			//Read new Global List

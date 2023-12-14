@@ -56,5 +56,6 @@ webMI.addEvent("No_Button", "click", function(e) {
   <atv:argument name="Border_Color" value="#ffffff"/>
   <atv:argument name="Border_Thickness" value="0"/>
   <atv:argument name="Font_Size" prefix="Confirmation_Text_Size" value=""/>
+  <atv:argument name="Alignment" value="left"/>
  </svg>
 </svg>

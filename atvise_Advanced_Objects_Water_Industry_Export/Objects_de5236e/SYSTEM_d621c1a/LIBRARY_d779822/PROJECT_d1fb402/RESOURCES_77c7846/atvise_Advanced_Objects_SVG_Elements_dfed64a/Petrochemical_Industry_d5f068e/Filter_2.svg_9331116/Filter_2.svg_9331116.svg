@@ -1,0 +1,20 @@
+<svg enable-background="new 0 0 56.305 112.5" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" height="112.5" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns="http://www.w3.org/2000/svg" version="1.1" width="56.305">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_1_" x1="0.516544" x2="0.489061" y1="1.00607" y2="0.00468607">
+   <stop offset="0" stop-color="#666666"/>
+   <stop offset="1" stop-color="#E5E5E5"/>
+  </linearGradient>
+ </defs>
+ <metadata>
+  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="false" height="10" width="10"/>
+ </metadata>
+ <g atv:refpx="28.096" atv:refpy="56.249" id="Image_1">
+  <g atv:refpx="28.096" atv:refpy="56.249" id="Group_Column">
+   <path atv:refpx="28.096" atv:refpy="56.249" d="M56.191,9.349C56.191,9.349 49.878,0 28.095,0C6.968,0 0,9.349 0,9.349L0,93.805L23.535,112.498L32.768,112.498L56.19,93.805L56.19,9.349Z" fill="#669999" id="id_0" stroke="#4C4C4C" stroke-width="0.25"/>
+  </g>
+  <g atv:refpx="28.096" atv:refpy="64.301" id="Group_Filter">
+   <path atv:refpx="28.096" atv:refpy="64.301" d="M56.191,16.105L51.011,16.105L51.011,89.075L47.407,89.075L47.407,16.105L40.426,16.105L40.426,89.075L36.822,89.075L36.822,16.105L29.842,16.105L29.842,89.075L26.463,89.075L26.463,16.105L19.482,16.105L19.482,89.075L15.878,89.075L15.878,16.105L8.671,16.105L8.671,89.075L5.293,89.075L5.293,16.105L0,16.105L0,93.805L23.535,112.497L32.768,112.497L56.19,93.805L56.19,16.105" fill="url(#SVGID_1_)" id="id_1" stroke="#4C4C4C" stroke-width="0.25"/>
+  </g>
+ </g>
+</svg>

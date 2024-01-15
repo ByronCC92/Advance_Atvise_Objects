@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/Petrochemical_Industry
+NodeClass: Object
+BrowseName: 1:Petrochemical_Industry
+DisplayName: en|Petrochemical_Industry
+Description: en|Petrochemical_Industry
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

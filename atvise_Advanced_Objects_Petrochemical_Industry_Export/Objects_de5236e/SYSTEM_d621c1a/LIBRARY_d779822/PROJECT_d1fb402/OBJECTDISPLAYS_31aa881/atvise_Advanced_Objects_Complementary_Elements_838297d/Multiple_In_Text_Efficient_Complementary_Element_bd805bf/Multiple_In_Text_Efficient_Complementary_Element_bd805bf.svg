@@ -89,7 +89,11 @@ webMI.addOnload(function() {
     console.log("ReferenceObject");
 	console.log(ReferenceObject);
 });
+
+
 //----------------Functions Section-------------//
+
+//Create Structure
 function createInputsAndAddListeners(obj, divElement) {
 	textInputGlobal=obj; //Initialize with Obj Values
     var Number_Elements = Object.keys(obj).length;
@@ -166,6 +170,7 @@ function createInputsAndAddListeners(obj, divElement) {
     }
 }
 
+//Add Listeners to update outside
 function addListenersToTextInput(textInput, key) {
 	console.log("Addlisteners");
     textInput.addEventListener('keydown', function(event) {
@@ -186,7 +191,7 @@ function addListenersToTextInput(textInput, key) {
 }
 
 
-//Write value to the element remotely
+//Write value from outside
 webMI.trigger.connect("write_value_"+name, function(e) {
 		var newValue=e.value;
 		for (const key in newValue) {		

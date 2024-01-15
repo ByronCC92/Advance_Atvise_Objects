@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_Geo_Icons/Map_Blue.png
+NodeClass: Variable
+BrowseName: 1:Map_Blue.png
+DisplayName: en|Map_Blue.png
+Description: en|Map_Blue.png
+DataType: ByteString
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Resource.Png

@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/Energy_Industry
+NodeClass: Object
+BrowseName: 1:Energy_Industry
+DisplayName: en|Energy_Industry
+Description: en|Energy_Industry
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

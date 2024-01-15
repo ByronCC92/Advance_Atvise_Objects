@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>atvise - next generation</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" id="viewport-meta" content="user-scalable=yes"/>
+	<link rel="stylesheet" type="text/css" href="/font/css/all.min.css">
+	<style type="text/css">
+		body {
+			border: 0;
+			margin: 0;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+		}
+
+		html, body {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		#errorscreen, #loadingscreen {
+			font-family: Arial;
+			height: inherit;
+			left: 0;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			width: inherit;
+			z-index: 999;
+		}
+
+		#errorscreen {
+			display: none;
+		}
+
+		#errormessage {
+			left: 50%;
+			position: absolute;
+			top: 50%;
+		}
+
+		#errormessage > div {
+			font-size: 1.3em;
+			color: #f25e00;
+			height: 98px;
+			left: -262px;
+			position: absolute;
+			text-align: center;
+			top: -49px;
+			width: 524px;
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgwAAABiCAMAAAALOXs+AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAwUExURf///wAAAP7+/v////NtGP////////indP////////rHp/aMSf3gzv7w6PJeAP///wM5Z7oAAAAOdFJOU94A49L6nx34bUPy+vLsv21lagAABMRJREFUeNrtndma2jAMRjN2NghJ3/9tCyELxEu8W8S/vq/Tm7lozamsM5Lc6s8xmuevW4W4VDiy0LP+RQTODzD8tZzx9vUbDhAw9IzNqaHHARYPQ1s9YaieqeEPqaF4GBr2CtSQgOFJAHvHDTUkYOALDHy+MYgGLrAkMPRsjV0vObUvFc0/FuEvTjC0fIMBell6ZmjYHg30smgY2g8WoJeFw7Akho5BL4uHYdHK+3SHXhYPw7t6rOqprujqJYdbpoBh0cpumqZu18uemMpVkEunY3PSynF6xbjVkNDLEjPDUj0OMwwD9LJkGJbq8TG946OGRGooDoavxDBNNfSyXBg2rZy+UwMm4AqEYake6w2Getz1ktBFwaGX0WH40Mo1BL0kpZWwS8uDs5x126vHdzzQoigyMxyqx+mol6ghy4FBqB4FvUQNWQwMS2KoDzDU+wQcidSAyyoBDL08MXzVkEgNZcDQClp51EtKLQq4ZVQYJFp5SA0NDb2EXFaxu5ZSrYRelpkZpFoJvSwShpuqeoRelgcDl2ulRC/zT8DhpooLg6Z6hF4WBoOglf/W2GiAXpYCQ3NMDCIMAxW9hF3G7Vq27KiVKwsj9LK0zCBq5SjCQEovgWMsGCRa+RBhoKKX4CAqDNsKlQjD5w8kKS9YIQLBINNKGQzSBSvEpWD4WqHargQZDNQWrKCWwWGQNiVWGO6qFkWfTecglz6HZ7VCpYUBC1YXzwzybmUnh4HMghVQjAGDolu5wtDJu5c5WxTgIBoMilk3FQxEF6wQIWBQdStVMFDVS4DpD4Ny1m1QwUCqRQGtDAmDctZthWE4n4AjI5ZwR4PTc5l1U8OACbiLZgb1rFuthiHvghVHiRAHhl49BLvCUGMCrgwY1CtUehgoLlghPGHQDsFqYBAXrAj4JKj0gqFlmhWq6TgCSVsvEZ4waFeo9DBIJuBIuCXk0VEtT1aoRh0MWfWSI0kEzwySWTcRhlG1YJV7Ag6fe0gYzlaoHpJBJ+jlNWHQaaUJDMQm4JAofGBoznYrz2Cg8MQ4EAgCg14r97m3u/obsuglBxHhYdBrpREMWbqXEEvf07PWSiMYMuolx6URMDOcaOWsC49XdJrvwILVJWA4fZnDLPJOwCERBIFBukLlEg/8D1Y/D8N59WgY+fWSI034wXA71UrjSFxD4iP3Pzuz58JdQrpgFVss8ZaPj5Rba6V1aqDRokDisL4mzpoSdqkh14IVBwMBYDDUSvUSzU8sWCFMYNA+F+4AQ84JOKQETxhMtdIYBjwx/ls+4VI9GsMg6CWP+7fhSBNeOdT8uXAXGKQLVnlalpDI81MzWqFyhiHDBBxHSnAurMxn3ZxgwILVTxaQFt1KCxjILFghLGAw1cr5n3v3jsGue5lOL5GD/GAI1q0ko5fcxDMQn2cVoymRvnuJDzxIFjWfdXNuUUgm4DKIJfzSVC0DzbrRXrBC5jCqGYLNuukWrBLpJT5yTxiiVY+ZJ+AAhj0MbbhZN61eJnxiHBi4HFOCxJC5ewkujE/oQyvreBFfL0/MAkQYXhNLtzJB7HqZyS2hk9pD27QySWACjnZmaHlCGFIsWHFcDc4wNCxloHtJ2SduLG3giXHC0fC0MeslR1CM/03U+W/32gJMAAAAAElFTkSuQmCC);
+			background-repeat: no-repeat;
+		}
+
+		#errormessage a:link, a:visited, a:active, a:hover {
+			color: #f25e00;
+		}
+
+		#errormessage div div {
+			padding-left: 90px;
+			margin-top: 20px;
+			line-height: 30px;
+		}
+
+		#errormessage span {
+			display: inline-block;
+		}
+
+		#erroroverlay {
+			background-color: black;
+			filter: alpha(opacity=70);
+			height: 100%;
+			left: 0;
+			opacity: 0.7;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+
+		#loadingscreen {
+			background-color: #cccccc;
+			cursor: wait;
+		}
+
+		.mainContainerDefaultStyle {
+			height: inherit;
+			width: inherit;
+			position: absolute;
+			overflow: hidden;
+			transform-origin: 0 0 0;
+		}
+
+		/* Hide HTML5 Up and Down arrows. */
+		input.hideArrows[type="number"]::-webkit-outer-spin-button, input.hideArrows[type="number"]::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		input.hideArrows[type="number"] {
+			-moz-appearance: textfield;
+		}
+
+		input.hideArrows[type="number"]::-ms-clear {
+			display: none;
+			width: 0;
+			height: 0;
+		}
+
+		input.hideArrows[type="number"]::-ms-reveal {
+			display: none;
+			width: 0;
+			height: 0;
+		}
+		
+		input[type="password"]::-ms-reveal {
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">/*<![CDATA[*/
+	function setErrorscreen(row1, row2) {
+		var errorrow1 = document.getElementById("errorrow1");
+		var errorrow2 = document.getElementById("errorrow2");
+		var errorscreen = document.getElementById("errorscreen");
+
+		if (errorrow1) errorrow1.innerHTML = row1;
+		if (errorrow2) errorrow2.innerHTML = row2;
+		if (errorscreen) errorscreen.style.display = "block";
+	}
+
+	function hideErrorscreen() {
+		var errorscreen = document.getElementById("errorscreen");
+		if (errorscreen) errorscreen.style.display = "none";
+	}
+
+	//Handle loading errors of mandatory resources
+	function handleError(e) {
+		if (e && (e.colno || e.lineno)) //If error is in script code then return
+			return;
+			
+		function writeLog(permission, address, error) {
+			if (typeof contentDisplay != "undefined" && contentDisplay != null) {
+				webMI.data.writePermissionLogEntry(permission, address, error);
+			} else {
+				setTimeout(function() { writeLog(permission, address, error) }, 2500);
+			}
+		}
+
+		if (e && e.srcElement && e.srcElement != this) {
+			var src = "Unknown resource";
+			if (e.srcElement.src)
+				src = e.srcElement.src.split("/").pop();
+			else if (e.srcElement.href && e.srcElement.href.baseVal)
+				src = e.srcElement.href.baseVal.split("/").pop();
+			else if (typeof e.srcElement.href == "string")
+				src = e.srcElement.href.split("/").pop();
+
+			writeLog("read", src, "Can't load resource");
+
+			if (e.srcElement.attributes && e.srcElement.attributes["atv:required"] && e.srcElement.attributes["atv:required"].value == "true") {
+				var text = "ERROR: Can't load mandatory resource";
+				console.error(text + ": " + src);
+		
+				setTimeout(function () {
+					setErrorscreen(text + ".", "Check path and permission then <a href='#' onclick='window.location.reload()'><b>refresh</b></a>.");
+				}, 500);
+			}
+		}
+	}
+
+	window.addEventListener('error', function (event) {
+		handleError(event)
+	}, true);
+
+	/*]]>*/</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAlM8y1GB3g6kUOXxP7FMQkCJJ4SF6fc8&callback=initMap"></script>
+	<script src="webmicfg.js" type="text/javascript" atv:required="true"></script>
+	<script type="text/javascript">/*<![CDATA[*/
+
+	var docDomain = true;
+	var displaytype = "xhtml";
+	if ("webMIConfig" in window) {
+		var config = window["webMIConfig"];
+		if ("frame.documentdomain" in config)
+			docDomain = config["frame.documentdomain"];
+		if ("frame.displaytype" in config)
+			displaytype = config["frame.displaytype"];
+	}
+	if (displaytype != "xhtml" && displaytype != "svg") {
+		displaytype = "xhtml"
+	}
+	if (docDomain == true) {
+		try {
+			if (displaytype == "svg" && navigator.userAgent.indexOf("Firefox") > -1)
+				throw false;
+
+			var domain = location["hostname"]
+				.split(".")
+				.slice(-2);
+
+			document.domain = domain.join(".");
+		} catch (e) {
+		}
+	}
+
+	/*]]>*/</script>
+	
+	
+	<link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+	<script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+	
+	<script id="projectjs" src="project.js" type="text/javascript" atv:required="true"></script>
+	<script src="webmi.js" type="text/javascript" atv:required="true"></script>
+	<script type="text/javascript">/*<![CDATA[*/
+	
+	
+
+
+	var root;
+	var autofit = webMI.query.autofit;
+	var scaleType = webMI.getConfig("frame.scaletype");
+	var deviceType = webMI.query.forceDevice;
+	var forceTouch = webMI.query.forceTouch;
+	var ignoreTouch = webMI.query.ignoreTouch;
+	var defaultdisplay = webMI.query.defaultdisplay;
+	var defaulturl = webMI.query.defaulturl;
+	var language = webMI.query.language;
+	var isRootDisplay = webMI.display.isRoot();
+	var isMobileTouchDevice = /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/.test(navigator.userAgent); // https://gist.github.com/dalethedeveloper/1503252
+	var currentDefaultDisplay = null;
+	var currentContentDisplay = null;
+	var contentDisplay = null;
+	var responsiveHandler = null;
+	var lastServerState = null;
+	
+	var localStorageLanguage = localStorage.getItem("com.atvise.index.currentLanguage");
+	if (localStorageLanguage != null) language = localStorageLanguage;
+
+	if (typeof autofit === "undefined")
+		autofit = !isMobileTouchDevice;
+	else
+		autofit = autofit != "false" && autofit != "0";
+
+	if (typeof deviceType != "undefined")
+		webMI.setConfig("responsiveLite", {"config": {"forceDevice": deviceType}});
+
+	if (forceTouch == "true")
+		webMI.setConfig("responsiveLite", {"config": {"forceTouch": true}});
+	else if (ignoreTouch == "true")
+		webMI.setConfig("responsiveLite", {"config": {"ignoreTouch": true}});
+
+	if (isRootDisplay) {
+		setExtensions();
+		webMI.setConfig("frame.enableautofit", autofit);
+	}
+
+	function setExtensions(callback) {
+		if (isRootDisplay) {
+			var bestIndexExtension = "";
+			for (var i in project.extensions) {
+				if (webMI.getRootExtensions().indexOf(i) > -1)
+					continue;
+
+				var arr = project.extensions[i];
+				webMI.setExtension(i, arr[0], arr[1]);
+	
+				if (bestIndexExtension != "index" && /(^|\.)index$/.test(i))
+					bestIndexExtension = i;
+			}
+	
+			if (bestIndexExtension != "" && webMI.getRootExtensions().indexOf("index") == -1) {
+				var arr = project.extensions[bestIndexExtension];
+				webMI.setExtension("index", arr[0], arr[1]);
+			}
+		}
+
+		if (callback)
+			callback();
+	}
+
+	function nodeNameIs(node, value) {
+		if (!node)
+			return false;
+
+		return String(node.nodeName).toLowerCase() == value;
+	}
+
+	function ForeignObject(frameHandler, element) {
+		this.frameHandler_ = frameHandler;
+		this.element_ = element;
+	}
+
+	ForeignObject.prototype.isResponsible = function (element) {
+		return this.element_ == element;
+	}
+
+	ForeignObject.prototype.setAttributes = function () {
+		this.element_.style.left = this.left_ + "px";
+		this.element_.style.top = this.top_ + "px";
+		this.element_.style.width = this.width_ + "px";
+		this.element_.style.height = this.height_ + "px";
+		if (scaleType == "native")
+			this.element_.style.fontSize = this.fontFactor_ + "em";
+	}
+
+	ForeignObject.prototype.setPosition = function (element, left, top, width, height, fontFactor) {
+		if (!this.isResponsible(element))
+			return;
+
+		this.left_ = Math.round(left * 10) / 10;
+		this.top_ = Math.round(top * 10) / 10;
+		this.width_ = Math.round(width * 10) / 10;
+		this.height_ = Math.round(height * 10) / 10;
+		this.fontFactor_ = fontFactor;
+
+		var parentFrameHandler = this.frameHandler_.parentFrameHandler_;
+		if (parentFrameHandler)
+			this.fontFactor_ /= parentFrameHandler.fontFactor_;
+
+		this.setAttributes();
+	}
+
+	function FrameHandler(element, foreignObjectContainer, parentFrameHandler, parentForeignObject) {
+		var self = this;
+		this.element_ = element;
+		this.foreignObjectContainer_ = foreignObjectContainer;
+		this.parentFrameHandler_ = parentFrameHandler;
+		this.foreignObjects_ = [];
+		this.fontFactor_ = 1;
+		this.subFrames_ = [];
+		this.parentForeignObject_ = parentForeignObject;
+
+		webMI.display.setForeignObjectHandler(element, {
+			create: function (childElements) {
+				var ret = document.createElement("div");
+				ret.style.position = "absolute";
+				ret.style.overflow = "hidden";
+
+				self.foreignObjects_.push(new ForeignObject(self, ret));
+				for (var i = 0; i < childElements.length; ++i) {
+					if (childElements[i]._parentId) ret.id = childElements[i]._parentId;
+					ret.appendChild(childElements[i]);
+				}
+
+				return ret;
+			}, destroy: function (element) {
+
+				for (var i = 0; i < self.foreignObjects_.length; ++i) {
+					if (self.foreignObjects_[i].isResponsible(element)) {
+						self.foreignObjects_.splice(i, 1);
+						break;
+					}
+				}
+
+				for (var i = 0; i < self.subFrames_.length; ++i) {
+					var subFrame = self.subFrames_[i];
+					if (subFrame.parentForeignObject_ == element) {
+						$FrameHandler(subFrame);
+						self.subFrames_.splice(i--, 1);
+					}
+				}
+
+				if (self.element_.parentElement.id == "popupcontent") {
+					for (var i = 0; i < self.parentFrameHandler_.subFrames_.length; i++) {
+						if (self.parentFrameHandler_.subFrames_[i] == self) {
+							self.parentFrameHandler_.subFrames_.splice(i--, 1);
+							$FrameHandler(self);
+						}
+					}
+				}
+
+			}, set: function (element, left, top, width, height, fontFactor) {
+				self.fontFactor_ = fontFactor;
+				for (var i = 0; i < self.foreignObjects_.length; ++i)
+					self.foreignObjects_[i].setPosition(element, left, top, width, height, fontFactor);
+			}, add: function (element) {
+				self.foreignObjectContainer_.appendChild(element);
+				handler("addedforeignobject", element);
+			}, remove: function (element) {
+				if (element.parentNode == self.foreignObjectContainer_) {
+					self.foreignObjectContainer_.removeChild(element);
+					handler("removedforeignobject", element);
+				}
+			}, register: function (element, childElements) {
+				for (var i = 0; i < childElements.length; ++i) {
+					var child = childElements[i];
+					if (nodeNameIs(child, "iframe")) {
+						var container = element.ownerDocument.createElement("div");
+						container.style.position = "absolute";
+						element.insertBefore(container, child);
+						self.subFrames_.push(new FrameHandler(child, container, self, element));
+					}
+				}
+			}, applyOffsetsToMatrix: function (matrix) {
+				matrix.e += self.offsetLeft(true);
+				matrix.f += self.offsetTop(true);
+				return matrix;
+			}
+		});
+
+		webMI.display.setOpenWindowHandler(element, function (value) {
+			var scaleFactor = self.element_.contentWindow.webMI.gfx.getAbsoluteScaleFactor();
+			var ret = handler("openwindow", value, self.offsetLeft(), self.offsetTop(), self.element_.clientWidth * scaleFactor, self.element_.clientHeight * scaleFactor);
+			var foreignObjectContainer = self.foreignObjectContainer_;
+			if ("getForeignObjectContainer" in ret)
+				foreignObjectContainer = ret.getForeignObjectContainer();
+			if ("getFrame" in ret)
+				self.subFrames_.push(new FrameHandler(ret.getFrame(), foreignObjectContainer, self));
+			return ret;
+		});
+
+		webMI.display.setShowPopupHandler(element, function (x, y, value) {
+			return handler("showpopup", x + self.offsetLeft(), y + self.offsetTop(), value);
+		});
+
+	}
+
+	function $FrameHandler(self) {
+		if (webMI) {
+			webMI.display.setForeignObjectHandler(self.element_, null);
+			webMI.display.setOpenWindowHandler(self.element_, null);
+			webMI.display.setShowPopupHandler(self.element_, null);
+		}
+	}
+
+	FrameHandler.prototype.setSize = function (width, height) {
+		this.width_ = width;
+		this.height_ = height;
+
+		this.element_.style.width = width + "px";
+		this.element_.style.height = height + "px";
+	}
+
+
+	FrameHandler.prototype.offsetLeft = function (untilBody) {
+		return webMI.gfx.getAbsoluteOffset("left", untilBody, this.element_);
+	}
+
+	FrameHandler.prototype.offsetTop = function (untilBody) {
+		return webMI.gfx.getAbsoluteOffset("top", untilBody, this.element_);
+	}
+
+	var displaysJs;
+	var mainFrameHandler;
+	var remainingLoadEvents = 2;
+	var loadEventLanguage = null;
+	var handler = webMI.callExtension("index");
+
+	function getDisplayCode(displayName, tree) {
+		tree == undefined ? tree = displaysJs.menu : tree = tree;
+		var displayCode;
+		for (var itm in tree) {
+			if (tree[itm].identifier == displayName)
+				return tree[itm].display;
+			else if (tree[itm].sub) {
+				displayCode = getDisplayCode(displayName, tree[itm].sub);
+				if (displayCode != undefined)
+					break;
+			}
+		}
+		return displayCode;
+	}
+
+	function getDisplayName(displayCode, tree) {
+		tree == undefined ? tree = displaysJs.menu : tree = tree
+		var displayName;
+		for (var itm in tree) {
+			if (tree[itm].display == displayCode)
+				return tree[itm].identifier;
+			else if (tree[itm].sub) {
+				displayName = getDisplayName(displayCode, tree[itm].sub);
+				if (displayName != undefined)
+					break;
+			}
+		}
+		return displayName;
+	}
+
+	function loadEvent(lng) {
+		var mainframe = document.getElementById("mainframe");
+		var foreignobjects = document.getElementById("foreignobjects");
+
+		responsiveHandler = new ResponsiveHandler();
+
+		if (!mainFrameHandler && mainframe)
+			mainFrameHandler = new FrameHandler(mainframe, foreignobjects);
+		if (!loadEventLanguage)
+			loadEventLanguage = lng;
+
+		if (--remainingLoadEvents > 0)
+			return;
+
+		var absolutePrefix = location.pathname.substr(0, location.pathname.lastIndexOf("/") + 1);
+		webMI.display.setURLPrefix(absolutePrefix + displaysJs["prefix"]);
+		webMI.display.setURLPostfix(displaysJs["postfix"]);
+
+		if (!this.isRootDisplay) {
+			var url = defaulturl;
+			if (webMI.isExternalHost(url, location) && isMobileTouchDevice) {
+				var mainContainer = document.getElementById("mainContainer");
+				mainContainer.classList.remove("mainContainerDefaultStyle");
+			}
+		}
+
+		if (typeof url === "undefined") {
+			if (typeof defaultdisplay !== "undefined") {
+				for (var i = 0; i < displaysJs.menu.length; ++i) {
+					if (displaysJs.menu[i].name == defaultdisplay)
+						url = webMI.display.createURL(displaysJs.menu[i].display, webMI.query);
+				}
+			}
+			if (typeof url === "undefined") {
+				if ("default" in displaysJs)
+					url = webMI.display.createURL(displaysJs["default"], webMI.query);
+				else
+					url = loadEventLanguage + "/default.htm";
+			}
+		}
+
+		handler("loaded");
+
+		function ResponsiveHandler() {
+			var responsiveConf = webMI.getConfig("responsiveLite");
+			// add support for previous responsive Lite implementation
+			if (webMIConfig.responsiveLite === true) {
+				this.active = true;
+			} else if (typeof responsiveConf === "object") {
+				this.active = responsiveConf.active;
+			}
+			this.config = responsiveConf.config;
+		}
+
+		ResponsiveHandler.prototype.getSwapUrl = function (portraitMode, display) {
+			var swapUrl = "";
+			var orientationConf = {};
+			var portraitOrientationConf = {};
+			var landscapeOrientationConf = {};
+			var config = this.config;
+			var parameters = {};
+
+			try {
+				parameters = JSON.parse(JSON.stringify(webMI.query));
+			} catch (ex) {
+			}
+
+			if (display) {
+				parameters.display = display;
+			}
+
+			var suffix = "DISPLAYS";
+			var prefix = "Default";
+			if (currentDefaultDisplay != null) {
+				var displayPath = currentDefaultDisplay.split(".");
+				if (displayPath.length >= 2) {
+					suffix = displayPath[displayPath.length-2];
+					prefix = displayPath[displayPath.length-1];
+				}
+			} 
+
+			portraitOrientationConf = config.portrait;
+			portraitOrientationConf.mobileUrl = webMI.display.createURL(getDisplayCode(root + "." + suffix + ".MOBILE.Portrait." + prefix), parameters);
+			portraitOrientationConf.tabletUrl = webMI.display.createURL(getDisplayCode(root + "." + suffix + ".TABLET.Portrait." + prefix), parameters);
+			landscapeOrientationConf = config.landscape;
+			landscapeOrientationConf.mobileUrl = webMI.display.createURL(getDisplayCode(root + "." + suffix + ".MOBILE.Landscape." + prefix), parameters);
+			landscapeOrientationConf.tabletUrl = webMI.display.createURL(getDisplayCode(root + "." + suffix + ".TABLET.Landscape." + prefix), parameters);
+
+			if (portraitMode) {
+				if (portraitOrientationConf.active) {
+					orientationConf = portraitOrientationConf;
+				} else if (landscapeOrientationConf.active) {
+					orientationConf = landscapeOrientationConf;
+				}
+			} else {
+				if (landscapeOrientationConf.active) {
+					orientationConf = landscapeOrientationConf;
+				} else if (portraitOrientationConf.active) {
+					orientationConf = portraitOrientationConf;
+				}
+			}
+
+			orientationConf.desktopUrl = webMI.display.createURL(getDisplayCode(root + "." + suffix + "." + prefix), parameters);
+
+			if (orientationConf.active) {
+				if (config.mobile) {
+					swapUrl = orientationConf.mobileUrl;
+				} else if (config.tablet) {
+					swapUrl = orientationConf.tabletUrl;
+				} else if (config.desktop) {
+					swapUrl = orientationConf.desktopUrl;
+				}
+
+				if (webMI.getClientInfo().isDesktop && config.desktop) {
+					swapUrl = orientationConf.desktopUrl;
+				} else if (webMI.getClientInfo().isMobile && config.mobile) {
+					swapUrl = orientationConf.mobileUrl;
+				} else if (config.tablet) {
+					swapUrl = orientationConf.tabletUrl;
+				}
+
+				return swapUrl;
+			}
+		};
+
+		ResponsiveHandler.prototype.handleOrientationChange = function (firstLoad) {
+			var swapUrl = "";
+			var currentODisplay = "";
+			var swapCurrentODisplay = "";
+			var activeFrames = webMI.frame.getActiveFrames();
+
+			if (!firstLoad) {
+				for (var frame in activeFrames) {
+					if (activeFrames[frame].attributes.framename && activeFrames[frame].attributes.framename.value == "content") {
+						var displayURL = activeFrames[frame].contentWindow.location.pathname;
+
+						currentODisplay = displayURL.substring(displayURL.lastIndexOf('/') + 1, displayURL.length);
+						currentODisplay = currentODisplay.replace(".svg", "");
+						break;
+					}
+				}
+
+				if (currentODisplay != "") {
+					if (currentODisplay.indexOf(".") >= 0) {
+						if (currentODisplay.indexOf("Landscape") > -1 && responsiveHandler.config.portrait.active) {
+							currentODisplay = currentODisplay.replace("Landscape", "Portrait");
+						} else if (currentODisplay.indexOf("Portrait") > -1 && responsiveHandler.config.landscape.active) {
+							currentODisplay = currentODisplay.replace("Portrait", "Landscape");
+						}
+					} else {
+						swapCurrentODisplay = getDisplayName(currentODisplay);
+
+						if (typeof swapCurrentODisplay !== "undefined") {
+							if (swapCurrentODisplay.indexOf("Landscape") > -1 && responsiveHandler.config.portrait.active) {
+								swapCurrentODisplay = swapCurrentODisplay.replace("Landscape", "Portrait");
+							} else if (swapCurrentODisplay.indexOf("Portrait") > -1 && responsiveHandler.config.landscape.active) {
+								swapCurrentODisplay = swapCurrentODisplay.replace("Portrait", "Landscape");
+							}
+						}
+
+						swapCurrentODisplay = getDisplayCode(swapCurrentODisplay);
+
+						if (typeof swapCurrentODisplay === "undefined") {
+							currentODisplay = swapCurrentODisplay;
+						}
+					}
+				}
+			}
+
+			swapUrl = this.getSwapUrl(!webMI.getClientInfo().isLandscape, currentODisplay);
+
+			if (webMI.hasLoginRequired()) {
+				url = "authentication.htm";
+			} else if (swapUrl) {
+				url = swapUrl;
+			} else {
+				url = webMI.display.createURL(getDisplayCode(root + ".DISPLAYS.Default"), webMI.query);
+				console.warn("Wrong responsiveLite config detected. Check config...");
+			}
+			webMI.rootWindow.firstConnect.value = true;
+			webMI.frame.setSrc(mainframe, url);
+		}
+
+		if ((webMI.getLoginMethod() == "http" || webMI.getLoginMethod() == "ntlm") && webMI.hasLoginRequired())
+			return;
+
+		if (currentDefaultDisplay != null && url.indexOf(displaysJs["default"]) >= 0) {
+			url = webMI.display.createURL(currentDefaultDisplay, webMI.query);
+		}
+
+		if (isRootDisplay && !responsiveHandler.active && webMI.hasLoginRequired()) {
+			webMI.frame.setSrc(mainframe, "authentication.htm");
+		} else if (isRootDisplay && responsiveHandler.active) {
+			if (displaysJs.default.indexOf(".") >= 0) {
+				root = displaysJs.default.split(".")[0];
+			} else {
+				root = getDisplayName(displaysJs.default).split(".")[0];
+			}
+
+			window.addEventListener("orientationchange", function () {
+				if (responsiveHandler.active) {
+					responsiveHandler.handleOrientationChange();
+				}
+			}, false);
+
+			responsiveHandler.handleOrientationChange(true);
+		} else {
+			webMI.frame.setSrc(mainframe, url);
+		}
+	}
+
+	var currentHostName = "";
+	webMI.addEvent(webMI.data, 'serverstatechange', function (e) {
+		currentHostName = location.protocol + "//" + e.active.currentHostName + "/";
+	});
+
+	function switchLanguage(lng) {
+
+		language = lng;
+
+		if (!(language in project.languages)) {
+			if (typeof language === "string")
+				console.error("Invalid language '" + lng + "'");
+			language = navigator.language ? navigator.language : navigator.browserLanguage;
+			if (!(language in project.languages)) {
+				var pos = language.indexOf("-");
+				if (pos > 0)
+					language = language.substr(0, pos);
+				if (!(language in project.languages)) {
+					for (var i in project.languages) {
+						language = i;
+						break;
+					}
+				}
+			}
+		}
+
+		var pjsOld = webMI.rootWindow.document.getElementById("projectjs");
+		var pjsNew = webMI.rootWindow.document.createElement("script");
+
+		pjsNew.onload = loadNewProjectJS;
+		pjsNew.setAttribute("id", "projectjs");
+		pjsNew.setAttribute("type", "text/javascript");
+		pjsNew.setAttribute("data", Date.now());
+		webMI.frame.setSrc(pjsNew, "project.js?language=" + language + "&ts=" + Date.now());
+		pjsNew.innerHTML = null;
+
+		pjsOld.parentNode.replaceChild(pjsNew, pjsOld);
+
+		function loadNewProjectJS() {
+			setExtensions(function () {
+
+				setTimeout(function handleSwitchLanguage() {
+					handler("switchedlanguage", language);
+
+					webMI.frame.getSrc(currentHostName + language + "/" + displaytype + "/displays.js", true, function(e) {
+						displaysJs = JSON.parse(e.responseText);
+						handler("loadeddisplaysjs", displaysJs);
+						loadEvent(language);
+					});
+				}, 500);
+			});
+		}
+	}
+
+	webMI.addEvent(webMI.data, "statechange", function (state, message) {
+		if (state == lastServerState)
+			return;
+			
+		lastServerState = state;
+		
+		if (typeof message == "undefined")
+			message = "A <b>connection error</b> may have occurred.";
+		
+		if (state < 0)
+			setErrorscreen(message, "Please <b>refresh</b> your browser or <a href='#' onclick='window.location.reload()'>click here</a>.");
+		else 
+			hideErrorscreen();
+	});
+
+
+	webMI.addOnload(function () {
+		var mainframe = document.getElementById("mainframe");
+
+		webMI.trigger.fire("com.atvise.windowLoaded", this);
+
+		document.addEventListener("visibilitychange", function() {
+			webMI.trigger.fire("com.atvise.visiblityChange", document.visibilityState == "visible" ? true : false);
+		});
+
+		if (autofit) {
+			document.body.style.overflow = "hidden";
+		}
+
+		webMI.addEvent(mainframe, "load", function () {
+			try {
+				if (displaytype == "xhtml") {
+					mainframe.contentDocument.body.style["overflow"] = "hidden";
+				}
+				var rootSvg = mainframe.contentDocument.documentElement;
+				if (displaytype == "xhtml") {
+					rootSvg = rootSvg.getElementsByTagName("svg")[0];
+				}
+				var rootSvgViewBox = mainframe.contentWindow.webMI.display.getInitialViewBox();
+
+				var viewportwidth = rootSvgViewBox[2];
+				rootSvg.style.height = "100%";
+				rootSvg.style.width = "100%";
+
+				if (isMobileTouchDevice) {
+					if (!autofit && isRootDisplay) {
+						var viewportMeta = document.getElementById('viewport-meta');
+						viewportMeta.setAttribute("content", "width=" + viewportwidth + ", user-scalable=yes");
+					}
+				}
+			} catch (ex) {
+			}
+
+			document.getElementById("loadingscreen").style.display = "none";
+			handler("loadedmainframe", mainframe);
+		});
+
+		loadEvent();
+		switchLanguage(language);
+	});
+	/*]]>*/</script>
+	<link rel="shortcut icon" href="/favicon.ico?v=1" type="image/x-icon"/>
+</head>
+<body>
+<div id="mainContainer" class="mainContainerDefaultStyle">
+	<iframe style="position:absolute;top:0;left:0;height:100%;width:100%" id="mainframe" src="about:blank"
+			frameborder="0"></iframe>
+	<div id="foreignobjects" style="position:absolute;top:0;left:0;"></div>
+	<div id="extensions" style="position:absolute;top:0;left:0"></div>
+	<div id="loadingscreen"></div>
+	<div id="errorscreen">
+		<div id="erroroverlay">&nbsp;</div>
+		<div id="errormessage">
+			<div id="errorbox">
+				<div><span id="errorrow1"></span><span id="errorrow2"></span></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

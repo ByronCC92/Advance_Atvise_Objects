@@ -1,0 +1,55 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:atv="http://webmi.atvise.com/2007/svgext" height="37.051000000000002" enable-background="new 0 0 112.5 37.051" width="112.5" xml:space="preserve">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_1_" x1="0.000240554" x2="1.00024" y1="0.496012" y2="0.496012">
+   <stop offset="0" stop-color="#5C5D60"/>
+   <stop offset="0.5" stop-color="#ECECED"/>
+   <stop offset="0.58" stop-color="#D9D9DB"/>
+   <stop offset="0.76" stop-color="#A8A9AB"/>
+   <stop offset="1" stop-color="#5C5D60"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_2_" x1="0.000104687" x2="1.00009" y1="0.497339" y2="0.497339">
+   <stop offset="0" stop-color="#263A59"/>
+   <stop offset="0.54" stop-color="#A6BAD9"/>
+   <stop offset="0.63" stop-color="#93A7C6"/>
+   <stop offset="0.81" stop-color="#627695"/>
+   <stop offset="1" stop-color="#263A59"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_3_" x1="-5.53612e-05" x2="0.999961" y1="0.497472" y2="0.497472">
+   <stop offset="0" stop-color="#5C5D60"/>
+   <stop offset="0.19" stop-color="#818285"/>
+   <stop offset="0.4" stop-color="#A4A5A8"/>
+   <stop offset="0.51" stop-color="#B1B3B6"/>
+   <stop offset="0.73" stop-color="#8C8E91"/>
+   <stop offset="1" stop-color="#5C5D60"/>
+  </linearGradient>
+ </defs>
+ <metadata>
+  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="false" height="10" width="10"/>
+ </metadata>
+ <g atv:refpx="55.953" atv:refpy="18.734" id="Image_1">
+  <g atv:refpx="55.953" atv:refpy="18.734" id="Group_Cylinder">
+   <path atv:refpx="55.953" atv:refpy="22.844" d="M111.696,27.495C111.696,27.495 110.508,35.684 61.583,36.728C58.768,36.789 53.135,36.791 50.322,36.728C0.209,35.598 0.209,27.495 0.209,27.495L0.209,8.913L111.696,8.913Z" fill="url(#SVGID_1_)" id="id_0"/>
+   <path atv:refpx="55.953" atv:refpy="22.844" d="M111.696,27.495C111.696,27.495 110.508,35.684 61.583,36.728C58.768,36.789 53.135,36.791 50.322,36.728C0.209,35.598 0.209,27.495 0.209,27.495L0.209,8.913L111.696,8.913Z" fill="none" id="id_1" stroke="#4C4C4C" stroke-miterlimit="10" stroke-width="0.25"/>
+   <ellipse atv:refpx="55.953" atv:refpy="8.801" cx="55.953" cy="8.801" fill="#CCCCCC" id="id_2" rx="55.744" ry="8.108"/>
+   <ellipse atv:refpx="55.953" atv:refpy="8.801" cx="55.953" cy="8.801" fill="none" id="id_3" rx="55.744" ry="8.108" stroke="#4C4C4C" stroke-miterlimit="10" stroke-width="0.25"/>
+  </g>
+  <g atv:refpx="56.225" atv:refpy="10.211" id="Group_Liquid">
+   <path atv:refpx="56.225" atv:refpy="10.211" d="M56.225,3.755C85.829,3.755 109.829,7.301 109.829,10.705C109.829,10.705 100.949,16.667 56.225,16.667C11.949,16.667 2.621,10.838 2.621,10.838C2.621,7.435 26.621,3.755 56.225,3.755" fill="#A6BAD9" id="id_4"/>
+  </g>
+  <g atv:refpx="24.589" atv:refpy="9.798" id="Group_Rotator">
+   <g atv:refpx="24.589" atv:refpy="9.798" id="id_11">
+    <rect atv:refpx="24.887" atv:refpy="10.643" fill="#4D4D4D" height="0.563" id="id_5" width="44.144" x="2.815" y="10.361"/>
+    <polygon atv:refpx="24.589" atv:refpy="9.517" fill="#CCCCCC" id="id_6" points="2.815,8.672 46.959,8.672 46.959,10.361 2.219,10.361   "/>
+   </g>
+  </g>
+  <g atv:refpx="56.194" atv:refpy="11.487" id="Group_Axial">
+   <g atv:refpx="56.194" atv:refpy="11.487" id="id_12">
+    <rect atv:refpx="56.194" atv:refpy="14.247" fill="url(#SVGID_2_)" height="4.841" id="id_7" width="9.234" x="51.577" y="11.826"/>
+    <path atv:refpx="56.193" atv:refpy="10.079" d="M46.959,11.037L46.959,7.771L65.427,7.771L65.427,11.036C65.427,11.036 63.874,12.387 59.684,12.387C57.939,12.387 54.448,12.387 52.702,12.387C48.125,12.388 46.959,11.037 46.959,11.037" fill="url(#SVGID_3_)" id="id_8"/>
+    <ellipse atv:refpx="56.194" atv:refpy="7.771" cx="56.194" cy="7.771" fill="#E5E5E5" id="id_9" rx="9.234" ry="1.464"/>
+    <polyline atv:refpx="56.194" atv:refpy="8.166" fill="none" id="id_10" points="61.374,7.771 61.036,8.109 59.91,8.335 58.108,8.561     56.194,8.561 54.279,8.561 52.478,8.335 51.352,8.109 51.014,7.771   " stroke="#7F7F7F" stroke-width="0.25"/>
+   </g>
+  </g>
+ </g>
+</svg>

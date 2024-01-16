@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage.FB04_Filling_Machine_1
+NodeClass: ObjectType
+BrowseName: 1:FB04_Filling_Machine_1
+DisplayName: en|FB04_Filling_Machine_1
+Description: en|FB04_Filling_Machine_1
+IsAbstract: false

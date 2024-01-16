@@ -1,0 +1,10 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/index.htm
+NodeClass: Variable
+BrowseName: 1:index.htm
+DisplayName: en|index.htm
+Description: en|index.htm
+DataType: ByteString
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Resource.Html
+Reference: forward HasProperty ns=1;s=VariableTypes.ATVISE.Resource.Html.Compress

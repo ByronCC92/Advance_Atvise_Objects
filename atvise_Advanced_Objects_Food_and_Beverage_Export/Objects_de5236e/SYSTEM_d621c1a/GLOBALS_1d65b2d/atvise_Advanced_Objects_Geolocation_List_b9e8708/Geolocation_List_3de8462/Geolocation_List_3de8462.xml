@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+	<uax:ListOfString>
+		<uax:String>&quot;0&quot;:{&quot;1 Name&quot;:&quot;Main Site&quot;,&quot;2 Latitude&quot;:&quot;25.997253696071304&quot;,&quot;3 Longitude&quot;:&quot;-97.15722430289206&quot;,&quot;4 Address&quot;:&quot;AGENT.OBJECTS.Test_01&quot;,&quot;5 Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Water.Water_WA01_WA10&quot;}</uax:String>
+		<uax:String>&quot;1&quot;:{&quot;1 Name&quot;:&quot;Main Site 45&quot;,&quot;2 Latitude&quot;:26.002441678120917,&quot;3 Longitude&quot;:-97.17692189150026,&quot;4 Address&quot;:&quot;AGENT.OBJECTS.Test_01&quot;,&quot;5 Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Water.Water_WA01_WA10&quot;}</uax:String>
+		<uax:String>&quot;2&quot;:{&quot;1 Name&quot;:&quot;Main Site 8&quot;,&quot;2 Latitude&quot;:&quot;25.995&quot;,&quot;3 Longitude&quot;:&quot;-97.155&quot;,&quot;4 Address&quot;:&quot;AGENT.OBJECTS.Test_01&quot;,&quot;5 Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Water.Water_WA01_WA10&quot;}</uax:String>
+		<uax:String>&quot;3&quot;:{&quot;1 Name&quot;:&quot;Main Site 8&quot;,&quot;2 Latitude&quot;:&quot;25.993&quot;,&quot;3 Longitude&quot;:&quot;-97.155&quot;,&quot;4 Address&quot;:&quot;AGENT.OBJECTS.Test_01&quot;,&quot;5 Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Water.Water_WA01_WA10&quot;}</uax:String>
+		<uax:String>&quot;4&quot;:{&quot;1 Name&quot;:&quot;Main Site&quot;,&quot;2 Latitude&quot;:25.994145291809264,&quot;3 Longitude&quot;:-97.16098250134266,&quot;4 Address&quot;:&quot;AGENT.OBJECTS.Test_01&quot;,&quot;5 Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Water.Water_WA01_WA10&quot;}</uax:String>
+		<uax:String>&quot;5&quot;:{&quot;1 Name&quot;:&quot;Main Site&quot;,&quot;2 Latitude&quot;:25.99874296076394,&quot;3 Longitude&quot;:-97.16594519547654,&quot;4 Address&quot;:&quot;AGENT.OBJECTS.Test_01&quot;,&quot;5 Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Water.Water_WA01_WA10&quot;}</uax:String>
+	</uax:ListOfString>
+</Value>

@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Food_and_Beverage
+NodeClass: Object
+BrowseName: 1:Food_and_Beverage
+DisplayName: en|Food_and_Beverage
+Description: en|Food_and_Beverage
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage.FB04_Filling_Machine_1.Variables.Container_Type
+NodeClass: Variable
+BrowseName: 1:Container_Type
+DisplayName: en|Container_Type
+Description: en|Container_Type
+DataType: Boolean
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

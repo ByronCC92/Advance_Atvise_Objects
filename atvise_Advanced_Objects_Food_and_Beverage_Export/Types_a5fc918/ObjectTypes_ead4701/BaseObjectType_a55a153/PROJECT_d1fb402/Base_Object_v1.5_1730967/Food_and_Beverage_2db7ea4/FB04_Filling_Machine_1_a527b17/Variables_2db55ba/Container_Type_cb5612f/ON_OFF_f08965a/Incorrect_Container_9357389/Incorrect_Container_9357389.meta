@@ -1,0 +1,9 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage.FB04_Filling_Machine_1.Variables.Container_Type.ON/OFF.Incorrect_Container
+NodeClass: Object
+BrowseName: 1:Incorrect_Container
+DisplayName: en|Incorrect_Container
+Description: en|Incorrect_Container
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConditionControl.Discrete
+Reference: forward HasComponent ns=1;s=AGENT.ALARMING.Categories.Error

@@ -1,0 +1,8 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage.FB04_Filling_Machine_1.Variables.Container_Type.ON/OFF
+NodeClass: Object
+BrowseName: 1:ON/OFF
+DisplayName: en|ON/OFF
+Description: en|ON/OFF
+EventNotifier: 0
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConfiguration

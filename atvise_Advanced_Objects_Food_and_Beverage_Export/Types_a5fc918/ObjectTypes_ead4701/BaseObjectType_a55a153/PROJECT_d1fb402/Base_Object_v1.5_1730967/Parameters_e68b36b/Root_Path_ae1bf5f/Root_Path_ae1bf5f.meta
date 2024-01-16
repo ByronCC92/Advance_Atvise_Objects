@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Parameters.Root_Path
+NodeClass: Variable
+BrowseName: 1:Root_Path
+DisplayName: en|Root_Path
+Description: en|Root_Path
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

@@ -1,0 +1,8 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Times
+NodeClass: Object
+BrowseName: 1:Times
+DisplayName: en|Times
+Description: en|Times
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition FolderType

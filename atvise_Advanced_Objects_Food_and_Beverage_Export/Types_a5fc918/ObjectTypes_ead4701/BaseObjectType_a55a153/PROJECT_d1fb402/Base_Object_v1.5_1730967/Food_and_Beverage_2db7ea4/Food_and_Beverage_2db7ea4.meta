@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage
+NodeClass: ObjectType
+BrowseName: 1:Food_and_Beverage
+DisplayName: en|Food_and_Beverage
+Description: en|Food_and_Beverage
+IsAbstract: false

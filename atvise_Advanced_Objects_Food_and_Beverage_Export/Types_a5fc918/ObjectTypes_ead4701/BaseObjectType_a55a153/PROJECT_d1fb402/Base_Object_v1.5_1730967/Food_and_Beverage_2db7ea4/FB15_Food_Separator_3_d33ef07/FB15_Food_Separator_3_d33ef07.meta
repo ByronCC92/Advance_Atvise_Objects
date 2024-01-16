@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage.FB15_Food_Separator_3
+NodeClass: ObjectType
+BrowseName: 1:FB15_Food_Separator_3
+DisplayName: en|FB15_Food_Separator_3
+Description: en|FB15_Food_Separator_3
+IsAbstract: false

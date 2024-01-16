@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage.FB08_Food_Blender_3
+NodeClass: ObjectType
+BrowseName: 1:FB08_Food_Blender_3
+DisplayName: en|FB08_Food_Blender_3
+Description: en|FB08_Food_Blender_3
+IsAbstract: false

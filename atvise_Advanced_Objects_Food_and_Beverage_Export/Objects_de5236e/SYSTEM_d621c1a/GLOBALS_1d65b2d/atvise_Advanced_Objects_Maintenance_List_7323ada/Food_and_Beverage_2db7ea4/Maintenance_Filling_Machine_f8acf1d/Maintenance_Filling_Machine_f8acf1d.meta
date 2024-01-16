@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Food_and_Beverage.Maintenance_Filling_Machine
+NodeClass: Variable
+BrowseName: 1:Maintenance_Filling_Machine
+DisplayName: en|Maintenance_Filling_Machine
+Description: en|Maintenance_Filling_Machine
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

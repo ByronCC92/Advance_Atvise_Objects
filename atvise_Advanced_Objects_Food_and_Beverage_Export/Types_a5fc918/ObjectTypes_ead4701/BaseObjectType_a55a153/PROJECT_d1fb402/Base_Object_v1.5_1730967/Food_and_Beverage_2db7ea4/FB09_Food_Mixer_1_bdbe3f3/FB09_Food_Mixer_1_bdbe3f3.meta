@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage.FB09_Food_Mixer_1
+NodeClass: ObjectType
+BrowseName: 1:FB09_Food_Mixer_1
+DisplayName: en|FB09_Food_Mixer_1
+Description: en|FB09_Food_Mixer_1
+IsAbstract: false

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage.FB16_Turbo_Emulsifier_1
+NodeClass: ObjectType
+BrowseName: 1:FB16_Turbo_Emulsifier_1
+DisplayName: en|FB16_Turbo_Emulsifier_1
+Description: en|FB16_Turbo_Emulsifier_1
+IsAbstract: false

@@ -1,0 +1,1109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="800" version="1.2" width="1680" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <svg atv:refpx="447.478" atv:refpy="75.416" height="30" id="id_2" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="180.359" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="45.359">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="name" value="Initial_Date"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+  <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+ </svg>
+ <text atv:refpx="340.733" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="314.5" y="35.5">Intial Date</text>
+ <svg atv:refpx="737.479" atv:refpy="70.416" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="349.081" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="45.359">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="name" value="Final_Date"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+  <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+ </svg>
+ <text atv:refpx="630.763" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="604.5" y="35.5">Final Date</text>
+ <line atv:refpx="825" atv:refpy="110" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="1650" y1="110" y2="110"/>
+ <foreignObject height="350" id="chart_container1" width="840" x="0" y="450">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <foreignObject height="300" id="chart_container2" width="300" x="240" y="150">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <foreignObject height="300" id="chart_container3" width="300" x="540" y="150">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <text atv:refpx="80" atv:refpy="169" fill="#333333" font-family="Arial" font-size="20" id="id_5" x="35.5" y="173.5">Scheduled Time</text>
+ <text atv:refpx="32.709" atv:refpy="308" fill="$Color$" font-family="Arial" font-size="48" id="Text_2" x="33.5" y="312.5">I</text>
+ <text atv:refpx="58.416" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_6" x="24.5" y="35.5">Maintenance</text>
+ <foreignObject height="300" id="chart_container4" width="420" x="840" y="150">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <foreignObject height="350" id="chart_container5" width="840" x="840" y="450">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <foreignObject height="300" id="chart_container6" width="420" x="1260" y="150">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/highcharts.js"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/highcharts-more.js"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/solid-gauge.js"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/funnel.js"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript" xlink:href="../../highcharts/modules/exporting.js"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//------Initialize Variables-----------//
+var Type_M; //Maintenance Type Number
+var Text_M; //Maintenance Type Text
+var Initial_Date;//Initial Date for Maintenance
+var Final_Date;//Final Date for Maintenance
+var tableData = [];
+var Mant_HistR=new Array();
+var Mant_Elements;
+
+var Color=webMI.query["Color"];
+
+//Charts
+var chart_1; //Reference Chart 1
+var chart_2; //Reference Chart 2
+var chart_3; //Reference Chart 3
+var chart_4; //Reference Chart 4
+var chart_5; //Reference Chart 5
+var chart_6; //Reference Chart 6
+var chartDiv1;
+var chartDiv2;
+var chartDiv3;
+var chartDiv4;
+var chartDiv5;
+var chartDiv6;
+
+var Mant_Hist_Root=".Maintenance.Mant_Hist";
+
+//------Initial Conditions-----------//
+webMI.addOnload(function() {
+
+	//Date Picker shows current time 
+	var T_Actual=new Date();
+	Initial_Date=T_Actual.getTime()-(1*24*60*60*1000);//Last 24 hours
+	Final_Date=T_Actual.getTime();
+    webMI.trigger.fire("com.atvise.datepicker_Initial_Date", Initial_Date); 
+    webMI.trigger.fire("com.atvise.datepicker_Final_Date", Final_Date);   
+     	
+  	//Chart Config elements
+  	chartDiv1 = document.getElementById("chart_container1");
+  	chartDiv2 = document.getElementById("chart_container2");
+  	chartDiv3 = document.getElementById("chart_container3");
+  	chartDiv4 = document.getElementById("chart_container4");
+  	chartDiv5 = document.getElementById("chart_container5");
+  	chartDiv6 = document.getElementById("chart_container6");
+  	
+	webMI.gfx.setScaledEvents(chartDiv1);
+	webMI.gfx.setScaledEvents(chartDiv2);	
+	webMI.gfx.setScaledEvents(chartDiv3);
+	webMI.gfx.setScaledEvents(chartDiv4);
+	webMI.gfx.setScaledEvents(chartDiv5);
+	webMI.gfx.setScaledEvents(chartDiv6);
+	
+	(async () => {
+	  await waitForCondition();
+	  updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	 
+	})();
+
+
+});
+
+//------Triggers-----------//
+
+//Single maintenance elements
+
+//Monitor Global Maintenance Element
+webMI.trigger.connect("Global_Object_Current_Addres", function (e) {
+	
+	console.log(e);
+	var Elements=e.value.Elements;
+	var TextI=e.value.Text;
+	Mant_HistR=new Array();
+	
+	//Mant Hist nodes
+	for(var i=0; i<Elements.length; i++)	 {
+		Mant_HistR.push(Elements[i]+Mant_Hist_Root);
+	}
+
+	//Update Mant Necessary Elements
+	if (TextI=="All machines"){
+		Mant_Elements="All machines";
+	}
+	else{
+		Mant_Elements=e.value.Elements[0]+".Parameters.Mant_Elements";
+	}
+
+	//Updating Mant_Elements in combobox
+	fill_combobox(Mant_Elements);
+});
+
+
+//Monitor Initial Date  
+webMI.trigger.connect("com.atvise.datepicker_Initial_Date", function (e) {
+	Initial_Date=(new Date(e.value)).getTime();
+	console.log("Update Chart");
+	if (chart_1!=undefined){
+		updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	
+	}
+});
+
+//Monitor Final Date
+webMI.trigger.connect("com.atvise.datepicker_Final_Date", function (e) {
+	setTimeout(function() {
+		Final_Date=(new Date(e.value)).getTime();
+		console.log("Update Chart");
+		if (chart_1!=undefined){
+			updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	
+		}
+	},200);
+});
+
+//Monitor Maintenance Combobox 
+webMI.trigger.connect("com.atvise.combobox_Global_Maintenance_Type_Chart", function (e) {
+	var result=e.value;
+	Type_M=result.value;	
+	Text_M=e.value.text;	
+	console.log("Update Chart");
+	if (chart_1!=undefined){
+		updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M);	
+	}
+});
+
+
+
+//-------Update Charts------//
+function updateChart(Mant_HistR, Initial_Date, Final_Date, Text_M){
+	console.log("Update Chart");
+	//Update chart
+	prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, function(e){	
+	
+		
+		chart_1 = Highcharts.chart(chartDiv1, {
+			chart: {
+				type: 'column'
+			},
+			title: {
+				text: 'Maintenance Finished'
+			},
+			subtitle: {
+				text: 'Last...'
+			},
+			xAxis: {
+				categories: e.CategoriesF,
+				crosshair: true
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Minutes'
+				},
+				stackLabels: {
+					enabled: true
+				}
+			},
+			tooltip: {
+				headerFormat: '<span style="font-size:10px"><b>{point.key}</b></span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0"><b>{series.name}:</b> </td>' +
+					'<td style="padding:0"><b>{point.y:.1f} s</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+			plotOptions: {
+				column: {
+					pointPadding: 0.2,
+					borderWidth: 0,
+					//stacking: 'normal',
+					dataLabels: {
+						enabled: true,
+						formatter: function () {							
+							return e.Labels[this.series.index][this.point.x]; 								
+						}								
+						
+					}
+				},
+				series: {
+					pointWidth: 30						
+				}
+			},
+			series: e.Series
+		});
+		
+		//Scheduled time Chart
+		webMI.gfx.setText("Text_2", (e.dataF2/3600).toFixed(1)+"Hours");
+		
+		//Used time Chart
+		chart_2 = Highcharts.chart(chartDiv2, {
+			chart: {
+				type: 'solidgauge',
+				backgroundColor: 'transparent',
+				height: '100%',
+				marginTop: -10 // Adjust this value to reduce the distance	
+			},
+		
+		
+			title: {
+				text: 'Used Time',
+				fontFamily: 'Arial, sans-serif'
+			},
+		
+			tooltip: {
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.3f} %</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+				
+			pane: {
+				startAngle: 0,
+				endAngle: 360,
+				background: [{ // Track for Move
+					outerRadius: '70%',
+					innerRadius: '55%',
+					backgroundColor: Highcharts.color(Color)
+						.setOpacity(0.3)
+						.get(),
+					borderWidth: 0
+				}]
+			},
+		
+			yAxis: {
+				min: 0,
+				max: (e.dataF2/3600),
+				lineWidth: 0,
+				tickPositions: []
+			},
+		
+			plotOptions: {
+				solidgauge: {
+					dataLabels: {
+						enabled: true,
+						backgroundColor: 'none',
+						borderWidth: 0,
+						color: Color,
+						format: '{point.y:.2f}H',
+						shadow: false,
+						style: {
+							fontSize: "26px",
+						},
+						valueSuffix: 'H',					
+						y:-18,
+						align: 'center',
+					},
+					linecap: 'square',
+					stickyTracking: false,            
+				}
+			},
+			credits: {
+				enabled: false
+			},
+			series: [{
+				name: "Scheduled Time",			
+				data: [{
+					color: Color,
+					radius: '70%',
+					innerRadius: '55%',				
+					y: Number(e.dataF3/3600)
+				}]
+			}]
+			
+		});		
+		
+		
+		//MSC Chart
+		chart_3 = Highcharts.chart(chartDiv3, {
+			chart: {
+				type: 'solidgauge',
+				backgroundColor: 'transparent',
+				height: '100%',
+				marginTop: -10 // Adjust this value to reduce the distance	
+			},
+		
+		
+			title: {
+				text: 'MSC',
+				fontFamily: 'Arial, sans-serif'
+			},
+		
+			tooltip: {
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.3f} %</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+				
+			pane: {
+				startAngle: 0,
+				endAngle: 360,
+				background: [{ // Track for Move
+					outerRadius: '70%',
+					innerRadius: '55%',
+					backgroundColor: Highcharts.color(Color)
+						.setOpacity(0.3)
+						.get(),
+					borderWidth: 0
+				}]
+			},
+		
+			yAxis: {
+				min: 0,
+				max: 100,
+				lineWidth: 0,
+				tickPositions: []
+			},
+		
+			plotOptions: {
+				solidgauge: {
+					dataLabels: {
+						enabled: true,
+						backgroundColor: 'none',
+						borderWidth: 0,
+						color: Color,
+						format: '{point.y:.2f}%',
+						shadow: false,
+						style: {
+							fontSize: "26px",
+						},
+						valueSuffix: 'H',					
+						y:-18,
+						align: 'center',
+					},
+					linecap: 'square',
+					stickyTracking: false,            
+				}
+			},
+			credits: {
+				enabled: false
+			},
+			series: [{
+				name: "Scheduled Time",			
+				data: [{
+					color: Color,
+					radius: '70%',
+					innerRadius: '55%',				
+					y: Number(e.dataF4)
+				}]
+			}]			
+		});	
+		
+		//Pie Chart
+		chart_4= Highcharts.chart(chartDiv4, {
+			chart: {
+				type: 'pie',		
+			},
+			
+			title: {
+				text: "Maintenance Distribution"
+			},	
+			tooltip: {
+				headerFormat: '<span style="font-size:12px"><b>{point.key}</b></span><table>',
+				pointFormat: '<tr><td style="color:'+Color+';font-weight:bold; padding:0;">Tiempo: </td>' +
+				'<td style="padding:0"><b>{point.y:.1f} min</b></td></tr>' +
+				'<tr> <td style="color:'+Color+';font-weight:bold; padding:0;">Porcentaje: </td>' + 
+				'<td style="padding:0"><b>{point.percentage:.1f} %</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},	
+			legend: {
+				align: 'bottom',
+				verticalAlign: 'top',
+				layout: 'vertical',
+				x: 220,
+				y: 180
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					center: [120, 60],
+					size: 180,
+					dataLabels: {
+						enabled: true,
+						style: {
+						  fontSize: "12px",					
+						},
+						format: '<br>{point.y:.1f} min',
+						distance: -50,
+					},
+					showInLegend: true
+				},		
+			},
+			credits: {
+				enabled: false
+			},
+			series:[{
+					name:"Maintenance",
+					data: e.Series2 						
+				}]
+		});
+		
+		
+		//Spline Chart
+		chart_5=Highcharts.chart(chartDiv5, {
+			chart: {
+				type: 'spline',
+			},
+		
+			time: {
+				useUTC: false
+			},
+		
+			title: {
+				text: 'Maintenance Behavior'
+			},	
+		
+			xAxis: {
+				type: 'datetime',
+				tickPixelInterval: 75,
+				maxPadding: 0.1,
+				crosshair: true
+			},
+		
+			yAxis:[{
+				title: {
+						text: 'Time (h)'
+					   },
+					   opposite: true, // Position the secondary axis on the opposite side
+				},					
+				{
+					title: {
+						text: 'MSC (%)'
+					},
+					
+				}],
+				plotLines: [
+					{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}
+				],
+		
+			tooltip: {
+				headerFormat: '<b>{series.name}</b><br/>',
+				pointFormat: '{point.y:.2f}'
+			},
+			
+			 plotOptions: {
+				spline: {
+					dataLabels: {
+						enabled: true,
+						format: '{point.y:.1f}'
+					},
+				}
+			},
+		
+			legend: {
+				enabled: true
+			},
+		
+			exporting: {
+				enabled: false
+			},
+		
+			series: e.Series3
+		});
+		
+		
+		//Pyramid Chart
+		chart_6=Highcharts.chart(chartDiv6, {
+			chart: {
+				type: 'pyramid'
+			},
+			title: {
+				text: 'MSC Distribution'
+			},
+			plotOptions: {
+				series: {
+					dataLabels: {
+						enabled: true,
+						format: '<b>{point.name}</b> ({point.y:,.1f})',
+						softConnector: true,
+						position: 'left',
+					},
+					center: ['60%', '50%'],
+					width: '60%'
+				}
+			},
+			tooltip: {
+				headerFormat: '<b>{series.name}</b><br/>{point.name}',
+				pointFormat: '{point.y:.2f}%'
+			},
+			
+			series: [{
+				name: 'MSC',
+				data: e.dataF5 // Your prepared and sorted data
+			}]
+		});	
+	});			
+}
+
+//-----Axuiliary Functions-----//
+
+//Adquire and process data
+
+function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
+
+
+	//Auxiliary Variables
+	//Column Chart All maintenance
+	var Mant_Ele = new Array();
+	var Mant_Dates= new Array();
+	var Mant_DatesN= new Array();
+	var Mant_HistRI=new Array();
+	var ResultI=new Array();
+	var MantAddresses=new Array();
+	
+	var data = new Array();
+	var dataF = new Array();
+	var dataRT = new Array();
+	var dataRTF = new Array();
+	var Categories = new Array();
+	var CategoriesF = new Array();
+	var Labels= new Array();
+	var Series = new Array();
+	var Series2 = new Array();
+	var Series3 = new Array();
+	var Times= new Array();
+	
+	//Gauge Chart Scheduled hours
+	var data2=new Array(); // Array Scheduled hours
+	var dataF2=0; 
+	
+	//Gauge Chart Ussed Time
+	var data3=new Array(); // Array Scheduled hours
+	var dataF3=0; 
+	
+	//Global MSC
+	var dataF4=0;
+	
+	//MSC Chart
+	var data5=new Array(); // Array Scheduled hours
+	var dataF5;
+
+	var filter = {};
+	
+	
+	//Prepare filter
+	for (var i=0; i<Mant_HistR.length; i++)	 {
+		Mant_HistRI.push("g:"+Mant_HistR[i]);
+	}
+	console.log("Mant_HistRI");
+	console.log(Mant_HistRI);
+	filter.type = ["v:1"]; //Values			
+	filter.timestamp = ["n:>=" + Initial_Date + "<" + Final_Date];
+	filter.address = Mant_HistRI;			
+	
+	//Ask for data           
+	webMI.data.queryFilter(filter, function(e){
+		var result=e.result;
+		console.log("result------------");
+		console.log(result);
+		if(result.length>0){//Is not empty
+			
+			//Extract needed elements from query
+			var Mant_HistV=new Array();
+			for (var i=0; i<result.length; i++)	 {
+				 Mant_HistV.push(result[i].value);
+				 ResultI.push(JSON.stringify(result[i]));
+				 MantAddresses.push(result[i].address);
+			}
+			var Mant_HistVI=new Array();	
+			console.log(Mant_HistV);
+			
+			
+			//Keep only filtered data 
+			 for(var i=0; i<Mant_HistV.length; i++)	 { 
+				const myArray = JSON.parse(Mant_HistV[i]);
+				if (((Text_M==undefined||Text_M=="All maintenance"||Text_M=="All machines")||(Text_M!="All machines"&&Text_M!=undefined&&myArray.Text_M==Text_M))){
+					Mant_HistVI.push(myArray);
+					data2.push(Math.abs(myArray.Required_Time));
+					data3.push(Math.abs(myArray.Used_Time));
+				}
+			 }
+			 
+			 //Define times for Statistical Chart
+			Times=getTimeArray(Initial_Date,Final_Date);
+			console.log("Times");
+			console.log(Times);
+			
+			data5=calculateTimeStats(Times,Mant_HistVI)
+			
+			console.log("data5");
+			console.log(data5);
+			 
+			dataF2=sumArray(data2);//Scheduled time
+			dataF3=sumArray(data3);//Used time
+			dataF4=(dataF3/dataF2)*100; //MSC
+			
+			console.log("dataF2");
+			console.log(dataF2);
+			
+			console.log("Mant_HistVI");
+			console.log(Mant_HistVI);
+			
+			//Find all the Maintenance elements present
+			var Mant_Ele;
+			if (Text_M=="All machines"){
+				Mant_Ele=getUniqueValuesByKey(result,"address");
+				
+			}
+			else{
+				Mant_Ele=getUniqueValuesByKey(Mant_HistVI,"Text_M");
+			}
+			
+			
+			//Create Spaces for data				
+			 for(var i=0; i<Mant_Ele.length; i++)	 { 
+				data.push([]);
+				dataF.push([]);
+				dataRT.push([]);
+				CategoriesF.push([]);
+				Labels.push([]);
+			 }
+			
+			//Extract categories				
+			 for(var i=0; i<Mant_HistVI.length; i++)	 { 
+				const myArray = Mant_HistVI[i];
+				Categories.push(myArray.Actual_Time);
+			 }
+			 
+			 console.log("Categories:");
+			 console.log(Categories);
+			 
+			 //Get Unique dates for categories
+			 var Mant_DatesPr=getUniqueDates(Categories);
+			 Mant_Dates=Mant_DatesPr[0];
+			 Mant_DatesN=Mant_DatesPr[1];
+			 console.log("Mant_Dates:");
+			 console.log(Mant_Dates);
+			 
+			 
+			 //
+			 
+			 
+			 
+			 //----------------Prepare data-----------------//
+			  var coincidence=false;
+				 
+			 
+			 //Cleaning data 
+			 for (var i=0; i<Mant_Ele.length; i++){					
+				for(var j=0; j<Mant_Dates.length; j++){
+					var dataii=0;
+					var dataiiRT=0;
+					for(var k=0; k<Mant_HistVI.length; k++){	
+						const myArray = Mant_HistVI[k];	
+						const Mant_DateI=(new Date(myArray.Actual_Time)).toISOString().split('T')[0];			
+						if((Text_M!="All machines"&&Mant_Dates[j]==Mant_DateI && Mant_Ele[i]==myArray.Text_M)||(Text_M=="All machines"&&Mant_Dates[j]==Mant_DateI && Mant_Ele[i]==MantAddresses[k])){
+							coincidence=true;	
+							dataii=dataii+Math.abs(myArray.Used_Time);
+							dataiiRT=dataiiRT+Math.abs(myArray.Required_Time);		
+						}
+						else if (Mant_Dates[j]!=Mant_DateI){
+							if(coincidence!=true){ //Only if it was never true
+								coincidence=false;	
+							}							
+						}
+					}						
+					if(coincidence==true){
+						data[i].push(dataii/60);//Convert to minutes
+						dataRT[i].push(dataiiRT/60);//Convert to minutes
+					}
+					else{
+						data[i].push(0);
+						dataRT[i].push(0);
+					}
+				}
+			
+			 }
+			 console.log("data");			 
+			 console.log(data);		 
+			 
+			//Filter data
+			var SeriesNI=new Array();//Names
+			for (var i=0; i<Mant_Ele.length; i++){				
+					for (var j=0; j<Mant_Dates.length; j++){	
+							CategoriesF[i].push(Mant_Dates[j]);	
+							dataF[i].push(data[i][j]);	
+							Labels[i].push(convertSecondsToTime(data[i][j]*60));		    
+					}
+					dataRTF.push((sumArray(data[i])/sumArray(dataRT[i]))*100);
+					
+					if (Text_M=="All machines"){
+						SeriesNI.push(getSecondToLastElement(Mant_Ele[i]));				
+					}
+					else{
+						SeriesNI.push(Mant_Ele[i]);
+					}
+			}
+			
+			
+			console.log("dataF");		
+			console.log(dataF);		
+			
+			console.log("Labels");		
+			console.log(Labels);
+			
+			console.log("dataRTF");		
+			console.log(dataRTF);			
+			
+			var Colors=Mono_colors(Mant_Ele.length,Color);
+			//Prepare Series
+			 for(var i=0; i<Mant_Ele.length; i++)	 { 
+				
+				
+				
+				//Bar Chart
+				Series.push({
+					color:Colors[i],
+					name: SeriesNI[i],			
+					data: dataF[i] 	
+				});	
+				
+				//Pie Chart
+				Series2.push({
+					color:Colors[i],
+					name: SeriesNI[i],			
+					y: sumArray(dataF[i])	
+				});					
+			 }
+			 
+			 //Prepare Series 3		
+			 var Colors2=Mono_colors(data5.length,Color);
+			 var count=0;
+			 var yAxisI=0;	 
+			 var Pattern=data5[0];
+			 for (const key in Pattern) {
+				 var dataI3=new Array();
+				 for(var i=0; i<data5.length; i++)	 {
+					  dataI3.push({ x:Times[i], y:data5[i][key]});
+				 }	
+				 
+				 //Define corresponding yAxis
+				 if(count<2) {
+					yAxisI=0;
+				 }
+				 else
+				 {
+					yAxisI=1;
+				 }
+				 
+				 Series3.push({
+							name:key,
+							color:Colors2[count],
+							yAxis: yAxisI,
+							data:dataI3
+							
+				 });
+				count++;				 		
+			 }
+			 console.log("Colors");
+			 console.log(Colors);
+			 console.log("Mant_Ele");
+			console.log(Mant_Ele);
+			 //Prepare data 5 MSC Pyramid
+			 dataF5=prepareDataForPyramidHighcharts(SeriesNI,dataRTF,Colors);
+			 
+		 }
+		 else{ //No data found
+			CategoriesF[0]=("No Data")
+			Series={name: Mant_Ele,			
+					data: dataF};	
+		 }
+		 
+		console.log("CategoriesF[0]");		
+		console.log(CategoriesF[0]);	
+		
+		console.log("Series");		
+		console.log(Series);	 
+		
+		
+			 
+		 callback({CategoriesF:CategoriesF[0],Series:Series, Series2:Series2, Series3:Series3, Labels:Labels, dataF2:dataF2, dataF3:dataF3, dataF4:dataF4, dataF5:dataF5});
+	});
+}
+
+
+//Function to fill the maintenance Combobox
+function fill_combobox(Mant_ElementsR){
+	 //Add values to the maintenance list
+	 
+	 if (Mant_ElementsR=="All machines"){
+		 webMI.trigger.fire("clearItems_Global_Maintenance_Type_Chart", 0);
+		 webMI.trigger.fire("addItemT_Global_Maintenance_Type_Chart", {value:{value:0, text:"All machines"}});
+		 webMI.trigger.fire("addItemT_Global_Maintenance_Type_Chart", {value:{value:0, text:"All maintenance"}});
+		 //Set All maintenance as default 
+		 webMI.trigger.fire("setSelectedItem_Global_Maintenance_Type_Chart", {value:{value:0, text:"All machines"}});
+	 }
+	 else{
+		webMI.data.read(Mant_ElementsR, function(e) {
+		   if(e.value!=undefined){
+			   var Mant_ElementsI=JSON.parse(e.value);
+			   webMI.trigger.fire("clearItems_Global_Maintenance_Type_Chart", 0);
+			   webMI.trigger.fire("addItemT_Global_Maintenance_Type_Chart", {value:{value:0, text:"All maintenance"}});
+				   
+			   for (var i in Mant_ElementsI) {
+					var Mant_ElementsII=Mant_ElementsI[i];
+					webMI.trigger.fire("addItemT_Global_Maintenance_Type_Chart", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
+			   }
+			   
+			//Set All maintenance as default 
+			webMI.trigger.fire("setSelectedItem_Global_Maintenance_Type_Chart", {value:{value:0, text:"All maintenance"}});
+		   }	  
+		});
+	}
+}
+
+//Get unique value keys
+function getUniqueValuesByKey(arr, key) {
+  const uniqueValues = [];
+  const seenValues = new Set();
+  
+  arr.forEach((obj) => {
+	const obji=obj;
+    const value = obji[key];
+    if (!seenValues.has(value)) {
+      uniqueValues.push(value);
+      seenValues.add(value);
+    }
+  });
+
+  return uniqueValues;
+}
+
+
+//Find unique dates
+
+function getUniqueDates(unixDates) {
+  const uniqueDates = [];
+  const uniqueDatesN = [];
+  const seenDates = new Set();
+
+  unixDates.forEach((unixDate) => {
+    const date = new Date(unixDate); // Convert Unix timestamp to JavaScript Date object
+    const dateString = date.toISOString().split('T')[0]; // Extract date portion
+
+    if (!seenDates.has(dateString)) {
+      uniqueDates.push(dateString);
+      uniqueDatesN.push(date.getTime());
+      seenDates.add(dateString);
+    }
+  });
+
+  return [uniqueDates,uniqueDatesN];
+}
+
+
+//Convert Time in HH:MM:SS
+function convertSecondsToTime(seconds) {
+  if (seconds < 0) {
+    throw new Error("Input seconds must be a positive number.");
+  }
+
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  // Format the output as "hh:mm:ss"
+  const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${((String(remainingSeconds.toFixed(2)))).padStart(2, '0')}`;
+
+  return formattedTime;
+}
+
+//Sum values of an array
+function sumArray(numbers) {
+  if (!Array.isArray(numbers)) {
+    throw new Error("Input must be an array.");
+  }
+
+  let sum = 0;
+  for (const num of numbers) {
+    if (typeof num !== 'number') {
+      throw new Error("Array must contain only numbers.");
+    }
+    sum += num;
+  }
+
+  return sum;
+}
+
+//Monocromatic colors
+function Mono_colors (Cantidad,ColorBase){
+    var colors = [];
+    for (var i = 0; i < Cantidad; i++) {
+        
+        colors.push(Highcharts.color(ColorBase).brighten((i-1) / 5).get());
+    }
+    return colors;
+}
+
+//Get SecondToLastElement
+function getSecondToLastElement(string) {
+  // Split the string by dot ('.') separator
+  const elements = string.split('.');
+
+  // Return the second-to-last element
+  return elements[elements.length - 3];
+}
+
+
+
+//Wait for data to be ready
+
+function waitForCondition() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+	var condition=(Mant_HistR!=undefined&&Mant_Elements!=undefined);
+	console.log(condition);
+      if (condition) {
+        clearInterval(interval);
+        resolve(true);
+      }
+    }, 100);
+  });
+}
+
+
+//Create array of times
+function getTimeArray(initialTime, lastTime) {
+  // Calculate the time difference
+  const diff = lastTime - initialTime;
+
+  // Define time units in milliseconds
+  const SECOND = 1000;
+  const MINUTE = 60 * SECOND;
+  const HOUR = 60 * MINUTE;
+  const DAY = 24 * HOUR;
+  const MONTH_AND_A_HALF = 45 * DAY; // 1.5 months approximated to 45 days
+  const YEAR = 365 * DAY; // Approximate year length
+
+  // Initialize the result array
+  const result = [];
+
+  // Check the time difference and populate the result array accordingly
+  if (diff >= YEAR) {
+    for (let time = initialTime; time <= lastTime; time += YEAR) {
+      result.push(time);
+    }
+  } else if (diff >= MONTH_AND_A_HALF) {
+    let date = new Date(initialTime);
+    while (date.getTime() <= lastTime) {
+      result.push(date.getTime());
+      date.setMonth(date.getMonth() + 1); // Move to the next month
+    }
+  } else if (diff >= DAY) {
+    for (let time = initialTime; time <= lastTime; time += DAY) {
+      result.push(time);
+    }
+  } else if (diff >= HOUR) {
+    for (let time = initialTime; time <= lastTime; time += HOUR) {
+      result.push(time);
+    }
+  } else if (diff >= MINUTE) {
+    for (let time = initialTime; time <= lastTime; time += MINUTE) {
+      result.push(time);
+    }
+  } else if (diff >= SECOND) {
+    for (let time = initialTime; time <= lastTime; time += SECOND) {
+      result.push(time);
+    }
+  }
+
+  return result;
+}
+
+
+//Calculate Stats per time
+function calculateTimeStats(timeArray, dataArray) {
+  const results = [];
+  let totalRequiredTime = 0;
+  let totalUsedTime = 0;
+  let totalRatio = 0;
+  let count = 0;
+  let highestUsedTime = Number.MIN_VALUE;
+  let lowestUsedTime = Number.MAX_VALUE;
+
+  let dataIndex = 0;
+
+  timeArray.forEach((timeLimit, index) => {
+    // Loop through the dataArray and filter by the time range
+    for (let i = dataIndex; i < dataArray.length; i++) {
+      const data = dataArray[i];
+      if (data.Time_M <= timeLimit) {
+        totalRequiredTime += Math.abs(data.Required_Time)/3600;
+        totalUsedTime += Math.abs(data.Used_Time)/3600;
+        totalRatio = (totalUsedTime / totalRequiredTime)*100;
+        count++;
+        highestUsedTime = Math.max(highestUsedTime, data.Used_Time);
+        lowestUsedTime = Math.min(lowestUsedTime, data.Used_Time);
+        dataIndex = i + 1; // Move the index to avoid re-processing
+      } else {
+        break;
+      }
+    }
+
+    const averageUsedTime = count === 0 ? 0 : totalUsedTime / count;
+
+    results.push({
+      'Total_Required_Time': totalRequiredTime,
+      'Total_Used_Time': totalUsedTime,
+      'MSC': totalRatio,
+      //'Average_Used_Time': averageUsedTime,
+      //'Highest_Used_Time': highestUsedTime === Number.MIN_VALUE ? 0 : highestUsedTime,
+      //'Lowest_Used_Time': lowestUsedTime === Number.MAX_VALUE ? 0 : lowestUsedTime
+    });
+  });
+
+  return results;
+}
+
+//Prepare data for Pyramid data
+function prepareDataForPyramidHighcharts(labels, numbers, colors) {
+  if (labels.length !== numbers.length || labels.length !== colors.length) {
+    throw new Error('Length of labels, numbers, and colors arrays must be the same.');
+  }
+
+  // Pair the labels with their corresponding numbers and colors
+  const pairedData = labels.map((label, index) => ({
+    name: label,
+    y: numbers[index],
+    color: colors[index]
+  }));
+
+  // Sort the paired data based on the numbers (smallest to biggest)
+  const sortedData = pairedData.sort((a, b) => a.y - b.y);
+
+  return sortedData;
+}]]></script>
+ <svg atv:refpx="155" atv:refpy="67.501" height="30" id="id_22" transform="matrix(1.6875,0,0,1.1667,0,0)" width="160" x="11.852" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Combobox_Complementary_Element" y="42.856">
+  <atv:argument name="name" value="Global_Maintenance_Type_Chart"/>
+  <atv:argument name="mode" value="Enum List"/>
+  <atv:argument name="fontSize" value="20"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5926,0,0,0.8571,0,0)" width="266"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="7.501"/>
+  <atv:overwrite id="id_7" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="8.501"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="7.501"/>
+  <atv:overwrite id="combobox_label" transform="matrix(0.5926,0,0,0.8571,0,0)" x="235.5" y="22.001"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5926,0,0,0.8571,0,0)" width="238"/>
+  <atv:overwrite height="27.001" id="combobox_bg" transform="matrix(0.5926,0,0,0.8571,0,0)" width="238"/>
+  <atv:overwrite height="33.001" id="id_1" transform="matrix(0.5926,0,0,0.8571,0,0)" width="268"/>
+  <atv:overwrite height="35.001" id="id_0" transform="matrix(0.5926,0,0,0.8571,0,0)" width="270"/>
+ </svg>
+</svg>

@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage.FB13_Food_Separator_1.Variables.Hopper_Level
+NodeClass: Variable
+BrowseName: 1:Hopper_Level
+DisplayName: en|Hopper_Level
+Description: en|Hopper_Level
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

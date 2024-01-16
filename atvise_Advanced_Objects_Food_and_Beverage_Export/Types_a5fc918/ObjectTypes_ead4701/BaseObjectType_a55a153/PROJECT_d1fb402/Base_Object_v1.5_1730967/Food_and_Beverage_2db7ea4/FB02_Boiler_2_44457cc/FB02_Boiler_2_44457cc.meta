@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Food_and_Beverage.FB02_Boiler_2
+NodeClass: ObjectType
+BrowseName: 1:FB02_Boiler_2
+DisplayName: en|FB02_Boiler_2
+Description: en|FB02_Boiler_2
+IsAbstract: false

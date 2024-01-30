@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="890" version="1.2" width="1675" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" desc="Leading_Address" name="Leading_Address" valuetype="address"/>
+  <atv:parameter behavior="optional" config="Text;Enum List" defaultvalue="Text" desc="Input Data Mode" name="Input_Mode" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="Leading Address;All Periodicities" defaultvalue="Leading Address" desc="Periodicity Mode" name="Periodicity_Mode" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="0" desc="Periodicity Multiple" name="Periodicity_Multiple" valuetype="number"/>
+  <atv:parameter behavior="optional" config="Real Time;s;min;h" defaultvalue="Real Time" desc="Periodicity Unit" name="Periodicity_Unit" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="false" desc="Add Total" name="Add_Total" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 1" group="Text Mode" name="NameC1" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 1" group="Text Mode" name="TypeC1" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 1" group="Text Mode" name="AddressC1" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 2" group="Text Mode" name="NameC2" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 2" group="Text Mode" name="TypeC2" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Address Column 2" group="Text Mode" name="AddressC2" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 3" group="Text Mode" name="NameC3" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 3" group="Text Mode" name="TypeC3" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 3" group="Text Mode" name="AddressC3" valuetype="address"/>
+  <atv:parameter behavior="mandatory" defaultvalue="" desc="Name Column 4" group="Text Mode" name="NameC4" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 4" group="Text Mode" name="TypeC4" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 4" group="Text Mode" name="AddressC4" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 5" group="Text Mode" name="NameC5" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 5" group="Text Mode" name="TypeC5" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 5" group="Text Mode" name="AddressC5" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 6" group="Text Mode" name="NameC6" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 6" group="Text Mode" name="TypeC6" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 6" group="Text Mode" name="AddressC6" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 7" group="Text Mode" name="NameC7" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 7" group="Text Mode" name="TypeC7" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 7" group="Text Mode" name="AddressC7" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 8" group="Text Mode" name="NameC8" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 8" group="Text Mode" name="TypeC8" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 8" group="Text Mode" name="AddressC8" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 9" group="Text Mode" name="NameC9" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 9" group="Text Mode" name="TypeC9" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 9" group="Text Mode" name="AddressC9" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 10" group="Text Mode" name="NameC10" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 10" group="Text Mode" name="TypeC10" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 10" group="Text Mode" name="AddressC10" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 11" group="Text Mode" name="NameC11" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 11" group="Text Mode" name="TypeC11" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 11" group="Text Mode" name="AddressC11" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 12" group="Text Mode" name="NameC12" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 12" group="Text Mode" name="TypeC12" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 12" group="Text Mode" name="AddressC12" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 13" group="Text Mode" name="NameC13" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 13" group="Text Mode" name="TypeC13" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 13" group="Text Mode" name="AddressC13" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 14" group="Text Mode" name="NameC14" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 14" group="Text Mode" name="TypeC14" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 14" group="Text Mode" name="AddressC14" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 15" group="Text Mode" name="NameC15" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 15" group="Text Mode" name="TypeC15" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 15" group="Text Mode" name="AddressC15" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 16" group="Text Mode" name="NameC16" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 16" group="Text Mode" name="TypeC16" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 16" group="Text Mode" name="AddressC16" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC17" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC17" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC17" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC18" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC18" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC18" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC19" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC19" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC19" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC20" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC20" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC20" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC21" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC21" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC21" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC22" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC22" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC22" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC23" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC23" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC23" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC24" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC24" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC24" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC25" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC25" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC25" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC26" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC26" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC26" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC27" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC27" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC27" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC28" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC28" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC28" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC29" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC29" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC29" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advance_Objects_Dynamic_Table_List.Dynamic_Table_List" desc="Enum List" group="Enum List Mode" name="Enum_List" valuetype="global"/>
+  <atv:parameter behavior="optional" config="" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" group="Appereance" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <line atv:refpx="825" atv:refpy="60" id="id_3" stroke="$Color$" stroke-width="2" x1="0" x2="1650" y1="60" y2="60"/>
+ <text atv:refpx="112" atv:refpy="34" fill="#000000" font-family="Arial" font-size="34" id="id_4" x="5" y="46.5">Dynamic Table</text>
+ <svg atv:refpx="840" atv:refpy="480.022" height="600" id="id_5" transform="matrix(2.1,0,0,1.3667,0,0)" width="800" x="0" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.hmi.iframe" y="51.219">
+  <atv:argument name="frameName" value="tableframe"/>
+  <atv:argument name="display" value="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Dynamic_Advanced_Table_Full_Complementary_Element.Dynamic_Table_blank"/>
+ </svg>
+ <rect atv:refpx="1630" atv:refpy="35" fill="#000000" height="40" id="background_set" stroke="none" stroke-width="2" width="40" x="1610" y="10"/>
+ <g atv:refpx="1629.827" atv:refpy="35.319" id="id_28" transform="matrix(1,0,0,1,1270.0004,2)">
+  <polyline atv:refpx="352.435" atv:refpy="19.81" fill="#ffffff" id="id_23" points="344.242,14.36 348.325,18.444 350.878,18.444 351.899,17.423 351.899,15.381 347.815,11.297 352.41,11.297 354.961,14.36 354.961,18.444 361.088,24.569 357.478,28.32 351.899,22.528 347.815,22.018 344.242,18.954 343.78,14.148" stroke="#ffffff" stroke-width="1"/>
+  <polyline atv:refpx="351.463" atv:refpy="18.612" fill="#ffffff" id="id_24" points="376.961,41.081 372.878,36.998 370.325,36.998 369.304,38.019 369.304,40.06 373.388,44.145 368.793,44.145 366.242,41.081 366.242,36.998 360.116,30.872 363.725,27.122 369.304,32.914 373.388,33.424 376.961,36.487 377.424,41.294" stroke="#ffffff" stroke-width="1"/>
+  <path atv:refpx="358.821" atv:refpy="28.853" d="M354.5,30.696L367.773,17.423C367.773,17.423 367.773,15.381 367.773,15.381C367.773,15.381 373.899,12.318 373.899,12.318C373.899,12.318 375.431,13.85 375.431,13.85C375.431,13.85 372.878,19.465 372.878,19.465C372.878,19.465 370.836,19.465 370.836,19.465C370.836,19.465 356.542,33.248 356.542,33.248C356.542,33.248 358.074,34.78 358.074,34.78C358.074,34.78 348.374,44.479 348.374,44.479C348.374,44.479 345.311,46.521 343.27,44.479C341.228,42.437 342.759,40.396 342.759,39.885C342.759,39.375 353.021,29.16 353.021,29.16C353.021,29.16 354.5,31.207 354.5,30.696" fill="#ffffff" id="id_25" stroke="#ffffff" stroke-width="1"/>
+ </g>
+ <rect atv:refpx="1630" atv:refpy="35" fill="#000000" fill-opacity="0" height="40" id="click_area_set" stroke="none" stroke-width="2" width="40" x="1610" y="10"/>
+ <rect atv:refpx="1580" atv:refpy="29" fill="#000000" height="40" id="background_table" stroke="none" stroke-width="2" width="40" x="1560" y="10"/>
+ <svg atv:refpx="1580" atv:refpy="29" height="20" id="id_21" transform="matrix(2,0,0,2,0,0)" width="20" x="780" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Symbols.history" y="5">
+  <atv:argument name="symbolColor" value="#ffffff"/>
+ </svg>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//External Variables
+var Color=webMI.query["Color"];
+
+var Input_Mode =webMI.query["Input_Mode"]; //Input Mode (Text: Based on Parameters, Enum List: Based on global List)
+var Enum_List=webMI.query["Enum_List"];
+
+//Menu Variables
+var Backgrounds=["background_table","background_set"];
+var Click_Area=["click_area_table","click_area_set"];
+var Displays=["SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Dynamic_Advanced_Table_Full_Complementary_Element.Dynamic_Table_table","SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Dynamic_Advanced_Table_Full_Complementary_Element.Dynamic_Table_config"];
+var ElementsR;
+
+//----------Initial Conditions----------//
+webMI.addOnload(function() {
+	  
+	//Stringtify enumlist
+    if(Input_Mode=="Enum List"){ 
+		//Read Existing Elements
+		webMI.query["Enum_List"]=JSON.stringify(Enum_List);
+	}	
+	
+	//Menu Initial Conditions
+	setactive(0);		
+	
+});
+
+
+//-----------Triggers--------------//
+
+
+//Maintenance_Set
+webMI.addEvent(Click_Area[0], "click", function(e) {
+
+	setactive(0);
+	
+});
+
+//Maintenance_Calendar
+webMI.addEvent(Click_Area[1], "click", function(e) {
+
+	setactive(1);	 
+	
+});
+
+
+
+//Function to set active window
+function setactive(ID){
+	
+	//Set active only the current icon
+	for (var i=0; i<Click_Area.length; i++){
+		if (i==ID){
+			webMI.gfx.setFill(Backgrounds[i], Color);
+		}
+		else
+		{
+			webMI.gfx.setFill(Backgrounds[i], "#000000");
+		}
+	}
+	
+	//Open the current window
+	webMI.display.openDisplay(Displays[ID], webMI.query, "tableframe");
+	
+};]]></script>
+ <rect atv:refpx="1580" atv:refpy="29" fill="#000000" fill-opacity="0" height="40" id="click_area_table" stroke="none" stroke-width="2" width="40" x="1560" y="10"/>
+</svg>

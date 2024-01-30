@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN01_Combustion_Turbine_1
+NodeClass: ObjectType
+BrowseName: 1:EN01_Combustion_Turbine_1
+DisplayName: en|EN01_Combustion_Turbine_1
+Description: en|EN01_Combustion_Turbine_1
+IsAbstract: false

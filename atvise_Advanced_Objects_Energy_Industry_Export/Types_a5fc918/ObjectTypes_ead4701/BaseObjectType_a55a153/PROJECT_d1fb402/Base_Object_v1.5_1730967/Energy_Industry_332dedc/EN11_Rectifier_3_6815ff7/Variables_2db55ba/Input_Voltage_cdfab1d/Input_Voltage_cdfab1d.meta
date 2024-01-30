@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN11_Rectifier_3.Variables.Input_Voltage
+NodeClass: Variable
+BrowseName: 1:Input_Voltage
+DisplayName: en|Input_Voltage
+Description: en|Input_Voltage
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN12_Transformer_1.Variables.Oil_Temperature
+NodeClass: Variable
+BrowseName: 1:Oil_Temperature
+DisplayName: en|Oil_Temperature
+Description: en|Oil_Temperature
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

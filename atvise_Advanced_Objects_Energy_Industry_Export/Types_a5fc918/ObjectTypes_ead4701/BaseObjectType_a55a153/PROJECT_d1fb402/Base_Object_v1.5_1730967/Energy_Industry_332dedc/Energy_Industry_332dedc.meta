@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry
+NodeClass: ObjectType
+BrowseName: 1:Energy_Industry
+DisplayName: en|Energy_Industry
+Description: en|Energy_Industry
+IsAbstract: false

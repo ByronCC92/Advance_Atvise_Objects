@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN07_Recloser_1.Variables.Battery_Voltage
+NodeClass: Variable
+BrowseName: 1:Battery_Voltage
+DisplayName: en|Battery_Voltage
+Description: en|Battery_Voltage
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

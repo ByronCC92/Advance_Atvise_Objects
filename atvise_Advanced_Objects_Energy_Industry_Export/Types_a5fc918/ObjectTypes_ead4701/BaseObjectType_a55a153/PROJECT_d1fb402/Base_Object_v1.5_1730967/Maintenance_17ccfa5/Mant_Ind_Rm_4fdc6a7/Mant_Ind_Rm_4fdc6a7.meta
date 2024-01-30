@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Maintenance.Mant_Ind_Rm
+NodeClass: Variable
+BrowseName: 1:Mant_Ind_Rm
+DisplayName: en|Mant_Ind_Rm
+Description: en|Mant_Ind_Rm
+DataType: UInt16
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

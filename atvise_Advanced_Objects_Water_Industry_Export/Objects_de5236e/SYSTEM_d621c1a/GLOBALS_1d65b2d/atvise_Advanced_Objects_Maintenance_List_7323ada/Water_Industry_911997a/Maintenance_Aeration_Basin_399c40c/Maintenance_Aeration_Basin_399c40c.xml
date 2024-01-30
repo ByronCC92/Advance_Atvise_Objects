@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
 	<uax:ListOfString>
-		<uax:String>&quot;0&quot;:{&quot;text&quot;:&quot;Monitor/Adjust Aeration&quot;,&quot;value&quot;:&quot;1&quot;}</uax:String>
+		<uax:String>&quot;0&quot;:{&quot;text&quot;:&quot;Monitor/Adjust Aeration&quot;,&quot;value&quot;:1}</uax:String>
 		<uax:String>&quot;1&quot;:{&quot;text&quot;:&quot;Calibrate Temperature Sensors&quot;,&quot;value&quot;:&quot;2&quot;}</uax:String>
 		<uax:String>&quot;2&quot;:{&quot;text&quot;:&quot;pH Testing&quot;,&quot;value&quot;:&quot;3&quot;}</uax:String>
 		<uax:String>&quot;3&quot;:{&quot;text&quot;:&quot;Adjust Nutrient Addition&quot;,&quot;value&quot;:&quot;4&quot;}</uax:String>

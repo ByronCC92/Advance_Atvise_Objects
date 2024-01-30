@@ -81,8 +81,8 @@ for (var i=0; i<Alarm_NodesI.length; i++){
 	}	
 }
 
-console.log("Object_ConditionsII (Conditions that have changed)");
-console.log(Object_ConditionsII);
+//console.log("Object_ConditionsII (Conditions that have changed)");
+//console.log(Object_ConditionsII);
 
 //Go over all the Object_Conditions
 for (var i=0; i<Object_ConditionsII.length; i++){
@@ -126,7 +126,7 @@ for (var i=0; i<Object_ConditionsII.length; i++){
 	}	
 	//Low Limit
 	else if(Temp_Limit_Type=="Min"){
-		Temp_Alert_Limit=Temp_Limit+parseInt((Temp_Alarm_Range*(Alert_RangeI)/100));
+		Temp_Alert_Limit=parseInt(Temp_Limit)+parseInt((Temp_Alarm_Range*(Alert_RangeI)/100));
 		console.log("----------Condition Min---------");
 		//console.log("Condition Name: "+Object_ConditionsIA.Condition_name);
 		console.log("Temp_VarI: "+Temp_VarI+" <= "+"Temp_Alert_Limit: "+Temp_Alert_Limit +" && "+ "Temp_VarI: "+ Temp_VarI+" > "+ "Temp_Limit: "+Temp_Limit);			

@@ -13,6 +13,7 @@ var Global_Maintenance=webMI.query["Global_Maintenance"];
 var Global_Maintenance_Address=webMI.query["Global_Maintenance_Address"];
 var Global_Maintenance_AddressR=webMI.query["base"]+".Parameters.Mant_Address";
 var StartupR=webMI.query["base"]+".Parameters.Startup";
+var Loading_Display=webMI.query["base"]+".Parameters.Loading_Display";
 var Mant_ElementsR=webMI.query["base"]+".Parameters.Mant_Elements";
 
 
@@ -22,6 +23,10 @@ var Mant_ElementsR=webMI.query["base"]+".Parameters.Mant_Elements";
 webMI.addOnload(function(e) {	
 	
 	//-------------------Settings	
+	
+	//Find Loading_Display
+	var iframeSrc = cleanUpString(findFirstIframeSrc());
+	webMI.data.write(Loading_Display, iframeSrc);
 	
 	//Excute Script Startup	
 	webMI.data.write(StartupR, true);
@@ -55,7 +60,38 @@ webMI.addEvent("click_area", "click", function(e) {
 
 //---------------Functions Section---------------//
 
+// Function to find and return the src of the last iframe
+function findFirstIframeSrc() {
+	// Find all iframe elements in the document
+	var iframes = top.document.querySelectorAll('iframe');
+	var srcs = [];
 
+	// Loop through the NodeList of iframes and collect src attributes
+	for (var i = 0; i < iframes.length; i++) {
+		srcs.push(iframes[i].src);
+	}
 
-]]></code>
+	return srcs[srcs.length-1];
+}
+
+function cleanUpString(url) {
+    // Find the index of 'xhtml/'
+    var xhtmlIndex = url.indexOf('xhtml/');
+    var newUrl = url;
+
+    // If 'xhtml/' is found, update the newUrl to start after 'xhtml/'
+    if (xhtmlIndex !== -1) {
+        newUrl = url.substring(xhtmlIndex + 'xhtml/'.length);
+    }
+
+    // Find the index of '?'
+    var queryIndex = newUrl.indexOf('?');
+
+    // If '?' is found, update the newUrl to exclude everything after '?'
+    if (queryIndex !== -1) {
+        newUrl = newUrl.substring(0, queryIndex);
+    }
+
+    return newUrl;
+}]]></code>
 </script>

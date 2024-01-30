@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN13_Transformer_2
+NodeClass: ObjectType
+BrowseName: 1:EN13_Transformer_2
+DisplayName: en|EN13_Transformer_2
+Description: en|EN13_Transformer_2
+IsAbstract: false

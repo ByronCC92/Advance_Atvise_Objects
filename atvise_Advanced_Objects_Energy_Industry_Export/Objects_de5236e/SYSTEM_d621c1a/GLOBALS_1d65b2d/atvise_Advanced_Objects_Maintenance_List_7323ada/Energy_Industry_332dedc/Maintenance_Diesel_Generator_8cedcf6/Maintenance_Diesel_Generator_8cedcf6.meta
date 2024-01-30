@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Energy_Industry.Maintenance_Diesel_Generator
+NodeClass: Variable
+BrowseName: 1:Maintenance_Diesel_Generator
+DisplayName: en|Maintenance_Diesel_Generator
+Description: en|Maintenance_Diesel_Generator
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

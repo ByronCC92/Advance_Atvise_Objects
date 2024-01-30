@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN04_Electric_Motor_1
+NodeClass: ObjectType
+BrowseName: 1:EN04_Electric_Motor_1
+DisplayName: en|EN04_Electric_Motor_1
+Description: en|EN04_Electric_Motor_1
+IsAbstract: false

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN11_Rectifier_3
+NodeClass: ObjectType
+BrowseName: 1:EN11_Rectifier_3
+DisplayName: en|EN11_Rectifier_3
+Description: en|EN11_Rectifier_3
+IsAbstract: false

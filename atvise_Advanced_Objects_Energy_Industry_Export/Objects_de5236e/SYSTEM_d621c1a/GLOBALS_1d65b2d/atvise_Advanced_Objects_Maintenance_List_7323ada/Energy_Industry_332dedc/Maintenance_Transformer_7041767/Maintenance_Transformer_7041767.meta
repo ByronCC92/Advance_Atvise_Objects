@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Energy_Industry.Maintenance_Transformer
+NodeClass: Variable
+BrowseName: 1:Maintenance_Transformer
+DisplayName: en|Maintenance_Transformer
+Description: en|Maintenance_Transformer
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

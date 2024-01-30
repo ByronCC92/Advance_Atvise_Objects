@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Energy_Industry.Maintenance_Wind_Turbine_Generator
+NodeClass: Variable
+BrowseName: 1:Maintenance_Wind_Turbine_Generator
+DisplayName: en|Maintenance_Wind_Turbine_Generator
+Description: en|Maintenance_Wind_Turbine_Generator
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

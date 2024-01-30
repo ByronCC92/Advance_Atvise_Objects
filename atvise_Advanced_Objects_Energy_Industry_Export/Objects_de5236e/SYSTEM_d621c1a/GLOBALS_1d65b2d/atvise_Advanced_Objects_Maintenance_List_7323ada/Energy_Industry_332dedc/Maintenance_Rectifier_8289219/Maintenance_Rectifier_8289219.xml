@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+	<uax:ListOfString>
+		<uax:String>&quot;0&quot;:{&quot;text&quot;:&quot;Monitor &amp; Adjust Voltage Settings&quot;,&quot;value&quot;:&quot;1&quot;}</uax:String>
+		<uax:String>&quot;1&quot;:{&quot;text&quot;:&quot;Regularly Inspect &amp; Replace Diodes&quot;,&quot;value&quot;:&quot;2&quot;}</uax:String>
+		<uax:String>&quot;2&quot;:{&quot;text&quot;:&quot;Monitor &amp; Adjust Input Voltage&quot;,&quot;value&quot;:&quot;3&quot;}</uax:String>
+		<uax:String>&quot;3&quot;:{&quot;text&quot;:&quot;Inspect &amp; Adjust Cooling Systems&quot;,&quot;value&quot;:&quot;4&quot;}</uax:String>
+		<uax:String>&quot;4&quot;:{&quot;text&quot;:&quot;Regularly Inspect &amp; Adjust Capacitors&quot;,&quot;value&quot;:&quot;5&quot;}</uax:String>
+		<uax:String>&quot;5&quot;:{&quot;text&quot;:&quot;Inspect &amp; Maintain Cooling Fans&quot;,&quot;value&quot;:&quot;6&quot;}</uax:String>
+	</uax:ListOfString>
+</Value>

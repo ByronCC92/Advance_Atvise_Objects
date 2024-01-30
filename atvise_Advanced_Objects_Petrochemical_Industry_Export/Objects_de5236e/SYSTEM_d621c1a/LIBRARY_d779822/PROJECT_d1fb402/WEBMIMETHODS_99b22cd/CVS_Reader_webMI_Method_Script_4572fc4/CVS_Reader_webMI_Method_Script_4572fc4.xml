@@ -8,8 +8,7 @@
   <parameter name="Parameters" type="http" trigger="false" relative="false" value=""/>
   <code><![CDATA[//External Variables
 var ParametersI= Parameters.request.getvalues;
-console.log(ParametersI.File_Name);
-console.log(ParametersI.Rows);
+
 // Excecution
 var filename = ParametersI.File_Name; // Replace with your CSV file name
 var maxRows = Number(ParametersI.Rows); // Replace with your CSV file name

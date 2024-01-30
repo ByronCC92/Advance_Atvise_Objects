@@ -44,6 +44,8 @@
   <atv:argument name="detail_text_size" prefix="Font_Size" value=""/>
   <atv:argument name="footer_text_size" prefix="Font_Size" value=""/>
   <atv:argument name="row_height" value="25"/>
+  <atv:argument name="showMenuFilter" value="false"/>
+  <atv:argument name="showMenuPicker" value="false"/>
  </svg>
  <svg atv:refpx="369.999" atv:refpy="31.001" height="30" id="Excecute" transform="matrix(2.375,0,0,1.3333,0,0)" width="80" x="117.895" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="11.25">
   <atv:argument name="label" value="T{Excecute}"/>
@@ -149,7 +151,7 @@ webMI.addOnload(function() {
 
 //---------------Trigger Section--------------//
 
-//Monitor Global Maintenance Element
+//Monitor Global List Element
 webMI.trigger.connect(Global_List_Trigger, function (e) {
 
 	if(Global_List_Method=="Trigger"){
@@ -165,7 +167,7 @@ webMI.trigger.connect("com.atvise.combobox_Maintenance_Modifier", function (e) {
 	updateTitleText();
 });
 
-//Monitor New Maintenance Input 
+//Monitor New List Input 
 webMI.trigger.connect("read_value_Global_List_Input", function(e) {
 	New_Values=e.value;	
 });

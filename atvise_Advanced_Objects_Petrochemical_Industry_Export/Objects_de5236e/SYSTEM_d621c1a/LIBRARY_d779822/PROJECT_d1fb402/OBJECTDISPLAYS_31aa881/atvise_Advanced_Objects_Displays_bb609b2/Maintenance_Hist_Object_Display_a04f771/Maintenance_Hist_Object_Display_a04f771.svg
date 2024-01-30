@@ -20,7 +20,7 @@
   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
  </svg>
  <text atv:refpx="50.733" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="24.5" y="85.5">Intial Date</text>
- <svg atv:refpx="447.479" atv:refpy="117.496" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="180.358" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="85.712">
+ <svg atv:refpx="447.48" atv:refpy="117.496" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="180.358" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="85.712">
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="name" value="Final_Date"/>
   <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>

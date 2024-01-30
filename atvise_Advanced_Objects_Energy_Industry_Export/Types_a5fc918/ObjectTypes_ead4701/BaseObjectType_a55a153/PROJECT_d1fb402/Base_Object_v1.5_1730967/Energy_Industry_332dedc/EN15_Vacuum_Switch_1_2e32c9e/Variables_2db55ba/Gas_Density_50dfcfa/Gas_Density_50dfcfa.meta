@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN15_Vacuum_Switch_1.Variables.Gas_Density
+NodeClass: Variable
+BrowseName: 1:Gas_Density
+DisplayName: en|Gas_Density
+Description: en|Gas_Density
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

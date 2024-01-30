@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN09_Rectifier_1.Variables.Output_Current
+NodeClass: Variable
+BrowseName: 1:Output_Current
+DisplayName: en|Output_Current
+Description: en|Output_Current
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

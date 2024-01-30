@@ -1,0 +1,110 @@
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20000303 Stylable//EN' 'http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-stylable.dtd'>
+<svg height="433" width="999" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="false" height="10" width="10"/>
+ </metadata>
+ <g atv:refpx="498.5" atv:refpy="215.5" id="Image_1">
+  <path atv:refpx="834.5" atv:refpy="35" d="M832,25L822,45L837,45L847,25Z" fill="#000" id="id_0" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="486.5" atv:refpy="221.5" d="M322,176L651,176L651,267L322,267Z" fill="#e5e5dd" id="id_1"/>
+  <path atv:refpx="486.5" atv:refpy="236.5" d="M322,206L651,206L651,267L322,267Z" fill="#ccccbd" id="id_2"/>
+  <path atv:refpx="486.5" atv:refpy="254.5" d="M322,242L651,242L651,267L322,267Z" fill="#b2b29b" id="id_3"/>
+  <path atv:refpx="486.5" atv:refpy="176.5" d="M322,176L651,176" fill="none" id="id_4" stroke="#999" stroke-width="2"/>
+  <path atv:refpx="812.5" atv:refpy="156" d="M974,267L974,105L913,105L913,45L711,45L711,105L651,105L651,267Z" fill="#4c4c3a" id="id_5" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="496.5" atv:refpy="257" d="M449,247L544,247L544,267L449,267Z" fill="#000" id="id_6"/>
+  <path atv:refpx="163" atv:refpy="216" d="M302,125L322,105L322,327L302,307L25,307L25,206L4,206L4,125Z" fill="#ccccbd" id="id_7"/>
+  <path atv:refpx="163" atv:refpy="216.5" d="M302,146L322,131L322,302L302,287L25,287L25,206L4,206L4,146Z" fill="#e5e5dd" id="id_8"/>
+  <path atv:refpx="163" atv:refpy="216.5" d="M302,155L322,141L322,292L302,278L25,278L25,206L4,206L4,155Z" fill="#ccccbd" id="id_9"/>
+  <path atv:refpx="163" atv:refpy="216.5" d="M302,175L322,166L322,267L302,258L25,258L25,206L4,206L4,175Z" fill="#b2b29b" id="id_10"/>
+  <path atv:refpx="163" atv:refpy="216" d="M302,196L322,191L322,241L302,237L25,237L25,206L4,206L4,196Z" fill="#99997a" id="id_11"/>
+  <path atv:refpx="173.5" atv:refpy="252" d="M322,237L322,267L302,258L25,258L25,237Z" fill="#7f7f59" id="id_12"/>
+  <path atv:refpx="302.5" atv:refpy="216" d="M302,307L302,125" fill="none" id="id_13" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="163" atv:refpy="216" d="M302,125L322,105L322,327L302,307L25,307L25,206L4,206L4,125Z" fill="none" id="id_14" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="25.5" atv:refpy="165.5" d="M25,206L25,125" fill="none" id="id_15" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="206.5" atv:refpy="262" d="M25,257L388,257L388,267L25,267Z" fill="#333" id="id_16"/>
+  <path atv:refpx="509.5" atv:refpy="347.5" d="M35,418L35,277L984,277L984,418Z" fill="#99998f" id="id_17" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="509.5" atv:refpy="287" d="M25,267L25,307L65,307L65,277L953,277L953,307L994,307L994,267Z" fill="#e5e5e5" id="id_18" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="509.5" atv:refpy="423" d="M25,418L994,418L994,428L25,428Z" fill="#e5e5e5" id="id_19" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="509" atv:refpy="302" d="M65,327L65,277L953,277L953,327L923,327L923,287L691,287L691,327L671,327L671,287L368,287L368,307L307,307L307,287L95,287L95,327Z" fill="#191900" id="id_20"/>
+  <path atv:refpx="832.5" atv:refpy="322.5" d="M873,297L873,348L842,327L792,327L792,317L842,317Z" fill="#999" id="id_21" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="832.5" atv:refpy="322.5" d="M873,312L873,333L842,324L792,324L792,321L842,321Z" fill="#e5e5e5" id="id_22"/>
+  <path atv:refpx="923.5" atv:refpy="335" d="M974,408L974,262L873,262L873,408Z" fill="#666657" id="id_23" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="706" atv:refpy="363" d="M696,353L716,353L716,373L696,373Z" fill="#bfbfbf" id="id_24" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="771.5" atv:refpy="327.5" d="M751,348L751,307L792,307L792,348Z" fill="#7f7f7f" id="id_25" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="771.5" atv:refpy="327.5" d="M751,348L751,307L792,307" fill="none" id="id_26" stroke="#fff" stroke-width="2"/>
+  <path atv:refpx="456" atv:refpy="322.5" d="M408,338L408,312L509,312L509,307L403,307L403,338Z" fill="#000" id="id_27"/>
+  <path atv:refpx="441" atv:refpy="355" d="M499,338L499,373L469,373L469,383L464,393L449,393L444,383L444,378L403,378L403,363L383,363L383,338L418,338L418,317L469,317L469,338Z" fill="#4c4c3a" id="id_28"/>
+  <path atv:refpx="426" atv:refpy="340" d="M383,363L383,338L418,338L418,317L469,317" fill="none" id="id_29" stroke="#fff" stroke-width="2"/>
+  <path atv:refpx="484" atv:refpy="338.5" d="M469,338L499,338" fill="none" id="id_30" stroke="#fff" stroke-width="2"/>
+  <path atv:refpx="466" atv:refpy="355.5" d="M423,353L509,353L509,358L423,358Z" fill="#000" id="id_31"/>
+  <path atv:refpx="466" atv:refpy="370.5" d="M423,368L509,368L509,373L423,373Z" fill="#000" id="id_32"/>
+  <path atv:refpx="590" atv:refpy="352.5" d="M671,297L671,408L509,408L509,297Z" fill="#7f7f72" id="id_33" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="590" atv:refpy="307.5" d="M509,307L671,307" fill="none" id="id_34" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="590" atv:refpy="398.5" d="M509,398L671,398" fill="none" id="id_35" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="590" atv:refpy="352.5" d="M509,408L509,297L671,297" fill="none" id="id_36" stroke="#fff" stroke-width="2"/>
+  <path atv:refpx="135.5" atv:refpy="257" d="M166,267L166,247L105,247L105,267Z" fill="#e5e5dd" id="id_37" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="277" atv:refpy="257" d="M307,267L307,247L247,247L247,267Z" fill="#e5e5dd" id="id_38" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="418.5" atv:refpy="257" d="M449,267L449,247L388,247L388,267Z" fill="#e5e5dd" id="id_39" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="574.5" atv:refpy="257" d="M605,267L605,247L544,247L544,267Z" fill="#e5e5dd" id="id_40" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="206.5" atv:refpy="103" d="M126,70L287,70L287,136L126,136Z" fill="#b2b29b" id="id_41" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="50" atv:refpy="77.5" d="M55,75L45,80L55,80Z" fill="#666" id="id_42"/>
+  <path atv:refpx="50" atv:refpy="87.5" d="M55,85L45,90L55,90Z" fill="#666" id="id_43"/>
+  <path atv:refpx="50" atv:refpy="97.5" d="M55,95L45,100L55,100Z" fill="#666" id="id_44"/>
+  <path atv:refpx="50" atv:refpy="108" d="M55,105L45,111L55,111Z" fill="#666" id="id_45"/>
+  <path atv:refpx="50" atv:refpy="118" d="M55,115L45,121L55,121Z" fill="#666" id="id_46"/>
+  <path atv:refpx="93" atv:refpy="193.5" d="M55,181L55,206L131,206L131,181Z" fill="none" id="id_47" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="93" atv:refpy="173.5" d="M55,181L50,166L136,166L131,181Z" fill="#4c4c16" id="id_48" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="93" atv:refpy="115.5" d="M50,166L55,65L131,65L136,166Z" fill="#e5e5dd" id="id_49" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="92.5" atv:refpy="115.5" d="M62,156L123,156L121,75" fill="none" id="id_50" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="91.5" atv:refpy="115.5" d="M62,156L65,75L121,75" fill="none" id="id_51" stroke="#fff" stroke-width="2"/>
+  <path atv:refpx="156" atv:refpy="102.5" d="M136,125L176,125L176,80" fill="none" id="id_52" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="206.5" atv:refpy="102.5" d="M186,125L227,125L227,80" fill="none" id="id_53" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="257" atv:refpy="102.5" d="M237,125L277,125L277,80" fill="none" id="id_54" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="257" atv:refpy="102.5" d="M277,80L237,80L237,125" fill="none" id="id_55" stroke="#fff" stroke-width="2"/>
+  <path atv:refpx="207" atv:refpy="102.5" d="M227,80L187,80L187,125" fill="none" id="id_56" stroke="#fff" stroke-width="2"/>
+  <path atv:refpx="156" atv:refpy="102.5" d="M176,80L136,80L136,125" fill="none" id="id_57" stroke="#fff" stroke-width="2"/>
+  <path atv:refpx="262" atv:refpy="90" d="M252,85L272,85L272,95L252,95Z" fill="#e5e5dd" id="id_58"/>
+  <path atv:refpx="209" atv:refpy="176" d="M186,166L232,166L232,186L186,186Z" fill="#e5e5dd" id="id_59"/>
+  <path atv:refpx="206" atv:refpy="232" d="M115,247L297,247L297,242L267,242L267,217L262,217L262,242L151,242L151,217L146,217L146,242L115,242Z" fill="#99997a" id="id_60" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="390.5" atv:refpy="135.5" d="M388,146L388,125L393,125L393,146Z" fill="#e5e5dd" id="id_61"/>
+  <path atv:refpx="602.5" atv:refpy="135.5" d="M600,146L600,125L605,125L605,146Z" fill="#e5e5dd" id="id_62"/>
+  <path atv:refpx="602.5" atv:refpy="168.5" d="M600,191L600,146L605,146L605,191Z" fill="#b2b29b" id="id_63"/>
+  <path atv:refpx="390.5" atv:refpy="168.5" d="M388,191L388,146L393,146L393,191Z" fill="#b2b29b" id="id_64"/>
+  <path atv:refpx="390.5" atv:refpy="219" d="M388,247L388,191L393,191L393,247Z" fill="#7f7f59" id="id_65"/>
+  <path atv:refpx="602.5" atv:refpy="219" d="M600,247L600,191L605,191L605,247Z" fill="#7f7f59" id="id_66"/>
+  <path atv:refpx="390.5" atv:refpy="186" d="M388,247L388,125L393,125L393,247Z" fill="none" id="id_67" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="602.5" atv:refpy="186" d="M600,247L600,125L605,125L605,247Z" fill="none" id="id_68" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="496.5" atv:refpy="191.5" d="M393,136L600,136L600,247L393,247Z" fill="#e5e5dd" id="id_69"/>
+  <path atv:refpx="496.5" atv:refpy="201" d="M393,155L600,155L600,247L393,247Z" fill="#ccccbd" id="id_70"/>
+  <path atv:refpx="496.5" atv:refpy="214.5" d="M393,182L600,182L600,247L393,247Z" fill="#b2b29b" id="id_71"/>
+  <path atv:refpx="496.5" atv:refpy="191.5" d="M393,136L600,136L600,247L393,247Z" fill="none" id="id_72" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="496.5" atv:refpy="217.5" d="M393,217L600,217" fill="none" id="id_73" stroke="#7f7f7f" stroke-width="2"/>
+  <path atv:refpx="403" atv:refpy="229" d="M398,211L408,211L408,247L398,247Z" fill="#ccc" id="id_74" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="429" atv:refpy="229" d="M424,211L434,211L434,247L424,247Z" fill="#ccc" id="id_75" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="565" atv:refpy="229" d="M560,211L570,211L570,247L560,247Z" fill="#ccc" id="id_76" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="590" atv:refpy="229" d="M585,211L595,211L595,247L585,247Z" fill="#ccc" id="id_77" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="755" atv:refpy="361.5" d="M701,368L721,375L738,381L754,386L767,388L779,390L788,390L795,389L801,386L805,383L808,378L809,372L808,366L806,358L802,350L798,342L792,333L792,334L792,336L792,338L792,340L792,342L792,344L792,346L792,348L795,355L797,361L798,367L798,371L796,375L794,378L790,380L786,381L780,381L773,381L765,379L756,377L747,374L736,369L724,364L711,358L710,359L708,360L707,362L706,363L705,364L704,365L702,366Z" fill="#4c4c4c" id="id_78" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="890.5" atv:refpy="355.5" d="M898,333L883,333L883,378L888,378L888,348L898,348Z" fill="#ccc" id="id_79"/>
+  <path atv:refpx="721.5" atv:refpy="80" d="M651,75L792,75L792,85L651,85Z" fill="#b2b2aa" id="id_80" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="711.5" atv:refpy="39.5" d="M661,75L651,65L651,14L661,4L772,4L772,75Z" fill="#7f7f7f" id="id_81"/>
+  <path atv:refpx="711.5" atv:refpy="39.5" d="M661,65L651,58L651,21L661,14L772,14L772,65Z" fill="#b2b2b2" id="id_82"/>
+  <path atv:refpx="711.5" atv:refpy="39.5" d="M661,50L651,47L651,32L661,29L772,29L772,50Z" fill="#e5e5e5" id="id_83"/>
+  <path atv:refpx="711.5" atv:refpy="39.5" d="M661,75L651,65L651,14L661,4L772,4L772,75Z" fill="none" id="id_84" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="681.5" atv:refpy="39.5" d="M681,75L681,4" fill="none" id="id_85" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="751.5" atv:refpy="39.5" d="M751,75L751,4" fill="none" id="id_86" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="716" atv:refpy="24.5" d="M691,4L741,4L741,45L691,45Z" fill="#4c4c4c" id="id_87" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="746.5" atv:refpy="204" d="M696,166L797,166L797,242L696,242Z" fill="#000" id="id_88"/>
+  <path atv:refpx="908" atv:refpy="237" d="M863,227L953,227L953,247L863,247Z" fill="#000" id="id_89"/>
+  <path atv:refpx="908" atv:refpy="206" d="M863,196L953,196L953,216L863,216Z" fill="#000" id="id_90"/>
+  <path atv:refpx="835" atv:refpy="231.5" d="M807,206L863,206L863,257L807,257Z" fill="#bfbfbf" id="id_91" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="835" atv:refpy="264.5" d="M807,257L863,257L863,272L807,272Z" fill="#999" id="id_92" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="812" atv:refpy="186" d="M661,176L963,176L963,196L661,196Z" fill="#99998f" id="id_93" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="862.5" atv:refpy="85.5" d="M832,25L873,146L893,146L847,25Z" fill="#7f7f7f" id="id_94" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="812" atv:refpy="123" d="M661,161L963,161L963,151L832,125L822,85L802,85L792,125L661,151Z" fill="#99998f" id="id_95" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="812" atv:refpy="138" d="M797,125L827,125L827,151L797,151Z" fill="#ccc" id="id_96" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="812" atv:refpy="85" d="M802,55L822,55L822,115L802,115Z" fill="#b2b2b2" id="id_97" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="812" atv:refpy="90.5" d="M802,90L822,90" fill="none" id="id_98" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="812" atv:refpy="70.5" d="M802,70L822,70" fill="none" id="id_99" stroke="#4c4c4c" stroke-width="2"/>
+ </g>
+</svg>

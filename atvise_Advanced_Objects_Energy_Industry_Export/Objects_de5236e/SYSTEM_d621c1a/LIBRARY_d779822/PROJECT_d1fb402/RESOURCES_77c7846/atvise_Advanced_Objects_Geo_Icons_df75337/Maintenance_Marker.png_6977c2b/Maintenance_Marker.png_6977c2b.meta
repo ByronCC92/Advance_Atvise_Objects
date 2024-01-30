@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_Geo_Icons/Maintenance_Marker.png
+NodeClass: Variable
+BrowseName: 1:Maintenance_Marker.png
+DisplayName: en|Maintenance_Marker.png
+Description: en|Maintenance_Marker.png
+DataType: ByteString
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Resource.Png

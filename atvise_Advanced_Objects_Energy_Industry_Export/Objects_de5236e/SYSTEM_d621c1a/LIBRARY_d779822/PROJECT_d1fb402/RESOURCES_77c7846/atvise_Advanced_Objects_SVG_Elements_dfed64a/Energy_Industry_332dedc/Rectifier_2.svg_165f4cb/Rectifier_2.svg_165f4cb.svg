@@ -1,0 +1,25 @@
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20000303 Stylable//EN' 'http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-stylable.dtd'>
+<svg height="999" width="583" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="false" height="10" width="10"/>
+ </metadata>
+ <g atv:refpx="291" atv:refpy="499.5" id="Image_1">
+  <path atv:refpx="249.5" atv:refpy="499" d="M0,41L499,41L499,957L0,957Z" fill="#193366" id="id_0"/>
+  <path atv:refpx="249.5" atv:refpy="608" d="M0,569L499,259L499,957L0,957Z" fill="#142e61" id="id_1"/>
+  <path atv:refpx="249.5" atv:refpy="623" d="M0,601L499,289L499,957L0,957Z" fill="#0f295c" id="id_2"/>
+  <path atv:refpx="249.5" atv:refpy="646" d="M0,647L499,335L499,957L0,957Z" fill="#0a2457" id="id_3"/>
+  <path atv:refpx="249.5" atv:refpy="499" d="M0,41L499,41L499,957L0,957Z" fill="none" id="id_4" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="249.5" atv:refpy="978" d="M0,999L499,999L499,957L0,957Z" fill="#000" id="id_5"/>
+  <path atv:refpx="249.5" atv:refpy="249.5" d="M0,249L499,249" fill="none" id="id_6" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="541" atv:refpy="956.5" d="M583,957L499,999L499,957L583,914Z" fill="#000" id="id_7"/>
+  <path atv:refpx="541" atv:refpy="478.5" d="M583,914L499,957L499,41L583,0Z" fill="#000d40" id="id_8" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="291.5" atv:refpy="20.5" d="M84,0L0,41L499,41L583,0Z" fill="#324c7f" id="id_9" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="460" atv:refpy="280" d="M431,259L489,259L489,301L431,301Z" fill="#9eadcc" id="id_10"/>
+  <path atv:refpx="249.5" atv:refpy="119.5" d="M26,84L473,84L473,155L26,155Z" fill="#000" id="id_11"/>
+  <path atv:refpx="250.5" atv:refpy="119" d="M42,93L459,93L459,145L42,145Z" fill="#b2b2b2" id="id_12"/>
+  <path atv:refpx="250.5" atv:refpy="118.5" d="M42,113L459,113L459,124L42,124Z" fill="#000" id="id_13"/>
+  <path atv:refpx="524" atv:refpy="852" d="M537,877L511,889L511,827L537,815Z" fill="#000" id="id_14"/>
+ </g>
+</svg>

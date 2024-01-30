@@ -5,5 +5,42 @@
     <owner>root</owner>
     <runcontext>caller</runcontext>
   </metadata>
-  <code><![CDATA[]]></code>
+  <code><![CDATA[function csvFileToObjectsArray(filename) {
+    var reader = new CSVReader({ encoding: "UTF-8" }); // Adjust encoding if needed
+    var objectsArray = [];
+    var columnNames = [];
+
+    reader.load(filename, {
+        onReady: function(numRows) {
+            console.log("Total rows read: ", numRows);
+        },
+        onData: function(rowIndex, row) {
+            // Storing column names from the first row
+            if (rowIndex === 0) {
+                columnNames = row;
+                return CSVReader.CONTINUE;
+            }
+
+            // Creating an object for each subsequent row, maintaining column order
+            var rowObject = {};
+            for (var i = 0; i < columnNames.length; i++) {
+                rowObject[columnNames[i]] = row[i];
+            }
+            objectsArray.push(rowObject);
+
+            return CSVReader.CONTINUE;
+        },
+        onError: function(msg) {
+            console.log("Error: ", msg);
+        }
+    });
+
+    return objectsArray;
+}
+
+// Example usage
+var filename = "C:\\Users\\bcort\\Desktop\\Documentos Clientes\\Latam\\Entoria\\Datos Queretaro 22-10-22 al 22-10-23.csv"; // Replace with your CSV file name
+var result = csvFileToObjectsArray(filename);
+
+return result;]]></code>
 </script>

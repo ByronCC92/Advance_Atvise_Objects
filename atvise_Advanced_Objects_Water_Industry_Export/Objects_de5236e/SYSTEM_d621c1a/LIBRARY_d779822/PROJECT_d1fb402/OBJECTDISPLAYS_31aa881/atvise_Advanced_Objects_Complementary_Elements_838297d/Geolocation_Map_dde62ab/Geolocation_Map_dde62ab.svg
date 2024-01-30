@@ -7,6 +7,8 @@
   <atv:parameter behavior="optional" desc="Geo Config" name="Geo_Config" valuetype="address"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Iframe to Open" name="Iframe" valuetype="string"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Trigger Name" name="Trigger_Name" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="Condition Monitoring Address" name="Condition_Monitoring" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="AGENT.OBJECTS.Global_Geo_Alarms" desc="Global_Geo_Alarms" name="Global_Geo_Alarms" valuetype="address"/>
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
@@ -23,13 +25,41 @@ var Global_Geo_ListI={};
 var Global_Geo_ListII=webMI.query["Global_Geo_List"];
 var Geo_Config=webMI.query["Geo_Config"];
 var Global_Geo_Address=webMI.query["Global_Geo_Address"];
+var Condition_Monitoring=webMI.query["Condition_Monitoring"];
+var Alarm_Active_nodes=new Array();
+var Alert_Active_nodes=new Array();
+var Global_Geo_AlarmsR=webMI.query["Global_Geo_Alarms"]; 
+var Global_Geo_Alarms=new Array();
 
 
 //Internal Variables
 var google = webMI.rootWindow.google;
 var map; //Map Global Map
 var markers  =  new Array();
-var icon = "/atvise_Advanced_Objects_Geo_Icons/Map_Blue.png";
+
+//For Condition Monitoring
+var Global_Status_Markers=new Array(); //Global Status of all the markers
+
+var Global_Alarmed_Markers=new Array();
+var Global_Alerted_Markers=new Array();
+var Global_Maintenanced_Markers=new Array();
+var Alarm_Active_Root=".Alarm.Alarm_Active";
+var Alert_Active_Root=".Alarm.Alert_Active";
+var Mant_Active_Root=".Maintenance.Mant_Active";
+var Alarm_Active_nodes=new Array();
+var Alert_Active_nodes=new Array();
+var Mant_Active_nodes=new Array();
+
+//Icons
+var icon_Normal = "/atvise_Advanced_Objects_Geo_Icons/Normal_Marker.png";
+var icon_Alarm = "/atvise_Advanced_Objects_Geo_Icons/Alarm_Marker.png";
+var icon_Alert = "/atvise_Advanced_Objects_Geo_Icons/Alert_Marker.png";
+var icon_Mant = "/atvise_Advanced_Objects_Geo_Icons/Maintenance_Marker.png";
+var icon_Current=new Array(); //Current marker values
+var Subscribe_ready=false;
+
+
+//For rigth positioning
 var markerWidth;
 var markerHeight;
 var Current_Zoom=14;
@@ -44,16 +74,20 @@ var OffsetX;
 var OffsetY;
 var Simulated_Click=false;
 
-//Initial Conditions
+//-------------------------------------------------------//
+//-------------------Initial Conditions--------------------//
+
 webMI.addOnload(function() {
+	
+	//Initialize Condition Monitoring
+	if(Condition_Monitoring){
++		initMonitoring();
+	}
 	
 	//Hide  
 	webMI.gfx.setVisible("label", false); 
 	webMI.gfx.setVisible("border", false);
-	webMI.gfx.setScaledEvents(mapCanvas);
-	
-	console.log("Global_Geo_Address");	
-	console.log(Global_Geo_Address);
+	//webMI.gfx.setScaledEvents(mapCanvas);
 	
 	//Get Screen info
 	const BouningInfo = mapCanvas.getBoundingClientRect();
@@ -82,6 +116,7 @@ webMI.addOnload(function() {
 	
 });	
 
+//-------------------------------------------------------//
 //-------------------Trigger Section--------------------//
 
 //Update Map
@@ -91,11 +126,87 @@ webMI.trigger.connect("update_map_"+Trigger_Name, function (e) {
 });
 
 
+//Subscribe to condition monitoring
+if(Condition_Monitoring){
+	(async () => {
+		 await waitForCondition3();
+		 
+			setInterval(function(){
+			 
+				//Check out alarms
+				webMI.data.read(Alarm_Active_nodes, function(e) {
+					console.log(e);
+					for (var i=0;i<Alarm_Active_nodes.length;i++){
+						var Current_Alarm=e[i].value;
+						var Current_Alarm_Address=Alarm_Active_nodes[i].replace(Alarm_Active_Root,"");		
+						console.log(Current_Alarm);
+						if(Current_Alarm.length>0){ //There is an alarm
+							Global_Alarmed_Markers=updateValuesInArray(Global_Alarmed_Markers, Current_Alarm_Address, true);
+						}
+						else{			
+							Global_Alarmed_Markers=updateValuesInArray(Global_Alarmed_Markers, Current_Alarm_Address, false);
+						}					
+					}
+					//Update Global Status Marker			
+					updateGlobalStatusMarkers(Global_Alarmed_Markers, Global_Alerted_Markers, Global_Maintenanced_Markers);
+					//Update Markers
+					updateMarkers(Global_Status_Markers, markers);
+					
+		
+				}); 
+			},500);
+			
+			//Check out alerts
+			webMI.data.subscribe(Alert_Active_nodes, function(e) {
+				var Current_Alert=e.value;
+				var Current_Alert_Address=e.address.replace(Alert_Active_Root,"");
+	
+				if(Current_Alert.some(element => element !== '\"\"')){ //There is an alert
+					Global_Alerted_Markers=updateValuesInArray(Global_Alerted_Markers, Current_Alert_Address, true);
+				}
+				else{		
+					Global_Alerted_Markers=updateValuesInArray(Global_Alerted_Markers, Current_Alert_Address, false);
+				}
+							
+				//Update Global Status Marker
+				updateGlobalStatusMarkers(Global_Alarmed_Markers, Global_Alerted_Markers, Global_Maintenanced_Markers);
+				
+				//Update Markers			
+				updateMarkers(Global_Status_Markers, markers);
+			});
+			
+			//Check out Mant
+			webMI.data.subscribe(Mant_Active_nodes, function(e) {
+				var Current_Mant=e.value;
+				var Current_Mant_Address=e.address.replace(Mant_Active_Root,"");
+	
+				if(Current_Mant.length>0){ //There is Missing maintenance
+					Global_Maintenanced_Markers=updateValuesInArray(Global_Maintenanced_Markers, Current_Mant_Address, true);
+				}
+				else{		
+					Global_Maintenanced_Markers=updateValuesInArray(Global_Maintenanced_Markers, Current_Mant_Address, false);
+				}		
+				
+				//Update Global Status Marker
+				updateGlobalStatusMarkers(Global_Alarmed_Markers, Global_Alerted_Markers, Global_Maintenanced_Markers);
+				
+				//Update Markers			
+				updateMarkers(Global_Status_Markers, markers);
+			});
+		
+		
+	})(); 
+}
 
+//--------------------------------------------------------//
 //-------------------Functions Section--------------------//
 
-//Initialize map
+
+//-----------------Map Handle Functions------------------//
+
+//Initialize Map
 function InitializeMap(){
+
 	//Read the Global_List_Address
 	webMI.data.read(Global_Geo_Address, function(e) {
 	
@@ -139,15 +250,16 @@ function InitializeMap(){
 			}
 
 		});
-						
-		// Mouse click
+		
+		/*				
+		// Mouse click (In Test)
 		map.addListener("click", (mapsMouseEvent) => {
 			console.log("mapCanvas");
 			console.log(mapCanvas);
 			console.log("Scaling");
 			console.log(extractScaling(mapBorder));
 			var ScreenCTM=webMI.gfx.getScreenCTM("map_canvas");	
-			console.log(ScreenCTM);			
+			console.log(ScreenCTM);		 	
 			console.log(mapsMouseEvent);
 			var ScaleX=ScreenCTM.a;
 			var ScaleY=ScreenCTM.d;
@@ -172,7 +284,7 @@ function InitializeMap(){
 			//var OffsetY = ((-0.2209*Math.pow(ScaleY, 3))+(0.3503*Math.pow(ScaleY, 2))+(-0.1962*ScaleY)+ 0.0399)*SVGScaleY;
 						
 			//var OffsetX = (0.041501)*SVGScaleX;
-			//var OffsetX = (0.0042)/*/SVGScaleX*/;
+			//var OffsetX = (0.0042)//;
 			console.log("Pixel OffsetY: "+OffsetY);
 			console.log("Pixel OffsetX: "+OffsetX);
 			//New Pixel coordinate 
@@ -187,17 +299,7 @@ function InitializeMap(){
 			//console.log("Calculated Lat: "+latLng.lat());
 			//console.log("Calculated Long: "+latLng.lng());
 			
-			var marker = new google.maps.Marker({
-				position: latLng,
-				map: map,
-				title: "Test",
-				icon:{
-					url: icon,
-					scaledSize: new google.maps.Size(markerWidth, markerHeight)
-				}
-			});			
-			
-		});
+		});*/
 	});
 }
 
@@ -213,6 +315,8 @@ function updateMap(){
 	
 	//Remove markers
 	markers=[];
+	Alarmed_Markers=[];
+	Alerted_Markers=[];
 	markers.length = 0;
 	Global_Geo_ListI=[];
 	
@@ -242,15 +346,13 @@ function updateMap(){
 						addMarker(map,obj);
 					
 				}
-			}
-			
-			
+			}			
 			//Fit map to Markers
 			fitMapToMarkers(map, markers);
 
 		},200);
 		
-		//Add Listener for resizing
+		//------------Add Listener for resizing
 		google.maps.event.addListener(map, 'zoom_changed', function() {
 	
 			var zoom = map.getZoom();
@@ -260,14 +362,21 @@ function updateMap(){
 			//set the icon with the new size to the marker
 			for (var i=0; i<markers.length; i++){
 				markers[i].setIcon({
-					url: icon,
+					url: icon_Current[i],
 					scaledSize: new google.maps.Size(markerWidth, markerHeight)
 				});
 			}
 		});
 		
 	});
+	
+	//Reinitialize Condition Monitoring
+	if(Condition_Monitoring){
++		initMonitoring();
+	}
+	
 }
+
 
 //Calculate Center
 function calculateCenter(data) {
@@ -309,13 +418,15 @@ function addMarker(map,obj) {
 		map: map,
 		title: obj['1 Name'],
 		icon:{
-			url: icon,
+			url: icon_Normal,
 			scaledSize: new google.maps.Size(markerWidth, markerHeight)
 		}
 	});
 	
 	//Add to markers list
 	markers.push(marker);
+	Alarmed_Markers.push(false);
+	Alerted_Markers.push(false);
 	
 	//Add Listeners
 	marker.addListener("click", function(e){
@@ -346,12 +457,6 @@ function setMapOptions(map){
 		map.setOptions(myOptions);
 }
 
-//Update selection
-function updateSelectionText(New_Values){
-	webMI.trigger.fire("write_value_Global_List_Input", New_Values);
-}
-
-
 //Fit map in Markers
 function fitMapToMarkers(map, markers) {
     var bounds = new google.maps.LatLngBounds();
@@ -367,32 +472,6 @@ function fitMapToMarkers(map, markers) {
 }
 
 
-
-//Wait for data to be ready
-
-function waitForCondition() {
-  return new Promise((resolve) => {
-    const interval = setInterval(() => {
-	var condition=(map!=undefined);
-      if (condition) {
-        clearInterval(interval);
-        resolve(true);
-      }
-    }, 100);
-  });
-}
-
-function waitForCondition2() {
-  return new Promise((resolve) => {
-    const interval = setInterval(() => {
-	var condition=(markers.length>=Global_Geo_ListI.length);
-      if (condition) {
-        clearInterval(interval);
-        resolve(true);
-      }
-    }, 100);
-  });
-}
 
 
 function extractScaling(element) {
@@ -471,6 +550,235 @@ function calculateOffsetsFromRect(rect) {
 
     return { OffsetX, OffsetY };
 }
+
+
+
+//-----------------Condition Monitoring Handling Functions------------------//
+
+
+
+function initMonitoring(){
+	//Call Global_Alarm_Geo_Monitor 
+	webMI.data.call("Global_Geo_Alarm_Monitor_webMI_Method_Script", {}, function(e) {
+		webMI.data.read([Global_Geo_AlarmsR,Global_Geo_Address], function(e) {
+		
+		   //Read data	
+		   Global_Geo_Alarms=e[0].value; //All the objects and the corresponding Loading_Display
+		   var Global_Geo_List=e[1].value; //The list of all markers
+		   
+		   icon_Current=Global_Geo_List.map((x)=>icon_Normal);
+		   
+		  //Find nodes with display matching markers associated display		   
+		   var Matching_Keys=findMatchingKeys(Global_Geo_Alarms, Global_Geo_List);
+		   
+		   //Create Global Alarmed and Alerted status 0 by default	
+		   Global_Status_Markers=matchAlarmsWithDisplays(Global_Geo_Alarms, Global_Geo_List,0); 
+		   Global_Alarmed_Markers=matchAlarmsWithDisplays(Global_Geo_Alarms, Global_Geo_List,false);
+		   Global_Alerted_Markers=matchAlarmsWithDisplays(Global_Geo_Alarms, Global_Geo_List,false);
+		   Global_Maintenanced_Markers=matchAlarmsWithDisplays(Global_Geo_Alarms, Global_Geo_List,false);
+		   
+		   //Elaborate list of nodes to subscribe to		   
+		   Alarm_Active_nodes = Matching_Keys.map((x) => x +Alarm_Active_Root);
+		   Alert_Active_nodes = Matching_Keys.map((x) => x +Alert_Active_Root);
+		   Mant_Active_nodes = Matching_Keys.map((x) => x +Mant_Active_Root);
+		   
+		   setTimeout(function(){
+			 Subscribe_ready=true;
+		   },300);
+		});
+	
+	});	
+}
+
+
+//Update markers based on Global_Status_Markers
+function updateMarkers(alarmData, markers) {
+
+    // Function to determine the icon based on status values
+    const determineIcon = (alarmValues) => {
+        if (alarmValues.every(val => val === 0)) {
+            return { icon: icon_Normal, shouldBounce: false };
+        }
+        const minValue = Math.min(...alarmValues.filter(val => val > 0));
+        switch (minValue) {
+            case 1: return { icon: icon_Alarm, shouldBounce: true };
+            case 2: return { icon: icon_Alert, shouldBounce: true };
+            case 3: return { icon: icon_Mant, shouldBounce: true };
+            default: return { icon: icon_Normal, shouldBounce: true }; // Default case, can be adjusted
+        }
+    };
+
+    alarmData.forEach((alarmArray, index) => {
+        const alarmValues = alarmArray.map(obj => Object.values(obj)[0]);
+        const { icon: iconT, shouldBounce } = determineIcon(alarmValues);
+
+        // Assuming markers[index] is a valid Google Maps marker object
+        if (markers[index]) {
+			icon_Current[index]=iconT;
+            markers[index].setAnimation(shouldBounce ? google.maps.Animation.BOUNCE : null);
+            markers[index].setIcon({
+                url: iconT,
+                scaledSize: new google.maps.Size(markerWidth, markerHeight) // Example sizes, adjust as needed
+            });
+        }
+    });
+}
+
+//Find Matching keys for the Condition Monitoring
+function findMatchingKeys(Global_Geo_Alarms, Global_Geo_List) {
+    // Parse stringified objects in Global_Geo_List and extract '5 Display' values
+    var displaysInGeoList = Global_Geo_List.map(item => {
+        var parsedItem = JSON.parse(`{${item}}`);
+        return parsedItem[Object.keys(parsedItem)[0]]['5 Display'];
+    });
+
+    // Parse stringified objects in Global_Geo_Alarms and find matching keys
+    var matchingKeys = Global_Geo_Alarms.map(item => {
+        var parsedItem = JSON.parse(item);
+        var key = Object.keys(parsedItem)[0];
+        var value = parsedItem[key];
+        if (displaysInGeoList.includes(value)) {
+            return key;
+        }
+    }).filter(key => key !== undefined); // Filter out undefined values
+
+    return matchingKeys;
+}
+
+
+//Associate nodes with Markers
+function matchAlarmsWithDisplays(Global_Geo_Alarms, Global_Geo_List,valueI) {
+    // Parse the stringified JSON objects in Global_Geo_Alarms
+    const alarms = Global_Geo_Alarms.map(str => JSON.parse(str));
+    
+    // Initialize the result array
+    let result = [];
+
+    // Iterate over each string in Global_Geo_List
+    for (let str of Global_Geo_List) {
+        // Correctly parse the stringified JSON object
+        const displayObj = JSON.parse(`{${str}}`);
+        const displayKey = Object.keys(displayObj)[0]; // Get the first key which is the index
+        const displayValue = displayObj[displayKey]['5 Display']; // Access '5 Display' within the object
+
+        // Find matching keys in Global_Geo_Alarms
+        let matches = [];
+        alarms.forEach(alarm => {
+            const key = Object.keys(alarm)[0];
+            const value = alarm[key];
+            if (value === displayValue) {
+                let match = {};
+                match[key] = valueI;
+                matches.push(match);
+            }
+        });
+
+        // Add the matches for this display to the result
+        result.push(matches);
+    }
+
+    return result;
+}
+
+
+//Update global status
+function updateGlobalStatusMarkers(Global_Alarmed_Markers, Global_Alerted_Markers, Global_Maintenanced_Markers) {
+    // Reset Global_Status_Markers to match the structure of the other arrays
+    Global_Status_Markers.length = 0;
+
+    for (let i = 0; i < Global_Alarmed_Markers.length; i++) {
+        Global_Status_Markers[i] = [];
+
+        for (let j = 0; j < Global_Alarmed_Markers[i].length; j++) {
+            let statusObject = {};
+
+            for (const key in Global_Alarmed_Markers[i][j]) {
+                const isAlarmed = Global_Alarmed_Markers[i][j][key];
+                const isAlerted = Global_Alerted_Markers[i][j][key];
+                const isMaintenanced = Global_Maintenanced_Markers[i][j][key];
+
+                if (isAlarmed) {
+                    statusObject[key] = 1; // Alarmed
+                } else if (!isAlarmed && isAlerted) {					
+                    statusObject[key] = 2; // Alerted only if not Alarmed
+                } else if (!isAlarmed && !isAlerted && isMaintenanced) {
+                    statusObject[key] = 3; // Maintenance only if not Alarmed and not Alerted
+                } else {
+                    statusObject[key] = 0; // None are true
+                }
+            }
+
+            Global_Status_Markers[i].push(statusObject);
+        }
+    }
+}
+
+//Update Values on Global Arrays based on the node triggered
+function updateValuesInArray(arrays, keyToUpdate, newValue) {
+    // Iterate over each array in the array of arrays
+    arrays.forEach(array => {
+        // Iterate over each object in the array
+        array.forEach(obj => {
+            // Check if the object has the key we want to update
+            if (obj.hasOwnProperty(keyToUpdate)) {
+                // Update the value of the key
+                obj[keyToUpdate] = newValue;
+            }
+        });
+    });
+    return arrays;
+}
+
+
+
+//-----------------External Integration Functions------------------//
+
+//Update text selection
+function updateSelectionText(New_Values){
+	webMI.trigger.fire("write_value_Global_List_Input", New_Values);
+}
+
+
+//-------------Waiters--------------//
+
+function waitForCondition() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+	var condition=(map!=undefined);
+      if (condition) {
+        clearInterval(interval);
+        resolve(true);
+      }
+    }, 100);
+  });
+}
+
+function waitForCondition2() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+	var condition=(markers.length>=Global_Geo_ListI.length);
+      if (condition) {
+        clearInterval(interval);
+        resolve(true);
+      }
+    }, 100);
+  });
+}
+
+function waitForCondition3() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+	var condition=(Alarm_Active_nodes.length>0 && Alert_Active_nodes.length>0 && Subscribe_ready);
+      if (condition) {
+        clearInterval(interval);
+        resolve(true);
+      }
+    }, 100);
+  });
+}
+
+
+
 
 
 webMI.addEvent("map_canvas", "click", function(e) {

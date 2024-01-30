@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN03_Diesel_Generator_2
+NodeClass: ObjectType
+BrowseName: 1:EN03_Diesel_Generator_2
+DisplayName: en|EN03_Diesel_Generator_2
+Description: en|EN03_Diesel_Generator_2
+IsAbstract: false

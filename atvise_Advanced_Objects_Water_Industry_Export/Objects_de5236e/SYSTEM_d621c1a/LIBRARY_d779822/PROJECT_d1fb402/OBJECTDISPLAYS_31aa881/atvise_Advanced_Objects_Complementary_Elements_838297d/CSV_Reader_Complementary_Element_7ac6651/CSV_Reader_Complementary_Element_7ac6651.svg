@@ -84,6 +84,8 @@ var Table_Data=[];
 var Ready_Data=[];
 var item; //Variable for current maintenance info
 var Table_Id;
+var Final_Date;
+var Initial_Date;
 
 //Index
 var Table_Initialized=false;

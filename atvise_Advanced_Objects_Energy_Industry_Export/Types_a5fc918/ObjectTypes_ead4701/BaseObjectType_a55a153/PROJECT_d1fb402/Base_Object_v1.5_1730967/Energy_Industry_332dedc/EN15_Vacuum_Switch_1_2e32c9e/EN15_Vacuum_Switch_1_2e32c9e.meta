@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Energy_Industry.EN15_Vacuum_Switch_1
+NodeClass: ObjectType
+BrowseName: 1:EN15_Vacuum_Switch_1
+DisplayName: en|EN15_Vacuum_Switch_1
+Description: en|EN15_Vacuum_Switch_1
+IsAbstract: false

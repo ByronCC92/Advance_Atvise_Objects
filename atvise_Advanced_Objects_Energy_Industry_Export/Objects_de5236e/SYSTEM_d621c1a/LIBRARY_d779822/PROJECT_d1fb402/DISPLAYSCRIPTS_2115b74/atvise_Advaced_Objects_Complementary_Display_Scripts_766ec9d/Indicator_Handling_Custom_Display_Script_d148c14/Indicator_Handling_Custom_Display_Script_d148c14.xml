@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[/**
+ * This script handles the status indicators.
+ */
+
+
+/**
+ * IMPORTS
+ */
+var	AccessControlManager = webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Access Control Manager");
+
+
+/**
+ * DECLARATION SECTION
+ */
+var activeIndicator = "";
+var activeIndicatorColor = null;
+var activeIndicatorCurrent = "";
+var activeIndicatorID = null;
+var activeIndicatorInterval = null;
+var activeIndicatorLock = false;
+var activeIndicatorState = false;
+var activeIndicatorStateChanged = false;
+var activeIndicatorSubscription = false;
+var activeIndicatorTimer = 0;
+var activeIndicatorHeartBeat = 50;
+var activeIndicators = {};
+var currentIndicator = "";
+
+var alarm1status=false;
+var alarm2status=false;
+/**
+ * [AT-D-12401] Interval for managing the blinking as an extension for setIndicator
+ * @type {number}
+ */
+ 
+ //Here is where we perfrom the blinking part
+ /*
+var activeIndicatorID = setInterval(function activeIndicatorBeat() {
+
+	if (activeIndicatorStateChanged && activeIndicatorInterval == null) {
+		webMI.gfx.setVisible("blinking_frame", false);		
+	} else if (activeIndicatorInterval == 0) {
+		webMI.gfx.setVisible("blinking_frame", "visible");		
+	} else {
+		if (activeIndicatorInterval == null)
+			return;
+
+		if (activeIndicatorTimer <= 0) {
+			if (activeIndicatorState) {
+				webMI.gfx.setVisible("blinking_frame", false);
+				activeIndicatorState = false;				
+			} else {
+				webMI.gfx.setVisible("blinking_frame", "visible");
+				activeIndicatorState = true;
+			}
+			activeIndicatorTimer = activeIndicatorInterval;
+		} else {
+			activeIndicatorTimer = activeIndicatorTimer - activeIndicatorHeartBeat;
+		}
+	}
+
+	activeIndicatorStateChanged = false;
+
+}, activeIndicatorHeartBeat);
+*/
+
+
+webMI.trigger.connect("Alarm_color_change", function(e) {
+	console.log("Triggered");
+	console.log(e);
+	if (e.value == 0) { //AlarmStatusOnUnacknowledged
+		console.log("Apagado");
+		_setBackground(backgroundColor);
+		_updateLabelColors("input_label",fontColor);
+		webMI.gfx.setVisible("input_label", true);
+		webMI.gfx.setFill("blinking_frame", backgroundColor)
+	} 
+	else if (e.value == 1) { //AlarmStatusOnUnacknowledged
+		_setBackground(alarmActiveColor);
+		_updateLabelColors("input_label",fontColorActiveUnacknowledge);
+		webMI.gfx.setFill("blinking_frame", alarmActiveColor);
+		webMI.gfx.setVisible("input_label", true);
+	} 
+	else if (e.value == 2) {//AlarmStatusOnAcknowledged
+		_setBackground(alarmActiveColor);
+		_updateLabelColors("input_label",fontColorActiveAcknowledge);
+		webMI.gfx.setFill("blinking_frame", alarmActiveColor);
+		webMI.gfx.setVisible("input_label", true);
+	}
+	else if (e.value == 3) {//AlarmStatusOffUnacknowledged
+		_setBackground(backgroundColor);
+		_updateLabelColors("input_label",fontColor);
+		webMI.gfx.setFill("blinking_frame", backgroundColor);
+		webMI.gfx.setVisible("input_label", {0:true,2:false,4:true,6:false,8:true,10:false});
+		
+	}
+	else if (e.value == 5 && alarm1status>=4 && alarm2status>=4) {//AlarmStatusOnOffUnacknowledged
+		_setBackground(backgroundColor);
+		_updateLabelColors("input_label",fontColor);
+		webMI.gfx.setVisible("input_label", true);
+		webMI.gfx.setFill("blinking_frame", backgroundColor)
+	}
+	else if (e.value == 6) {//Alarms Disabled
+		_setBackground(backgroundColor);
+		_updateLabelColors("input_label",fontColor);
+		webMI.gfx.setFill("blinking_frame", backgroundColor);
+		webMI.gfx.setVisible("input_label", true); 
+	}
+	else if (e.value == 7) {//Bad Connection
+		_setBackground(BadConnectionColor);
+		_updateLabelColors("input_label",fontColorBadConnection);
+		webMI.gfx.setFill("blinking_frame", BadConnectionColor);
+		webMI.gfx.setVisible("input_label", true);
+	}
+	else if(e.value > 7 && alarm1status>=4 && alarm2status>=4){//Normal conditions
+		_setBackground(backgroundColor);
+		_updateLabelColors("input_label",fontColor);
+		webMI.gfx.setFill("blinking_frame", backgroundColor);
+		webMI.gfx.setVisible("input_label", true);
+	}
+
+});
+
+/**
+ * FUNCTION SECTION
+ */
+
+/**
+ * Set Indication
+ */
+function setIndicator() {
+	if (activeIndicators["trigger"]) {
+		activeIndicator = "trigger";
+	} else if (activeIndicators["status"]) {
+		activeIndicator = "status";
+	} else if (activeIndicators["alarm"]) {
+		activeIndicator = "alarm";
+	} else {
+		activeIndicator = "";
+	}
+
+	var indicatorChange = false;
+	if (activeIndicator) {
+		if (activeIndicator != activeIndicatorCurrent)
+			indicatorChange = true;
+		if (activeIndicatorInterval != activeIndicators[activeIndicator].interval)
+			indicatorChange = true;
+		if (activeIndicatorColor != activeIndicators[activeIndicator].color)
+			indicatorChange = true;
+	}
+
+	if (activeIndicator && indicatorChange) {
+
+		activeIndicatorColor = activeIndicators[activeIndicator].color;
+		activeIndicatorCurrent = activeIndicator;
+		activeIndicatorInterval = activeIndicators[activeIndicator].interval;
+		activeIndicatorState = false;
+
+		if (typeof webMI.gfx.getX("gauge_value") == "undefined") {
+			//webMI.gfx.setStroke("blinking_frame", backgroundColor);
+			
+			
+		} else {
+			//webMI.gfx.setFill("blinking_frame", backgroundColor);
+			
+		}
+
+	} else if (!activeIndicator) {
+		activeIndicatorInterval = null;
+		activeIndicatorCurrent = activeIndicator;
+	}
+
+	activeIndicatorStateChanged = true;
+
+	return;
+}
+
+
+/**
+ * handle alarm changes
+ * @param address
+ */
+function updateAlarmIndication(address) {
+	/** Fallback if AccessControlManager not available */
+	if(AccessControlManager) {
+		var compareRights = [{node: address, right: "alarmRead"}];
+		AccessControlManager.assist.handleWithPermissions(
+			compareRights,
+			function setAlarmAllow() {
+				activateAlarmSubscribtion();
+			},
+			function setAlarmDenied() {
+			}
+		);
+	} else {
+		activateAlarmSubscribtion();
+	}
+
+	/**
+	 * Activate subscription
+	 */
+	function activateAlarmSubscribtion() {
+		activeIndicatorSubscription = true;
+
+		if (alarmIndication == "")
+			alarmIndication = {};
+
+		if (typeof alarmIndication["AlarmStatusOnUnacknowledged"] == "undefined")
+			alarmIndication["AlarmStatusOnUnacknowledged"] = {color: alarmActiveColor, interval: "250"};
+
+		if (typeof alarmIndication["AlarmStatusOnAcknowledged"] == "undefined")
+			alarmIndication["AlarmStatusOnAcknowledged"] = {color: alarmActiveColor, interval: "500"};
+
+		if (typeof alarmIndication["AlarmStatusOffUnacknowledged"] == "undefined")
+			alarmIndication["AlarmStatusOffUnacknowledged"] = {color: alarmClearedColor, interval: "750"};
+
+		if (typeof alarmIndication["AlarmStatusOnOffUnacknowledged"] == "undefined")
+			alarmIndication["AlarmStatusOnOffUnacknowledged"] = {color: alarmActiveColor, interval: "1500"};
+
+		webMI.alarm.subscribe([address,alarmToSubscribe2], function (e) {
+			console.log("Base");
+			console.log(base);
+			console.log(e);
+			
+			if(e.address==address){
+				alarm1status=e.state;
+				if(alarm1status<4){
+					webMI.trigger.fire("Alarm_color_change",alarm1status);
+				}
+				else if(alarm2status>=4&&alarm2status>=43){ //If there is no Alarm
+					webMI.trigger.fire("Alarm_color_change",alarm1status);
+				}
+			}
+			else if(e.address==alarmToSubscribe2){
+				alarm2status=e.state;
+				if(alarm2status<4){
+					webMI.trigger.fire("Alarm_color_change",alarm2status);
+				}
+				else if(alarm2status>=43&&alarm2status>=4){//If there is no Alarm
+					webMI.trigger.fire("Alarm_color_change",alarm2status);
+				}
+			}
+			
+			
+			if (e.state == 1) {
+				activeIndicators["alarm"] = {
+					color: alarmIndication["AlarmStatusOnUnacknowledged"].color,
+					interval: parseInt(alarmIndication["AlarmStatusOnUnacknowledged"].interval)
+					}
+				
+			} else if (e.state == 2) {
+				activeIndicators["alarm"] = {
+					color: alarmIndication["AlarmStatusOnAcknowledged"].color,
+					interval: parseInt(alarmIndication["AlarmStatusOnAcknowledged"].interval)
+				}
+			} else if (e.state == 3) {
+				activeIndicators["alarm"] = {
+					color: alarmIndication["AlarmStatusOffUnacknowledged"].color,
+					interval: parseInt(alarmIndication["AlarmStatusOffUnacknowledged"].interval)
+				}
+			} else if (e.state == 5) {
+				activeIndicators["alarm"] = {
+					color: alarmIndication["AlarmStatusOnOffUnacknowledged"].color,
+					interval: parseInt(alarmIndication["AlarmStatusOnOffUnacknowledged"].interval)
+				}
+			} else {
+				delete activeIndicators["alarm"];
+			}
+
+			if (typeof customSetIndicator === "function") customSetIndicator();
+			else setIndicator(e.state == 0);
+		});
+	}
+
+	webMI.trigger.connect("com.atvise.access_control_update", function (e) {
+		if (AccessControlManager) {
+			var compareRights = [{node: address, right: "read"}];
+			AccessControlManager.assist.handleWithPermissions(
+				compareRights,
+				() => {
+					if (!activeIndicatorSubscription)
+						activateAlarmSubscribtion();
+				},
+				() => {
+					delete activeIndicators["alarm"];
+					setIndicator(true);
+				}
+			)
+		}
+	});
+}
+
+
+/**
+ * handle status changes
+ * @param status
+ */
+function updateStatusIndication(status) {
+	if (statusEnabled != "Yes")
+		return;
+
+	if (statusTrigger != "") {
+		webMI.trigger.fire(statusTrigger, status);
+	} else {
+		if (typeof statusIndication["ItemStatusBad"] == "undefined")
+			statusIndication = {"ItemStatusBad": {color: "#ffff00", interval: "250"}};
+
+		if (_isGood(status))	{			//Good value state
+			delete activeIndicators["status"];
+			if (alarm1status>=4 && alarm2status!=0 &&alarm2status>=4){
+				webMI.trigger.fire("Alarm_color_change",10);
+			}
+			else{
+				if (alarm1status!=0&&alarm1status<4){
+					webMI.trigger.fire("Alarm_color_change",alarm1status);
+				}	
+				else if (alarm2status!=0&&alarm2status<4){
+					webMI.trigger.fire("Alarm_color_change",alarm2status);
+				}	
+			}
+		}
+		else if (_isBad(status))	{		//Bad value state
+			activeIndicators["status"] = {
+				color: statusIndication["ItemStatusBad"].color,
+				interval: parseInt(statusIndication["ItemStatusBad"].interval)
+			};
+			webMI.trigger.fire("Alarm_color_change",7);
+			
+		}
+		else if (_isUncertain(status)){	//Uncertain value state
+			activeIndicators["status"] = {
+				color: statusIndication["ItemStatusBad"].color,
+				interval: parseInt(statusIndication["ItemStatusBad"].interval)
+
+			};
+			webMI.trigger.fire("Alarm_color_change",7);
+		}
+		else	{							//Unknown value state
+			activeIndicators["status"] = {
+				color: statusIndication["ItemStatusBad"].color,
+				interval: parseInt(statusIndication["ItemStatusBad"].interval)
+			};
+				webMI.trigger.fire("Alarm_color_change",7);
+		}
+
+
+		if (typeof customSetIndicator === "function") customSetIndicator();
+		else setIndicator(_isGood(status));
+	}
+}
+
+
+/**
+ * eval good status
+ * @param status
+ * @returns {boolean}
+ * @private
+ */
+function _isGood(status) {
+	return !_isUndefined(status) && (status == 0 || (status & 0xC0000000).toString(16) == 0);
+}
+
+
+/**
+ * eval uncertan status
+ * @param status
+ * @returns {boolean}
+ * @private
+ */
+function _isUncertain(status) {
+	return !_isUndefined(status) && ((status & 0xC0000000).toString(16) == 40000000);
+}
+
+
+/**
+ * eval bad status
+ * @param status
+ * @returns {boolean}
+ * @private
+ */
+function _isBad(status) {
+	return !_isUndefined(status) && ((status & 0x80000000).toString(16) != 0);
+}
+
+
+/**
+ * simple compare for undefined
+ * @param status
+ * @returns {boolean}
+ * @private
+ */
+function _isUndefined(status) {
+	return typeof status === "undefined";
+}
+
+
+/**
+ * TRIGGER SECTION
+ */
+webMI.trigger.connect("com.atvise.setBlinking", function (e) {
+	if (e.value == "none") {
+		delete activeIndicators["trigger"];
+	} else {
+		activeIndicators["trigger"] = {color: e.value, interval: 500};
+	}
+
+	if (typeof customSetIndicator === "function") {
+		customSetIndicator();
+	} else {
+		setIndicator();
+	}
+});
+
+
+/**
+ * UNLOAD
+ */
+webMI.addOnunload(function () {
+	clearInterval(activeIndicatorInterval);
+});
+
+]]></code>
+</script>

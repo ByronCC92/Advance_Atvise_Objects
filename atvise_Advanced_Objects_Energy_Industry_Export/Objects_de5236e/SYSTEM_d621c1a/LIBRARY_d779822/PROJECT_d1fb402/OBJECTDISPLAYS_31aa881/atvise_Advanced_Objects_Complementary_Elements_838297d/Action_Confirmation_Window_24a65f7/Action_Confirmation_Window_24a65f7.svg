@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="300" version="1.2" width="500" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Action_Trigger_Name" name="Action_Trigger_Name" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Confirmation_Text" name="Confirmation_Text" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Confirmation_Text_Color" name="Confirmation_Text_Color" substitute="$Confirmation_Text_Color$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="16" desc="Confirmation_Text_Size" name="Confirmation_Text_Size" substitute="$Confirmation_Text_Size$" valuetype="number"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <text atv:refpx="164.5" atv:refpy="35" fill="$Confirmation_Text_Color$" font-family="Arial" font-size="$Confirmation_Text_Size$" id="id_0" x="14.5" y="39.5">Are you sure you want to complete the following action?</text>
+ <line atv:refpx="210" atv:refpy="50" id="id_1" stroke="$Confirmation_Text_Color$" stroke-width="2" x1="10" x2="410" y1="50" y2="50"/>
+ <svg atv:refpx="180" atv:refpy="265" height="30" id="Yes_button" width="80" x="140" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="250">
+  <atv:argument name="label" value="T{Yes}"/>
+ </svg>
+ <svg atv:refpx="310" atv:refpy="265" height="30" id="No_Button" width="80" x="270" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="250">
+  <atv:argument name="label" value="T{No}"/>
+ </svg>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//---------------Initialize Variables---------//
+
+//External
+var Confirmation_Text=webMI.query["Confirmation_Text"];
+var Action_Trigger_Name=webMI.query["Action_Trigger_Name"];
+
+
+
+
+//Initial Conditions
+webMI.addOnload(function() {
+	
+	//Set text
+	webMI.trigger.fire("write_value_Confirmation_Text", {value:Confirmation_Text});
+
+});
+
+
+//-----------Triggers--------------//
+
+//Execute action based on Action_Trigger_Name
+webMI.addEvent("Yes_button", "click", function(e) {
+	webMI.trigger.fire(Action_Trigger_Name, {text:"Executing action"});
+	setTimeout(function(){
+		webMI.display.closeWindow();
+	},500);
+});
+
+//Close Window, No action done
+webMI.addEvent("No_Button", "click", function(e) {
+	webMI.display.closeWindow();
+});
+
+]]></script>
+ <svg atv:refpx="250" atv:refpy="150" height="40" id="id_3" transform="matrix(1.2,0,0,3.5,0,0)" width="400" x="8.333" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Text_Area_Complementary_Element" y="22.857">
+  <atv:argument name="Name" value="Confirmation_Text"/>
+  <atv:argument name="Border_Color" value="#ffffff"/>
+  <atv:argument name="Border_Thickness" value="0"/>
+  <atv:argument name="Font_Size" prefix="Confirmation_Text_Size" value=""/>
+  <atv:argument name="Alignment" value="left"/>
+ </svg>
+</svg>

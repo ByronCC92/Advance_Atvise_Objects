@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="122.72" version="1.2" width="78" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advaced_Objects_Complementary_Display_Scripts.Alarm_Alert_Advanced_Indicator_Display_Script" atv:name="" atv:type="text/ecmascript"/>
+ <polygon atv:refpx="63.671" atv:refpy="38.519" fill="#fdf90a" id="alert_increasing" points="51.669,50.518 75.669,50.518 63.001,26.518" stroke="#000000" stroke-width="1"/>
+ <polygon atv:refpx="11.207" atv:refpy="41.103" fill="#fdbf21" id="alert_decreasing" points="25.871,29.102 1.87,29.102 14.535,53.103" stroke="#000000" stroke-width="1"/>
+ <text atv:refpx="64.671" atv:refpy="43.019" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alertC_text" text-anchor="end" x="66.171" y="47.519">1</text>
+ <text atv:refpx="14.459" atv:refpy="38.101" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alertD_text" x="10.959" y="42.601">1</text>
+ <rect atv:refpx="9.088" atv:refpy="-57.049" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertC" stroke="none" stroke-width="0" width="28" x="50" y="11.484"/>
+ <rect atv:refpx="14" atv:refpy="43.484" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertD" stroke="none" stroke-width="0" width="28" x="0" y="24.484"/>
+ <polygon atv:refpx="60.419" atv:refpy="82.021" fill="#fdf90a" id="alert_increasing_min" points="75.083,70.017 51.081,70.017 63.748,94.017" stroke="#000000" stroke-width="1"/>
+ <text atv:refpx="63.671" atv:refpy="79.019" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alertC_text_min" x="60.171" y="83.519">1</text>
+ <polygon atv:refpx="14.459" atv:refpy="81.601" fill="#fdbf21" id="alert_decreasing_min" points="2.457,93.601 26.457,93.601 13.789,69.601" stroke="#000000" stroke-width="1"/>
+ <text atv:refpx="15" atv:refpy="85.984" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alertD_text_min" text-anchor="end" x="16.5" y="90.484">1</text>
+ <rect atv:refpx="-40.912" atv:refpy="-13.049" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertD_min" stroke="none" stroke-width="0" width="28" x="0" y="55.484"/>
+ <g atv:refpx="36.5" atv:refpy="61.484" id="Ind_Bar" transform="matrix(1,0,0,1,-2,-7.516)">
+  <rect atv:refpx="38.5" atv:refpy="69" fill="#626262" height="77.366" id="Barra_Ind2" rx="7" ry="7" stroke="#000000" stroke-width="1" width="14" x="31.5" y="30.317"/>
+  <path atv:refpx="38.496" atv:refpy="36.976" d="M31.826,43.257L45.178,43.257L45.08,36.1C45.08,36.1 44.046,30.754 38.676,30.694C33.305,30.633 31.876,35.603 31.876,35.603C31.876,35.603 31.777,43.318 31.826,43.257" fill="#b5b5b5" id="id_19" stroke="#000000" stroke-width="0"/>
+  <path atv:refpx="38.533" atv:refpy="100.982" d="M45.204,94.701L31.852,94.701L31.95,101.858C31.95,101.858 32.985,107.205 38.355,107.265C43.726,107.324 45.154,102.356 45.154,102.356C45.154,102.356 45.252,94.641 45.204,94.701" fill="#b5b5b5" id="id_20" stroke="#000000" stroke-width="0"/>
+ </g>
+ <rect atv:refpx="49.396" atv:refpy="14.695" fill="#bd070d" height="23" id="alarm_square" rx="1.855" ry="1.987" stroke="#000000" stroke-width="1" text-anchor="middle" width="23" x="37.446" y="2.569"/>
+ <text atv:refpx="-20.554" atv:refpy="-10.716" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alarm_text" text-anchor="middle" x="48.946" y="19.07">1</text>
+ <rect atv:refpx="-3.405" atv:refpy="-49.206" fill="#93060a" fill-opacity="0" height="28" id="click_area_alarm" stroke="none" stroke-width="0" width="28" x="34.879" y="0"/>
+ <rect atv:refpx="49.102" atv:refpy="109.129" fill="#bd070d" height="23" id="alarm_square_min" rx="1.855" ry="1.987" stroke="#000000" stroke-width="1" text-anchor="middle" width="23" x="37.152" y="97.003"/>
+ <text atv:refpx="-20.848" atv:refpy="83.718" fill="#000000" font-family="Arial" font-size="14" font-weight="bold" id="alarm_text_min" text-anchor="middle" x="48.652" y="113.504">1</text>
+ <rect atv:refpx="-3.983" atv:refpy="45.512" fill="#93060a" fill-opacity="0" height="28" id="click_area_alarm_min" stroke="none" stroke-width="0" width="28" x="34.301" y="94.718"/>
+ <rect atv:refpx="63" atv:refpy="84.484" fill="#93060a" fill-opacity="0" height="42" id="click_area_alertC_min" stroke="none" stroke-width="0" width="28" x="49" y="65.484"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"/>
+</svg>

@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="285" version="1.2" width="510" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="id_33_fill_gradient" spreadMethod="reflect" x1="0.0675676" x2="0.581081" y1="1" y2="1">
+   <stop offset="0" stop-color="#999999"/>
+   <stop offset="1" stop-color="#e5e5e5"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="id_34_fill_gradient" spreadMethod="reflect" x1="-0.135135" x2="0.405405" y1="0.986486" y2="0.972973">
+   <stop offset="0" stop-color="#999999"/>
+   <stop offset="1" stop-color="#e5e5e5"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="id_41_fill_gradient" spreadMethod="reflect" x1="-0.135135" x2="0.405405" y1="1" y2="0.972973">
+   <stop offset="0" stop-color="#999999"/>
+   <stop offset="1" stop-color="#e5e5e5"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="id_42_fill_gradient" spreadMethod="reflect" x1="-0.135135" x2="0.405405" y1="0.986486" y2="0.972973">
+   <stop offset="0" stop-color="#999999"/>
+   <stop offset="1" stop-color="#e5e5e5"/>
+  </linearGradient>
+  <radialGradient cx="0.5" cy="0.5" fx="0.5" fy="0.5" gradientUnits="objectBoundingBox" id="id_42_stroke_gradient" r="1">
+   <stop offset="0" stop-color="#000000"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </radialGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="id_43_fill_gradient" spreadMethod="reflect" x1="-0.135135" x2="0.405405" y1="1" y2="0.972973">
+   <stop offset="0" stop-color="#999999"/>
+   <stop offset="1" stop-color="#e5e5e5"/>
+  </linearGradient>
+  <radialGradient cx="0.5" cy="0.5" fx="0.5" fy="0.5" gradientUnits="objectBoundingBox" id="id_44_fill_gradient" r="0.514579">
+   <stop offset="0.6088709677419355" stop-color="#e4e4e4"/>
+   <stop offset="1" stop-color="#9a9a9a"/>
+  </radialGradient>
+  <radialGradient cx="0.5" cy="0.5" fx="0.5" fy="0.5" gradientUnits="objectBoundingBox" id="id_7_fill_gradient" r="0.514579">
+   <stop offset="0.6088709677419355" stop-color="#e4e4e4"/>
+   <stop offset="1" stop-color="#9a9a9a"/>
+  </radialGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="linear_0" x1="0" x2="1" y1="0" y2="1">
+   <stop offset="0" stop-color="#000000"/>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_10_" x1="-0.000148525" x2="0.99982" y1="0.499965" y2="0.499965">
+   <stop offset="0.17" stop-color="#4D4D4D"/>
+   <stop offset="0.23" stop-color="#5A5A5A"/>
+   <stop offset="0.34" stop-color="#7D7D7D"/>
+   <stop offset="0.48" stop-color="#B2B2B2"/>
+   <stop offset="0.57" stop-color="#A8A8A8"/>
+   <stop offset="0.73" stop-color="#8B8B8B"/>
+   <stop offset="0.94" stop-color="#5C5C5C"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_11_" x1="0" x2="0.999992" y1="0.499686" y2="0.499686">
+   <stop offset="0.17" stop-color="#4D4D4D"/>
+   <stop offset="0.23" stop-color="#5A5A5A"/>
+   <stop offset="0.34" stop-color="#7D7D7D"/>
+   <stop offset="0.48" stop-color="#B2B2B2"/>
+   <stop offset="0.57" stop-color="#A8A8A8"/>
+   <stop offset="0.73" stop-color="#8B8B8B"/>
+   <stop offset="0.94" stop-color="#5C5C5C"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_12_" x1="-0.000159151" x2="0.999873" y1="0.499976" y2="0.499976">
+   <stop offset="0.17" stop-color="#4D4D4D"/>
+   <stop offset="0.23" stop-color="#5A5A5A"/>
+   <stop offset="0.34" stop-color="#7D7D7D"/>
+   <stop offset="0.48" stop-color="#B2B2B2"/>
+   <stop offset="0.57" stop-color="#A8A8A8"/>
+   <stop offset="0.73" stop-color="#8B8B8B"/>
+   <stop offset="0.94" stop-color="#5C5C5C"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_13_" x1="-3.95757e-05" x2="0.999984" y1="0.500503" y2="0.500503">
+   <stop offset="0.17" stop-color="#4D4D4D"/>
+   <stop offset="0.23" stop-color="#5A5A5A"/>
+   <stop offset="0.34" stop-color="#7D7D7D"/>
+   <stop offset="0.48" stop-color="#B2B2B2"/>
+   <stop offset="0.57" stop-color="#A8A8A8"/>
+   <stop offset="0.73" stop-color="#8B8B8B"/>
+   <stop offset="0.94" stop-color="#5C5C5C"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_1_" x1="2.80483e-06" x2="1" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.5" stop-color="#ECECEC"/>
+   <stop offset="0.57" stop-color="#D9D9D9"/>
+   <stop offset="0.71" stop-color="#A8A8A8"/>
+   <stop offset="0.92" stop-color="#5A5A5A"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_2_" x1="-5.34852e-06" x2="0.999996" y1="0.500015" y2="0.500015">
+   <stop offset="0.06" stop-color="#808080"/>
+   <stop offset="0.13" stop-color="#8D8D8D"/>
+   <stop offset="0.28" stop-color="#B0B0B0"/>
+   <stop offset="0.48" stop-color="#E8E8E8"/>
+   <stop offset="0.48" stop-color="#EBEBEB"/>
+   <stop offset="0.57" stop-color="#E0E0E0"/>
+   <stop offset="0.72" stop-color="#C3C3C3"/>
+   <stop offset="0.92" stop-color="#949494"/>
+   <stop offset="1" stop-color="#808080"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_3_" x1="0.0132289" x2="0.961723" y1="1.43718" y2="-0.523291">
+   <stop offset="0.29" stop-color="#F7F7F7"/>
+   <stop offset="0.38" stop-color="#ECECEC"/>
+   <stop offset="0.52" stop-color="#CFCFCF"/>
+   <stop offset="0.71" stop-color="#A0A0A0"/>
+   <stop offset="0.94" stop-color="#5F5F5F"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_4_" x1="0.984938" x2="0.0397305" y1="1.44782" y2="-0.461717">
+   <stop offset="0.29" stop-color="#F7F7F7"/>
+   <stop offset="0.38" stop-color="#ECECEC"/>
+   <stop offset="0.52" stop-color="#CFCFCF"/>
+   <stop offset="0.71" stop-color="#A0A0A0"/>
+   <stop offset="0.94" stop-color="#5F5F5F"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_5_" x1="0.499998" x2="0.499998" y1="2.24065e-05" y2="1">
+   <stop offset="0" stop-color="#C8C8C8"/>
+   <stop offset="0.29" stop-color="#B1B1B1"/>
+   <stop offset="0.91" stop-color="#757575"/>
+   <stop offset="1" stop-color="#6C6C6C"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_6_" x1="-9.45716e-06" x2="1.00002" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_7_" x1="7.05467e-06" x2="0.999993" y1="0.499944" y2="0.499944">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_8_" x1="1.89143e-05" x2="1.00004" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_9_" x1="2.82187e-05" x2="1.00001" y1="0.499944" y2="0.499944">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <radialGradient cx="0.499789" cy="0.500127" fx="0.499789" fy="0.500127" gradientUnits="objectBoundingBox" id="radial_1" r="0.500063">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+  <radialGradient cx="0.500042" cy="0.499911" fx="0.500042" fy="0.499911" gradientUnits="objectBoundingBox" id="radial_2" r="0.500043">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+  <radialGradient cx="0.499848" cy="0.499978" fx="0.499848" fy="0.499978" gradientUnits="objectBoundingBox" id="radial_3" r="0.499968">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="linear_4" x1="0.563112" x2="0.436914" y1="1.13692" y2="-0.13513">
+   <stop offset="0" stop-color="#808080"/>
+   <stop offset="0.5" stop-color="#B2B2B2"/>
+   <stop offset="0.6" stop-color="#D1D1D1"/>
+   <stop offset="1" stop-color="#E5E5E5"/>
+  </linearGradient>
+  <radialGradient cx="0.5" cy="0.5" fx="0.5" fy="0.5" gradientUnits="objectBoundingBox" id="radial_5" r="0.500064">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#BFD3F2"/>
+   <stop offset="1" stop-color="#BFD3F2"/>
+  </radialGradient>
+  <radialGradient cx="0.499978" cy="0.5" fx="0.499978" fy="0.5" gradientUnits="objectBoundingBox" id="radial_6" r="0.500022">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#BFD3F2"/>
+   <stop offset="1" stop-color="#BFD3F2"/>
+  </radialGradient>
+  <radialGradient cx="0.499935" cy="0.499913" fx="0.499935" fy="0.499913" gradientUnits="objectBoundingBox" id="radial_7" r="0.500022">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#BFD3F2"/>
+   <stop offset="1" stop-color="#BFD3F2"/>
+  </radialGradient>
+  <radialGradient cx="0.500042" cy="0.500065" fx="0.500042" fy="0.500065" gradientUnits="objectBoundingBox" id="radial_8" r="0.500075">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#BFD3F2"/>
+   <stop offset="1" stop-color="#BFD3F2"/>
+  </radialGradient>
+  <radialGradient cx="0.499848" cy="0.500044" fx="0.499848" fy="0.500044" gradientUnits="objectBoundingBox" id="radial_9" r="0.528715">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#BFD3F2"/>
+   <stop offset="1" stop-color="#BFD3F2"/>
+  </radialGradient>
+  <radialGradient cx="0.500022" cy="0.500065" fx="0.500022" fy="0.500065" gradientUnits="objectBoundingBox" id="radial_10" r="0.499968">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+  <radialGradient cx="0.500022" cy="0.500087" fx="0.500022" fy="0.500087" gradientUnits="objectBoundingBox" id="radial_11" r="0.500022">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+  <radialGradient cx="0.5" cy="0.500022" fx="0.5" fy="0.500022" gradientUnits="objectBoundingBox" id="radial_12" r="0.500075">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+ </defs>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Energy_Industry.Maintenance_Combustion_Turbine" desc="Global_Maintenance" group="Maintenance" name="Global_Maintenance" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Energy_Industry.Maintenance_Combustion_Turbine" desc="Global Maintenance Address" group="Maintenance" name="Global_Maintenance_Address" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="Maintenance_Active" group="Maintenance" name="Maintenance" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="Icon Indicator Active" group="Alarming" name="Icon_Indicator" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Alert_Range" group="Alarming" name="Alert_Range" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Notification List" group="Alarming" name="Notification_List" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="false" desc="Email Notification Active" group="Alarming" name="Email_Notification" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="false" desc="Alertzy_Notification" group="Alarming" name="Alertzy_Notification" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" group="Appereance" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="14" desc="Title Font Size" group="Appereance" name="Title_Font_Size" substitute="$FontSize$" valuetype="number"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="5" width="5"/>
+ </metadata>
+ <g atv:refpx="306.737" atv:refpy="147.188" id="Image_1" transform="matrix(0.4031,0,0,0.4031,105.4031,70.4031)">
+  <path atv:refpx="499.5" atv:refpy="190.5" d="M233,125L233,41L169,41L169,83L127,83L64,41L0,41L0,339L64,339L127,295L169,295L169,339L233,339L233,253L509,253L573,275L637,275L637,317L659,317L659,295L787,339L787,359L807,359L807,339L913,359L913,381L934,381L934,211L976,211L999,253L999,125L976,169L934,169L934,0L913,0L913,19L807,41L807,19L787,19L787,41L659,83L659,61L637,61L637,106L573,106L509,125Z" fill="#366" id="id_0"/>
+  <path atv:refpx="499.5" atv:refpy="189" d="M233,131L233,55L169,55L169,93L127,93L64,55L0,55L0,323L64,323L127,285L169,285L169,323L233,323L233,247L509,247L573,265L637,265L637,305L659,305L659,285L787,323L787,343L807,343L807,323L913,343L913,361L934,361L934,209L976,209L999,247L999,131L976,171L934,171L934,17L913,17L913,35L807,55L807,35L787,35L787,55L659,93L659,75L637,75L637,113L573,113L509,131Z" fill="#427575" id="id_1"/>
+  <path atv:refpx="499.5" atv:refpy="189" d="M233,139L233,69L169,69L169,106L127,106L64,69L0,69L0,309L64,309L127,275L169,275L169,309L233,309L233,241L509,241L573,257L637,257L637,291L659,291L659,275L787,309L787,325L807,325L807,309L913,325L913,343L934,343L934,207L976,207L999,241L999,139L976,173L934,173L934,35L913,35L913,54L807,69L807,54L787,54L787,69L659,106L659,87L637,87L637,121L573,121L509,139Z" fill="#4f8282" id="id_2"/>
+  <path atv:refpx="499.5" atv:refpy="189" d="M233,145L233,85L169,85L169,115L127,115L64,85L0,85L0,293L64,293L127,263L169,263L169,293L233,293L233,235L509,235L573,249L637,249L637,279L659,279L659,263L787,293L787,309L807,309L807,293L913,309L913,323L934,323L934,205L976,205L999,235L999,145L976,175L934,175L934,55L913,55L913,69L807,85L807,69L787,69L787,85L659,115L659,99L637,99L637,129L573,129L509,145Z" fill="#5e9191" id="id_3"/>
+  <path atv:refpx="499.5" atv:refpy="189.5" d="M233,151L233,99L169,99L169,125L127,125L64,99L0,99L0,279L64,279L127,253L169,253L169,279L233,279L233,227L509,227L573,241L637,241L637,267L659,267L659,253L787,279L787,293L807,293L807,279L913,293L913,305L934,305L934,203L976,203L999,227L999,151L976,177L934,177L934,74L913,74L913,87L807,99L807,87L787,87L787,99L659,125L659,111L637,111L637,137L573,137L509,151Z" fill="#6b9e9e" id="id_4"/>
+  <path atv:refpx="499.5" atv:refpy="190" d="M233,157L233,113L169,113L169,135L127,135L64,113L0,113L0,265L64,265L127,243L169,243L169,265L233,265L233,221L509,221L573,233L637,233L637,253L659,253L659,243L787,265L787,275L807,275L807,265L913,275L913,287L934,287L934,199L976,199L999,221L999,157L976,179L934,179L934,93L913,93L913,103L807,113L807,103L787,103L787,113L659,135L659,125L637,125L637,145L573,145L509,157Z" fill="#7aadad" id="id_5"/>
+  <path atv:refpx="499.5" atv:refpy="189" d="M233,163L233,129L169,129L169,145L127,145L64,129L0,129L0,251L64,251L127,233L169,233L169,251L233,251L233,215L509,215L573,223L637,223L637,241L659,241L659,233L787,251L787,259L807,259L807,251L913,259L913,267L934,267L934,197L976,197L999,215L999,163L976,181L934,181L934,111L913,111L913,119L807,129L807,119L787,119L787,129L659,145L659,137L637,137L637,155L573,155L509,163Z" fill="#87baba" id="id_7"/>
+  <path atv:refpx="499.5" atv:refpy="189" d="M233,169L233,143L169,143L169,157L127,157L64,143L0,143L0,235L64,235L127,223L169,223L169,235L233,235L233,209L509,209L573,215L637,215L637,229L659,229L659,223L787,235L787,241L807,241L807,235L913,241L913,249L934,249L934,195L976,195L999,209L999,169L976,183L934,183L934,129L913,129L913,137L807,143L807,137L787,137L787,143L659,157L659,149L637,149L637,163L573,163L509,169Z" fill="#96c9c9" id="id_8"/>
+  <path atv:refpx="499.5" atv:refpy="189" d="M233,175L233,157L169,157L169,167L127,167L64,157L0,157L0,221L64,221L127,211L169,211L169,221L233,221L233,203L509,203L573,207L637,207L637,215L659,215L659,211L787,221L787,225L807,225L807,221L913,225L913,229L934,229L934,193L976,193L999,203L999,175L976,185L934,185L934,149L913,149L913,153L807,157L807,153L787,153L787,157L659,167L659,163L637,163L637,171L573,171L509,175Z" fill="#a3d6d6" id="id_9"/>
+  <path atv:refpx="499.5" atv:refpy="190" d="M233,183L233,173L169,173L169,177L127,177L64,173L0,173L0,207L64,207L127,201L169,201L169,207L233,207L233,197L509,197L573,199L637,199L637,203L659,203L659,201L787,207L787,209L807,209L807,207L913,209L913,211L934,211L934,191L976,191L999,197L999,183L976,187L934,187L934,169L913,169L913,171L807,173L807,171L787,171L787,173L659,177L659,175L637,175L637,179L573,179L509,183Z" fill="#cff" id="id_10"/>
+  <path atv:refpx="318" atv:refpy="189" d="M255,125L255,253L381,253L381,125Z" fill="#cc0" id="id_11"/>
+  <path atv:refpx="934.5" atv:refpy="190" d="M934,169L934,211" fill="none" id="id_12" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="976.5" atv:refpy="190" d="M976,211L976,169" fill="none" id="id_13" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="499.5" atv:refpy="190.5" d="M509,253L573,275L637,275L637,317L659,317L659,295L787,339L787,359L807,359L807,339L913,359L913,381L934,381L934,211L976,211L999,253L999,125L976,169L934,169L934,0L913,0L913,19L807,41L807,19L787,19L787,41L659,83L659,61L637,61L637,106L573,106L509,125L233,125L233,41L169,41L169,83L127,83L64,41L0,41L0,339L64,339L127,295L169,295L169,339L233,339L233,253Z" fill="none" id="id_14" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="913.5" atv:refpy="189" d="M913,359L913,19" fill="none" id="id_15" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="807.5" atv:refpy="190" d="M807,41L807,339" fill="none" id="id_17" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="787.5" atv:refpy="190" d="M787,339L787,41" fill="none" id="id_18" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="659.5" atv:refpy="189" d="M659,83L659,295" fill="none" id="id_19" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="637.5" atv:refpy="190.5" d="M637,275L637,106" fill="none" id="id_20" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="573.5" atv:refpy="190.5" d="M573,275L573,106" fill="none" id="id_21" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="381.5" atv:refpy="189" d="M381,253L381,125" fill="none" id="id_22" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="233.5" atv:refpy="189" d="M233,125L233,253" fill="none" id="id_23" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="169.5" atv:refpy="189" d="M169,295L169,83" fill="none" id="id_24" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="127.5" atv:refpy="189" d="M127,295L127,83" fill="none" id="id_25" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="64.5" atv:refpy="190" d="M64,339L64,41" fill="none" id="id_26" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="255.5" atv:refpy="189" d="M255,125L255,253" fill="none" id="id_27" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="270" atv:refpy="189" d="M265,115L265,263L275,263L275,115Z" fill="#7f7f00" id="id_28"/>
+  <path atv:refpx="292" atv:refpy="189" d="M287,115L287,263L297,263L297,115Z" fill="#7f7f00" id="id_29"/>
+  <path atv:refpx="313" atv:refpy="189" d="M307,115L307,263L319,263L319,115Z" fill="#7f7f00" id="id_30"/>
+  <path atv:refpx="334" atv:refpy="189" d="M329,115L329,263L339,263L339,115Z" fill="#7f7f00" id="id_31"/>
+  <path atv:refpx="361" atv:refpy="189" d="M351,115L351,263L371,263L371,115Z" fill="#7f7f00" id="id_32"/>
+  <path atv:refpx="456" atv:refpy="189" d="M445,51L445,327L467,327L467,51Z" fill="#7f7f7f" id="id_33"/>
+  <path atv:refpx="573" atv:refpy="189" d="M563,51L563,327L583,327L583,51Z" fill="#7f7f7f" id="id_34"/>
+  <path atv:refpx="457" atv:refpy="189" d="M447,69L447,309L467,309L467,69Z" fill="#919191" id="id_35"/>
+  <path atv:refpx="573" atv:refpy="189" d="M563,69L563,309L583,309L583,69Z" fill="#919191" id="id_36"/>
+  <path atv:refpx="457" atv:refpy="189" d="M447,87L447,291L467,291L467,87Z" fill="#a3a3a3" id="id_37"/>
+  <path atv:refpx="573" atv:refpy="189" d="M563,87L563,291L583,291L583,87Z" fill="#a3a3a3" id="id_38"/>
+  <path atv:refpx="457" atv:refpy="189.5" d="M447,106L447,273L467,273L467,106Z" fill="#b5b5b5" id="id_39"/>
+  <path atv:refpx="573" atv:refpy="189.5" d="M563,106L563,273L583,273L583,106Z" fill="#b5b5b5" id="id_40"/>
+  <path atv:refpx="457" atv:refpy="189" d="M447,123L447,255L467,255L467,123Z" fill="#c9c9c9" id="id_41"/>
+  <path atv:refpx="573" atv:refpy="189" d="M563,123L563,255L583,255L583,123Z" fill="#c9c9c9" id="id_42"/>
+  <path atv:refpx="457" atv:refpy="190" d="M447,143L447,237L467,237L467,143Z" fill="#dbdbdb" id="id_43"/>
+  <path atv:refpx="573" atv:refpy="190" d="M563,143L563,237L583,237L583,143Z" fill="#dbdbdb" id="id_44"/>
+  <path atv:refpx="573" atv:refpy="190" d="M563,161L563,219L583,219L583,161Z" fill="#ededed" id="id_45"/>
+  <path atv:refpx="457" atv:refpy="190" d="M447,161L447,219L467,219L467,161Z" fill="#ededed" id="id_46"/>
+  <path atv:refpx="509" atv:refpy="189" d="M499,125L519,125L519,253L499,253Z" fill="#4c4c4c" id="id_47" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="515" atv:refpy="83.5" d="M467,74L563,74L563,93L467,93Z" fill="#666" id="id_48" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="515" atv:refpy="296" d="M467,285L563,285L563,307L467,307Z" fill="#666" id="id_49" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="515" atv:refpy="264" d="M467,253L563,253L563,275L467,275Z" fill="#999" id="id_50" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="515" atv:refpy="115.5" d="M467,106L563,106L563,125L467,125Z" fill="#999" id="id_51" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="515" atv:refpy="158" d="M467,147L563,147L563,169L467,169Z" fill="#ccc" id="id_52" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="515" atv:refpy="221" d="M467,211L563,211L563,231L467,231Z" fill="#ccc" id="id_53" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="573" atv:refpy="189" d="M563,179L563,199L583,199L583,179Z" fill="#fff" id="id_54"/>
+  <path atv:refpx="456" atv:refpy="189" d="M445,179L445,199L467,199L467,179Z" fill="#fff" id="id_55"/>
+  <path atv:refpx="573" atv:refpy="189" d="M563,51L563,327L583,327L583,51Z" fill="none" id="id_56" stroke="#4c4c4c" stroke-width="2"/>
+  <path atv:refpx="456" atv:refpy="189" d="M445,51L445,327L467,327L467,51Z" fill="none" id="id_57" stroke="#4c4c4c" stroke-width="2"/>
+ </g>
+ <text atv:refpx="298.707" atv:refpy="11.5" fill="$Color$" font-family="Arial" font-size="$FontSize$" font-weight="bold" id="Title" text-anchor="middle" x="296.469" y="17">Name</text>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.AAA_Principal_Display_Script" atv:name="" atv:type="text/ecmascript"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"/>
+ <rect atv:refpx="300" atv:refpy="142.5" fill="#000000" fill-opacity="0" height="285" id="click_area" stroke="#0000ff" stroke-width="0" width="420" x="90" y="0"/>
+ <svg atv:refpx="39" atv:refpy="61.36" height="122.72" id="id_6" width="78" x="0" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Alarm_Alert_Advanced_Indicator" y="0">
+  <atv:argument name="base" prefix="base"/>
+ </svg>
+ <svg atv:refpx="48.06" atv:refpy="258.06" height="36.12" id="id_16" width="36.12" x="30" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Maintenance_Advanced_Indicator" y="240">
+  <atv:argument name="base" prefix="base"/>
+ </svg>
+</svg>

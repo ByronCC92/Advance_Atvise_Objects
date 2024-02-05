@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.SERVERSCRIPTS
+NodeClass: Object
+BrowseName: 1:SERVERSCRIPTS
+DisplayName: en|SERVERSCRIPTS
+Description: en|SERVERSCRIPTS
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

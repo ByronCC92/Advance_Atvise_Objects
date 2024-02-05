@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Dynamic_Advanced_Table_Full_Complementary_Element.Dynamic_Table_config
+NodeClass: Variable
+BrowseName: 1:Dynamic_Table_config
+DisplayName: en|Dynamic_Table_config
+Description: en|Dynamic_Table_config
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

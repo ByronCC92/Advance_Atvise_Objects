@@ -1,0 +1,26 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" version="1.1" height="62.609999999999999" xmlns:atv="http://webmi.atvise.com/2007/svgext" width="111.48999999999999" enable-background="new 0 0 112.5 63.742">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_1_" x1="-2.69087e-06" x2="0.999987" y1="0.499994" y2="0.499994">
+   <stop offset="0.01" stop-color="#595959"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_2_" x1="-4.72339e-06" x2="0.999989" y1="0.500032" y2="0.500032">
+   <stop offset="0.01" stop-color="#454545"/>
+   <stop offset="0.5" stop-color="#C2C2C2"/>
+   <stop offset="1" stop-color="#454545"/>
+  </linearGradient>
+ </defs>
+ <metadata>
+  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="false" height="10" width="10"/>
+ </metadata>
+ <g atv:refpx="55.744" atv:refpy="26.689" id="Group_Exhaust_Fan" transform="matrix(1,0,0,1,-0.451,-0.565)">
+  <path atv:refpx="56.195" atv:refpy="27.254" d="M0.451,53.943L2.703,47.748L6.307,40.879L11.6,35.361L19.033,32.996L19.033,21.398L20.835,14.416L23.763,7.547L27.254,2.93L32.997,0.565L79.394,0.565L85.812,2.93L88.627,7.547L91.556,14.416L93.357,21.398L93.357,32.997L100.79,35.362L106.083,40.88L109.574,47.749L111.939,53.943Z" fill="url(#SVGID_1_)" id="id_0" stroke="#4C4C4C" stroke-width="0.1"/>
+  <path atv:refpx="56.194" atv:refpy="21.898" d="M19.032,21.398L93.356,21.398" fill="none" id="id_1" stroke="#4C4C4C" stroke-width="0.25"/>
+  <path atv:refpx="56.531" atv:refpy="33.497" d="M19.707,32.997L93.354,32.997" fill="none" id="id_2" stroke="#4C4C4C" stroke-width="0.25"/>
+ </g>
+ <g atv:refpx="55.744" atv:refpy="57.995" id="Group_Bottom_Layer" transform="matrix(1,0,0,1,-0.451,-0.565)">
+  <path atv:refpx="56.195" atv:refpy="58.56" d="M13.852,53.943L13.852,63.177L98.537,63.177L98.537,53.943Z" fill="url(#SVGID_2_)" id="id_3"/>
+ </g>
+</svg>

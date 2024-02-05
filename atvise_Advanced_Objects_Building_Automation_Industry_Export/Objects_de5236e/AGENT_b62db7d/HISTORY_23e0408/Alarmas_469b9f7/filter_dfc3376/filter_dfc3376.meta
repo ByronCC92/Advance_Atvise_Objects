@@ -1,0 +1,9 @@
+NodeId: ns=1;s=AGENT.HISTORY.Alarmas.filter
+NodeClass: Variable
+BrowseName: 1:filter
+DisplayName: en|filter
+Description: en|filter
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition BaseVariableType

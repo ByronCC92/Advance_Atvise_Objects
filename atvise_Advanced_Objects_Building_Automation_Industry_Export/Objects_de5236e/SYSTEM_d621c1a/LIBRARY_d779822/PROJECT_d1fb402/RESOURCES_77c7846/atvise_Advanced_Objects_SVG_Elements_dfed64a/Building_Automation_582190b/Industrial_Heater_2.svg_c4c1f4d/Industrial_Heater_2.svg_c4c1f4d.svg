@@ -1,0 +1,33 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" version="1.1" height="56.189999999999998" xmlns:atv="http://webmi.atvise.com/2007/svgext" width="112.5" enable-background="new 0 0 112.5 56.195">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_1_" x1="0.709962" x2="0.290035" y1="1.21467" y2="-0.214651">
+   <stop offset="0.01" stop-color="#939393"/>
+   <stop offset="0.44" stop-color="#F0F0F0"/>
+   <stop offset="0.74" stop-color="#D6D6D6"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_2_" x1="1.10926" x2="0.400734" y1="0.970214" y2="0.0817283">
+   <stop offset="0.03" stop-color="#A7A9AC"/>
+   <stop offset="0.23" stop-color="#B6B8BA"/>
+   <stop offset="0.38" stop-color="#C4C6C8"/>
+   <stop offset="0.73" stop-color="#B5B7BA"/>
+   <stop offset="1" stop-color="#A7A9AC"/>
+  </linearGradient>
+ </defs>
+ <metadata>
+  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="false" height="10" width="10"/>
+ </metadata>
+ <g atv:refpx="67.905" atv:refpy="28.096" id="Group_Industrial_Heater" transform="matrix(1,0,0,1,0,-0.001)">
+  <path atv:refpx="67.905" atv:refpy="28.098" d="M23.311,0.001L112.5,0.001L112.5,56.193L23.311,56.193Z" fill="url(#SVGID_1_)" id="id_0" stroke="#4C4C4C" stroke-width="0.1"/>
+  <path atv:refpx="68.018" atv:refpy="27.929" d="M25.788,2.141L110.247,2.141L110.247,53.717L25.787,53.717Z" fill="none" id="id_1" stroke="#7F7F7F" stroke-width="0.25"/>
+  <path atv:refpx="87.1" atv:refpy="27.929" d="M86.6,2.141L86.6,53.717" fill="none" id="id_2" stroke="#7F7F7F" stroke-width="0.25"/>
+  <path atv:refpx="51.964" atv:refpy="27.929" d="M51.464,2.141L51.464,53.717" fill="none" id="id_3" stroke="#7F7F7F" stroke-width="0.25"/>
+  <path atv:refpx="56.694" atv:refpy="27.929" d="M56.194,2.141L56.194,53.717" fill="none" id="id_4" stroke="#7F7F7F" stroke-width="0.25"/>
+ </g>
+ <g atv:refpx="11.655" atv:refpy="22.073" id="Group_Infrared_Port" transform="matrix(1,0,0,1,0,-0.001)">
+  <path atv:refpx="11.655" atv:refpy="22.074" d="M23.311,42.006L16.329,42.006L0,18.582L16.329,2.141L23.311,2.141Z" fill="url(#SVGID_2_)" id="id_5" stroke="#4C4C4C" stroke-width="0.1"/>
+ </g>
+ <g atv:refpx="22.185" atv:refpy="28.041" id="Group_Lead" transform="matrix(1,0,0,1,0,-0.001)">
+  <path atv:refpx="22.185" atv:refpy="28.042" d="M23.311,35.024L21.059,35.024L21.059,21.06L23.311,21.06Z" fill="#999999" id="id_6" stroke="#4C4C4C" stroke-width="0.25"/>
+ </g>
+</svg>

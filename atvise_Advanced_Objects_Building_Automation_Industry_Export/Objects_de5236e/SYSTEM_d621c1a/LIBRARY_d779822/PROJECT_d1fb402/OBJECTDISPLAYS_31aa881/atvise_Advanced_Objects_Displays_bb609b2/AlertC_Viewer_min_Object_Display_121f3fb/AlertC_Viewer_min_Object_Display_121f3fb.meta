@@ -1,0 +1,10 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.AlertC_Viewer_min_Object_Display
+NodeClass: Variable
+BrowseName: 1:AlertC_Viewer_min_Object_Display
+DisplayName: en|AlertC_Viewer_min_Object_Display
+Description: en|AlertC_Viewer_min_Object_Display
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/Building_Automation
+NodeClass: Object
+BrowseName: 1:Building_Automation
+DisplayName: en|Building_Automation
+Description: en|Building_Automation
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Building_Automation.BA08_Industrial_Heater_2.Variables.Combustion Efficiency
+NodeClass: Variable
+BrowseName: 1:Combustion Efficiency
+DisplayName: en|Combustion Efficiency
+Description: en|Combustion Efficiency
+DataType: Int32
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Building_Automation
+NodeClass: ObjectType
+BrowseName: 1:Building_Automation
+DisplayName: en|Building_Automation
+Description: en|Building_Automation
+IsAbstract: false

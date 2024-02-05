@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Building_Automation.BA09_Industrial_Heater_3
+NodeClass: ObjectType
+BrowseName: 1:BA09_Industrial_Heater_3
+DisplayName: en|BA09_Industrial_Heater_3
+Description: en|BA09_Industrial_Heater_3
+IsAbstract: false

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Building_Automation.BA06_Ventilator_3
+NodeClass: ObjectType
+BrowseName: 1:BA06_Ventilator_3
+DisplayName: en|BA06_Ventilator_3
+Description: en|BA06_Ventilator_3
+IsAbstract: false

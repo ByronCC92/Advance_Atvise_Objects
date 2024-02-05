@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Building_Automation.BA04_Ventilator_1.Variables.Power Consumption
+NodeClass: Variable
+BrowseName: 1:Power Consumption
+DisplayName: en|Power Consumption
+Description: en|Power Consumption
+DataType: Int32
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

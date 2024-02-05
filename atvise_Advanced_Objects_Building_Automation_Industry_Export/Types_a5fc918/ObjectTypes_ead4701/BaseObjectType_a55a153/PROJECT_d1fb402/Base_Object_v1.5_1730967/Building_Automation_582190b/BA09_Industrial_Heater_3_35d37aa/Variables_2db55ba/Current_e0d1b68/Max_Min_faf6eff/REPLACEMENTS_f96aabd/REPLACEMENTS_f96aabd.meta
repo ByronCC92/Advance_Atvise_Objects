@@ -1,0 +1,8 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Building_Automation.BA09_Industrial_Heater_3.Variables.Current.Max_Min.REPLACEMENTS
+NodeClass: Object
+BrowseName: 1:REPLACEMENTS
+DisplayName: en|REPLACEMENTS
+Description: en|REPLACEMENTS
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition FolderType

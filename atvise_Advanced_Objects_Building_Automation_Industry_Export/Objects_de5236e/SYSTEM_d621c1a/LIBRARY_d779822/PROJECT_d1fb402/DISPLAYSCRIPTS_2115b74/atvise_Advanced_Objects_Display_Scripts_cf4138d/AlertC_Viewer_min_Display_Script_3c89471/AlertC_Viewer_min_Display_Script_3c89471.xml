@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[//Initialize Variables
+var self;
+var tableData = [];
+var data_lista=[];
+var Alert_Active=webMI.query["base"]+".Alarm.Alert_Active";
+
+
+
+/*******Initial Conditions*******/
+webMI.addOnload(function() {
+
+	
+});
+
+/******HTML Code section********/
+webMI.table.loadResources(function () {
+
+	/* Create the configuration */
+	var config = [];
+
+	/* Configuration of the columns to be displayed */
+	config["columns"] =
+		[
+			{   id: "Alert", name: "Alert", field: "Alert", sortable: false, filter: false, visible: true, width:170},
+			{   id: "Status", name: "Status", field: "Status", sortable: false, filter: false, visible: false},
+			{	id: "Value", name: "Value", field: "Value", sortable: false, filter: false, visible: true, width:15},
+			
+			{   id: "Timestamp", name: "Timestamp", field: "Timestamp", sortable: false, filter: true},
+			
+			{   id: "Text", name: "Text", field: "Text", sortable: false, filter: true},
+		];
+
+	/* Configuration of the runtime behavior */
+	config["mode"] = "live";
+	
+	/* Configuration of the data query */
+	config["dataRequestFunction"] =
+		function customDataRequest(continuation) {
+			self = this;
+			webMI.data.read(Alert_Active, function(e){
+			    var result=e.value;	 			    
+			    for (var i=0; i<result.length; i++){
+					const myArray = JSON.parse(result[i]);
+					if (myArray.Status=="Increasing"&&myArray.Condition_type=="Min"){
+						data_lista.push({
+							"Alert": myArray.Alert,
+							"Status":myArray.Status,
+							"Value":myArray.value,
+							"Timestamp":(new Date(myArray.Timestamp).toString()).slice(0,-33),
+							"Text":myArray.eventText,	
+						});	
+					}					    
+				}
+				var data = {};
+				data.result= data_lista;
+				tableData.push(data);
+				self.addData(data);
+			});					
+		};
+		
+
+	/* Registration of the configuration */
+	webMI.table.register("AlertC_Table", "config",  config);
+	webMI.table.setReady("AlertC_Table", "config");
+});
+
+
+
+
+]]></code>
+</script>

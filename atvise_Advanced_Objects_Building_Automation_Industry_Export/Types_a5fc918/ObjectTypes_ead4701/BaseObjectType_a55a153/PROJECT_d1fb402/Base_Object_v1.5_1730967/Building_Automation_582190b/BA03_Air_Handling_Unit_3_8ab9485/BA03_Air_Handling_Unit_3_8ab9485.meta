@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Building_Automation.BA03_Air_Handling_Unit_3
+NodeClass: ObjectType
+BrowseName: 1:BA03_Air_Handling_Unit_3
+DisplayName: en|BA03_Air_Handling_Unit_3
+Description: en|BA03_Air_Handling_Unit_3
+IsAbstract: false

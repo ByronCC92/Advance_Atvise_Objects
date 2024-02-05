@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="60" version="1.2" width="570" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Trigger Name" name="Name" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Global_List;String" defaultvalue="Global_List" desc="Input Mode" group="Configuration" name="Mode" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Global_List" group="Configuration" name="Global_List" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="String_Obj" group="Configuration" name="String_Obj" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="Text Editable" group="Configuration" name="Text_Editable" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Input Background Color" group="Appearance" name="Input_Background_Color" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="10" desc="Input_gap" group="Appearance" name="Input_gap" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="40" desc="Input Heigth" group="Appearance" name="Input_heigth" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="#b1b1b1" desc="Border Color" group="Appearance" name="Border_Color" substitute="$BorderColor$" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="2" desc="Border Thickness" group="Appearance" name="Border_Thickness" valuetype="number"/>
+  <atv:parameter behavior="optional" config="Times New Roman=Times New Roman,Bodoni,Garamond,Minion Web,ITC Stone Serif,MS Georgia,Bitstream Cyberbit,serif;Arial=MS Trebuchet,ITC Avant Garde Gothic,MS Arial,MS Verdana,Univers,Futura,ITC Stone Sans,Gill Sans,Akzidenz Grotesk,Helvetica,sans-serif;Courier=Courier,MS Courier New,Prestige,Everson Mono,monospace;Zapf-Chancery=Caflisch Script,Adobe Poetica,Sanvito,Ex Ponto,Snell Roundhand,Zapf-Chancery,cursive;Alpha Geometrique=Alpha Geometrique,Critter,Cottonwood,FB Reactor,Studz,fantasy" defaultvalue="Arial" desc="Font" group="Font" name="Font" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Label Font Color" group="Font" name="Label_Font_Color" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="18" desc="Label Font Size" group="Font" name="Label_Font_Size" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="12" desc="Input Font Size" group="Font" name="Font_Size" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Input Font Color" group="Font" name="Font_Color" valuetype="global"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <foreignObject height="60" id="id_1" width="570" x="0" y="0">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml">
+   <div id="inputSquare" style="width: 570px; height: 60px;"/>
+  </div>
+ </foreignObject>
+ <rect atv:refpx="285" atv:refpy="30" fill="none" height="60" id="border" stroke="#000000" stroke-width="2" width="570" x="0" y="0"/>
+ <text atv:refpx="267" atv:refpy="31.5" fill="none" font-family="Arial" font-size="12" font-weight="bold" id="label" x="204.5" y="36">Multiple In Text Efficient</text>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//External Variables
+var name= webMI.query["Name"];
+var Border_Color= webMI.query["Border_Color"];
+var Border_Thickness= webMI.query["Border_Thickness"];
+var Label_Font_Size= webMI.query["Label_Font_Size"];
+var Label_Font_Color= webMI.query["Label_Font_Color"];
+var Input_Background_Color= webMI.query["Input_Background_Color"];
+var Font_Color= webMI.query["Font_Color"];
+var Font_Size= webMI.query["Font_Size"];
+var Font_Color= webMI.query["Font_Color"];
+var Font= webMI.query["Font"];
+var Text_Editable= webMI.query["Text_Editable"];
+var inputelement_gap=webMI.query["Input_gap"];
+var Input_heigth=webMI.query["Input_heigth"];
+
+//Mode
+var Mode= webMI.query["Mode"];
+var Global_List= webMI.query["Global_List"];
+var String_Obj= webMI.query["String_Obj"];
+
+// Global variable to hold the value
+let globalValue = '';
+var initial_Size={};
+var textInputGlobal={};
+
+//Reference HTML elements
+const Parentelement=document.getElementById('id_1');
+const elementdiv=document.getElementById('inputSquare');
+var Input_Elements=new Array();
+
+var ReferenceObject={};
+
+
+//Initial conditions
+webMI.addOnload(function() {
+	
+	//Hide Development aids
+	webMI.gfx.setVisible("label", false);
+	webMI.gfx.setVisible("border", false);
+	
+	//Dynamic Resizing
+    initial_Size = Parentelement.getBoundingClientRect();
+
+    //Set Style dinamically
+	elementdiv.style.width = Number(initial_Size.width)+"px";
+	elementdiv.style.height = Number(initial_Size.height)+"px";
+	
+	switch (Mode) {
+		  case "Global_List": //Add
+			console.log(Global_List);
+			ReferenceObject=Global_List[0];
+			break;		
+		  case "String": //Modify
+			ReferenceObject=String_Obj;
+			break;  
+		}	
+	
+	//Create all Input elements
+    createInputsAndAddListeners(ReferenceObject,elementdiv);
+    console.log("ReferenceObject");
+	console.log(ReferenceObject);
+});
+
+
+//----------------Functions Section-------------//
+
+//Create Structure
+function createInputsAndAddListeners(obj, divElement) {
+	textInputGlobal=obj; //Initialize with Obj Values
+    var Number_Elements = Object.keys(obj).length;
+    var width_Size = (initial_Size.width-(inputelement_gap*(Number_Elements-1))) / (Number_Elements);
+    var height_Size = (initial_Size.height-(inputelement_gap*(Number_Elements-1))) / (Number_Elements); 
+
+    // Clear existing content in the div
+    divElement.innerHTML = '';
+
+    // Set the flex direction based on the initial_Size dimensions
+    divElement.style.display = 'flex';
+    divElement.style.flexWrap = 'wrap'; // Wrap items if they don't fit in one line
+    divElement.style.gap = inputelement_gap+'px'; // Space between each container
+
+    if (initial_Size.width > initial_Size.height) {
+        // If width is greater, organize in rows
+        divElement.style.flexDirection = 'row';
+    } else {
+        // If height is greater, organize in columns
+        divElement.style.flexDirection = 'column';
+    }
+
+    // Iterate over the object properties
+    for (const key in obj) {
+        // Create a container for each label-input pair
+        const inputContainer = top.document.createElement('div');
+        inputContainer.style.display = 'flex';
+        inputContainer.style.flexDirection = 'column';
+
+        // Set width or height based on the flexDirection
+        if (divElement.style.flexDirection === 'row') {
+            inputContainer.style.width = `${width_Size}px`;
+            inputContainer.style.height = `${initial_Size.height}px`;
+        } else {
+            inputContainer.style.height = `${height_Size}px`;
+            inputContainer.style.width = `${initial_Size.width}px`;
+        }
+
+        // Create a label and input for each key
+        //Label
+        const label = top.document.createElement('label');
+        label.textContent = capitalizeText(key);
+        label.style.marginBottom = '5px'; // Spacing between label and input
+        label.style.fontFamily = Font;
+        label.style.color = Label_Font_Color;
+        label.style.fontSize = Number(Label_Font_Size)+"px";
+        
+		//Input
+        const input = top.document.createElement('input');
+        input.style.fontFamily = Font;
+		input.style.fontSize = Number(Font_Size)+"px";
+		input.style.color = Font_Color;
+		input.style.backgroundColor = Input_Background_Color;
+		input.style.height = Number(Input_heigth)+"px"
+		input.style.border = '2px solid'; // Plain border with 2px thickness and black color
+		input.style.borderColor = Border_Color;
+		input.style.borderWidth = Number(Border_Thickness)+"px";
+		input.style.borderRadius = '5px';      // Rounded corners with a radius of 10px
+        input.type = 'text';
+        input.value = obj[key];
+        Input_Elements.push(input);
+
+        // Add specific functionalities
+        if (Text_Editable) {
+            addListenersToTextInput(input, key);
+        }
+
+        // Append the label and input to the container
+        inputContainer.appendChild(label);
+        inputContainer.appendChild(input);
+
+        // Append the container to the div
+        divElement.appendChild(inputContainer);
+    }
+}
+
+//Add Listeners to update outside
+function addListenersToTextInput(textInput, key) {
+	console.log("Addlisteners");
+    textInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+			textInputGlobal[key]=textInput.value;
+            webMI.trigger.fire("read_value_" + name, textInputGlobal);
+            textInput.blur();
+        } else if (event.key === 'Backspace') {
+            event.preventDefault();
+            textInput.value = textInput.value.slice(0, -1);
+        }
+    });
+
+    textInput.addEventListener('focusout', function(event) {
+		textInputGlobal[key]=textInput.value;
+        webMI.trigger.fire("read_value_" + name, textInputGlobal);
+    });
+}
+
+
+//Write value from outside
+webMI.trigger.connect("write_value_"+name, function(e) {
+		var newValue=e.value;
+		for (const key in newValue) {		
+			if (key in textInputGlobal) {	
+
+				//Update Input Global
+				textInputGlobal[key]=newValue[key];
+			}			
+		}			
+		var i=0;
+		for (const key in textInputGlobal) {
+			//Update Inputs			
+			Input_Elements[i].value=textInputGlobal[key];		
+			i++		
+		}
+});
+
+//Capitalize Text
+function capitalizeText(text) {
+    return text.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+]]></script>
+</svg>

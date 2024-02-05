@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="30" version="1.2" width="160" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="linear_2" x1="1" x2="1" y1="0" y2="1">
+   <stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/>
+   <stop offset="1" stop-color="#ffffff" stop-opacity="0.35"/>
+  </linearGradient>
+ </defs>
+ <desc>Selects items from a dropdown listbox.</desc>
+ <title>Combobox</title>
+ <metadata>
+  <!-- menu -->
+  <atv:parameter behavior="mandatory" desc="base" name="base" valuetype="address"/>
+  <atv:parameter behavior="optional" desc="alternative output address" name="outputNode" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="alarm address" name="alarm" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="name" name="name" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Text;Boolean;Enum List;Script" defaultvalue="Text" desc="mode" name="mode" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="Yes;No" defaultvalue="Yes" desc="enable status monitoring" name="statusEnabled" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="fire status trigger" name="statusTrigger" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="T{}" desc="text element 1" group="Text Mode" name="text1" valuetype="trstring"/>
+  <atv:parameter behavior="optional" desc="value element 1" group="Text Mode" name="text1value" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="T{}" desc="text element 2" group="Text Mode" name="text2" valuetype="trstring"/>
+  <atv:parameter behavior="optional" desc="value element 2" group="Text Mode" name="text2value" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="T{}" desc="text element 3" group="Text Mode" name="text3" valuetype="trstring"/>
+  <atv:parameter behavior="optional" desc="value element 3" group="Text Mode" name="text3value" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="T{}" desc="text element 4" group="Text Mode" name="text4" valuetype="trstring"/>
+  <atv:parameter behavior="optional" desc="value element 4" group="Text Mode" name="text4value" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="T{}" desc="text element 5" group="Text Mode" name="text5" valuetype="trstring"/>
+  <atv:parameter behavior="optional" desc="value element 5" group="Text Mode" name="text5value" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="enum list" group="Enum List Mode" name="enumList" valuetype="global"/>
+  <atv:parameter behavior="optional" config="Times New Roman=Times New Roman,Bodoni,Garamond,Minion Web,ITC Stone Serif,MS Georgia,Bitstream Cyberbit,serif;Arial=MS Trebuchet,ITC Avant Garde Gothic,MS Arial,MS Verdana,Univers,Futura,ITC Stone Sans,Gill Sans,Akzidenz Grotesk,Helvetica,sans-serif;Courier=Courier,MS Courier New,Prestige,Everson Mono,monospace;Zapf-Chancery=Caflisch Script,Adobe Poetica,Sanvito,Ex Ponto,Snell Roundhand,Zapf-Chancery,cursive;Alpha Geometrique=Alpha Geometrique,Critter,Cottonwood,FB Reactor,Studz,fantasy;Verdana=Verdana" defaultvalue="Arial" desc="family" group="Font" name="fontFamily" substitute="$FONTFAMILY$" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="6;7;8;9;10;11;12;14;16;18;20;22;24;26;28;36;48;72" defaultvalue="12" desc="size" group="Font" name="fontSize" substitute="$FONTSIZE$" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFontColor" desc="color" group="Font" name="fontColor" substitute="$FONTCOLOR$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFillColor" desc="fill color" group="Appearance" name="fillColor" substitute="$FILLCOLOR$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="#ffffff" desc="value field fill color" group="Appearance" name="valueFieldFill" substitute="$VALUEFIELDFILL$" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="#b7b7b7" desc="value field fill color inactive" group="Appearance" name="valueFieldFillInactive" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvSymbolColor" desc="symbol fill" group="Appearance" name="symbolColor" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="#ffffff" desc="stroke color pressed" group="Appearance" name="strokePressed" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="#ffffff" desc="focus stroke color" group="Appearance" name="focusStrokeColor" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvBorderColor" desc="border color" group="Appearance" name="borderColor" substitute="$BORDERCOLOR$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvStatusIndication" desc="status indication" group="Appearance" name="statusIndication" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvAlarmIndication" desc="alarm indication" group="Appearance" name="alarmIndication" valuetype="global"/>
+  <atv:parameter behavior="optional" config="SYSTEM.SECURITY.RIGHTS" desc="necessary right" group="Security" name="right" valuetype="address"/>
+  <atv:parameter behavior="optional" desc="activation address" group="Security" name="activeNode" valuetype="address"/>
+  <atv:parameter behavior="optional" desc="activation value" group="Security" name="activeValue" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="consistency group" group="Options" name="consistencyGroup" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="tab index" group="Options" name="tabIndex" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="T{}" desc="tooltip" group="Options" name="tooltip" valuetype="trstring"/>
+  <atv:parameter behavior="optional" config="Arial;Courier;Tahoma;Verdana" defaultvalue="Arial" desc="font family" group="Context menu" name="context_menu_font_family" substitute="$CFONTFAMILY$" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="6;7;8;9;10;11;12;13;14;15;16;18;20;22;24;26;28;36;48;72" defaultvalue="12" desc="font size" group="Context menu" name="context_menu_font_size" substitute="$CFONTSIZE$" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFontColor" desc="font color" group="Context menu" name="context_menu_font_color" substitute="$CFONTCOLOR$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFontColor" desc="symbol color hover" group="Context menu" name="context_menu_font_color_hover" substitute="$CFONTCOLORHOVER$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFontColor2" desc="background color" group="Context menu" name="context_menu_fill_color" substitute="$CFILLCOLOR$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFillColor" desc="hover color" group="Context menu" name="context_menu_hover_color" substitute="$CHOVERCOLOR$" valuetype="global"/>
+  <atv:parameter behavior="optional" config="left;center;right" defaultvalue="right" desc="text alignment" group="Context menu" name="contextMenuTextAlignment" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvBorderColor" desc="stroke color" group="Context menu" name="contextStroke" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="1" desc="stroke width" group="Context menu" name="contextStrokeWidth" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="0" desc="maximum displayed items (0 = all)" group="Context menu" name="itemsCount" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="show access control notification" group="Security" name="displayAcNotification" valuetype="bool"/>
+  <atv:parameter behavior="optional" config="top-left;top-right;bottom-left;bottom-right" defaultvalue="" desc="menu positioning" group="Menu" name="elementPosition" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="Yes;No" defaultvalue="" desc="menu mouseover active" group="Menu" name="fadeInAtHover" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="menu symbol offset x" group="Menu" name="elementOffsetX" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="menu symbol offset y" group="Menu" name="elementOffsetY" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="context menu click frame" group="Menu" name="clickareaEnlargement" valuetype="number"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="false" height="10" width="10"/>
+ </metadata>
+ <g atv:refpx="80" atv:refpy="15" id="combobox">
+  <rect atv:bindbr="1,1" atv:bindtl="0,0" atv:refpx="0" atv:refpy="16" fill="$BORDERCOLOR$" height="30" id="id_0" rx="3" ry="3" stroke-width="1" width="160" x="0" y="0"/>
+  <rect atv:bindbr="1,1" atv:bindtl="0,0" atv:refpx="79.319" atv:refpy="-79.112" fill="$FILLCOLOR$" height="28" id="id_1" rx="2.408" ry="2.408" stroke-width="1" width="158" x="1" y="1"/>
+  <rect atv:bindbr="1,1" atv:bindtl="0,0" atv:refpx="160.155" atv:refpy="30" fill="$VALUEFIELDFILL$" height="22" id="combobox_bg" rx="3" ry="3" stroke="none" stroke-width="2" width="128" x="4" y="4"/>
+  <rect atv:bindbr="1,1" atv:bindtl="0,0" atv:refpx="124.336" atv:refpy="20.185" fill="none" height="22" id="blinking_frame" rx="2.1" ry="2.1" stroke="none" stroke-width="2" width="128" x="4" y="4"/>
+  <text atv:bindbr="1,0.5" atv:bindtl="1,0.5" atv:refpx="511.703" atv:refpy="22.25" fill="$FONTCOLOR$" font-family="$FONTFAMILY$" font-size="$FONTSIZE$" id="combobox_label" text-anchor="end" x="125.5" y="19.5">T{Combobox}</text>
+  <rect atv:bindbr="1,0.5" atv:bindtl="1,0.5" atv:refpx="361.663" atv:refpy="-39.062" fill="$FILLCOLOR$" height="20" id="button_bg" rx="2.755" ry="2.755" stroke="none" width="20" x="135" y="5"/>
+  <svg atv:bindbr="1,0.5" atv:bindtl="1,0.5" atv:refpx="414.25" atv:refpy="20.198" height="20" id="id_7" width="20" x="135" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Symbols.20x20.arrow_down" y="6">
+   <atv:argument name="symbolColor" prefix="symbolColor" value=""/>
+  </svg>
+  <rect atv:bindbr="1,0.5" atv:bindtl="1,0.5" atv:refpx="361.663" atv:refpy="-39.062" fill="none" height="20" id="button_stroke" rx="2.755" ry="2.755" stroke="none" stroke-width="0.5" width="20" x="135" y="5"/>
+  <rect atv:refpx="80" atv:refpy="15" fill="#000000" fill-opacity="0.001" height="30" id="combobox_clickarea" stroke="none" stroke-width="0" width="160" x="0" y="0"/>
+ </g>
+ <rect atv:bindbr="1,1" atv:bindtl="0,0" atv:refpx="128.713" atv:refpy="60.844" fill="none" height="26" id="focus_frame" rx="2.1" ry="2.1" stroke="none" stroke-width="2" width="156" x="2" y="2"/>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advaced_Objects_Complementary_Display_Scripts.Combobox_Display_Script" atv:name="combobox" atv:type="text/ecmascript"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"/>
+</svg>

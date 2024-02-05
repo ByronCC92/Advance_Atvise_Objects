@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="800" version="1.2" width="1680" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <svg atv:refpx="447.478" atv:refpy="75.416" height="30" id="id_2" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="180.359" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="45.359">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="name" value="Initial_Date"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+  <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+ </svg>
+ <text atv:refpx="340.733" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="314.5" y="35.5">Intial Date</text>
+ <svg atv:refpx="737.479" atv:refpy="70.416" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="349.081" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="45.359">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="name" value="Final_Date"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+  <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+ </svg>
+ <text atv:refpx="630.763" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="604.5" y="35.5">Final Date</text>
+ <line atv:refpx="825" atv:refpy="110" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="1650" y1="110" y2="110"/>
+ <text atv:refpx="58.416" atv:refpy="31" fill="$Color$" font-family="Arial" font-size="24" id="id_6" x="24.5" y="35.5">Maintenance</text>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//---------------Initialize Variables---------//
+var Type_M; //Maintenance Type Number
+var Text_M; //Maintenance Type Text
+var Initial_Date;//Initial Date for Maintenance
+var Final_Date;//Final Date for Maintenance
+var tableData = [];
+var Mant_HistR=new Array();
+var Mant_Elements;
+var Table_Initialized=false;
+
+var Color=webMI.query["Color"];
+var tableController;
+
+var Mant_Hist_Root=".Maintenance.Mant_Hist";
+
+//---------------Initial Conditions---------//
+webMI.addOnload(function() {
+
+	//Date Picker shows current time 
+	var T_Actual=new Date();
+	Initial_Date=T_Actual.getTime()-(24*60*60*1000);//Last 24 hours
+	Final_Date=T_Actual.getTime();
+	
+    webMI.trigger.fire("com.atvise.datepicker_Initial_Date", Initial_Date); 
+    webMI.trigger.fire("com.atvise.datepicker_Final_Date", Final_Date); 
+    
+	(async () => {
+	 await waitForCondition();
+		webMI.trigger.fire("update_mant_table", 0); //Update chart
+	})();
+
+});
+
+/*******Triggers*******/
+
+
+//Monitor Global Maintenance Element
+webMI.trigger.connect("Global_Object_Current_Addres", function (e) {
+	
+	console.log(e);
+	var Elements=e.value.Elements;
+	var TextI=e.value.Text;
+	Mant_HistR=new Array();
+	
+	//Mant Hist nodes
+	for(var i=0; i<Elements.length; i++)	 {
+		Mant_HistR.push(Elements[i]+Mant_Hist_Root);
+	}
+
+	//Update Mant Necessary Elements
+	if (TextI=="All machines"){
+		Mant_Elements="All machines";
+	}
+	else{
+		Mant_Elements=e.value.Elements[0]+".Parameters.Mant_Elements";
+	}
+	console.log(Mant_Elements);
+	fill_combobox(Mant_Elements);
+});
+
+//Monitor Initial Date  
+webMI.trigger.connect("com.atvise.datepicker_Initial_Date", function (e) {
+	Initial_Date=new Date(e.value);
+	if(Table_Initialized){
+		webMI.trigger.fire("update_mant_table", 0); //Update chart
+	}
+});
+
+//Monitor Final Date
+webMI.trigger.connect("com.atvise.datepicker_Final_Date", function (e) {
+	setTimeout(function() {
+		Final_Date=new Date(e.value);	
+		if(Table_Initialized){
+			webMI.trigger.fire("update_mant_table", 0); //Update chart
+		}
+	},200);
+});
+
+//Monitor Maintenance Combobox 
+webMI.trigger.connect("com.atvise.combobox_Global_Maintenance_Type_Hist", function (e) {
+	var result=e.value;
+	Type_M=result.value;	
+	Text_M=e.value.text;	
+	if(Table_Initialized){
+		webMI.trigger.fire("update_mant_table", 0); //Update chart
+	}
+});
+
+
+
+//---------Dynamic Table------------//
+
+//---------HTML Code section------------//
+
+
+webMI.table.loadResources(function () {
+
+	// Create the configuration //
+	var config = [];
+
+	// Configuration of the columns to be displayed //
+	config["columns"] =
+		[
+			{   id: "Machine", name: "Machine", field: "Machine", sortable: false, filter: false, visible: true, width:100},
+			{   id: "Name", name: "Name", field: "Name", sortable: false, filter: false, visible: true, width:100},
+			{	id: "CompletionTime", name: "Completion Time", field: "Completion_Time", sortable: false, filter: false, visible: true, width:85},
+			{   id: "InitialTime", name: "Initial Time", field: "Initial_Time", sortable: false, filter: false, visible: true, width:85},			
+			{   id: "Duration", name: "Duration", field: "Duration", sortable: false, filter: true, width:42},
+			{   id: "MSC", name: "MSC", field: "MSC", sortable: false, filter: true, width:25},
+		];
+
+	// Configuration of the runtime behavior //
+	config["mode"] = "live";
+	
+	// Configuration of the data query //
+	config["dataRequestFunction"] =
+		function customDataRequest(continuation) {
+			self = this;
+			tableController = webMI.table.request("MantH_Global_Table", "controller");
+					
+			webMI.trigger.connect("update_mant_table", function (h) {
+			
+				Table_Initialized=true;
+				
+				//------------Bring data from historian-----------//			
+				
+				//Filter Config
+				var MantAddresses=new Array();
+				var Mant_HistRI=new Array();
+				var filter = {};
+				var Ready_Data=[];
+				//Prepare filter
+				
+				for (var i=0; i<Mant_HistR.length; i++)	 {
+					Mant_HistRI.push("g:"+Mant_HistR[i]);
+				}
+				
+				filter.type = ["v:1"]; //Values			
+				filter.timestamp = ["n:>=" + Initial_Date.getTime() + "<" + Final_Date.getTime()];
+				filter.address = Mant_HistRI;			
+				
+			
+				
+				//Ask for data           
+				webMI.data.queryFilter(filter, function(e){
+					var result=e.result;
+					console.log(result);
+					if(result.length>0){//Is not empty
+						
+						var Mant_HistV=new Array();
+						for (var i=0; i<result.length; i++)	 {
+							 Mant_HistV.push(result[i].value);
+							 MantAddresses.push(result[i].address);
+						}					
+														    
+						for (var i=0; i<Mant_HistV.length; i++){
+							const myArray = JSON.parse(Mant_HistV[i]);
+							if (((Text_M==undefined||Text_M=="All maintenance"||Text_M=="All machines")||(Text_M!="All machines"&&Text_M!=undefined&&myArray.Text_M==Text_M))){
+								Ready_Data.push({
+									"Machine":getSecondToLastElement(MantAddresses[i]),
+									"Name": myArray.Text_M,
+									"Completion_Time":(new Date(myArray.Actual_Time).toString()).slice(0,-33),
+									"Initial_Time":(new Date(myArray.Time_M).toString()).slice(0,-33),									
+									"Duration":Math.abs(myArray.Used_Time),
+									"MSC":(Math.abs(myArray.MSC)).toFixed(2)+"%",	
+								});	
+							}					    
+						}
+					}
+					var data = {};
+					data.result= Ready_Data;
+					tableData.push(data);
+					tableController.clearData(); //Clear Data
+					self.addData(data);
+					
+				});	
+			});					
+		};
+		
+
+	// Registration of the configuration //
+	webMI.table.register("MantH_Global_Table", "config",  config);
+	webMI.table.setReady("MantH_Global_Table", "config");
+});
+
+
+
+//Function to fill the maintenance Combobox
+function fill_combobox(Mant_ElementsR){
+	 //Add values to the maintenance list
+	 
+	 if (Mant_ElementsR=="All machines"){
+		 webMI.trigger.fire("clearItems_Global_Maintenance_Type_Hist", 0);
+		 webMI.trigger.fire("addItemT_Global_Maintenance_Type_Hist", {value:{value:0, text:"All machines"}});
+		 webMI.trigger.fire("addItemT_Global_Maintenance_Type_Hist", {value:{value:0, text:"All maintenance"}});
+		 //Set All maintenance as default 
+		 webMI.trigger.fire("setSelectedItem_Global_Maintenance_Type_Hist", {value:{value:0, text:"All machines"}});
+	 }
+	 else{
+		webMI.data.read(Mant_ElementsR, function(e) {
+		   if(e.value!=undefined){
+			   var Mant_ElementsI=JSON.parse(e.value);
+			   webMI.trigger.fire("clearItems_Global_Maintenance_Type_Hist", 0);
+			   webMI.trigger.fire("addItemT_Global_Maintenance_Type_Hist", {value:{value:0, text:"All maintenance"}});
+				   
+			   for (var i in Mant_ElementsI) {
+					var Mant_ElementsII=Mant_ElementsI[i];
+					webMI.trigger.fire("addItemT_Global_Maintenance_Type_Hist", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
+			   }
+			   
+			//Set All maintenance as default 
+			webMI.trigger.fire("setSelectedItem_Global_Maintenance_Type_Hist", {value:{value:0, text:"All maintenance"}});
+		   }	  
+		});
+	}
+}
+
+//Wait for data to be ready
+
+function waitForCondition() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+	var condition=(Final_Date!=undefined&&Initial_Date!=undefined&&Text_M!=undefined&&tableController!=undefined);
+      if (condition) {
+        clearInterval(interval);
+        resolve(true);
+      }
+    }, 100);
+  });
+}
+
+//Get SecondToLastElement
+function getSecondToLastElement(string) {
+  // Split the string by dot ('.') separator
+  const elements = string.split('.');
+
+  // Return the second-to-last element
+  return elements[elements.length - 3];
+}
+
+
+
+]]></script>
+ <svg atv:refpx="145" atv:refpy="77.5" height="30" id="id_22" transform="matrix(1.6875,0,0,1.1667,0,0)" width="160" x="5.926" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Combobox_Complementary_Element" y="45.427">
+  <atv:argument name="name" value="Global_Maintenance_Type_Hist"/>
+  <atv:argument name="mode" value="Enum List"/>
+  <atv:argument name="fontSize" value="20"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5926,0,0,0.8571,0,0)" width="266"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="7.501"/>
+  <atv:overwrite id="id_7" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="8.501"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="7.501"/>
+  <atv:overwrite id="combobox_label" transform="matrix(0.5926,0,0,0.8571,0,0)" x="235.5" y="22.001"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5926,0,0,0.8571,0,0)" width="238"/>
+  <atv:overwrite height="27.001" id="combobox_bg" transform="matrix(0.5926,0,0,0.8571,0,0)" width="238"/>
+  <atv:overwrite height="33.001" id="id_1" transform="matrix(0.5926,0,0,0.8571,0,0)" width="268"/>
+  <atv:overwrite height="35.001" id="id_0" transform="matrix(0.5926,0,0,0.8571,0,0)" width="270"/>
+ </svg>
+ <svg atv:refpx="840" atv:refpy="460" height="230" id="id_4" transform="matrix(2.2703,0,0,2.9565,0,0)" width="740" x="0" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Alarm_Table_Complementary_Element" y="40.588">
+  <atv:argument name="tableID" value="MantH_Global_Table"/>
+  <atv:argument name="globalBorderColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
+  <atv:argument name="globalFillColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
+  <atv:argument name="globalFontColor" value="SYSTEM.GLOBALS.atvFontColor2"/>
+ </svg>
+</svg>

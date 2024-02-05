@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+	<uax:ListOfString>
+		<uax:String>{&quot;Condition_name&quot;:&quot;ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.4.Variables.Test_1.Max_Min.Min&quot;,&quot;Condition_node&quot;:&quot;ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.4.Variables.Test_1&quot;,&quot;Condition_type&quot;:&quot;Min&quot;,&quot;Condition_limit&quot;:3,&quot;Initial_value&quot;:0,&quot;Range&quot;:12}</uax:String>
+		<uax:String>{&quot;Condition_name&quot;:&quot;ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.4.Variables.Test_1.Max_Min.Max&quot;,&quot;Condition_node&quot;:&quot;ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.4.Variables.Test_1&quot;,&quot;Condition_type&quot;:&quot;Max&quot;,&quot;Condition_limit&quot;:15,&quot;Initial_value&quot;:0,&quot;Range&quot;:12}</uax:String>
+	</uax:ListOfString>
+</Value>

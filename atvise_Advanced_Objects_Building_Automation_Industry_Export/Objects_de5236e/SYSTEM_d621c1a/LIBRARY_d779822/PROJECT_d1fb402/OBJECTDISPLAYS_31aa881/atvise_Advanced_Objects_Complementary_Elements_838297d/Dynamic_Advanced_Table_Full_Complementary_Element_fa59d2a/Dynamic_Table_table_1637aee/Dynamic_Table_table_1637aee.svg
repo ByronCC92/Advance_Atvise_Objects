@@ -1,0 +1,574 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="820" version="1.2" width="1680" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" desc="Leading_Address" name="Leading_Address" valuetype="address"/>
+  <atv:parameter behavior="optional" config="Text;Enum List" defaultvalue="Text" desc="Input Data Mode" name="Input_Mode" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="Leading Address;All Periodicities" defaultvalue="Leading Address" desc="Periodicity Mode" name="Periodicity_Mode" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="0" desc="Periodicity Multiple" name="Periodicity_Multiple" valuetype="number"/>
+  <atv:parameter behavior="optional" config="Real Time;s;min;h" defaultvalue="Real Time" desc="Periodicity Unit" name="Periodicity_Unit" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="false" desc="Add Total" name="Add_Total" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 1" group="Text Mode" name="NameC1" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 1" group="Text Mode" name="TypeC1" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 1" group="Text Mode" name="AddressC1" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 2" group="Text Mode" name="NameC2" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 2" group="Text Mode" name="TypeC2" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Address Column 2" group="Text Mode" name="AddressC2" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 3" group="Text Mode" name="NameC3" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 3" group="Text Mode" name="TypeC3" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 3" group="Text Mode" name="AddressC3" valuetype="address"/>
+  <atv:parameter behavior="mandatory" defaultvalue="" desc="Name Column 4" group="Text Mode" name="NameC4" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 4" group="Text Mode" name="TypeC4" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 4" group="Text Mode" name="AddressC4" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 5" group="Text Mode" name="NameC5" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 5" group="Text Mode" name="TypeC5" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 5" group="Text Mode" name="AddressC5" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 6" group="Text Mode" name="NameC6" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 6" group="Text Mode" name="TypeC6" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 6" group="Text Mode" name="AddressC6" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 7" group="Text Mode" name="NameC7" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 7" group="Text Mode" name="TypeC7" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 7" group="Text Mode" name="AddressC7" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 8" group="Text Mode" name="NameC8" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 8" group="Text Mode" name="TypeC8" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 8" group="Text Mode" name="AddressC8" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 9" group="Text Mode" name="NameC9" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 9" group="Text Mode" name="TypeC9" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 9" group="Text Mode" name="AddressC9" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 10" group="Text Mode" name="NameC10" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 10" group="Text Mode" name="TypeC10" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 10" group="Text Mode" name="AddressC10" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 11" group="Text Mode" name="NameC11" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 11" group="Text Mode" name="TypeC11" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 11" group="Text Mode" name="AddressC11" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 12" group="Text Mode" name="NameC12" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 12" group="Text Mode" name="TypeC12" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 12" group="Text Mode" name="AddressC12" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 13" group="Text Mode" name="NameC13" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 13" group="Text Mode" name="TypeC13" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 13" group="Text Mode" name="AddressC13" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 14" group="Text Mode" name="NameC14" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 14" group="Text Mode" name="TypeC14" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 14" group="Text Mode" name="AddressC14" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 15" group="Text Mode" name="NameC15" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 15" group="Text Mode" name="TypeC15" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 15" group="Text Mode" name="AddressC15" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name Column 16" group="Text Mode" name="NameC16" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type Column 16" group="Text Mode" name="TypeC16" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address Column 16" group="Text Mode" name="AddressC16" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC17" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC17" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC17" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC18" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC18" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC18" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC19" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC19" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC19" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC20" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC20" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC20" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC21" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC21" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC21" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC22" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC22" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC22" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC23" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC23" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC23" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC24" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC24" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC24" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC25" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC25" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC25" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC26" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC26" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC26" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC27" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC27" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC27" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC28" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC28" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC28" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" group="Text Mode" name="NameC29" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Value;Address;Date;Year;Month;Day" defaultvalue="Value" desc="Type" group="Text Mode" name="TypeC29" valuetype="enum"/>
+  <atv:parameter behavior="optional" desc="Address" group="Text Mode" name="AddressC29" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advance_Objects_Dynamic_Table_List.Dynamic_Table_List" desc="Enum List" group="Enum List Mode" name="Enum_List" valuetype="global"/>
+  <atv:parameter behavior="optional" desc="Color" group="Appereance" name="Color" valuetype="address"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <svg atv:refpx="-145.524" atv:refpy="32.496" height="30" id="id_3" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="76.798" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="17.142">
+  <atv:argument name="fontSize" prefix="Font_Size"/>
+  <atv:argument name="name" value="Table_Initial_Date"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+  <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+ </svg>
+ <text atv:refpx="-370.267" atv:refpy="10.501" fill="$Color2$" font-family="Arial" font-size="$Font_Size$" id="id_4" x="34.5" y="45.001">Intial Date</text>
+ <svg atv:refpx="304.478" atv:refpy="27.496" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="336.281" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="17.142">
+  <atv:argument name="fontSize" prefix="Font_Size"/>
+  <atv:argument name="name" value="Table_Final_Date"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+  <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+ </svg>
+ <text atv:refpx="70.763" atv:refpy="10.501" fill="$Color2$" font-family="Arial" font-size="$Font_Size$" id="id_16" x="475.5" y="45.001">Final Date</text>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//---------Declare Variables-----------//
+
+
+// External Variables
+var Ref_Variables_T=[webMI.query["Initial_Date"],webMI.query["Final_Date"]];
+var Ref_Variable_L =webMI.query["Leading_Address"]; //Leading Address
+var Periodicity_Mode =webMI.query["Periodicity_Mode"]; //Leading Address
+var Total_Row =webMI.query["Add_Total"]; //Leading Address
+
+//Table Variables
+var Table_Initialized=false;
+var tableController;
+
+var Input_Mode =webMI.query["Input_Mode"]; //Input Mode (Text: Based on Parameters, Enum List: Based on global List)
+var Enum_List=JSON.parse(webMI.query["Enum_List"]);
+
+
+var to= new Date(); //Tiempo Actual
+var from= new Date (to-(1*60*1000)); // Me muestra los ultimos X minutos
+
+//Variables de fuentes de datos
+var Names= new Array();
+var Types= new Array();
+var Ref_Variables = new Array();
+var Ref_Variables_F =new Array();
+var Periodicity_Multiple = webMI.query["Periodicity_Multiple"]; // Multiple of periodicity
+var Periodicity_Unit = webMI.query["Periodicity_Unit"]; // Unit of time of periodicity
+
+var Leading_Index;
+
+
+//---------Initial Conditions-----------//
+
+webMI.addOnload(function() {
+
+	//Date Picker shows current time 
+	var T_Actual=new Date();
+	Initial_Date=T_Actual.getTime()-(2*60*1000);//Last 2 minutes
+	Final_Date=T_Actual.getTime();
+	webMI.trigger.fire("com.atvise.datepicker_"+"Table_Initial_Date", Initial_Date); 
+	webMI.trigger.fire("com.atvise.datepicker_"+"Table_Final_Date", Final_Date);  
+	console.log("Input_Mode: "+Input_Mode)
+	console.log(Enum_List)
+	//----Text Mode
+	if(Input_Mode=="Text"){ 
+	//Prepare all the data Comming from parameters
+		for (var i=0; i<29; i++) {
+			if (webMI.query["NameC"+(i+1)]!=undefined && webMI.query["TypeC"+(i+1)]!=undefined && webMI.query["AddressC"+(i+1)]!=undefined){ //Only if everything has been defined.
+				Names.push(webMI.query["NameC"+(i+1)]);
+				Types.push(webMI.query["TypeC"+(i+1)]);
+				Ref_Variables.push(webMI.query["AddressC"+(i+1)]);
+				Ref_Variables_F.push("g:"+webMI.query["AddressC"+(i+1)]);		
+				
+				if (webMI.query["AddressC"+(i+1)]==Ref_Variable_L){
+					Leading_Index=i;
+				}
+			}
+		}	
+	}
+	
+	//----Enum List Mode	
+	else if(Input_Mode=="Enum List"){ 
+		//Read Existing Elements
+		processInputData(Enum_List);
+	}	
+	
+	
+	//Leading Addres is present
+	if (!Ref_Variables.includes(Ref_Variable_L)){
+		//Put it first only when it has not been defined. 
+		Ref_Variables.unshift(Ref_Variable_L);
+		Ref_Variables_F.unshift("g:"+Ref_Variable_L);
+		Leading_Index=0;
+	}
+	else{
+		Leading_Index=Ref_Variables.indexOf(Ref_Variable_L);
+	}
+	
+	
+	(async () => {
+	 await waitForCondition();
+		webMI.trigger.fire("update_mant_table", 0); //Update chart
+	})();
+});
+
+
+//---------------Triggers----------------//
+
+//Monitor Initial Date  
+webMI.trigger.connect("com.atvise.datepicker_Table_Initial_Date", function (e) {
+	Initial_Date=new Date(e.value);
+	if(Table_Initialized){
+		webMI.trigger.fire("update_mant_table", 0); //Update chart
+	}
+});
+
+//Monitor Final Date
+webMI.trigger.connect("com.atvise.datepicker_Table_Final_Date", function (e) {
+	setTimeout(function() {
+		Final_Date=new Date(e.value);	
+		if(Table_Initialized){
+			webMI.trigger.fire("update_mant_table", 0); //Update chart
+		}
+	},400);
+});
+
+
+//---------------Table Loading----------------//
+setTimeout(function(){
+webMI.table.loadResources(function () {
+
+    // Create the configuration //
+    var config = [];
+
+    // Configuration of the columns to be displayed //
+    var Columns=new Array();
+    for (var i=0; i<Names.length; i++) {
+		Columns.push({   id: Names[i], name: Names[i], field: Names[i], sortable: true, filter: true });
+    }
+    config["columns"] = Columns;
+
+    // Configuration of the runtime behavior //
+    config["mode"] = "once";
+
+    // Configuration of the data query //
+    config["dataRequestFunction"] =
+        function customDataRequest(continuation) {
+            var self = this;
+			tableController = webMI.table.request("Dynamic_Table", "controller");
+			
+			webMI.trigger.connect("update_mant_table", function (h) {
+			
+				Table_Initialized=true;
+				
+				//---------------Preliminary Variables--------------//
+				var dataG=new Array();
+				var dataGF=new Array();
+				var time=new Array();
+				var timeF=new Array();				
+				var Periodicities=new Array();	
+				for (var i=0; i<Ref_Variables.length; i++) {	
+						dataG.push([]);
+						dataGF.push([]);
+						time.push([]);
+						timeF.push([]);
+				}
+					
+				console.log("Initial_Date: "+Initial_Date);
+				console.log("Final_Date: "+Final_Date);
+				//Configuración del Filtro
+				var filter = {};
+	
+				filter.type = ["v:1"]; //Valores			
+				filter.timestamp = ["n:>=" + Initial_Date.getTime() + "<" + Final_Date.getTime()];
+				filter.address = [Ref_Variables_F];
+				
+				//Solicito datos            
+				webMI.data.queryFilter(filter, function(e){
+						
+					var result = e.result;				
+					
+					console.log("Ref_Variables: ");
+					console.log(Ref_Variables);
+					
+					
+					console.log("result: ");
+					console.log(result);
+										
+					
+					//Prepare data
+					for (var i=0; i<Ref_Variables.length; i++) {						
+						for (var j=0; j<result.length; j++) {	
+							
+							//console.log("result[j].address: "+result[j].address+"=="+"Ref_Variables[i]: "+Ref_Variables[i]);
+							
+							if (result[j].address==Ref_Variables[i]) {//If the address is equal to Ref_Variables						
+								if (Types[i]=="Value") { //If it is value	
+									dataG[i].push(result[j].value);
+									time[i].push(result[j].timestamp);
+								}
+								else if (Types[i]=="Address") { //If it is Address	
+									dataG[i].push(result[j].address);
+									time[i].push(result[j].timestamp);
+								}
+								else if (Types[i]=="Date") { //If it is Date	
+									dataG[i].push(formatTimestamp(result[j].timestamp));
+									time[i].push(result[j].timestamp);
+								}
+								else if (Types[i]=="Day") { //If it is Day	
+									dataG[i].push((new Date(result[j].timestamp)).getDate());
+									time[i].push(result[j].timestamp);
+								}
+								else if (Types[i]=="Month") { //If it is Month	
+									dataG[i].push((new Date(result[j].timestamp)).getMonth()+1);
+									time[i].push(result[j].timestamp);
+								}
+								else if (Types[i]=="Year") { //If it is Month	
+									dataG[i].push((new Date(result[j].timestamp)).getFullYear());
+									time[i].push(result[j].timestamp);
+								}
+								
+							}								
+						}						
+					}
+					
+									
+					
+					console.log("dataG: ");
+					console.log(dataG);
+					console.log("time: ");
+					console.log(time);
+					
+					
+					
+					//-----Set Periodicities based on the leading address-------//
+					if(Periodicity_Mode=="Leading Address")	{ 		
+						Periodicities=filterTimestampsByPeriodicity(time[Leading_Index]);
+					}
+					else if(Periodicity_Mode=="All Periodicities")	{ 		
+						Periodicities=filterTimestampsByPeriodicity(getUniqueTimestamps(time));
+					}
+					
+					//--------Go through all the periodicities and fill gaps------//
+					
+					var diferencia; //Variable que guarda las diferencias
+					var jmd; //Indice que tiene la menor diferencia
+					
+					//Recorro cada una de las variables
+					for(var h=0; h<Ref_Variables.length; h++){ 	
+					
+						for (var i=0; i<Periodicities.length; i++){ //Recorro todos los tiempos de periodicidad
+						
+							if (time[h].length!=0){ //if Size is bigger than 0
+								diferencia=Math.abs(Periodicities[i]-time[h][0]); //Diferencia Incial
+								jmd=0;
+								
+								for (var j=0; j<time[h].length; j++){ //Recorro todos los tiempos de cada variable
+									
+									if (Math.abs(Periodicities[i]-time[h][j])<diferencia) { //La diferencia es menor
+										jmd=j; //Actualizo el indice con la menor dif
+										diferencia=Math.abs(Periodicities[i]-time[h][j]);
+									}		
+								}
+								
+								//Incerto el valor con la menor diferencia en tiempo
+								timeF[h].push(Periodicities[i]);
+								if(typeof (dataG[h][jmd])!="string"){
+									dataGF[h].push(Number((dataG[h][jmd]).toFixed(2)));	
+								}
+								else{
+									dataGF[h].push((dataG[h][jmd]));	
+								}
+							}
+							else{
+								timeF[h].push(Periodicities[i]);
+								dataGF[h].push("No value found");	
+							}
+							
+						}
+					}
+					
+				console.log("dataGF: ");
+				console.log(dataGF);
+				console.log("timeF: ");
+				console.log(timeF);
+					
+					
+					
+					var datai=new Array();
+					
+					//Ordeno los datos
+					for (var j = 0; j<dataGF[0].length; j++)  {
+						var ObjectI={};
+						for (var h=0; h<Ref_Variables.length; h++)  {
+							ObjectI[Names[h]]=dataGF[h][j];
+						}
+						datai.push(ObjectI);							             
+					}
+					console.log(Total_Row);
+					if (Total_Row!="false"){//If total row is activated
+						var Total=new Array();
+						var ObjectIT={};
+						for (var h=0; h<Ref_Variables.length; h++)  {
+							if (Types[h]=="Value"){ //Si son valores
+								var suma=0;
+								for (var j = 0; j<dataGF[0].length; j++)  { //All values in the array
+									if (typeof dataGF[h][j]!="string"){
+										suma=suma+dataGF[h][j];
+									}
+								}
+								Total[h]=(suma).toFixed(2);
+							}
+							
+							else {
+								Total[h]="TOTAL";
+							}		
+														
+							ObjectIT[Names[h]]=Total[h];
+							
+						}
+						console.log(ObjectIT);
+						datai.push(ObjectIT);								             
+					}
+					
+					var data = {};
+					data.result =datai;
+					tableController.clearData(); //Limpio Datos
+					self.addData(data); //Agrega datos nuevos                  
+				});
+            });
+        };
+
+    // Registration of the configuration //
+    webMI.table.register("Dynamic_Table", "config",  config);
+    webMI.table.setReady("Dynamic_Table", "config");
+});
+},500);
+
+
+
+
+//---------------Waiters-----------------//
+
+//Wait for data to be ready
+function waitForCondition() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+	var condition=(Final_Date!=undefined&&Initial_Date!=undefined&&Ref_Variables_F!=undefined&&tableController!=undefined);
+      if (condition) {
+        clearInterval(interval);
+        resolve(true);
+      }
+    }, 100);
+  });
+}
+
+
+//---------------Auxiliary functions-----------------//
+
+//Format Time
+function formatTimestamp(timestamp) {
+  const date = new Date(timestamp);
+  
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+
+  return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+}
+
+//Process Enum List Data
+function processInputData(inputObject) {
+    // Iterate over each entry in the input object
+    for (var key in inputObject) {
+        if (inputObject.hasOwnProperty(key)) {
+            var entry = inputObject[key];
+
+            // Add the 'Name' value to the Names array
+            if (entry.Name) {
+                Names.push(entry.Name);
+            }
+
+            // Add the 'Type' value to the Types array
+            if (entry.Type) {
+                Types.push(entry.Type);
+            }
+
+            // Add the 'Node' value to the Ref_Variables array
+            if (entry.Node) {
+                Ref_Variables.push(entry.Node);
+                // Add the 'Node' value with prefix "g:" to Ref_Variables_F
+                Ref_Variables_F.push("g:" + entry.Node);
+            }
+        }
+    }
+}
+
+
+//Get all the timestamps
+function getUniqueTimestamps(arrayOfTimestampArrays) {
+    // Flatten the array of timestamp arrays
+    const flattenedArray = arrayOfTimestampArrays.flat();
+
+    // Use a Set to filter out duplicates
+    const uniqueTimestampsSet = new Set(flattenedArray);
+
+    // Convert the Set back into an array
+    return (Array.from(uniqueTimestampsSet));
+}
+
+
+
+
+//Reduce size of timestamps
+function filterTimestampsByPeriodicity(timestamps) {
+    // If Periodicity_Unit is not "Real Time" and Periodicity_Multiple is 0, set it to 1
+    if (Periodicity_Unit !== "Real Time" && Periodicity_Multiple === 0) {
+        Periodicity_Multiple = 1;
+    }
+
+    if (Periodicity_Unit === "Real Time") {
+        return timestamps;
+    }
+
+    const multiplier = Periodicity_Multiple * 1000; // Base multiplier for milliseconds
+    let interval;
+
+    switch (Periodicity_Unit) {
+        case "s": // seconds
+            interval = multiplier;
+            break;
+        case "min": // minutes
+            interval = multiplier * 60;
+            break;
+        case "h": // hours
+            interval = multiplier * 60 * 60;
+            break;
+        default:
+            throw new Error("Invalid periodicity unit");
+    }
+
+    let lastTimestamp = timestamps[0];
+    return timestamps.filter((timestamp, index) => {
+        if (index === 0 || timestamp >= lastTimestamp + interval) {
+            lastTimestamp = timestamp;
+            return true;
+        }
+        return false;
+    });
+}
+]]></script>
+ <svg atv:refpx="840" atv:refpy="445" height="580" id="id_6" transform="matrix(2.625,0,0,1.1897,0,0)" width="640" x="0" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.slickgrid.table_panel" y="85.739">
+  <atv:argument name="tableID" value="Dynamic_Table"/>
+  <atv:argument name="globalFillColor" prefix="Color" value="SYSTEM.GLOBALS."/>
+  <atv:argument name="globalFontColor" value="SYSTEM.GLOBALS.atvFontColor2"/>
+  <atv:overwrite height="690" id="id_1" transform="matrix(0.381,0,0,0.8406,0,0)" width="1680"/>
+ </svg>
+ <svg atv:refpx="840" atv:refpy="807.5" height="25" id="id_7" transform="matrix(2.625,0,0,1,0,0)" width="640" x="0" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.slickgrid.table_footer" y="795">
+  <atv:argument name="tableID" value="Dynamic_Table"/>
+ </svg>
+</svg>

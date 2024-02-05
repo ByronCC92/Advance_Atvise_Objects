@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Building_Automation.BA13_Chiller_1
+NodeClass: ObjectType
+BrowseName: 1:BA13_Chiller_1
+DisplayName: en|BA13_Chiller_1
+Description: en|BA13_Chiller_1
+IsAbstract: false

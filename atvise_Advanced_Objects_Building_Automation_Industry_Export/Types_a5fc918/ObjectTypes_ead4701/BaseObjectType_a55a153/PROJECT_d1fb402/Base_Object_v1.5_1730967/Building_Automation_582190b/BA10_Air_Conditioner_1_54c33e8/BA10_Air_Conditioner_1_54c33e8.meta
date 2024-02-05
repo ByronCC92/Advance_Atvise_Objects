@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Building_Automation.BA10_Air_Conditioner_1
+NodeClass: ObjectType
+BrowseName: 1:BA10_Air_Conditioner_1
+DisplayName: en|BA10_Air_Conditioner_1
+Description: en|BA10_Air_Conditioner_1
+IsAbstract: false

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Parameters.Initial_Values
+NodeClass: Variable
+BrowseName: 1:Initial_Values
+DisplayName: en|Initial_Values
+Description: en|Initial_Values
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

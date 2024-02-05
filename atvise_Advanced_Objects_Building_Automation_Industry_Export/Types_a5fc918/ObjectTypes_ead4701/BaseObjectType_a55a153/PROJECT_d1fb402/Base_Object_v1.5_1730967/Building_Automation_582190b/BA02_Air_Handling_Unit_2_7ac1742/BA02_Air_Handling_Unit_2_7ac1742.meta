@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Building_Automation.BA02_Air_Handling_Unit_2
+NodeClass: ObjectType
+BrowseName: 1:BA02_Air_Handling_Unit_2
+DisplayName: en|BA02_Air_Handling_Unit_2
+Description: en|BA02_Air_Handling_Unit_2
+IsAbstract: false

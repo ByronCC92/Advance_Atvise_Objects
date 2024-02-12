@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/General_Manufacturing/Silo
+NodeClass: Object
+BrowseName: 1:Silo
+DisplayName: en|Silo
+Description: en|Silo
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

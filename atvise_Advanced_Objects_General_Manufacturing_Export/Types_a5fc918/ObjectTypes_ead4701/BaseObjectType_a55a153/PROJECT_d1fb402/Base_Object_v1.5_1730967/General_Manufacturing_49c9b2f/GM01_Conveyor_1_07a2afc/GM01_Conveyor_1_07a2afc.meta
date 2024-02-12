@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing.GM01_Conveyor_1
+NodeClass: ObjectType
+BrowseName: 1:GM01_Conveyor_1
+DisplayName: en|GM01_Conveyor_1
+Description: en|GM01_Conveyor_1
+IsAbstract: false

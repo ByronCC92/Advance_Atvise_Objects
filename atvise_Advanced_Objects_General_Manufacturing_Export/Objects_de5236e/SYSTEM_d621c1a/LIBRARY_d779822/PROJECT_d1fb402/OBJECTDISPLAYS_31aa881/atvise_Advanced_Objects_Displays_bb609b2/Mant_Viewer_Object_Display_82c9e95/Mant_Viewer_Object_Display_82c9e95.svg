@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="650" version="1.2" width="520" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <svg atv:refpx="260" atv:refpy="300" height="640" id="id_0" transform="matrix(0.8125,0,0,0.8125,0,0)" width="640" x="0" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.slickgrid.table" y="1.231">
+  <atv:argument name="tableID" value="Mant_Table"/>
+  <atv:argument name="globalBorderColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
+  <atv:argument name="globalFillColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
+  <atv:argument name="globalFontColor" value="SYSTEM.GLOBALS.atvFontColor2"/>
+ </svg>
+ <svg atv:refpx="75" atv:refpy="604.992" height="30" id="Finished_Maint" transform="matrix(1.625,0,0,1.6667,0,0)" width="80" x="6.154" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="347.993">
+  <atv:argument name="label" value="T{Finish}"/>
+  <atv:argument name="fontSize" value="20"/>
+  <atv:overwrite height="48.001" id="id_6" transform="matrix(0.6154,0,0,0.6,0,0)" width="128"/>
+  <atv:overwrite id="button_label_2" transform="matrix(0.6154,0,0,0.6,0,0)" x="65" y="36.5"/>
+  <atv:overwrite id="button_label_1" transform="matrix(0.6154,0,0,0.6,0,0)" x="65" y="21.5"/>
+  <atv:overwrite id="button_label" transform="matrix(0.6154,0,0,0.6,0,0)" x="65" y="29.5"/>
+  <atv:overwrite id="button_symbol_bottom" transform="matrix(0.3692,0,0,0.36,0,0)" x="98.167" y="42.959"/>
+  <atv:overwrite id="button_symbol_top" transform="matrix(0.3692,0,0,0.36,0,0)" x="98.167" y="21.626"/>
+  <atv:overwrite id="button_symbol" transform="matrix(0.6154,0,0,0.6,0,0)" x="55" y="15"/>
+  <atv:overwrite height="46.001" id="button_stroke" transform="matrix(0.6154,0,0,0.6,0,0)" width="126"/>
+  <atv:overwrite height="48.001" id="button_bg" transform="matrix(0.6154,0,0,0.6,0,0)" width="128"/>
+  <atv:overwrite height="50.001" id="outer_frame" transform="matrix(0.6154,0,0,0.6,0,0)" width="130"/>
+ </svg>
+ <text atv:refpx="188" atv:refpy="609" fill="$Color$" font-family="Arial" font-size="20" id="id_info" x="174.5" y="613.5">Texto</text>
+ <text atv:refpx="87.431" atv:refpy="559" fill="$Color$" font-family="Arial" font-size="20" id="id_1" x="4.5" y="563.5">Choose Finished Maintenance</text>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.Maintenance_Viewer_Display_Script" atv:name="" atv:type="text/ecmascript"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"/>
+</svg>

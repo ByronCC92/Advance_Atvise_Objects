@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[/*******Initialize Variables*******/
+//Menu Variables
+var Backgrounds=["background_set","background_chart","background_history"];
+var Click_Area=["click_area_set","click_area_chart","click_area_history"];
+var Displays;
+var Color=webMI.query["Color"];
+var SetI=true; //Starts with set
+var Root_Path;
+var Root_PathR=webMI.query["base"]+".Parameters.Root_Path";
+
+
+/*******Initial Conditions******/
+webMI.addOnload(function() {
+
+	//Read Root_Path
+	webMI.data.read(Root_PathR, function(e) {
+	    Root_Path=e.value;		
+	})	
+	
+	//Menu Initial Conditions
+	webMI.gfx.setFill(Backgrounds[0], Color);
+	webMI.gfx.setFill(Backgrounds[1], "#000000");
+	webMI.gfx.setFill(Backgrounds[2], "#000000");
+    SetI=true;
+	
+	//Give time to read Root_Path
+	setTimeout(function() {
+		//Set Displays
+		Displays=["SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Maintenance_Set_Object_Display","SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Maintenance_Chart_Object_Display","SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Maintenance_Hist_Object_Display"]
+		
+		//Open Maintenance_Set
+		webMI.display.openDisplay(Displays[0], webMI.query, "maintframe");
+	},200);
+	
+});
+
+/*******Menu Section*******/
+
+//Set Maintenance
+webMI.addEvent(Click_Area[0], "click", function(e) {
+
+	webMI.gfx.setFill(Backgrounds[0], Color);
+	webMI.gfx.setFill(Backgrounds[1], "#000000");
+	webMI.gfx.setFill(Backgrounds[2], "#000000");
+    SetI=true;  
+    
+	
+	//Open Window
+	webMI.display.openDisplay(Displays[0], webMI.query, "maintframe");
+	
+	
+});
+
+//Chart Data
+webMI.addEvent(Click_Area[1], "click", function(e) {
+
+	webMI.gfx.setFill(Backgrounds[1], Color);
+	webMI.gfx.setFill(Backgrounds[0], "#000000");
+	webMI.gfx.setFill(Backgrounds[2], "#000000");
+    SetI=false;
+      
+    //Open Window
+	webMI.display.openDisplay(Displays[1], webMI.query, "maintframe");
+	
+    
+});
+
+
+//Histotical Data
+webMI.addEvent(Click_Area[2], "click", function(e) {
+
+	webMI.gfx.setFill(Backgrounds[2], Color);
+	webMI.gfx.setFill(Backgrounds[0], "#000000");
+	webMI.gfx.setFill(Backgrounds[1], "#000000");
+    SetI=false;
+      
+    //Open Window
+	webMI.display.openDisplay(Displays[2], webMI.query, "maintframe");
+	
+    
+});
+
+
+
+]]></code>
+</script>

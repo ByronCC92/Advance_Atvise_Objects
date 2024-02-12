@@ -1,0 +1,8 @@
+NodeId: ns=1;s=AGENT.HISTORY.Alarmas
+NodeClass: Object
+BrowseName: 1:Alarmas
+DisplayName: en|Alarmas
+Description: en|Alarmas
+EventNotifier: 0
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.ArchiveGroup.Event

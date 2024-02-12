@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.General_Manufacturing
+NodeClass: Object
+BrowseName: 1:General_Manufacturing
+DisplayName: en|General_Manufacturing
+Description: en|General_Manufacturing
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/General_Manufacturing/Hopper
+NodeClass: Object
+BrowseName: 1:Hopper
+DisplayName: en|Hopper
+Description: en|Hopper
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

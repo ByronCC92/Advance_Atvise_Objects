@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing.GM05_Cyclone_2.Variables.Cyclone_Vibration
+NodeClass: Variable
+BrowseName: 1:Cyclone_Vibration
+DisplayName: en|Cyclone_Vibration
+Description: en|Cyclone_Vibration
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

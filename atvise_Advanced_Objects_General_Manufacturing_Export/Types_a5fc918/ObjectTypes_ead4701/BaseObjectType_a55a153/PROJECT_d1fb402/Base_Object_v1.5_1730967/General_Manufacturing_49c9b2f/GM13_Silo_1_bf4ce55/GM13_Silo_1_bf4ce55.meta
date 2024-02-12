@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing.GM13_Silo_1
+NodeClass: ObjectType
+BrowseName: 1:GM13_Silo_1
+DisplayName: en|GM13_Silo_1
+Description: en|GM13_Silo_1
+IsAbstract: false

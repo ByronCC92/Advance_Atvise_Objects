@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing.GM10_Mixer_1.Variables.Mixer_Load
+NodeClass: Variable
+BrowseName: 1:Mixer_Load
+DisplayName: en|Mixer_Load
+Description: en|Mixer_Load
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

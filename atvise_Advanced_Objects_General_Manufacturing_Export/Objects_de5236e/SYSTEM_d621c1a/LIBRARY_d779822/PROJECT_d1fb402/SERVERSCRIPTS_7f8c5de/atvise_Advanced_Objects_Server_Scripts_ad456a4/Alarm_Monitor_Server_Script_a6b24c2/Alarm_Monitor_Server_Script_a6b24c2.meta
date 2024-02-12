@@ -1,0 +1,10 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.SERVERSCRIPTS.atvise_Advanced_Objects_Server_Scripts.Alarm_Monitor_Server_Script
+NodeClass: Variable
+BrowseName: 1:Alarm_Monitor_Server_Script
+DisplayName: en|Alarm_Monitor_Server_Script
+Description: en|Alarm_Monitor_Server_Script
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.ScriptCode

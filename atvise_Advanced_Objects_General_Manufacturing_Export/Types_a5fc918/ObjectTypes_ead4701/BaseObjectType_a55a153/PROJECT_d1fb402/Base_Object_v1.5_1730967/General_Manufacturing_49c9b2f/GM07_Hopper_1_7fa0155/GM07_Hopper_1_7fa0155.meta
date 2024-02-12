@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing.GM07_Hopper_1
+NodeClass: ObjectType
+BrowseName: 1:GM07_Hopper_1
+DisplayName: en|GM07_Hopper_1
+Description: en|GM07_Hopper_1
+IsAbstract: false

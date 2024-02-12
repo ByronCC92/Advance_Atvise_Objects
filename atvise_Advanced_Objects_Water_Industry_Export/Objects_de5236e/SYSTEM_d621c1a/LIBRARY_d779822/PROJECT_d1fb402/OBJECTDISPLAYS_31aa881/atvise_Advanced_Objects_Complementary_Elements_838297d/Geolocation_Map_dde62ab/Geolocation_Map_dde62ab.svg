@@ -2,8 +2,8 @@
 <svg height="800" version="1.2" width="1680" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs/>
  <metadata>
-  <atv:parameter behavior="optional" defaultvalue="" desc="Global Geolocation List" name="Global_Geo_List" valuetype="global"/>
-  <atv:parameter behavior="optional" defaultvalue="" desc="Global_Geo_Address" name="Global_Geo_Address" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advanced_Objects_Geolocation_List.Geolocation_List" desc="Global Geolocation List" name="Global_Geo_List" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advanced_Objects_Geolocation_List.Geolocation_List" desc="Global_Geo_Address" name="Global_Geo_Address" valuetype="string"/>
   <atv:parameter behavior="optional" desc="Geo Config" name="Geo_Config" valuetype="address"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Iframe to Open" name="Iframe" valuetype="string"/>
   <atv:parameter behavior="optional" defaultvalue="" desc="Trigger Name" name="Trigger_Name" valuetype="string"/>
@@ -430,7 +430,7 @@ function addMarker(map,obj) {
 	
 	//Add Listeners
 	marker.addListener("click", function(e){
-		webMI.display.openDisplay(obj['5 Display'], webMI.query, Iframe);
+		webMI.display.openDisplay(obj['5 Display'], {base: obj['4 Address']}, Iframe);
 	});
 	
 }

@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.WEBMIMETHODS.Global_Mant_Monitor_webMI_Method_Script
+NodeClass: Variable
+BrowseName: 1:Global_Mant_Monitor_webMI_Method_Script
+DisplayName: en|Global_Mant_Monitor_webMI_Method_Script
+Description: en|Global_Mant_Monitor_webMI_Method_Script
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.ScriptCode

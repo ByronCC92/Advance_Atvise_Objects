@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing.GM13_Silo_1.Variables.Dust_Emissions
+NodeClass: Variable
+BrowseName: 1:Dust_Emissions
+DisplayName: en|Dust_Emissions
+Description: en|Dust_Emissions
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

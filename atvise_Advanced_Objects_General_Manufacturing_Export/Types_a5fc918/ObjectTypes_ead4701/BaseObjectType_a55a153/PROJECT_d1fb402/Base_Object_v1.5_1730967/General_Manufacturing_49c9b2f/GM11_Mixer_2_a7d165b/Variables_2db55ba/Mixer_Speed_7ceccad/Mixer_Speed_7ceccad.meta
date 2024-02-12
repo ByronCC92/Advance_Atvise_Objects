@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing.GM11_Mixer_2.Variables.Mixer_Speed
+NodeClass: Variable
+BrowseName: 1:Mixer_Speed
+DisplayName: en|Mixer_Speed
+Description: en|Mixer_Speed
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

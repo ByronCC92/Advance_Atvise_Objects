@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/General_Manufacturing/Cyclone
+NodeClass: Object
+BrowseName: 1:Cyclone
+DisplayName: en|Cyclone
+Description: en|Cyclone
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

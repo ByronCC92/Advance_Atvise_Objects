@@ -13,12 +13,12 @@
   <atv:argument name="frameName" value="info_frame"/>
   <atv:argument name="display" prefix="Display"/>
  </svg>
- <text atv:refpx="251.638" atv:refpy="26" fill="$Color$" font-family="Arial" font-size="28" id="Alarms" x="236" y="30.5">Alarms</text>
- <text atv:refpx="415.84" atv:refpy="26" fill="$Color$" font-family="Arial" font-size="28" id="Maintenance" x="384.5" y="30.5">Maintenance</text>
- <text atv:refpx="60.881" atv:refpy="26" fill="$Color$" font-family="Arial" font-size="28" id="Conditions" x="35.5" y="30.5">Conditions</text>
- <rect atv:refpx="100" atv:refpy="20" fill="#195c88" fill-opacity="0" height="40" id="click_area_conditions" stroke="#0000ff" stroke-width="0" width="160" x="20" y="0"/>
- <rect atv:refpx="275" atv:refpy="20" fill="#195c88" fill-opacity="0" height="40" id="click_area_alarms" stroke="#0000ff" stroke-width="0" width="110" x="220" y="0"/>
- <rect atv:refpx="465" atv:refpy="20" fill="#195c88" fill-opacity="0" height="40" id="click_area_maintenance" stroke="#0000ff" stroke-width="0" width="190" x="370" y="0"/>
+ <text atv:refpx="251.638" atv:refpy="36" fill="$Color$" font-family="Arial" font-size="28" id="Alarms" x="236" y="40.5">Alarms</text>
+ <text atv:refpx="415.84" atv:refpy="36" fill="$Color$" font-family="Arial" font-size="28" id="Maintenance" x="384.5" y="40.5">Maintenance</text>
+ <text atv:refpx="60.881" atv:refpy="36" fill="$Color$" font-family="Arial" font-size="28" id="Conditions" x="35.5" y="40.5">Conditions</text>
+ <rect atv:refpx="100" atv:refpy="30" fill="#195c88" fill-opacity="0" height="40" id="click_area_conditions" stroke="#0000ff" stroke-width="0" width="160" x="20" y="10"/>
+ <rect atv:refpx="275" atv:refpy="30" fill="#195c88" fill-opacity="0" height="40" id="click_area_alarms" stroke="#0000ff" stroke-width="0" width="110" x="220" y="10"/>
+ <rect atv:refpx="465" atv:refpy="30" fill="#195c88" fill-opacity="0" height="40" id="click_area_maintenance" stroke="#0000ff" stroke-width="0" width="190" x="370" y="10"/>
  <line atv:refpx="300" atv:refpy="60.5" id="id_1" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="60" y2="60"/>
  <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.General_Configuration_Display_Script" atv:name="" atv:type="text/ecmascript"/>
  <script atv:desc="" atv:name="" type="text/ecmascript"/>

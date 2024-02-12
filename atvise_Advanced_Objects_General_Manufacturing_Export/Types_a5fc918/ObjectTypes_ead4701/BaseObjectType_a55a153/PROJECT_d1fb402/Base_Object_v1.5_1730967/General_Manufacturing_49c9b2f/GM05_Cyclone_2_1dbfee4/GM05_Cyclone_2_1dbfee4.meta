@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing.GM05_Cyclone_2
+NodeClass: ObjectType
+BrowseName: 1:GM05_Cyclone_2
+DisplayName: en|GM05_Cyclone_2
+Description: en|GM05_Cyclone_2
+IsAbstract: false

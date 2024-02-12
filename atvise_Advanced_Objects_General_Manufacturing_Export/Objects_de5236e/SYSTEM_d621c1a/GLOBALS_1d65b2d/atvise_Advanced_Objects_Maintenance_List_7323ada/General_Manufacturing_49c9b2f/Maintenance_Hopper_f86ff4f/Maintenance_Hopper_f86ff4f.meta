@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.General_Manufacturing.Maintenance_Hopper
+NodeClass: Variable
+BrowseName: 1:Maintenance_Hopper
+DisplayName: en|Maintenance_Hopper
+Description: en|Maintenance_Hopper
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing.GM04_Cyclone_1.Variables.Cyclone_Efficiency
+NodeClass: Variable
+BrowseName: 1:Cyclone_Efficiency
+DisplayName: en|Cyclone_Efficiency
+Description: en|Cyclone_Efficiency
+DataType: Double
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

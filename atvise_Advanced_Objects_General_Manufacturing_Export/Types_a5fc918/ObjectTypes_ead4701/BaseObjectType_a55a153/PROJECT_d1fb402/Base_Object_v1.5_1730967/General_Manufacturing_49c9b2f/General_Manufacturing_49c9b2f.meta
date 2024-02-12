@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing
+NodeClass: ObjectType
+BrowseName: 1:General_Manufacturing
+DisplayName: en|General_Manufacturing
+Description: en|General_Manufacturing
+IsAbstract: false

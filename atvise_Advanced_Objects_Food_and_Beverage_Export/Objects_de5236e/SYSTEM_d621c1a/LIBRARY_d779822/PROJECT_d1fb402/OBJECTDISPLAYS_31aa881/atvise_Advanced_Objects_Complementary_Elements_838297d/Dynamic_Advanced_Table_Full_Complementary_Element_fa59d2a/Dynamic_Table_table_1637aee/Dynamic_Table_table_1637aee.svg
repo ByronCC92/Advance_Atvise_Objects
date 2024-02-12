@@ -231,7 +231,7 @@ webMI.trigger.connect("com.atvise.datepicker_Table_Final_Date", function (e) {
 		if(Table_Initialized){
 			webMI.trigger.fire("update_mant_table", 0); //Update chart
 		}
-	},200);
+	},400);
 });
 
 

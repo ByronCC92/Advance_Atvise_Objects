@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.Maintenance_Set_Display_Script
+NodeClass: Variable
+BrowseName: 1:Maintenance_Set_Display_Script
+DisplayName: en|Maintenance_Set_Display_Script
+Description: en|Maintenance_Set_Display_Script
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.DisplayScript

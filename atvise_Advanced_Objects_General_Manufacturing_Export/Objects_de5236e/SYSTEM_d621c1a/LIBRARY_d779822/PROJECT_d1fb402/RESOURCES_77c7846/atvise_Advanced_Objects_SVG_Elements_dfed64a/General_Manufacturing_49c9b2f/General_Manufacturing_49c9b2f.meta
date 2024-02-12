@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/General_Manufacturing
+NodeClass: Object
+BrowseName: 1:General_Manufacturing
+DisplayName: en|General_Manufacturing
+Description: en|General_Manufacturing
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.General_Manufacturing.GM10_Mixer_1
+NodeClass: ObjectType
+BrowseName: 1:GM10_Mixer_1
+DisplayName: en|GM10_Mixer_1
+Description: en|GM10_Mixer_1
+IsAbstract: false

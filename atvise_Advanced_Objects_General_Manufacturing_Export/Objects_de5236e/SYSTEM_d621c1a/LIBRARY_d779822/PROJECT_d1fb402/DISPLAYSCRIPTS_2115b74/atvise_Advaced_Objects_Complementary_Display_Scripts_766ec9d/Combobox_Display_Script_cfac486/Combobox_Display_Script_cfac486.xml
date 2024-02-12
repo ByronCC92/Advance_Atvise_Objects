@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[
+/**
+ * This script handles the status indicators.
+ */
+
+
+/**
+ * DECLARATION SECTION
+ */
+var currentIndicator = "";
+var activeIndicators = {};
+
+
+/**
+ * FUNCTION SECTION
+ */
+function handleStatus(status) {
+	if (statusEnabled != "Yes")
+		return;
+
+	if (statusTrigger != "") {
+		webMI.trigger.fire(statusTrigger, status);
+	} else {
+		if (typeof statusIndication["ItemStatusBad"] == "undefined")
+			statusIndication = {"ItemStatusBad": {color: "#ffff00", interval: "250"}};
+
+		if (isGood(status))				//Good value state
+			delete activeIndicators["status"];
+		else if (isBad(status))			//Bad value state
+			activeIndicators["status"] = {
+				color: statusIndication["ItemStatusBad"].color,
+				interval: parseInt(statusIndication["ItemStatusBad"].interval)
+			};
+		else if (isUncertain(status))	//Uncertain value state
+			activeIndicators["status"] = {
+				color: statusIndication["ItemStatusBad"].color,
+				interval: parseInt(statusIndication["ItemStatusBad"].interval)
+			};
+		else							//Unknown value state
+			activeIndicators["status"] = {
+				color: statusIndication["ItemStatusBad"].color,
+				interval: parseInt(statusIndication["ItemStatusBad"].interval)
+			};
+
+		if (typeof customSetIndicator === "function") customSetIndicator();
+		else setIndicator(isGood(status));
+	}
+}
+
+/**
+ * Alarm handling
+ * @param address
+ */
+function initAlarm(address) {
+	alarmReadGranted();
+
+	function alarmReadGranted() {
+		if (alarmIndication == "")
+			alarmIndication = {};
+
+		if (typeof alarmIndication["AlarmStatusOnUnacknowledged"] == "undefined")
+			alarmIndication["AlarmStatusOnUnacknowledged"] = {color: "#ff0000", interval: "250"};
+
+		if (typeof alarmIndication["AlarmStatusOnAcknowledged"] == "undefined")
+			alarmIndication["AlarmStatusOnAcknowledged"] = {color: "#ff0000", interval: "500"};
+
+		if (typeof alarmIndication["AlarmStatusOffUnacknowledged"] == "undefined")
+			alarmIndication["AlarmStatusOffUnacknowledged"] = {color: "#ff0000", interval: "750"};
+
+		if (typeof alarmIndication["AlarmStatusOnOffUnacknowledged"] == "undefined")
+			alarmIndication["AlarmStatusOnOffUnacknowledged"] = {color: "#ff0000", interval: "1500"};
+
+		webMI.alarm.subscribe(address, function (e) {
+			if (e.error === -4) {
+				// Bad user access denied!
+				if (typeof accessControlElementNotifier != "undefined" && accessControlElementNotifier) {
+					accessControlElementNotifier.addRights(e.address, "read");
+				}
+			}
+
+			if (e.state == 1) {
+				activeIndicators["alarm"] = {
+					color: alarmIndication["AlarmStatusOnUnacknowledged"].color,
+					interval: parseInt(alarmIndication["AlarmStatusOnUnacknowledged"].interval)
+				};
+			} else if (e.state == 2) {
+				activeIndicators["alarm"] = {
+					color: alarmIndication["AlarmStatusOnAcknowledged"].color,
+					interval: parseInt(alarmIndication["AlarmStatusOnAcknowledged"].interval)
+				};
+			} else if (e.state == 3) {
+				activeIndicators["alarm"] = {
+					color: alarmIndication["AlarmStatusOffUnacknowledged"].color,
+					interval: parseInt(alarmIndication["AlarmStatusOffUnacknowledged"].interval)
+				};
+			} else if (e.state == 5) {
+				activeIndicators["alarm"] = {
+					color: alarmIndication["AlarmStatusOnOffUnacknowledged"].color,
+					interval: parseInt(alarmIndication["AlarmStatusOnOffUnacknowledged"].interval)
+				};
+			} else {
+				delete activeIndicators["alarm"];
+			}
+
+			if (typeof customSetIndicator === "function") customSetIndicator();
+			else setIndicator(e.state == 0);
+		});
+	}
+}
+
+/**
+ * Set indicator
+ */
+var activeIndicator = "";
+var activeIndicatorColor = null;
+var activeIndicatorCurrent = "";
+var activeIndicatorID = null;
+var activeIndicatorInterval = null;
+var activeIndicatorLock = false;
+var activeIndicatorState = false;
+var activeIndicatorStateChanged = false;
+var activeIndicatorTimer = 0;
+var activeIndicatorHeartBeat = 50;
+
+function setIndicator() {
+	if (activeIndicators["trigger"]) {
+		activeIndicator = "trigger";
+	} else if (activeIndicators["status"]) {
+		activeIndicator = "status";
+	} else if (activeIndicators["alarm"]) {
+		activeIndicator = "alarm";
+	} else {
+		activeIndicator = "";
+	}
+
+	var indicatorChange = false;
+	if (activeIndicator) {
+		if (activeIndicator != activeIndicatorCurrent)
+			indicatorChange = true;
+		if (activeIndicatorInterval != activeIndicators[activeIndicator].interval)
+			indicatorChange = true;
+		if (activeIndicatorColor != activeIndicators[activeIndicator].color)
+			indicatorChange = true;
+	}
+
+	if (activeIndicator && indicatorChange) {
+
+		activeIndicatorColor = activeIndicators[activeIndicator].color;
+		activeIndicatorCurrent = activeIndicator;
+		activeIndicatorInterval = activeIndicators[activeIndicator].interval;
+		activeIndicatorState = false;
+
+		if (typeof webMI.gfx.getX("gauge_value") == "undefined") {
+			webMI.gfx.setStroke("blinking_frame", activeIndicatorColor);
+		} else {
+			webMI.gfx.setFill("blinking_frame", activeIndicatorColor);
+		}
+
+	} else if (!activeIndicator) {
+		activeIndicatorInterval = null;
+		activeIndicatorCurrent = activeIndicator;
+	}
+
+	activeIndicatorStateChanged = true;
+
+	return;
+}
+
+/**
+ * [AT-D-12401] Interval for managing the blinking as an extension for setIndicator
+ * @type {number}
+ */
+var activeIndicatorID = setInterval(function activeIndicatorBeat() {
+
+	if (activeIndicatorStateChanged && activeIndicatorInterval == null) {
+		webMI.gfx.setVisible("blinking_frame", false);
+	} else if (activeIndicatorInterval == 0) {
+		webMI.gfx.setVisible("blinking_frame", "visible");
+	} else {
+		if (activeIndicatorInterval == null)
+			return;
+
+		if (activeIndicatorTimer <= 0) {
+			if (activeIndicatorState) {
+				webMI.gfx.setVisible("blinking_frame", false);
+				activeIndicatorState = false;
+			} else {
+				webMI.gfx.setVisible("blinking_frame", "visible");
+				activeIndicatorState = true;
+			}
+			activeIndicatorTimer = activeIndicatorInterval;
+		} else {
+			activeIndicatorTimer = activeIndicatorTimer - activeIndicatorHeartBeat;
+		}
+	}
+
+	activeIndicatorStateChanged = false;
+
+}, activeIndicatorHeartBeat);
+
+
+function isUndefined(status) {
+	return typeof status === "undefined";
+}
+
+function isGood(status) {
+	return !isUndefined(status) && (status == 0 || (status & 0xC0000000).toString(16) == 0);
+}
+
+function isUncertain(status) {
+	return !isUndefined(status) && ((status & 0xC0000000).toString(16) == 40000000);
+}
+
+function isBad(status) {
+	return !isUndefined(status) && ((status & 0x80000000).toString(16) != 0);
+}
+
+webMI.addOnunload(function () {
+	clearInterval(activeIndicatorInterval);
+});
+
+
+/**
+ * TRIGGER SECTION
+ */
+webMI.trigger.connect("com.atvise.setBlinking", function (e) {
+	if (e.value == "none") {
+		delete activeIndicators["trigger"];
+	} else {
+		activeIndicators["trigger"] = {color: e.value, interval: 500};
+	}
+	if (typeof customSetIndicator === "function") customSetIndicator();
+	else setIndicator();
+});
+
+/**
+ * This script is used for handling the user rights set by display paraemters and the server based access control rights.
+ * The in_out_value object display's right handling works slightly different and does not use this script.
+ */
+
+/**
+ * DECLARATION SECTION
+ */
+
+var right = null;
+var isActivationNodeSet = false;
+var nodeIsActive = false;
+var hasRight = false;
+var accessControlRights = {};
+accessControlRights["baseWrite"] = true;
+accessControlRights["activeNodeRead"] = true;
+var accessControlElementNotifier;
+
+/**
+ * FUNCTION SECTION
+ */
+
+function rightsHandling(rightsHandlingProperties) {
+	right = rightsHandlingProperties.right;
+	var checkBaseNodeWriteRight = rightsHandlingProperties.checkBaseNodeWriteRight;
+	isActivationNodeSet = rightsHandlingProperties.isActivationNodeSet;
+	var notifierConfiguration = rightsHandlingProperties.notifierConfiguration;
+	var setActiveTrigger = rightsHandlingProperties.setActiveTrigger;
+	var callHandleStatus = rightsHandlingProperties.handleStatus;
+
+	if (right != null) {
+		if (right.search(/SYSTEM\.SECURITY\.RIGHTS\./) != -1) {
+			right = right.substring(23, right.length); //remove "prefix" SYSTEM.SECURITY.RIGHTS.
+		}
+
+		if (right != "") {
+			webMI.addEvent(webMI.data, "clientvariableschange", function (e) {
+				hasRight = false;
+				if ("username" in e && e.username != "") {
+					hasRight = webMI.hasRight(right);
+				}
+				setActivation();
+			});
+		}
+	}
+
+	if (isActivationNodeSet) {
+		webMI.data.subscribe(activeNode, function (e) {
+			var nodeActiveValue = e.value;
+			if (typeof nodeActiveValue == "boolean") {
+				nodeIsActive = String(nodeActiveValue) == activeValue;
+			} else if (typeof nodeActiveValue == "number") {
+				try {
+					var temp = parseFloat(activeValue);
+					nodeIsActive = nodeActiveValue == temp;
+				} catch (e) {
+					nodeIsActive = false;
+				}
+			} else {
+				nodeIsActive = nodeActiveValue == activeValue;
+			}
+			if (callHandleStatus && typeof e.status != "undefined" && typeof handleStatus === "function")
+				handleStatus(e.status);
+			setActivation();
+		});
+	} else {
+		setActivation();
+	}
+
+	if (setActiveTrigger) {
+		webMI.trigger.connect("com.atvise.setActive", function (e) {
+			if (typeof isSetActive != "undefined") {
+				isSetActive = e.value;
+				setActivation();
+			} else if (e.value) {
+				setActivation();
+			} else {
+				setActivation(true);
+			}
+		});
+	}
+
+	accessControlHandling(checkBaseNodeWriteRight, isActivationNodeSet, notifierConfiguration);
+}
+
+function accessControlHandling(checkBaseNodeWriteRight, isActivationNodeSet, notifierConfiguration) {
+	if (!webMI.getAccessControlSupport()) return false;
+
+	var accessControlManager;
+
+	if (checkBaseNodeWriteRight || isActivationNodeSet)
+		accessControlManager = webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Access Control Manager");
+
+	if (notifierConfiguration && notifierConfiguration.id && Array.isArray(notifierConfiguration.rights)) {
+	  notifierConfiguration.elementId = notifierConfiguration.id;
+		accessControlElementNotifier = webMI.callExtension(
+			"SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Access Control Element Notifier",
+			notifierConfiguration
+		);
+
+    if(accessControlElementNotifier)
+      notifierConfiguration.rights.forEach((rightConfig) => {
+        if (rightConfig.nodeId) {
+          accessControlElementNotifier.addRights(rightConfig.nodeId, rightConfig.rights);
+        }
+      });
+	}
+
+	updateAccessControlRights();
+
+	function updateAccessControlRights() {
+		if (checkBaseNodeWriteRight) updateActiveNodeAndBaseRights();
+		else if (isActivationNodeSet) updateActiveNodeRightsOnly();
+	}
+
+	function updateActiveNodeRightsOnly() {
+		accessControlManager.getRights(webMI.query["activeNode"], "read", function (e) {
+			accessControlRights["activeNodeRead"] = e.result;
+			setActivation();
+		});
+	}
+
+	function updateActiveNodeAndBaseRights() {
+		accessControlManager.getRights(webMI.query["base"], "write", function (e) {
+			accessControlRights["baseWrite"] = e.result;
+			if (isActivationNodeSet && accessControlRights["baseWrite"] == true) {
+				accessControlManager.getRights(webMI.query["activeNode"], "read", function (e) {
+					accessControlRights["activeNodeRead"] = e.result;
+					setActivation();
+				});
+			} else {
+				setActivation();
+			}
+		});
+	}
+
+	webMI.trigger.connect("com.atvise.access_control_update", function (e) {
+		if (e.notification === null) return;
+		updateAccessControlRights();
+	});
+}
+
+function hasReadRightFromDisplayParameters(forceDeActivate) {
+	if (typeof forceDeActivate !== "undefined" && forceDeActivate) {
+		active = false;
+	} else if (right != "") {
+		if (isActivationNodeSet && accessControlRights["activeNodeRead"]) {
+			active = nodeIsActive && hasRight;
+		} else {
+			active = hasRight;
+		}
+	} else {
+		if (isActivationNodeSet && accessControlRights["activeNodeRead"]) {
+			active = nodeIsActive;
+		} else if (isActivationNodeSet && !accessControlRights["activeNodeRead"]) {
+			active = false;
+		} else {
+			active = true;
+		}
+	}
+	if (typeof isSetActive != "undefined") active = active && isSetActive;
+	return active;
+}
+
+function setActivation(forceDeActivate) {
+	if (hasReadRightFromDisplayParameters(forceDeActivate) && accessControlRights["baseWrite"]) {
+		setActiveLayout();
+	} else {
+		setInactiveLayout();
+	}
+}
+
+/**
+ * Code for the clickarea object display
+ * -------------------------------------
+ * This control can be used as an overlay element which reacts on clicks.
+ * In addition, the following triggers are fired:
+ * - valuechanged: on MouseClick
+ * - valuechangedMouseUp: on MouseUp
+ * - valuechangedMouseDown: on MouseDown
+ */
+
+
+/**
+ * DECLARATION SECTION
+ */
+var base = (webMI.query["base"] == undefined) ? "" : webMI.query["base"];
+var name = webMI.query["name"] == undefined ? "dpt" : webMI.query["name"];
+var outputNode = (webMI.query["outputNode"] == undefined) ? "" : webMI.query["outputNode"];
+outputNode = (outputNode == "") ? base : outputNode;
+var fontSize = parseFloat(webMI.query["fontSize"]);
+var fontFamily = webMI.query["fontFamily"];
+var fontColor = webMI.query["fontColor"];
+var valueFieldFill = typeof webMI.query["valueFieldFill"] != "undefined" ? webMI.query["valueFieldFill"] : webMI.query["fill"];
+var valueFieldFillInactive = typeof webMI.query["valueFieldFillInactive"] != "undefined" ? webMI.query["valueFieldFillInactive"] : webMI.query["fillColorInactive"];
+var fillColor = typeof webMI.query["fillColor"] != "undefined" ? webMI.query["fillColor"] : webMI.query["buttonFill"];
+var strokeFillPressed = webMI.query["strokePressed"];
+var focusStrokeColor = webMI.query["focusStrokeColor"];
+var borderColor = webMI.query["borderColor"];
+var itemsCount = webMI.query["itemsCount"];
+var consistencyGroup = webMI.query["consistencyGroup"];
+var alarmToSubscribe = webMI.query["alarm"];
+var alarmIndication = webMI.query["alarmIndication"];
+var statusEnabled = webMI.query["statusEnabled"];
+var statusTrigger = webMI.query["statusTrigger"];
+var statusIndication = webMI.query["statusIndication"];
+var alarmToSubscribe = webMI.query["alarm"];
+var alarmIndication = webMI.query["alarmIndication"];
+var statusEnabled = webMI.query["statusEnabled"];
+var statusTrigger = webMI.query["statusTrigger"];
+var statusIndication = webMI.query["statusIndication"];
+var tabHandler = webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Tab Handler");
+var tabIndex = (webMI.query["tabIndex"] == undefined) ? "" : webMI.query["tabIndex"];
+var tooltip = (webMI.query["tooltip"] == undefined) ? "" : webMI.query["tooltip"];
+var text1 = webMI.query["text1"];
+var text1value = webMI.query["text1value"] == undefined ? "" : webMI.query["text1value"];
+var text2 = webMI.query["text2"];
+var text2value = webMI.query["text2value"] == undefined ? "" : webMI.query["text2value"];
+var text3 = webMI.query["text3"];
+var text3value = webMI.query["text3value"] == undefined ? "" : webMI.query["text3value"];
+var text4 = webMI.query["text4"];
+var text4value = webMI.query["text4value"] == undefined ? "" : webMI.query["text4value"];
+var text5 = webMI.query["text5"];
+var text5value = webMI.query["text5value"] == undefined ? "" : webMI.query["text5value"];
+var enumList = (webMI.query["enumList"] == undefined) ? "" : webMI.query["enumList"];
+var right = (webMI.query["right"] == undefined) ? "" : webMI.query["right"];
+var activeValue = (webMI.query["activeValue"] == undefined) ? "" : webMI.query["activeValue"];
+var activeNode = (webMI.query["activeNode"] == undefined) ? "" : webMI.query["activeNode"];
+var mode = webMI.query["mode"];
+var active = false;
+var currentValue = null;
+var minWidth = 160;
+var consistencyHandler = webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Consistency Handler");
+var menuObj = {};
+var selectedIndex = -1;
+var selectedItem = null;
+var contextMenuStyle = {};
+
+if (typeof webMI.query["context_menu_font_family"] != "undefined") contextMenuStyle.fontFamily = webMI.query["context_menu_font_family"];
+if (typeof webMI.query["context_menu_font_size"] != "undefined") contextMenuStyle.fontSize = parseInt(webMI.query["context_menu_font_size"]);
+if (typeof webMI.query["context_menu_font_color"] != "undefined") contextMenuStyle.fontFill = webMI.query["context_menu_font_color"];
+if (typeof webMI.query["context_menu_font_color_hover"] != "undefined") contextMenuStyle.hoverFontFill = webMI.query["context_menu_font_color_hover"];
+if (typeof webMI.query["context_menu_fill_color"] != "undefined") contextMenuStyle.fill = webMI.query["context_menu_fill_color"];
+if (typeof webMI.query["context_menu_hover_color"] != "undefined") contextMenuStyle.hoverFill = webMI.query["context_menu_hover_color"];
+if (typeof webMI.query["contextMenuTextAlignment"] != "undefined") contextMenuStyle.showType = webMI.query["contextMenuTextAlignment"];
+if (typeof webMI.query["contextStroke"] != "undefined") contextMenuStyle.stroke = webMI.query["contextStroke"];
+if (typeof webMI.query["contextStrokeWidth"] != "undefined") contextMenuStyle.strokeWidth = parseInt(webMI.query["contextStrokeWidth"]);
+var isActivationNodeSet = activeNode != "" && String(activeValue) != "";
+
+/* eval enum list if is string */
+if (typeof(enumList) === "string" && enumList != "") {
+	var parseEnumList;
+	try {
+		parseEnumList = JSON.parse(enumList);
+	} catch (ex) {
+		parseEnumList = enumList;
+	}
+	enumList = parseEnumList;
+}
+
+/** advanced menu layout wiht corrections **/
+var menuLayout = {
+	customElementPosition: webMI.query["elementPosition"],
+	customFadeInAtHover: webMI.query["fadeInAtHover"],
+	customElementOffsetX: webMI.query["elementOffsetX"],
+	customElementOffsetY: webMI.query["elementOffsetY"],
+	customClickareaEnlargement: webMI.query["clickareaEnlargement"],
+	customElementLayoutOffsets: {}
+}
+
+
+/**
+ * RUNTIME SECTION
+ */
+
+if (webMI.query.displayAcNotification === "true") {
+	var notifierConfig = {
+		id: document.getElementById("combobox").id,
+		rights: [
+			{nodeId: webMI.query["base"], rights: "read"},
+			{nodeId: webMI.query["alarm"], rights: "read"},
+			{nodeId: outputNode, rights: "write"},
+			{nodeId: webMI.query["activeNode"], rights: "read"}
+		],
+		menuLayout: menuLayout
+	};
+}
+
+var rightsHandlingProperties = {
+	right: right,
+	checkBaseNodeWriteRight: true,
+	isActivationNodeSet: isActivationNodeSet,
+	notifierConfiguration: webMI.query.displayAcNotification === "true" ? notifierConfig : {},
+	setActiveTrigger: true,
+	handleStatus: true
+};
+
+if (typeof rightsHandling === "function")
+  rightsHandling(rightsHandlingProperties);
+
+/* AC set n/a on read denie */
+if (webMI.getAccessControlSupport()) {
+	var accessControlManager = webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Access Control Manager");
+}
+
+webMI.gfx.setText("combobox_label", "");
+
+if (alarmToSubscribe != "")
+	initAlarm(alarmToSubscribe);
+
+if (base != "") {
+
+	if (accessControlManager) {
+		var compareRights = [
+			{node: base, right: "read"}
+		];
+
+		accessControlManager.assist.handleWithPermissions(
+			compareRights,
+			readGranted,
+			readDenied
+		);
+	} else {
+		readGranted
+	}
+
+	function readGranted() {
+		if (consistencyGroup) {
+			consistencyHandler.register(consistencyGroup, base, update);
+		} else {
+
+
+			webMI.data.subscribe(base, function (e) {
+				currentValue = e.value;
+				if (mode == "Text") {
+					var texts = [text1, text2, text3, text4, text5];
+					var textvals = [text1value, text2value, text3value, text4value, text5value];
+					webMI.gfx.setText("combobox_label", "");
+					for (var i = 0; i < 5; i++) {
+						if (texts[i] != undefined && textvals[i] != undefined && currentValue == textvals[i]) {
+							webMI.gfx.setText("combobox_label", texts[i]);
+						}
+					}
+				} else if (mode == "Boolean") {
+					if (currentValue == 0) {
+						webMI.gfx.setText("combobox_label", "false");
+					} else {
+						webMI.gfx.setText("combobox_label", "true");
+					}
+				} else if (mode == "Enum List" && enumList != "") {
+					webMI.gfx.setText("combobox_label", "");
+					for (var i in enumList) {
+						if (enumList[i].text != undefined && enumList[i].value != undefined && currentValue == enumList[i].value) {
+							webMI.gfx.setText("combobox_label", enumList[i].text);
+						}
+					}
+				} else if (mode == "Script") {
+					webMI.gfx.setText("combobox_label", "");
+					for (var i in menuObj) {
+						if (currentValue == menuObj[i]["originalValue"]) {
+							return webMI.gfx.setText("combobox_label", menuObj[i]["text"]);
+						}
+					}
+				}
+				if (typeof e.status != "undefined" && typeof handleStatus === "function")
+					handleStatus(e.status);
+			});
+		}
+
+	}
+
+	function readDenied() {
+		webMI.gfx.setText("combobox_label", "T{N/A}");
+	}
+}
+
+if (mode == "Text") {
+	var texts = [text1, text2, text3, text4, text5];
+	var textvals = [text1value, text2value, text3value, text4value, text5value];
+	for (var i = 0; i < 5; i++) {
+		if (texts[i] != undefined && textvals[i] != undefined) {
+			menuObj[i] = {text: texts[i], value: getFn(texts[i], textvals[i], (i))};
+		}
+	}
+} else if (mode == "Boolean") {	
+	menuObj = {
+		1: {text: "true", value: getFn("true", true, 0)},
+		2: {text: "false", value: getFn("false", false, 1)}
+	};
+} else if (mode == "Enum List" && enumList != "") {
+	var cnt = 0;
+	for (var i in enumList) {
+		if (enumList[i].text != undefined && enumList[i].value != undefined) {
+			menuObj[cnt] = {text: enumList[i].text, value: getFn(enumList[i].text, enumList[i].value, cnt)};
+			cnt++;
+		}
+	}
+}
+
+webMI.addOnload(function () {
+	var doc = document.getElementById("combobox_clickarea").ownerDocument;
+	tabHandler.register(tabIndex, keyHandler, doc);
+});
+
+if (tooltip != "") {
+	webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Tooltip", {
+		"auto": "true",
+		"id": "combobox_clickarea",
+		"text": tooltip
+	});
+}
+
+/**
+ * FUNCTION SECTION
+ */
+
+function setActiveLayout() {
+	active = true;
+	webMI.gfx.setFill("combobox_bg", valueFieldFill);
+	webMI.gfx.setFill("button_bg", fillColor);
+}
+
+function setInactiveLayout() {
+	active = false;
+	webMI.gfx.setFill("combobox_bg", valueFieldFillInactive);
+	webMI.gfx.setFill("button_bg", valueFieldFillInactive);
+}
+
+function update(item) {	
+	if (item == "") {
+		getFn("", "", null)(true);
+		return;
+	}
+	for (var i in menuObj) {
+		if (item == menuObj[i]["text"]) {
+			menuObj[i]["value"](1);
+			break;
+		}
+	}
+}
+
+function getFn(text, value, idx) {
+	return function (e) {		
+		webMI.trigger.fire("valuechanged", value, "");
+		//Activo Trigger Personalizado
+		webMI.trigger.fire("com.atvise.combobox_" + name, {value:value, text:text});
+		webMI.gfx.setText("combobox_label", text);		
+		if (outputNode != null && outputNode != "" && !consistencyGroup) {
+			//webMI.data.write(outputNode, value);
+		}
+		selectedIndex = idx;
+		selectedItem = {text: text, value: value, idx: idx};
+
+		if (consistencyGroup && e !== 1)
+			consistencyHandler.set(consistencyGroup, base, value);
+	};
+}
+
+function focusTH() {
+	if (active) {
+		if (typeof webMI.gfx.getX("focus_frame") != "undefined") {
+			webMI.gfx.setStroke("focus_frame", focusStrokeColor);
+		} else {
+			webMI.gfx.setStroke("combobox_bg", focusStrokeColor);
+		}
+	}
+}
+
+function blurTH() {
+	if (active) {
+		backTH();
+		if (typeof webMI.gfx.getX("focus_frame") != "undefined") {
+			webMI.gfx.setStroke("focus_frame", "none");
+		} else {
+			webMI.gfx.setStroke("combobox_bg", "none");
+		}
+	}
+}
+
+function applyTH() {
+	var parameters = {
+		"id": "combobox_clickarea",
+		onEvent: "immediately",
+		menuObj: menuObj,
+		"outputNode": outputNode,
+		"x": 0,
+		"y": 30,
+		active: function () {
+			return (active);
+		},
+		"itemsCount": itemsCount,
+		"fontSize": fontSize,
+		"minWidth": minWidth
+	};
+	if (typeof contextMenuStyle != "undefined") {
+		parameters.style = contextMenuStyle;
+	}
+	webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Open Context Menu", parameters);
+}
+
+function backTH() {
+	webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Open Context Menu", {
+		"id": "",
+		onEvent: "immediately"
+	});
+}
+
+function arrowTH(dir) {
+}
+
+function keyHandler(keyTH, param2) {
+	if (keyTH == "focus") {
+		focusTH();
+	} else if (keyTH == "blur") {
+		blurTH();
+	} else if (keyTH == "apply") {
+		applyTH();
+	} else if (keyTH == "space") {
+		applyTH();
+	} else if (keyTH == "back") {
+		backTH();
+	} else if (keyTH == "arrow") {
+		arrowTH(param2);
+	} else if (keyTH == "isActive") {
+		return active && param2(document.getElementById("combobox_clickarea").parentNode);
+	}
+}
+
+/*
+------------------
+---- EVENTS ----
+------------------
+*/
+
+webMI.addEvent("combobox_clickarea", ["click", "touchstart"], function (e) {
+	var parameters = {
+		"id": "combobox_clickarea",
+		onEvent: "immediately",
+		menuObj: menuObj,
+		"outputNode": outputNode,
+		"x": 0,
+		"y": 30,
+		active: function () {
+			return (active);
+		},
+		"itemsCount": itemsCount,
+		"fontSize": fontSize,
+		"minWidth": minWidth
+	};
+	if (typeof contextMenuStyle != "undefined") {
+		parameters.style = contextMenuStyle;
+	}
+	webMI.callExtension("SYSTEM.LIBRARY.ATVISE.QUICKDYNAMICS.Open Context Menu", parameters);
+});
+
+webMI.addEvent("combobox_clickarea", "mousedown", function (e) {
+	var id = "combobox_clickarea";
+	var value = true;
+	return function (value) {
+		if (active) {
+			tabHandler.setCurrentIndex(keyHandler);
+			if (typeof webMI.gfx.getX("focus_frame") != "undefined") {
+				webMI.gfx.setStroke("focus_frame", strokeFillPressed);
+				webMI.gfx.setFill("button_bg", "url(#linear_2)");
+			} else {
+				webMI.gfx.setStroke("combobox_bg", strokeFillPressed);
+			}
+			webMI.gfx.setStroke("button_stroke", strokeFillPressed);
+		}
+	}(value);
+});
+
+webMI.addEvent("combobox_clickarea", ["mouseup", "mouseout"], function (e) {
+	var id = "combobox_clickarea";
+	var value = true;
+	return function (value) {
+		if (active) {
+			if (typeof webMI.gfx.getX("focus_frame") != "undefined") {
+				webMI.gfx.setStroke("focus_frame", "none");
+				webMI.gfx.setFill("button_bg", "none");
+			} else {
+				webMI.gfx.setStroke("combobox_bg", "none");
+			}
+			webMI.gfx.setStroke("button_stroke", "none");
+		}
+	}(value);
+});
+
+webMI.addEvent("combobox_clickarea", "dragstart", function (e) {
+	if (e.preventDefault) {
+		e.preventDefault();
+	}
+});
+
+/**
+ * TRIGGER SECTION
+ */
+
+webMI.trigger.connect("setSelectedItem", function (e) {
+	var item = e.value;
+	webMI.gfx.setText("combobox_label", item);
+	if (item == "") {
+		
+		getFn("", "", null)();
+		return;
+	}
+	for (var i in menuObj) {
+		if (item == menuObj[i]["text"]) {
+			menuObj[i]["value"]();
+			break;
+		}
+	}
+}, "");
+
+webMI.trigger.connect("setItems", function (e) {
+	var value = e.value;
+	for (var i in menuObj)
+		delete menuObj[i];
+
+	var cnt = 0;
+	for (var i in value) {
+		if (currentValue == value[i].value) {
+			getFn(value[i].text, value[i].value, cnt)();
+		}
+		
+		menuObj[cnt] = {
+			text: value[i].text,
+			value: getFn(value[i].text, value[i].value, cnt),
+			originalValue: value[i].value
+		};
+		cnt++;
+	}
+});
+
+
+
+webMI.trigger.connect("addItem", function (e) {
+	var value = e.value;
+	var cnt = 0;
+	for (var i in menuObj) {
+		cnt++;
+	}
+	
+	menuObj[cnt + 1] = {text: value.text, value: getFn(value.text, value.value, cnt)};
+});
+
+//Custom entry 1
+webMI.trigger.connect("addItem_"+name, function (e) {
+	var value = e.value.value;
+	var menuObjI={};
+	menuObjI[0]={text: value.text, value: getFn(value.text, value.value, cnt)};
+
+	var cnt = 0;
+	for (var i in menuObj) {		
+		menuObjI[cnt+1]=menuObj[cnt+1];
+		cnt++;
+		
+	}
+	menuObj=menuObjI;
+});
+
+//Custom entry 2
+webMI.trigger.connect("addItemT_"+name, function (e) {
+	var value = e.value.value;
+	var cnt = 0;
+	for (var i in menuObj) {
+		cnt++;
+	}
+	
+	menuObj[cnt + 1] = {text: value.text, value: getFn(value.text, value.value, cnt)};
+});
+
+//Custom entry 3
+webMI.trigger.connect("clearItems_"+name, function (e) {	
+	menuObj= [];
+});
+
+//Custom Entry 4
+webMI.trigger.connect("setSelectedItem_"+name, function (e) {
+	var item = e.value.value.text;
+
+	webMI.gfx.setText("combobox_label", item);
+	if (item == "") {
+		
+		getFn("", "", null)();
+		return;
+	}
+	for (var i in menuObj) {
+		if (item == menuObj[i]["text"]) {
+			menuObj[i]["value"]();
+			break;
+		}
+	}
+});
+
+
+//Custom entry 3
+webMI.trigger.connect("removeItem_"+name, function (e) {	
+	delete menuObj[e];	
+	console.log(menuObj);
+});
+
+
+
+webMI.trigger.connect("getSelectedItem", function (e) {
+	var id = "";
+	var value = e.value;
+	if (typeof value == "function") {
+		value(selectedItem);
+	}
+	else {
+		webMI.trigger.fire("selectedItem", selectedItem, "");
+	}
+});
+
+webMI.trigger.connect("getItems", function (e) {
+	var items = [];
+	for (var i in menuObj) {
+		if (i != "style") {
+			items.push(menuObj[i]);
+		}
+	}
+	webMI.trigger.fire("items", items, "");
+});
+
+webMI.trigger.connect("com.atvise.setActive", (trigger) => {
+	if (trigger.value) {
+		setActiveLayout();
+	} else {
+		setInactiveLayout();
+	}
+}, "");
+
+]]></code>
+</script>

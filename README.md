@@ -6,3 +6,4 @@ An extensive library of advance SCADA objects for the automation industry
 30/01/2024: Added Energy Industry and fixed error of Alerts
 04/02/2024: Added Building Automation
 12/02/2024: Added General Manufacturing Objects
+18/02/2024: Added Mining, Oil and gas and Complementary Components(Finish library first phase)

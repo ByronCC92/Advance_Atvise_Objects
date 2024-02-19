@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI09_Cyclone _3.Variables.Cyclone Underflow Density
+NodeClass: Variable
+BrowseName: 1:Cyclone Underflow Density
+DisplayName: en|Cyclone Underflow Density
+Description: en|Cyclone Underflow Density
+DataType: Int32
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="285" version="1.2" width="510" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="id_33_fill_gradient" spreadMethod="reflect" x1="0.0675676" x2="0.581081" y1="1" y2="1">
+   <stop offset="0" stop-color="#999999"/>
+   <stop offset="1" stop-color="#e5e5e5"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="id_34_fill_gradient" spreadMethod="reflect" x1="-0.135135" x2="0.405405" y1="0.986486" y2="0.972973">
+   <stop offset="0" stop-color="#999999"/>
+   <stop offset="1" stop-color="#e5e5e5"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="id_41_fill_gradient" spreadMethod="reflect" x1="-0.135135" x2="0.405405" y1="1" y2="0.972973">
+   <stop offset="0" stop-color="#999999"/>
+   <stop offset="1" stop-color="#e5e5e5"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="id_42_fill_gradient" spreadMethod="reflect" x1="-0.135135" x2="0.405405" y1="0.986486" y2="0.972973">
+   <stop offset="0" stop-color="#999999"/>
+   <stop offset="1" stop-color="#e5e5e5"/>
+  </linearGradient>
+  <radialGradient cx="0.5" cy="0.5" fx="0.5" fy="0.5" gradientUnits="objectBoundingBox" id="id_42_stroke_gradient" r="1">
+   <stop offset="0" stop-color="#000000"/>
+   <stop offset="1" stop-color="#ffffff"/>
+  </radialGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="id_43_fill_gradient" spreadMethod="reflect" x1="-0.135135" x2="0.405405" y1="1" y2="0.972973">
+   <stop offset="0" stop-color="#999999"/>
+   <stop offset="1" stop-color="#e5e5e5"/>
+  </linearGradient>
+  <radialGradient cx="0.5" cy="0.5" fx="0.5" fy="0.5" gradientUnits="objectBoundingBox" id="id_44_fill_gradient" r="0.514579">
+   <stop offset="0.6088709677419355" stop-color="#e4e4e4"/>
+   <stop offset="1" stop-color="#9a9a9a"/>
+  </radialGradient>
+  <radialGradient cx="0.5" cy="0.5" fx="0.5" fy="0.5" gradientUnits="objectBoundingBox" id="id_7_fill_gradient" r="0.514579">
+   <stop offset="0.6088709677419355" stop-color="#e4e4e4"/>
+   <stop offset="1" stop-color="#9a9a9a"/>
+  </radialGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="linear_0" x1="0" x2="1" y1="0" y2="1">
+   <stop offset="0" stop-color="#000000"/>
+   <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_10_" x1="-0.000148525" x2="0.99982" y1="0.499965" y2="0.499965">
+   <stop offset="0.17" stop-color="#4D4D4D"/>
+   <stop offset="0.23" stop-color="#5A5A5A"/>
+   <stop offset="0.34" stop-color="#7D7D7D"/>
+   <stop offset="0.48" stop-color="#B2B2B2"/>
+   <stop offset="0.57" stop-color="#A8A8A8"/>
+   <stop offset="0.73" stop-color="#8B8B8B"/>
+   <stop offset="0.94" stop-color="#5C5C5C"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_11_" x1="0" x2="0.999992" y1="0.499686" y2="0.499686">
+   <stop offset="0.17" stop-color="#4D4D4D"/>
+   <stop offset="0.23" stop-color="#5A5A5A"/>
+   <stop offset="0.34" stop-color="#7D7D7D"/>
+   <stop offset="0.48" stop-color="#B2B2B2"/>
+   <stop offset="0.57" stop-color="#A8A8A8"/>
+   <stop offset="0.73" stop-color="#8B8B8B"/>
+   <stop offset="0.94" stop-color="#5C5C5C"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_12_" x1="-0.000159151" x2="0.999873" y1="0.499976" y2="0.499976">
+   <stop offset="0.17" stop-color="#4D4D4D"/>
+   <stop offset="0.23" stop-color="#5A5A5A"/>
+   <stop offset="0.34" stop-color="#7D7D7D"/>
+   <stop offset="0.48" stop-color="#B2B2B2"/>
+   <stop offset="0.57" stop-color="#A8A8A8"/>
+   <stop offset="0.73" stop-color="#8B8B8B"/>
+   <stop offset="0.94" stop-color="#5C5C5C"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_13_" x1="-3.95757e-05" x2="0.999984" y1="0.500503" y2="0.500503">
+   <stop offset="0.17" stop-color="#4D4D4D"/>
+   <stop offset="0.23" stop-color="#5A5A5A"/>
+   <stop offset="0.34" stop-color="#7D7D7D"/>
+   <stop offset="0.48" stop-color="#B2B2B2"/>
+   <stop offset="0.57" stop-color="#A8A8A8"/>
+   <stop offset="0.73" stop-color="#8B8B8B"/>
+   <stop offset="0.94" stop-color="#5C5C5C"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_1_" x1="2.80483e-06" x2="1" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.5" stop-color="#ECECEC"/>
+   <stop offset="0.57" stop-color="#D9D9D9"/>
+   <stop offset="0.71" stop-color="#A8A8A8"/>
+   <stop offset="0.92" stop-color="#5A5A5A"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_2_" x1="-5.34852e-06" x2="0.999996" y1="0.500015" y2="0.500015">
+   <stop offset="0.06" stop-color="#808080"/>
+   <stop offset="0.13" stop-color="#8D8D8D"/>
+   <stop offset="0.28" stop-color="#B0B0B0"/>
+   <stop offset="0.48" stop-color="#E8E8E8"/>
+   <stop offset="0.48" stop-color="#EBEBEB"/>
+   <stop offset="0.57" stop-color="#E0E0E0"/>
+   <stop offset="0.72" stop-color="#C3C3C3"/>
+   <stop offset="0.92" stop-color="#949494"/>
+   <stop offset="1" stop-color="#808080"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_3_" x1="0.0132289" x2="0.961723" y1="1.43718" y2="-0.523291">
+   <stop offset="0.29" stop-color="#F7F7F7"/>
+   <stop offset="0.38" stop-color="#ECECEC"/>
+   <stop offset="0.52" stop-color="#CFCFCF"/>
+   <stop offset="0.71" stop-color="#A0A0A0"/>
+   <stop offset="0.94" stop-color="#5F5F5F"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_4_" x1="0.984938" x2="0.0397305" y1="1.44782" y2="-0.461717">
+   <stop offset="0.29" stop-color="#F7F7F7"/>
+   <stop offset="0.38" stop-color="#ECECEC"/>
+   <stop offset="0.52" stop-color="#CFCFCF"/>
+   <stop offset="0.71" stop-color="#A0A0A0"/>
+   <stop offset="0.94" stop-color="#5F5F5F"/>
+   <stop offset="1" stop-color="#4D4D4D"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_5_" x1="0.499998" x2="0.499998" y1="2.24065e-05" y2="1">
+   <stop offset="0" stop-color="#C8C8C8"/>
+   <stop offset="0.29" stop-color="#B1B1B1"/>
+   <stop offset="0.91" stop-color="#757575"/>
+   <stop offset="1" stop-color="#6C6C6C"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_6_" x1="-9.45716e-06" x2="1.00002" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_7_" x1="7.05467e-06" x2="0.999993" y1="0.499944" y2="0.499944">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_8_" x1="1.89143e-05" x2="1.00004" y1="0.5" y2="0.5">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="SVGID_9_" x1="2.82187e-05" x2="1.00001" y1="0.499944" y2="0.499944">
+   <stop offset="0" stop-color="#383838"/>
+   <stop offset="0.45" stop-color="#ECECEC"/>
+   <stop offset="0.55" stop-color="#D9D9D9"/>
+   <stop offset="0.76" stop-color="#A8A8A8"/>
+   <stop offset="0.77" stop-color="#A6A6A6"/>
+   <stop offset="1" stop-color="#383838"/>
+  </linearGradient>
+  <radialGradient cx="0.499789" cy="0.500127" fx="0.499789" fy="0.500127" gradientUnits="objectBoundingBox" id="radial_1" r="0.500063">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+  <radialGradient cx="0.500042" cy="0.499911" fx="0.500042" fy="0.499911" gradientUnits="objectBoundingBox" id="radial_2" r="0.500043">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+  <radialGradient cx="0.499848" cy="0.499978" fx="0.499848" fy="0.499978" gradientUnits="objectBoundingBox" id="radial_3" r="0.499968">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="linear_4" x1="0.563112" x2="0.436914" y1="1.13692" y2="-0.13513">
+   <stop offset="0" stop-color="#808080"/>
+   <stop offset="0.5" stop-color="#B2B2B2"/>
+   <stop offset="0.6" stop-color="#D1D1D1"/>
+   <stop offset="1" stop-color="#E5E5E5"/>
+  </linearGradient>
+  <radialGradient cx="0.5" cy="0.5" fx="0.5" fy="0.5" gradientUnits="objectBoundingBox" id="radial_5" r="0.500064">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#BFD3F2"/>
+   <stop offset="1" stop-color="#BFD3F2"/>
+  </radialGradient>
+  <radialGradient cx="0.499978" cy="0.5" fx="0.499978" fy="0.5" gradientUnits="objectBoundingBox" id="radial_6" r="0.500022">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#BFD3F2"/>
+   <stop offset="1" stop-color="#BFD3F2"/>
+  </radialGradient>
+  <radialGradient cx="0.499935" cy="0.499913" fx="0.499935" fy="0.499913" gradientUnits="objectBoundingBox" id="radial_7" r="0.500022">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#BFD3F2"/>
+   <stop offset="1" stop-color="#BFD3F2"/>
+  </radialGradient>
+  <radialGradient cx="0.500042" cy="0.500065" fx="0.500042" fy="0.500065" gradientUnits="objectBoundingBox" id="radial_8" r="0.500075">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#BFD3F2"/>
+   <stop offset="1" stop-color="#BFD3F2"/>
+  </radialGradient>
+  <radialGradient cx="0.499848" cy="0.500044" fx="0.499848" fy="0.500044" gradientUnits="objectBoundingBox" id="radial_9" r="0.528715">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#BFD3F2"/>
+   <stop offset="1" stop-color="#BFD3F2"/>
+  </radialGradient>
+  <radialGradient cx="0.500022" cy="0.500065" fx="0.500022" fy="0.500065" gradientUnits="objectBoundingBox" id="radial_10" r="0.499968">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+  <radialGradient cx="0.500022" cy="0.500087" fx="0.500022" fy="0.500087" gradientUnits="objectBoundingBox" id="radial_11" r="0.500022">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+  <radialGradient cx="0.5" cy="0.500022" fx="0.5" fy="0.500022" gradientUnits="objectBoundingBox" id="radial_12" r="0.500075">
+   <stop offset="0" stop-color="#E0E0E0"/>
+   <stop offset="0.5" stop-color="#E0E0E0"/>
+   <stop offset="1" stop-color="#595959"/>
+  </radialGradient>
+ </defs>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Mining_Industry.Maintenance_Mining_Pump" desc="Global_Maintenance" group="Maintenance" name="Global_Maintenance" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Mining_Industry.Maintenance_Mining_Pump" desc="Global Maintenance Address" group="Maintenance" name="Global_Maintenance_Address" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="Maintenance_Active" group="Maintenance" name="Maintenance" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="Icon Indicator Active" group="Alarming" name="Icon_Indicator" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Alert_Range" group="Alarming" name="Alert_Range" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Notification List" group="Alarming" name="Notification_List" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="false" desc="Email Notification Active" group="Alarming" name="Email_Notification" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="false" desc="Alertzy_Notification" group="Alarming" name="Alertzy_Notification" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" group="Appereance" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="14" desc="Title Font Size" group="Appereance" name="Title_Font_Size" substitute="$FontSize$" valuetype="number"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="5" width="5"/>
+ </metadata>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.AAA_Principal_Display_Script" atv:name="" atv:type="text/ecmascript"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"/>
+ <svg atv:refpx="39" atv:refpy="61.36" height="122.72" id="id_6" width="78" x="0" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Alarm_Alert_Advanced_Indicator" y="0">
+  <atv:argument name="base" prefix="base"/>
+ </svg>
+ <svg atv:refpx="48.06" atv:refpy="258.06" height="36.12" id="id_16" width="36.12" x="30" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Maintenance_Advanced_Indicator" y="240">
+  <atv:argument name="base" prefix="base"/>
+ </svg>
+ <path atv:refpx="312.578" atv:refpy="235.924" d="M154.507,233.084L470.648,233.084L470.648,238.762L154.507,238.762Z" fill="#7F0000" id="id_0"/>
+ <path atv:refpx="127.254" atv:refpy="71.485" d="M154.507,82.605L100,82.605L100,60.364L154.507,60.364Z" fill="#7F7F7F" id="id_1"/>
+ <path atv:refpx="127.254" atv:refpy="71.722" d="M154.507,81.659L100,81.659L100,61.784L154.507,61.784Z" fill="#999999" id="id_2"/>
+ <path atv:refpx="127.254" atv:refpy="71.249" d="M154.507,78.819L100,78.819L100,63.677L154.507,63.677Z" fill="#B2B2B2" id="id_3"/>
+ <path atv:refpx="127.254" atv:refpy="71.485" d="M154.507,76.453L100,76.453L100,66.516L154.507,66.516Z" fill="#CCCCCC" id="id_4"/>
+ <path atv:refpx="127.254" atv:refpy="71.485" d="M154.507,74.561L100,74.561L100,68.409L154.507,68.409Z" fill="#E5E5E5" id="id_5"/>
+ <path atv:refpx="127.254" atv:refpy="71.249" d="M154.507,72.668L100,72.668L100,69.829L154.507,69.829Z" fill="#FFFFFF" id="id_7"/>
+ <path atv:refpx="127.254" atv:refpy="71.485" d="M154.507,82.605L100,82.605L100,60.364L154.507,60.364Z" fill="none" id="id_8" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="482.808" atv:refpy="107.685" d="M470.648,99.167L494.967,99.167L494.967,116.203L470.648,116.203Z" id="id_9"/>
+ <path atv:refpx="482.179" atv:refpy="191.206" d="M470.648,184.344L476.099,184.344L476.099,171.567L489.516,171.567L489.516,184.344L493.709,184.344L493.709,197.594L489.516,197.594L489.516,210.843L476.099,210.843L476.099,197.594L470.648,197.594Z" fill="#7F0000" id="id_10"/>
+ <path atv:refpx="482.179" atv:refpy="191.443" d="M470.648,186.71L476.099,186.71L476.099,177.246L489.516,177.246L489.516,186.71L493.709,186.71L493.709,195.701L489.516,195.701L489.516,205.638L476.099,205.638L476.099,195.701L470.648,195.701Z" fill="#FF0000" id="id_11"/>
+ <path atv:refpx="482.179" atv:refpy="191.206" d="M470.648,184.344L476.099,184.344L476.099,171.567L489.516,171.567L489.516,184.344L493.709,184.344L493.709,197.594L489.516,197.594L489.516,210.843L476.099,210.843L476.099,197.594L470.648,197.594Z" fill="none" id="id_12" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="441.089" atv:refpy="255.325" d="M470.648,233.084L470.648,277.565L445.911,277.565L411.529,233.084Z" fill="#E50000" id="id_13"/>
+ <path atv:refpx="184.067" atv:refpy="255.325" d="M154.507,233.084L154.507,277.565L178.825,277.565L213.626,233.084Z" fill="#E50000" id="id_14"/>
+ <path atv:refpx="440.88" atv:refpy="252.723" d="M460.166,233.084L460.166,272.36L450.942,272.36L421.592,233.084Z" fill="#B20000" id="id_15"/>
+ <path atv:refpx="183.648" atv:refpy="252.723" d="M163.731,233.084L163.731,272.36L174.213,272.36L203.563,233.084Z" fill="#B20000" id="id_17"/>
+ <path atv:refpx="312.578" atv:refpy="119.042" d="M154.507,233.084L154.507,32.445L163.731,10.205L183.437,5L440.46,5L460.166,10.205L470.648,32.445L470.648,233.084Z" fill="#CC0000" id="id_18"/>
+ <path atv:refpx="312.578" atv:refpy="18.723" d="M154.507,32.445L163.731,10.205L183.437,5L440.46,5L460.166,10.205L470.648,32.445Z" fill="#E50000" id="id_19"/>
+ <path atv:refpx="311.949" atv:refpy="7.603" d="M163.731,10.205L183.437,5L440.46,5L460.166,10.205Z" fill="#FF0000" id="id_20"/>
+ <path atv:refpx="312.578" atv:refpy="119.042" d="M154.507,233.084L154.507,32.445L163.731,10.205L183.437,5L440.46,5L460.166,10.205L470.648,32.445L470.648,233.084Z" fill="none" id="id_21" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="312.368" atv:refpy="138.207" d="M149.475,54.686L475.261,54.686L475.261,221.727L149.475,221.727Z" fill="#CCCCCC" id="id_22"/>
+ <path atv:refpx="312.368" atv:refpy="162.814" d="M149.475,173.46L475.261,103.899L475.261,221.727L149.475,221.727Z" fill="#C7C7C7" id="id_23"/>
+ <path atv:refpx="312.368" atv:refpy="166.363" d="M149.475,180.558L475.261,110.997L475.261,221.727L149.475,221.727Z" fill="#C2C2C2" id="id_24"/>
+ <path atv:refpx="312.368" atv:refpy="171.331" d="M149.475,191.442L475.261,120.935L475.261,221.727L149.475,221.727Z" fill="#BDBDBD" id="id_25"/>
+ <path atv:refpx="312.368" atv:refpy="138.207" d="M149.475,54.686L475.261,54.686L475.261,221.727L149.475,221.727Z" fill="none" id="id_26" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="311.949" atv:refpy="132.765" d="M163.731,166.362L163.731,99.167L460.166,99.167" fill="none" id="id_27" stroke="#FFFFFF" stroke-width="2"/>
+ <path atv:refpx="168.973" atv:refpy="188.603" d="M163.731,166.362L174.213,166.362L174.213,210.843L163.731,210.843Z" fill="#B2B2B2" id="id_28"/>
+ <path atv:refpx="223.48" atv:refpy="188.603" d="M213.626,166.362L233.333,166.362L233.333,210.843L213.626,210.843Z" fill="#B2B2B2" id="id_29"/>
+ <path atv:refpx="283.018" atv:refpy="188.603" d="M273.165,166.362L292.871,166.362L292.871,210.843L273.165,210.843Z" fill="#B2B2B2" id="id_30"/>
+ <path atv:refpx="342.138" atv:refpy="188.603" d="M332.284,166.362L351.99,166.362L351.99,210.843L332.284,210.843Z" fill="#B2B2B2" id="id_31"/>
+ <path atv:refpx="401.467" atv:refpy="188.603" d="M391.403,166.362L411.529,166.362L411.529,210.843L391.403,210.843Z" fill="#B2B2B2" id="id_32"/>
+ <path atv:refpx="455.555" atv:refpy="188.603" d="M450.942,166.362L460.166,166.362L460.166,210.843L450.942,210.843Z" fill="#B2B2B2" id="id_33"/>
+ <path atv:refpx="312.578" atv:refpy="188.603" d="M292.871,210.843L332.284,210.843L332.284,166.362" fill="none" id="id_34" stroke="#999999" stroke-width="2"/>
+ <path atv:refpx="371.697" atv:refpy="188.603" d="M351.99,210.843L391.403,210.843L391.403,166.362" fill="none" id="id_35" stroke="#999999" stroke-width="2"/>
+ <path atv:refpx="431.236" atv:refpy="188.603" d="M411.529,210.843L450.942,210.843L450.942,166.362" fill="none" id="id_36" stroke="#999999" stroke-width="2"/>
+ <path atv:refpx="193.92" atv:refpy="188.603" d="M174.213,210.843L213.626,210.843L213.626,166.362" fill="none" id="id_37" stroke="#999999" stroke-width="2"/>
+ <path atv:refpx="253.249" atv:refpy="188.603" d="M233.333,210.843L273.165,210.843L273.165,166.362" fill="none" id="id_38" stroke="#999999" stroke-width="2"/>
+ <path atv:refpx="411.739" atv:refpy="188.603" d="M411.529,210.843L411.529,166.362" fill="none" id="id_39" stroke="#FFFFFF" stroke-width="2"/>
+ <path atv:refpx="352.201" atv:refpy="188.603" d="M351.99,210.843L351.99,166.362" fill="none" id="id_40" stroke="#FFFFFF" stroke-width="2"/>
+ <path atv:refpx="293.081" atv:refpy="188.603" d="M292.871,210.843L292.871,166.362" fill="none" id="id_41" stroke="#FFFFFF" stroke-width="2"/>
+ <path atv:refpx="233.543" atv:refpy="188.603" d="M233.333,210.843L233.333,166.362" fill="none" id="id_42" stroke="#FFFFFF" stroke-width="2"/>
+ <path atv:refpx="174.423" atv:refpy="188.603" d="M174.213,210.843L174.213,166.362" fill="none" id="id_43" stroke="#FFFFFF" stroke-width="2"/>
+ <path atv:refpx="193.92" atv:refpy="49.008" d="M174.213,43.329L213.626,43.329L213.626,54.686L174.213,54.686Z" fill="#CCCCCC" id="id_44" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="253.249" atv:refpy="49.008" d="M233.333,43.329L273.165,43.329L273.165,54.686L233.333,54.686Z" fill="#CCCCCC" id="id_45" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="312.578" atv:refpy="49.008" d="M292.871,43.329L332.284,43.329L332.284,54.686L292.871,54.686Z" fill="#CCCCCC" id="id_46" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="371.697" atv:refpy="49.008" d="M351.99,43.329L391.403,43.329L391.403,54.686L351.99,54.686Z" fill="#CCCCCC" id="id_47" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="431.236" atv:refpy="49.008" d="M411.529,43.329L450.942,43.329L450.942,54.686L411.529,54.686Z" fill="#CCCCCC" id="id_48" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="181.132" atv:refpy="40.727" d="M178.825,38.124L183.437,38.124L183.437,43.329L178.825,43.329Z" fill="#E5E5E5" id="id_49" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="206.289" atv:refpy="40.727" d="M203.563,38.124L209.014,38.124L209.014,43.329L203.563,43.329Z" fill="#E5E5E5" id="id_50" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="240.671" atv:refpy="40.727" d="M238.364,38.124L242.976,38.124L242.976,43.329L238.364,43.329Z" fill="#E5E5E5" id="id_51" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="265.408" atv:refpy="40.727" d="M262.683,38.124L268.133,38.124L268.133,43.329L262.683,43.329Z" fill="#E5E5E5" id="id_52" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="299.79" atv:refpy="40.727" d="M297.483,38.124L302.095,38.124L302.095,43.329L297.483,43.329Z" fill="#E5E5E5" id="id_53" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="324.737" atv:refpy="40.727" d="M321.802,38.124L327.672,38.124L327.672,43.329L321.802,43.329Z" fill="#E5E5E5" id="id_54" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="359.119" atv:refpy="40.727" d="M356.603,38.124L361.634,38.124L361.634,43.329L356.603,43.329Z" fill="#E5E5E5" id="id_55" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="384.066" atv:refpy="40.727" d="M381.341,38.124L386.791,38.124L386.791,43.329L381.341,43.329Z" fill="#E5E5E5" id="id_56" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="418.448" atv:refpy="40.727" d="M416.141,38.124L420.753,38.124L420.753,43.329L416.141,43.329Z" fill="#E5E5E5" id="id_57" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="443.186" atv:refpy="40.727" d="M440.46,38.124L445.911,38.124L445.911,43.329L440.46,43.329Z" fill="#E5E5E5" id="id_58" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="329.35" atv:refpy="23.928" d="M204.402,15.41L455.554,15.41L460.166,32.445L198.532,32.445Z" fill="#999999" id="id_59"/>
+ <path atv:refpx="329.978" atv:refpy="26.767" d="M213.626,21.088L445.911,21.088L450.942,32.445L209.014,32.445Z" fill="#7F7F7F" id="id_60"/>
+ <path atv:refpx="312.368" atv:refpy="250.12" d="M287.84,222.674L336.896,222.674L336.896,277.565L287.84,277.565Z" fill="#B2B2B2" id="id_61" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="441.089" atv:refpy="255.325" d="M470.648,233.084L470.648,277.565L445.911,277.565L411.529,233.084Z" fill="none" id="id_62" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="184.067" atv:refpy="255.325" d="M154.507,233.084L154.507,277.565L178.825,277.565L213.626,233.084Z" fill="none" id="id_63" stroke="#4C4C4C" stroke-width="2"/>
+ <path atv:refpx="213.207" atv:refpy="109.815" d="M211.53,114.783L208.175,110.051L211.53,104.846L216.142,104.846L218.238,110.051L216.142,114.783Z" fill="#7F7F7F" id="id_64"/>
+ <path atv:refpx="174.004" atv:refpy="109.815" d="M171.697,114.783L169.182,110.051L171.697,104.846L176.31,104.846L178.825,110.051L176.31,114.783Z" fill="#7F7F7F" id="id_65"/>
+ <path atv:refpx="174.004" atv:refpy="156.189" d="M171.697,161.157L169.182,155.478L171.697,151.22L176.31,151.22L178.825,155.478L176.31,161.157Z" fill="#7F7F7F" id="id_66"/>
+ <path atv:refpx="213.207" atv:refpy="156.189" d="M211.53,161.157L208.175,155.478L211.53,151.22L216.142,151.22L218.238,155.478L216.142,161.157Z" fill="#7F7F7F" id="id_67"/>
+ <path atv:refpx="272.536" atv:refpy="109.815" d="M270.649,114.783L267.295,110.051L270.649,104.846L275.261,104.846L277.777,110.051L275.261,114.783Z" fill="#7F7F7F" id="id_68"/>
+ <path atv:refpx="233.543" atv:refpy="109.815" d="M231.236,114.783L228.72,110.051L231.236,104.846L235.848,104.846L238.364,110.051L235.848,114.783Z" fill="#7F7F7F" id="id_69"/>
+ <path atv:refpx="233.543" atv:refpy="156.189" d="M231.236,161.157L228.72,155.478L231.236,151.22L235.848,151.22L238.364,155.478L235.848,161.157Z" fill="#7F7F7F" id="id_70"/>
+ <path atv:refpx="272.536" atv:refpy="156.189" d="M270.649,161.157L267.295,155.478L270.649,151.22L275.261,151.22L277.777,155.478L275.261,161.157Z" fill="#7F7F7F" id="id_71"/>
+ <path atv:refpx="331.865" atv:refpy="109.815" d="M329.768,114.783L326.833,110.051L329.768,104.846L334.8,104.846L336.896,110.051L334.8,114.783Z" fill="#7F7F7F" id="id_72"/>
+ <path atv:refpx="292.662" atv:refpy="109.815" d="M290.355,114.783L287.84,110.051L290.355,104.846L294.968,104.846L297.483,110.051L294.968,114.783Z" fill="#7F7F7F" id="id_73"/>
+ <path atv:refpx="292.662" atv:refpy="156.189" d="M290.355,161.157L287.84,155.478L290.355,151.22L294.968,151.22L297.483,155.478L294.968,161.157Z" fill="#7F7F7F" id="id_74"/>
+ <path atv:refpx="331.865" atv:refpy="156.189" d="M329.768,161.157L326.833,155.478L329.768,151.22L334.8,151.22L336.896,155.478L334.8,161.157Z" fill="#7F7F7F" id="id_75"/>
+ <path atv:refpx="391.194" atv:refpy="109.815" d="M389.307,114.783L385.953,110.051L389.307,104.846L393.919,104.846L396.435,110.051L393.919,114.783Z" fill="#7F7F7F" id="id_76"/>
+ <path atv:refpx="351.991" atv:refpy="109.815" d="M349.475,114.783L347.378,110.051L349.475,104.846L354.506,104.846L356.603,110.051L354.506,114.783Z" fill="#7F7F7F" id="id_77"/>
+ <path atv:refpx="351.991" atv:refpy="156.189" d="M349.475,161.157L347.378,155.478L349.475,151.22L354.506,151.22L356.603,155.478L354.506,161.157Z" fill="#7F7F7F" id="id_78"/>
+ <path atv:refpx="391.194" atv:refpy="156.189" d="M389.307,161.157L385.953,155.478L389.307,151.22L393.919,151.22L396.435,155.478L393.919,161.157Z" fill="#7F7F7F" id="id_79"/>
+ <path atv:refpx="450.523" atv:refpy="109.815" d="M448.426,114.783L445.491,110.051L448.426,104.846L453.038,104.846L455.554,110.051L453.038,114.783Z" fill="#7F7F7F" id="id_80"/>
+ <path atv:refpx="411.32" atv:refpy="109.815" d="M409.013,114.783L406.498,110.051L409.013,104.846L413.626,104.846L416.141,110.051L413.626,114.783Z" fill="#7F7F7F" id="id_81"/>
+ <path atv:refpx="411.32" atv:refpy="156.189" d="M409.013,161.157L406.498,155.478L409.013,151.22L413.626,151.22L416.141,155.478L413.626,161.157Z" fill="#7F7F7F" id="id_82"/>
+ <path atv:refpx="450.523" atv:refpy="156.189" d="M448.426,161.157L445.491,155.478L448.426,151.22L453.038,151.22L455.554,155.478L453.038,161.157Z" fill="#7F7F7F" id="id_83"/>
+ <path atv:refpx="203.773" atv:refpy="176.537" d="M201.047,181.505L198.532,177.246L201.047,171.567L205.66,171.567L209.014,177.246L205.66,181.505Z" fill="#7F7F7F" id="id_84"/>
+ <path atv:refpx="184.067" atv:refpy="176.537" d="M181.341,181.505L178.825,177.246L181.341,171.567L185.953,171.567L189.307,177.246L185.953,181.505Z" fill="#7F7F7F" id="id_85"/>
+ <path atv:refpx="184.067" atv:refpy="200.67" d="M181.341,205.638L178.825,200.433L181.341,195.701L185.953,195.701L189.307,200.433L185.953,205.638Z" fill="#7F7F7F" id="id_86"/>
+ <path atv:refpx="203.773" atv:refpy="200.67" d="M201.047,205.638L198.532,200.433L201.047,195.701L205.66,195.701L209.014,200.433L205.66,205.638Z" fill="#7F7F7F" id="id_87"/>
+ <path atv:refpx="263.102" atv:refpy="176.537" d="M260.167,181.505L258.07,177.246L260.167,171.567L265.198,171.567L268.133,177.246L265.198,181.505Z" fill="#7F7F7F" id="id_88"/>
+ <path atv:refpx="243.396" atv:refpy="176.537" d="M240.46,181.505L238.364,177.246L240.46,171.567L245.492,171.567L248.427,177.246L245.492,181.505Z" fill="#7F7F7F" id="id_89"/>
+ <path atv:refpx="243.396" atv:refpy="200.67" d="M240.46,205.638L238.364,200.433L240.46,195.701L245.492,195.701L248.427,200.433L245.492,205.638Z" fill="#7F7F7F" id="id_90"/>
+ <path atv:refpx="263.102" atv:refpy="200.67" d="M260.167,205.638L258.07,200.433L260.167,195.701L265.198,195.701L268.133,200.433L265.198,205.638Z" fill="#7F7F7F" id="id_91"/>
+ <path atv:refpx="322.431" atv:refpy="176.537" d="M319.705,181.505L317.19,177.246L319.705,171.567L324.318,171.567L327.672,177.246L324.318,181.505Z" fill="#7F7F7F" id="id_92"/>
+ <path atv:refpx="302.515" atv:refpy="176.537" d="M299.999,181.505L297.483,177.246L299.999,171.567L304.611,171.567L307.546,177.246L304.611,181.505Z" fill="#7F7F7F" id="id_93"/>
+ <path atv:refpx="302.515" atv:refpy="200.67" d="M299.999,205.638L297.483,200.433L299.999,195.701L304.611,195.701L307.546,200.433L304.611,205.638Z" fill="#7F7F7F" id="id_94"/>
+ <path atv:refpx="322.431" atv:refpy="200.67" d="M319.705,205.638L317.19,200.433L319.705,195.701L324.318,195.701L327.672,200.433L324.318,205.638Z" fill="#7F7F7F" id="id_95"/>
+ <path atv:refpx="381.76" atv:refpy="176.537" d="M378.825,181.505L376.728,177.246L378.825,171.567L383.437,171.567L386.791,177.246L383.437,181.505Z" fill="#7F7F7F" id="id_96"/>
+ <path atv:refpx="361.844" atv:refpy="176.537" d="M359.118,181.505L356.603,177.246L359.118,171.567L363.731,171.567L367.085,177.246L363.731,181.505Z" fill="#7F7F7F" id="id_97"/>
+ <path atv:refpx="361.844" atv:refpy="200.67" d="M359.118,205.638L356.603,200.433L359.118,195.701L363.731,195.701L367.085,200.433L363.731,205.638Z" fill="#7F7F7F" id="id_98"/>
+ <path atv:refpx="381.76" atv:refpy="200.67" d="M378.825,205.638L376.728,200.433L378.825,195.701L383.437,195.701L386.791,200.433L383.437,205.638Z" fill="#7F7F7F" id="id_99"/>
+ <path atv:refpx="440.88" atv:refpy="176.537" d="M438.363,181.505L435.848,177.246L438.363,171.567L442.976,171.567L445.911,177.246L442.976,181.505Z" fill="#7F7F7F" id="id_100"/>
+ <path atv:refpx="421.173" atv:refpy="176.537" d="M418.657,181.505L416.141,177.246L418.657,171.567L423.269,171.567L426.204,177.246L423.269,181.505Z" fill="#7F7F7F" id="id_101"/>
+ <path atv:refpx="421.173" atv:refpy="200.67" d="M418.657,205.638L416.141,200.433L418.657,195.701L423.269,195.701L426.204,200.433L423.269,205.638Z" fill="#7F7F7F" id="id_102"/>
+ <path atv:refpx="440.88" atv:refpy="200.67" d="M438.363,205.638L435.848,200.433L438.363,195.701L442.976,195.701L445.911,200.433L442.976,205.638Z" fill="#7F7F7F" id="id_103"/>
+ <path atv:refpx="311.949" atv:refpy="132.765" d="M163.731,166.362L460.166,166.362L460.166,99.167" fill="none" id="id_104" stroke="#999999" stroke-width="2"/>
+ <path atv:refpx="312.368" atv:refpy="132.765" d="M283.228,166.362L283.228,99.167L341.508,99.167" fill="none" id="id_105" stroke="#999999" stroke-width="2"/>
+ <path atv:refpx="282.599" atv:refpy="132.765" d="M282.389,99.167L282.389,166.362" fill="none" id="id_106" stroke="#999999" stroke-width="2"/>
+ <path atv:refpx="341.718" atv:refpy="132.765" d="M341.508,99.167L341.508,166.362" fill="none" id="id_107" stroke="#999999" stroke-width="2"/>
+ <path atv:refpx="401.257" atv:refpy="132.765" d="M401.047,99.167L401.047,166.362" fill="none" id="id_108" stroke="#999999" stroke-width="2"/>
+ <path atv:refpx="223.48" atv:refpy="132.765" d="M223.27,99.167L223.27,166.362" fill="none" id="id_109" stroke="#999999" stroke-width="2"/>
+ <rect atv:refpx="291.849" atv:refpy="142.5" fill="#000000" fill-opacity="0" height="285" id="click_area" stroke="#0000ff" stroke-width="0" width="430" x="75" y="0"/>
+</svg>

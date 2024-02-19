@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI10_Mining_Pump_1
+NodeClass: ObjectType
+BrowseName: 1:MI10_Mining_Pump_1
+DisplayName: en|MI10_Mining_Pump_1
+Description: en|MI10_Mining_Pump_1
+IsAbstract: false

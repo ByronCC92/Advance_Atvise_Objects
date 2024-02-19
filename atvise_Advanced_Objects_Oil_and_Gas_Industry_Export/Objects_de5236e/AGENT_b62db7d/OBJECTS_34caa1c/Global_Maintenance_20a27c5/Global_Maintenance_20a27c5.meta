@@ -1,0 +1,9 @@
+NodeId: ns=1;s=AGENT.OBJECTS.Global_Maintenance
+NodeClass: Variable
+BrowseName: 1:Global_Maintenance
+DisplayName: en|Global_Maintenance
+Description: en|Global_Maintenance
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition BaseVariableType

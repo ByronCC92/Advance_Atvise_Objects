@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Oil_Gas_Industry.OG12_Oil_Well_2
+NodeClass: ObjectType
+BrowseName: 1:OG12_Oil_Well_2
+DisplayName: en|OG12_Oil_Well_2
+Description: en|OG12_Oil_Well_2
+IsAbstract: false

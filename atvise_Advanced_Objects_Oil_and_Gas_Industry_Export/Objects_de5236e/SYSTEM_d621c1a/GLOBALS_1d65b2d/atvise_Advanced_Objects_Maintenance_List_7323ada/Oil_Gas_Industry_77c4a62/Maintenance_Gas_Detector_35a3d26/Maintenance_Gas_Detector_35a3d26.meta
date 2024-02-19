@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Oil_Gas_Industry.Maintenance_Gas_Detector
+NodeClass: Variable
+BrowseName: 1:Maintenance_Gas_Detector
+DisplayName: en|Maintenance_Gas_Detector
+Description: en|Maintenance_Gas_Detector
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

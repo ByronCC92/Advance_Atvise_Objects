@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advaced_Objects_Complementary_Display_Scripts.Checkbox_Display_Script
+NodeClass: Variable
+BrowseName: 1:Checkbox_Display_Script
+DisplayName: en|Checkbox_Display_Script
+Description: en|Checkbox_Display_Script
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.DisplayScript

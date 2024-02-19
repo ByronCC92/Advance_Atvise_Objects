@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI14_Sizer_2.Variables.Sizer Power.Max_Min.Min.upper_limit
+NodeClass: Variable
+BrowseName: 1:upper_limit
+DisplayName: en|upper_limit
+Description: en|upper_limit
+DataType: BaseDataType
+ValueRank: -1
+AccessLevel: 103
+ValueType: Int32
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

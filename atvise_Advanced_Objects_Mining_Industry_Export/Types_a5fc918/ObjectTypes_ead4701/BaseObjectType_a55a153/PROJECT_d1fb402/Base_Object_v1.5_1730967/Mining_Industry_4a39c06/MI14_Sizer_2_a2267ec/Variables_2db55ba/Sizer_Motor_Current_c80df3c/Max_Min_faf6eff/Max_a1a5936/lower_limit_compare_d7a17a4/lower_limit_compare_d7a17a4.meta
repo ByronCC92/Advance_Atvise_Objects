@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI14_Sizer_2.Variables.Sizer Motor Current.Max_Min.Max.lower_limit_compare
+NodeClass: Variable
+BrowseName: 1:lower_limit_compare
+DisplayName: en|lower_limit_compare
+Description: en|lower_limit_compare
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

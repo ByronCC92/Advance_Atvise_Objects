@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[//------Initialize Variables-----------//
+var Type_M; //Maintenance Type Number
+var Text_M; //Maintenance Type Text
+var Initial_Date;//Initial Date for Maintenance
+var Final_Date;//Final Date for Maintenance
+var tableData = [];
+var Mant_HistR=webMI.query["base"]+".Maintenance.Mant_Hist";
+
+var Color=webMI.query["Color"];
+
+//Charts
+var chart_1; //Reference Chart 1
+var chart_2; //Reference Chart 2
+var chartDiv1;
+var chartDiv2;
+var chartDiv3;
+var chartDiv4;
+
+//------Initial Conditions-----------//
+webMI.addOnload(function() {
+
+	//Date Picker shows current time 
+	var T_Actual=new Date();
+	Initial_Date=T_Actual.getTime()-(1*24*60*60*1000);//Last 24 hours
+	Final_Date=T_Actual.getTime();
+    webMI.trigger.fire("com.atvise.datepicker_Initial_Date", Initial_Date); 
+    webMI.trigger.fire("com.atvise.datepicker_Final_Date", Final_Date);   
+    
+  	//Add values to the maintenance list
+  	webMI.data.read(webMI.query["base"]+".Parameters.Mant_Elements", function(e) {
+	   var Mant_ElementsI=JSON.parse(e.value);
+	   
+	   webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:0, text:"All maintenance"}});
+	   
+	   for (var i in Mant_ElementsI) {
+			var Mant_ElementsII=Mant_ElementsI[i];
+			webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
+	   }
+	  
+	  //Set All maintenance as default 
+	  webMI.trigger.fire("setSelectedItem_Maintenance_Type", {value:{value:0, text:"All maintenance"}});
+	});
+  	
+  	
+  	
+  	//Chart Config elements
+  	chartDiv1 = document.getElementById("chart_container1");
+  	chartDiv2 = document.getElementById("chart_container2");
+  	chartDiv3 = document.getElementById("chart_container3");
+  	chartDiv4 = document.getElementById("chart_container4");
+  	
+	webMI.gfx.setScaledEvents(chartDiv1); 
+  	
+	//Preapare data and create chart
+	prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, function(e){	
+	  //Create Chart
+		 
+		 //Column Chart
+		 chart_1 = Highcharts.chart(chartDiv1, {
+			chart: {
+				type: 'column'
+			},
+			title: {
+				text: 'Maintenance Finished'
+			},
+			subtitle: {
+				text: 'Last 24 hours'
+			},
+			xAxis: {
+				categories: e.CategoriesF,
+				crosshair: true
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Minutes'
+				},
+				stackLabels: {
+					enabled: true
+				}
+			},
+			tooltip: {
+				headerFormat: '<span style="font-size:10px"><b>{point.key}</b></span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0"><b>{series.name}:</b> </td>' +
+					'<td style="padding:0"><b>{point.y:.1f} s</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+			plotOptions: {
+				column: {
+					pointPadding: 0.2,
+					borderWidth: 0,
+					//stacking: 'normal',
+					dataLabels: {
+						enabled: true,
+						formatter: function () {							
+							return e.Labels[this.series.index][this.point.x]; 								
+						}								
+						
+					}
+				},
+				series: {
+					pointWidth: 15						
+				}
+			},
+			series: e.Series
+		});
+		//Scheduled time Chart
+		webMI.gfx.setText("Text_2", (e.dataF2/3600).toFixed(1)+"Hours");
+		
+		//Used time Chart
+		chart3 = Highcharts.chart(chartDiv3, {
+			chart: {
+				type: 'solidgauge',
+				backgroundColor: 'transparent',
+				height: '100%',
+				marginTop: -10 // Adjust this value to reduce the distance	
+			},
+		
+		
+			title: {
+				text: 'Used Time',
+				fontFamily: 'Arial, sans-serif'
+			},
+		
+			tooltip: {
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.3f} %</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+				
+			pane: {
+				startAngle: 0,
+				endAngle: 360,
+				background: [{ // Track for Move
+					outerRadius: '60%',
+					innerRadius: '45%',
+					backgroundColor: Highcharts.color(Color)
+						.setOpacity(0.3)
+						.get(),
+					borderWidth: 0
+				}]
+			},
+		
+			yAxis: {
+				min: 0,
+				max: (e.dataF2/3600),
+				lineWidth: 0,
+				tickPositions: []
+			},
+		
+			plotOptions: {
+				solidgauge: {
+					dataLabels: {
+						enabled: true,
+						backgroundColor: 'none',
+						borderWidth: 0,
+						color: Color,
+						format: '{point.y:.2f}H',
+						shadow: false,
+						style: {
+							fontSize: "16px",
+						},
+						valueSuffix: 'H',					
+						y:-14,
+						align: 'center',
+					},
+					linecap: 'square',
+					stickyTracking: false,            
+				}
+			},
+			credits: {
+				enabled: false
+			},
+			series: [{
+				name: "Scheduled Time",			
+				data: [{
+					color: Color,
+					radius: '60%',
+					innerRadius: '45%',				
+					y: Number(e.dataF3/3600)
+				}]
+			}]
+			
+		});		
+		
+		
+		//MSC Chart
+		chart4 = Highcharts.chart(chartDiv4, {
+			chart: {
+				type: 'solidgauge',
+				backgroundColor: 'transparent',
+				height: '100%',
+				marginTop: -10 // Adjust this value to reduce the distance	
+			},
+		
+		
+			title: {
+				text: 'MSC',
+				fontFamily: 'Arial, sans-serif'
+			},
+		
+			tooltip: {
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.3f} %</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+				
+			pane: {
+				startAngle: 0,
+				endAngle: 360,
+				background: [{ // Track for Move
+					outerRadius: '60%',
+					innerRadius: '45%',
+					backgroundColor: Highcharts.color(Color)
+						.setOpacity(0.3)
+						.get(),
+					borderWidth: 0
+				}]
+			},
+		
+			yAxis: {
+				min: 0,
+				max: 100,
+				lineWidth: 0,
+				tickPositions: []
+			},
+		
+			plotOptions: {
+				solidgauge: {
+					dataLabels: {
+						enabled: true,
+						backgroundColor: 'none',
+						borderWidth: 0,
+						color: Color,
+						format: '{point.y:.2f}%',
+						shadow: false,
+						style: {
+							fontSize: "16px",
+						},
+						valueSuffix: 'H',					
+						y:-14,
+						align: 'center',
+					},
+					linecap: 'square',
+					stickyTracking: false,            
+				}
+			},
+			credits: {
+				enabled: false
+			},
+			series: [{
+				name: "Scheduled Time",			
+				data: [{
+					color: Color,
+					radius: '60%',
+					innerRadius: '45%',				
+					y: Number(e.dataF4)
+				}]
+			}]
+			
+		});		
+	}); 	 	
+});
+
+//------Triggers-----------//
+
+//Single maintenance elements
+
+//Monitor Initial Date  
+webMI.trigger.connect("com.atvise.datepicker_Initial_Date", function (e) {
+	Initial_Date=(new Date(e.value)).getTime();
+	console.log("Update Chart");
+	if (chart_1!=undefined){
+		updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M);	
+	}
+});
+
+//Monitor Final Date
+webMI.trigger.connect("com.atvise.datepicker_Final_Date", function (e) {
+	setTimeout(function() {
+		Final_Date=(new Date(e.value)).getTime();
+		console.log("Update Chart");
+		if (chart_1!=undefined){
+			updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M);	
+		}
+	},200);
+});
+
+//Monitor Maintenance Combobox 
+webMI.trigger.connect("com.atvise.combobox_Maintenance_Type", function (e) {
+	var result=e.value;
+	Type_M=result.value;	
+	Text_M=e.value.text;	
+	console.log("Update Chart");
+	if (chart_1!=undefined){
+		updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M);	
+	}
+});
+
+
+
+//-------Update Charts------//
+function updateChart(chart_1, Mant_HistR, Initial_Date, Final_Date, Text_M){
+	console.log("Update Chart");
+	//Update chart
+	prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, function(e){	
+	
+		
+		var currentTime=formatTime(Final_Date-Initial_Date);
+		
+		chart_1 = Highcharts.chart(chartDiv1, {
+			chart: {
+				type: 'column'
+			},
+			title: {
+				text: 'Maintenance Finished'
+			},
+			subtitle: {
+				text: 'Last '+currentTime
+			},
+			xAxis: {
+				categories: e.CategoriesF,
+				crosshair: true,
+				scrollbar: {
+					enabled: true // This enables the scrollbar
+				}
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Minutes'
+				},
+				stackLabels: {
+					enabled: true
+				}
+			},
+			tooltip: {
+				headerFormat: '<span style="font-size:10px"><b>{point.key}</b></span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0"><b>{series.name}:</b> </td>' +
+					'<td style="padding:0"><b>{point.y:.1f} s</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+			plotOptions: {
+				column: {
+					pointPadding: 0.1,
+					groupPadding: 0.1,
+					borderWidth: 0,
+					//stacking: 'normal',
+					dataLabels: {
+						enabled: true,
+						formatter: function () {							
+							return e.Labels[this.series.index][this.point.x]; 								
+						}								
+						
+					}
+				},
+				series: {
+					pointWidth: 15						
+				}
+			},
+			series: e.Series
+		});
+		
+		//Scheduled time Chart
+		webMI.gfx.setText("Text_2", (e.dataF2/3600).toFixed(1)+"Hours");
+		
+		//Used time Chart
+		chart3 = Highcharts.chart(chartDiv3, {
+			chart: {
+				type: 'solidgauge',
+				backgroundColor: 'transparent',
+				height: '100%',
+				marginTop: -10 // Adjust this value to reduce the distance	
+			},
+		
+		
+			title: {
+				text: 'Used Time',
+				fontFamily: 'Arial, sans-serif'
+			},
+		
+			tooltip: {
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.3f} %</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+				
+			pane: {
+				startAngle: 0,
+				endAngle: 360,
+				background: [{ // Track for Move
+					outerRadius: '60%',
+					innerRadius: '45%',
+					backgroundColor: Highcharts.color(Color)
+						.setOpacity(0.3)
+						.get(),
+					borderWidth: 0
+				}]
+			},
+		
+			yAxis: {
+				min: 0,
+				max: (e.dataF2/3600),
+				lineWidth: 0,
+				tickPositions: []
+			},
+		
+			plotOptions: {
+				solidgauge: {
+					dataLabels: {
+						enabled: true,
+						backgroundColor: 'none',
+						borderWidth: 0,
+						color: Color,
+						format: '{point.y:.2f}H',
+						shadow: false,
+						style: {
+							fontSize: "16px",
+						},
+						valueSuffix: 'H',					
+						y:-14,
+						align: 'center',
+					},
+					linecap: 'square',
+					stickyTracking: false,            
+				}
+			},
+			credits: {
+				enabled: false
+			},
+			series: [{
+				name: "Scheduled Time",			
+				data: [{
+					color: Color,
+					radius: '60%',
+					innerRadius: '45%',				
+					y: Number(e.dataF3/3600)
+				}]
+			}]
+			
+		});		
+		
+		
+		//MSC Chart
+		chart4 = Highcharts.chart(chartDiv4, {
+			chart: {
+				type: 'solidgauge',
+				backgroundColor: 'transparent',
+				height: '100%',
+				marginTop: -10 // Adjust this value to reduce the distance	
+			},
+		
+		
+			title: {
+				text: 'MSC',
+				fontFamily: 'Arial, sans-serif'
+			},
+		
+			tooltip: {
+				headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+				pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' + '<td style="padding:0"><b>{point.y:.3f} %</b></td></tr>',
+				footerFormat: '</table>',
+				shared: true,
+				useHTML: true
+			},
+				
+			pane: {
+				startAngle: 0,
+				endAngle: 360,
+				background: [{ // Track for Move
+					outerRadius: '60%',
+					innerRadius: '45%',
+					backgroundColor: Highcharts.color(Color)
+						.setOpacity(0.3)
+						.get(),
+					borderWidth: 0
+				}]
+			},
+		
+			yAxis: {
+				min: 0,
+				max: 100,
+				lineWidth: 0,
+				tickPositions: []
+			},
+		
+			plotOptions: {
+				solidgauge: {
+					dataLabels: {
+						enabled: true,
+						backgroundColor: 'none',
+						borderWidth: 0,
+						color: Color,
+						format: '{point.y:.2f}%',
+						shadow: false,
+						style: {
+							fontSize: "16px",
+						},
+						valueSuffix: 'H',					
+						y:-14,
+						align: 'center',
+					},
+					linecap: 'square',
+					stickyTracking: false,            
+				}
+			},
+			credits: {
+				enabled: false
+			},
+			series: [{
+				name: "Scheduled Time",			
+				data: [{
+					color: Color,
+					radius: '60%',
+					innerRadius: '45%',				
+					y: Number(e.dataF4)
+				}]
+			}]
+			
+		});	
+	});			
+}
+
+//-----Axuiliary Functions-----//
+
+//Adquire and process data
+
+function prepareData(Mant_HistR, Initial_Date, Final_Date,Text_M, callback) {
+
+
+	//Auxiliary Variables
+	//Column Chart All maintenance
+	var Mant_Ele = new Array();
+	var Mant_Dates= new Array();
+	var Mant_DatesN= new Array();
+	
+	var data = new Array();
+	var dataF = new Array();
+	var Categories = new Array();
+	var CategoriesF = new Array();
+	var Labels= new Array();
+	var Series = new Array();
+	
+	//Gauge Chart Scheduled hours
+	var data2=new Array(); // Array Scheduled hours
+	var dataF2=0; 
+	
+	//Gauge Chart Ussed Time
+	var data3=new Array(); // Array Scheduled hours
+	var dataF3=0; 
+	
+	//Global MSC
+	var dataF4=0;
+
+
+	var filter = {};
+	
+	
+	filter.type = ["v:1"]; //Values			
+	filter.timestamp = ["n:>=" + Initial_Date + "<" + Final_Date];
+	filter.address = ["g:"+Mant_HistR];			
+	
+	//Ask for data           
+	webMI.data.queryFilter(filter, function(e){
+		var result=e.result;
+		
+		if(result.length>0){//Is not empty
+			
+			var Mant_HistV=new Array();
+			for (var i=0; i<result.length; i++)	 {
+				 Mant_HistV.push(result[i].value);
+			}
+			var Mant_HistVI=new Array();	
+			console.log(Mant_HistV);
+			
+			 for(var i=0; i<Mant_HistV.length; i++)	 { 
+				const myArray = JSON.parse(Mant_HistV[i]);
+				if (((Text_M==undefined||Text_M=="All maintenance")||(Text_M!=undefined&&myArray.Text_M==Text_M))){
+					Mant_HistVI.push(Mant_HistV[i]);
+					data2.push(Math.abs(myArray.Required_Time));
+					data3.push(Math.abs(myArray.Used_Time));
+				}
+			 }
+			 
+			dataF2=sumArray(data2);
+			dataF3=sumArray(data3);
+			dataF4=(dataF3/dataF2)*100;
+			
+			console.log("dataF2");
+			console.log(dataF2);
+			
+			console.log("Mant_HistVI");
+			console.log(Mant_HistVI);
+			
+			//Find all the Maintenance elements present
+			var Mant_Ele=getUniqueValuesByKey(Mant_HistVI,"Text_M");
+			
+			console.log("Mant_Ele");
+			console.log(Mant_Ele);
+			//Create Spaces for data				
+			 for(var i=0; i<Mant_Ele.length; i++)	 { 
+				data.push([]);
+				dataF.push([]);
+				CategoriesF.push([]);
+				Labels.push([]);
+			 }
+			
+			//Extract categories				
+			 for(var i=0; i<Mant_HistVI.length; i++)	 { 
+				const myArray = JSON.parse(Mant_HistVI[i]);
+				Categories.push(myArray.Actual_Time);
+			 }
+			 
+			 console.log("Categories:");
+			 console.log(Categories);
+			 
+			 //Get Unique dates for categories
+			 var Mant_DatesPr=getUniqueDates(Categories);
+			 Mant_Dates=Mant_DatesPr[0];
+			 Mant_DatesN=Mant_DatesPr[1];
+			 console.log("Mant_Dates:");
+			 console.log(Mant_Dates);
+			 
+			 
+			 //----------------Prepare data-----------------//
+			  var coincidence=false;
+				 
+			 
+			 //Cleaning data 
+			 for (var i=0; i<Mant_Ele.length; i++){					
+				for(var j=0; j<Mant_Dates.length; j++){
+					var dataii=0;
+					for(var k=0; k<Mant_HistVI.length; k++){	
+						const myArray = JSON.parse(Mant_HistVI[k])	
+						const Mant_DateI=(new Date(myArray.Actual_Time)).toISOString().split('T')[0];			
+						if(Mant_Dates[j]==Mant_DateI && Mant_Ele[i]==myArray.Text_M){
+							coincidence=true;	
+							dataii=dataii+Math.abs(myArray.Used_Time);		
+						}
+						else if (Mant_Dates[j]!=Mant_DateI){
+							if(coincidence!=true){ //Only if it was never true
+								coincidence=false;	
+							}							
+						}
+					}						
+					if(coincidence==true){
+						data[i].push(dataii/60);//Convert to minutes
+					}
+					else{
+						data[i].push(0);
+					}
+				}
+			
+			 }
+			 console.log("data");			 
+			 console.log(data);		 
+			 
+			//Filter data
+			for (var i=0; i<Mant_Ele.length; i++){				
+					for (var j=0; j<Mant_Dates.length; j++){	
+							CategoriesF[i].push(Mant_Dates[j]);	
+							dataF[i].push(data[i][j]);	
+							Labels[i].push(convertSecondsToTime(data[i][j]*60));				    
+					}
+			}
+			
+			
+			console.log("dataF");		
+			console.log(dataF);		
+			
+			console.log("Labels");		
+			console.log(Labels);		
+			
+			var Colors=Mono_colors(Mant_Ele.length,Color);
+			//Prepare Series
+			 for(var i=0; i<Mant_Ele.length; i++)	 { 
+				Series.push({
+					color:Colors[i],
+					name: Mant_Ele[i],			
+					data: dataF[i] 	
+				});					
+			 }
+		 }
+		 else{ //No data found
+			CategoriesF[0]=("No Data")
+			Series={name: Mant_Ele,			
+					data: dataF};	
+		 }
+		 
+		console.log("CategoriesF[0]");		
+		console.log(CategoriesF[0]);	
+		
+		console.log("Series");		
+		console.log(Series);	 
+		
+		
+			 
+		 callback({CategoriesF:CategoriesF[0],Series:Series, Labels:Labels, dataF2:dataF2, dataF3:dataF3, dataF4:dataF4});
+	});
+}
+
+
+//Get unique value keys
+function getUniqueValuesByKey(arr, key) {
+  const uniqueValues = [];
+  const seenValues = new Set();
+  
+  arr.forEach((obj) => {
+	const obji=JSON.parse(obj);
+    const value = obji[key];
+    if (!seenValues.has(value)) {
+      uniqueValues.push(value);
+      seenValues.add(value);
+    }
+  });
+
+  return uniqueValues;
+}
+
+
+//Find unique dates
+
+function getUniqueDates(unixDates) {
+  const uniqueDates = [];
+  const uniqueDatesN = [];
+  const seenDates = new Set();
+
+  unixDates.forEach((unixDate) => {
+    const date = new Date(unixDate); // Convert Unix timestamp to JavaScript Date object
+    const dateString = date.toISOString().split('T')[0]; // Extract date portion
+
+    if (!seenDates.has(dateString)) {
+      uniqueDates.push(dateString);
+      uniqueDatesN.push(date.getTime());
+      seenDates.add(dateString);
+    }
+  });
+
+  return [uniqueDates,uniqueDatesN];
+}
+
+
+//Convert Time in HH:MM:SS
+function convertSecondsToTime(seconds) {
+  if (seconds < 0) {
+    throw new Error("Input seconds must be a positive number.");
+  }
+
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  // Format the output as "hh:mm:ss"
+  const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${((String(remainingSeconds.toFixed(2)))).padStart(2, '0')}`;
+
+  return formattedTime;
+}
+
+//Sum values of an array
+function sumArray(numbers) {
+  if (!Array.isArray(numbers)) {
+    throw new Error("Input must be an array.");
+  }
+
+  let sum = 0;
+  for (const num of numbers) {
+    if (typeof num !== 'number') {
+      throw new Error("Array must contain only numbers.");
+    }
+    sum += num;
+  }
+
+  return sum;
+}
+
+//Monocromatic colors
+function Mono_colors (Cantidad,ColorBase){
+    var colors = [];
+    for (var i = 0; i <= Cantidad; i++) {
+        
+        colors.push(Highcharts.color(ColorBase).brighten((i-1) / 5).get());
+    }
+    return colors;
+}
+
+//Give format time
+function formatTime(milliseconds) {
+  const MS_PER_MINUTE = 60000;
+  const MS_PER_HOUR = 3600000;
+  const MS_PER_DAY = 86400000;
+  const MS_PER_WEEK = 604800000;
+  const MS_PER_MONTH = 2592000000; // Approximation
+
+  let remainingMs = milliseconds;
+
+  if (milliseconds < MS_PER_HOUR) {
+    const minutes = Math.floor(remainingMs / MS_PER_MINUTE);
+    return `${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`;
+  } else if (milliseconds < MS_PER_DAY) {
+    const hours = Math.floor(remainingMs / MS_PER_HOUR);
+    remainingMs %= MS_PER_HOUR;
+    const minutes = Math.floor(remainingMs / MS_PER_MINUTE);
+    return `${hours} ${hours === 1 ? 'hour' : 'hours'} ${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`;
+  } else if (milliseconds < MS_PER_WEEK) {
+    const days = Math.floor(remainingMs / MS_PER_DAY);
+    remainingMs %= MS_PER_DAY;
+    const hours = Math.floor(remainingMs / MS_PER_HOUR);
+    return `${days} ${days === 1 ? 'day' : 'days'} ${hours} ${hours === 1 ? 'hour' : 'hours'}`;
+  } else if (milliseconds < MS_PER_MONTH) {
+    const weeks = Math.floor(remainingMs / MS_PER_WEEK);
+    remainingMs %= MS_PER_WEEK;
+    const days = Math.floor(remainingMs / MS_PER_DAY);
+    return `${weeks} ${weeks === 1 ? 'week' : 'weeks'} ${days} ${days === 1 ? 'day' : 'days'}`;
+  } else {
+    const months = Math.floor(remainingMs / MS_PER_MONTH);
+    remainingMs %= MS_PER_MONTH;
+    const days = Math.floor(remainingMs / MS_PER_DAY);
+    return `${months} ${months === 1 ? 'month' : 'months'} ${days} ${days === 1 ? 'day' : 'days'}`;
+  }
+}
+
+
+]]></code>
+</script>

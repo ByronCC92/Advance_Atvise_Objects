@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI04_Mill_1
+NodeClass: ObjectType
+BrowseName: 1:MI04_Mill_1
+DisplayName: en|MI04_Mill_1
+Description: en|MI04_Mill_1
+IsAbstract: false

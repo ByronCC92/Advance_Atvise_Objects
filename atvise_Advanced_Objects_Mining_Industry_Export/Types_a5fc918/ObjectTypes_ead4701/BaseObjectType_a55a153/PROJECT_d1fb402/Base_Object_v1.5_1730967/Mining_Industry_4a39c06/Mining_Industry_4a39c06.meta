@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry
+NodeClass: ObjectType
+BrowseName: 1:Mining_Industry
+DisplayName: en|Mining_Industry
+Description: en|Mining_Industry
+IsAbstract: false

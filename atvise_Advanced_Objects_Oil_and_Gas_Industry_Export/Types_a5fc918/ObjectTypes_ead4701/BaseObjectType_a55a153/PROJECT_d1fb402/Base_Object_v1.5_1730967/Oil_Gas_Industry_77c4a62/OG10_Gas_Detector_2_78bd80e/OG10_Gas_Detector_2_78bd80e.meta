@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Oil_Gas_Industry.OG10_Gas_Detector_2
+NodeClass: ObjectType
+BrowseName: 1:OG10_Gas_Detector_2
+DisplayName: en|OG10_Gas_Detector_2
+Description: en|OG10_Gas_Detector_2
+IsAbstract: false

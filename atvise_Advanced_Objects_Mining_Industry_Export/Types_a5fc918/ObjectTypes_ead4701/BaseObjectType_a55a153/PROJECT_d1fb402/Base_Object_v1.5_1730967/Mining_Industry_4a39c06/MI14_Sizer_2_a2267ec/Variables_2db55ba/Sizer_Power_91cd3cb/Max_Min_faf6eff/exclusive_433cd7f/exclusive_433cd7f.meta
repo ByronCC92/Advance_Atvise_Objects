@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI14_Sizer_2.Variables.Sizer Power.Max_Min.exclusive
+NodeClass: Variable
+BrowseName: 1:exclusive
+DisplayName: en|exclusive
+Description: en|exclusive
+DataType: Boolean
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

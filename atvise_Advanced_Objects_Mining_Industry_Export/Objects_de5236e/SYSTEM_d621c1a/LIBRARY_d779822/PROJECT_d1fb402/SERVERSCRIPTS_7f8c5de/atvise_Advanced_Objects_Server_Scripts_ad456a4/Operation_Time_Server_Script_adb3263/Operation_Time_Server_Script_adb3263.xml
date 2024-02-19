@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="baseN" type="string" trigger="false" relative="false" value=""/>
+  <code><![CDATA[/**********Declare Variables**********/
+
+//External Variables
+var OnOff = Ua.findNode(baseN+".Variables.OnOff"); //Variable On OFF
+var Time = Ua.findNode(baseN + ".Times.Time"); //Variable Time
+
+/**********Execute Logic**********/
+
+//If it is on
+
+if (OnOff.result.value){
+	//Time
+	Time.result.assign({value: Time.result.value+1}); //Le sumo un Segundo
+}]]></code>
+</script>

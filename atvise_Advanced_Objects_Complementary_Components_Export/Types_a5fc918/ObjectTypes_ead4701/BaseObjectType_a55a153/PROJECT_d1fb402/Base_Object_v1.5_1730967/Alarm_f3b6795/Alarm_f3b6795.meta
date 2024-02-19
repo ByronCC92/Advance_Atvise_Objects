@@ -1,0 +1,8 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Alarm
+NodeClass: Object
+BrowseName: 1:Alarm
+DisplayName: en|Alarm
+Description: en|Alarm
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition FolderType

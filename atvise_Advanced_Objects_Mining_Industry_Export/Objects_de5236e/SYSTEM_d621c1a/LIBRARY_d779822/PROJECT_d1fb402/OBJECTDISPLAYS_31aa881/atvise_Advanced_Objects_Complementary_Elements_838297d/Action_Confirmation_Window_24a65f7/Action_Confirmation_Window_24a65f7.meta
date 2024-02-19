@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Action_Confirmation_Window
+NodeClass: Variable
+BrowseName: 1:Action_Confirmation_Window
+DisplayName: en|Action_Confirmation_Window
+Description: en|Action_Confirmation_Window
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Dashboards.Maintenance_Dashboard.Maintenance_chart
+NodeClass: Variable
+BrowseName: 1:Maintenance_chart
+DisplayName: en|Maintenance_chart
+Description: en|Maintenance_chart
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

@@ -4,6 +4,6 @@
 		<uax:String>&quot;0&quot;:{&quot;Name&quot;:&quot;Date&quot;,&quot;Node&quot;:&quot;AGENT.OBJECTS.Pump_Test.Variables.Flow_Rate&quot;,&quot;Type&quot;:&quot;Date&quot;}</uax:String>
 		<uax:String>&quot;1&quot;:{&quot;Name&quot;:&quot;Temperature&quot;,&quot;Node&quot;:&quot;AGENT.OBJECTS.Pump_Test.Variables.Temperature&quot;,&quot;Type&quot;:&quot;Value&quot;}</uax:String>
 		<uax:String>&quot;2&quot;:{&quot;Name&quot;:&quot;Flow_Rate&quot;,&quot;Node&quot;:&quot;AGENT.OBJECTS.Pump_Test.Variables.Flow_Rate&quot;,&quot;Type&quot;:&quot;Value&quot;}</uax:String>
-		<uax:String>&quot;3&quot;:{&quot;Name&quot;:&quot;Motor Current&quot;,&quot;Node&quot;:&quot;AGENT.OBJECTS.Pump_Test.Variables.Motor_Current&quot;,&quot;Type&quot;:&quot;Value&quot;}</uax:String>
+		<uax:String>&quot;3&quot;:{&quot;Name&quot;:&quot;Motor_Current&quot;,&quot;Node&quot;:&quot;AGENT.OBJECTS.Pump_Test.Variables.Motor_Current&quot;,&quot;Type&quot;:&quot;Value&quot;}</uax:String>
 	</uax:ListOfString>
 </Value>

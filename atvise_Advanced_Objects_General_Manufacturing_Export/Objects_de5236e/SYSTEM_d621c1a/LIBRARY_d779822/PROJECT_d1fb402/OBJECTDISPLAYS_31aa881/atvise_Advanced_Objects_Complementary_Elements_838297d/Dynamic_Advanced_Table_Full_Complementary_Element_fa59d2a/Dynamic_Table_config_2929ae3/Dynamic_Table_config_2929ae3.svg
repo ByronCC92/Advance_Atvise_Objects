@@ -11,7 +11,7 @@
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
  <script atv:desc="" atv:name="" type="text/ecmascript"/>
- <svg atv:refpx="500.02" atv:refpy="250" height="500" id="id_0" width="1000.04" x="0" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Global_List_Modifier_Complementary_Element" y="0">
+ <svg atv:refpx="840" atv:refpy="250" height="500" id="id_1" width="1680" x="0" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Dynamic_Advanced_Table_Full_Complementary_Element.Global_List_Modifier_Complementary_Element_Dynamic_Table" y="0">
   <atv:argument name="Global_List" value="SYSTEM.GLOBALS.atvise_Advance_Objects_Dynamic_Table_List.Dynamic_Table_List"/>
   <atv:argument name="Global_List_Address" value="SYSTEM.GLOBALS.atvise_Advance_Objects_Dynamic_Table_List.Dynamic_Table_List"/>
   <atv:argument name="Global_List_Method" value="List"/>

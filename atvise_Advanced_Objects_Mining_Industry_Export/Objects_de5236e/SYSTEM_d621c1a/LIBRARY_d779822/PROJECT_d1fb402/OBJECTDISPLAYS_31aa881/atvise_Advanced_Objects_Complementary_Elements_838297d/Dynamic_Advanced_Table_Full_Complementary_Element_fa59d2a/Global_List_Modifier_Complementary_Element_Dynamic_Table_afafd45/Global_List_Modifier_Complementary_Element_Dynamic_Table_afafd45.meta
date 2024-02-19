@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Dynamic_Advanced_Table_Full_Complementary_Element.Global_List_Modifier_Complementary_Element_Dynamic_Table
+NodeClass: Variable
+BrowseName: 1:Global_List_Modifier_Complementary_Element_Dynamic_Table
+DisplayName: en|Global_List_Modifier_Complementary_Element_Dynamic_Table
+Description: en|Global_List_Modifier_Complementary_Element_Dynamic_Table
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

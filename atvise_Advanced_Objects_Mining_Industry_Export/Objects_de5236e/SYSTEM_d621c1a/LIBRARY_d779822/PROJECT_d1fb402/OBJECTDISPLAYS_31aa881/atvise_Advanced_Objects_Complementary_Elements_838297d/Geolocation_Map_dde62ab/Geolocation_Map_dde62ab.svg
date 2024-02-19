@@ -1,0 +1,792 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="800" version="1.2" width="1680" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advanced_Objects_Geolocation_List.Geolocation_List" desc="Global Geolocation List" name="Global_Geo_List" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advanced_Objects_Geolocation_List.Geolocation_List" desc="Global_Geo_Address" name="Global_Geo_Address" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="Geo Config" name="Geo_Config" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Iframe to Open" name="Iframe" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Trigger Name" name="Trigger_Name" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="Condition Monitoring Address" name="Condition_Monitoring" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="AGENT.OBJECTS.Global_Geo_Alarms" desc="Global_Geo_Alarms" name="Global_Geo_Alarms" valuetype="address"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <foreignObject height="800" id="map_canvas" width="1680" x="0" y="0">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <rect atv:refpx="840" atv:refpy="400" fill="none" height="800" id="border" stroke="#000000" stroke-width="2" width="1680" x="0" y="0"/>
+ <text atv:refpx="705.5" atv:refpy="413" fill="none" font-family="Arial" font-size="48" id="label" x="660" y="417.5">Geolocation Map</text>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//External Variables
+var Iframe=webMI.query["Iframe"];
+var Trigger_Name=webMI.query["Trigger_Name"];
+var Global_Geo_List;
+var Global_Geo_ListI={};
+var Global_Geo_ListII=webMI.query["Global_Geo_List"];
+var Geo_Config=webMI.query["Geo_Config"];
+var Global_Geo_Address=webMI.query["Global_Geo_Address"];
+var Condition_Monitoring=webMI.query["Condition_Monitoring"];
+var Alarm_Active_nodes=new Array();
+var Alert_Active_nodes=new Array();
+var Global_Geo_AlarmsR=webMI.query["Global_Geo_Alarms"]; 
+var Global_Geo_Alarms=new Array();
+
+
+//Internal Variables
+var google = webMI.rootWindow.google;
+var map; //Map Global Map
+var markers  =  new Array();
+
+//For Condition Monitoring
+var Global_Status_Markers=new Array(); //Global Status of all the markers
+
+var Global_Alarmed_Markers=new Array();
+var Global_Alerted_Markers=new Array();
+var Global_Maintenanced_Markers=new Array();
+var Alarm_Active_Root=".Alarm.Alarm_Active";
+var Alert_Active_Root=".Alarm.Alert_Active";
+var Mant_Active_Root=".Maintenance.Mant_Active";
+var Alarm_Active_nodes=new Array();
+var Alert_Active_nodes=new Array();
+var Mant_Active_nodes=new Array();
+
+//Icons
+var icon_Normal = "/atvise_Advanced_Objects_Geo_Icons/Normal_Marker.png";
+var icon_Alarm = "/atvise_Advanced_Objects_Geo_Icons/Alarm_Marker.png";
+var icon_Alert = "/atvise_Advanced_Objects_Geo_Icons/Alert_Marker.png";
+var icon_Mant = "/atvise_Advanced_Objects_Geo_Icons/Maintenance_Marker.png";
+var icon_Current=new Array(); //Current marker values
+var Subscribe_ready=false;
+
+
+//For rigth positioning
+var markerWidth;
+var markerHeight;
+var Current_Zoom=14;
+var Current_Lat; //Pointer_Lat
+var Current_Lng; //Pointer_Lon
+var Point_fixed=false;
+var mapCanvas=document.getElementById("map_canvas");
+var mapBorder=document.getElementById("border");
+var SVGScaleX;
+var SVGScaleY;
+var OffsetX;
+var OffsetY;
+var Simulated_Click=false;
+
+//-------------------------------------------------------//
+//-------------------Initial Conditions--------------------//
+
+webMI.addOnload(function() {
+	
+	//Initialize Condition Monitoring
+	if(Condition_Monitoring){
++		initMonitoring();
+	}
+	
+	//Hide  
+	webMI.gfx.setVisible("label", false); 
+	webMI.gfx.setVisible("border", false);
+	//webMI.gfx.setScaledEvents(mapCanvas);
+	
+	//Get Screen info
+	const BouningInfo = mapCanvas.getBoundingClientRect();
+	const Offsets=calculateOffsetsFromRect(BouningInfo);
+	OffsetX=Offsets.OffsetX;
+	OffsetY=Offsets.OffsetY;
+	//OffsetX=0.0048;
+	//OffsetY=0.00058;
+	console.log("BouningInfo");
+	console.log(BouningInfo);
+	var SVGScaling=extractScaling(mapBorder);
+	SVGScaleX=SVGScaling.scaleX;
+	SVGScaleY=SVGScaling.scaleY;
+	
+	//Initialize Map
+	InitializeMap();
+	
+	//Update Map
+	(async () => {
+		 await waitForCondition();
+		  updateMap();
+	})();
+
+	
+
+	
+});	
+
+//-------------------------------------------------------//
+//-------------------Trigger Section--------------------//
+
+//Update Map
+webMI.trigger.connect("update_map_"+Trigger_Name, function (e) {
+	//Update Map
+	updateMap();
+});
+
+
+//Subscribe to condition monitoring
+if(Condition_Monitoring){
+	(async () => {
+		 await waitForCondition3();
+		 
+			setInterval(function(){
+			 
+				//Check out alarms
+				webMI.data.read(Alarm_Active_nodes, function(e) {
+					console.log(e);
+					for (var i=0;i<Alarm_Active_nodes.length;i++){
+						var Current_Alarm=e[i].value;
+						var Current_Alarm_Address=Alarm_Active_nodes[i].replace(Alarm_Active_Root,"");		
+						console.log(Current_Alarm);
+						if(Current_Alarm.length>0){ //There is an alarm
+							Global_Alarmed_Markers=updateValuesInArray(Global_Alarmed_Markers, Current_Alarm_Address, true);
+						}
+						else{			
+							Global_Alarmed_Markers=updateValuesInArray(Global_Alarmed_Markers, Current_Alarm_Address, false);
+						}					
+					}
+					//Update Global Status Marker			
+					updateGlobalStatusMarkers(Global_Alarmed_Markers, Global_Alerted_Markers, Global_Maintenanced_Markers);
+					//Update Markers
+					updateMarkers(Global_Status_Markers, markers);
+					
+		
+				}); 
+			},500);
+			
+			//Check out alerts
+			webMI.data.subscribe(Alert_Active_nodes, function(e) {
+				var Current_Alert=e.value;
+				var Current_Alert_Address=e.address.replace(Alert_Active_Root,"");
+	
+				if(Current_Alert.some(element => element !== '\"\"')){ //There is an alert
+					Global_Alerted_Markers=updateValuesInArray(Global_Alerted_Markers, Current_Alert_Address, true);
+				}
+				else{		
+					Global_Alerted_Markers=updateValuesInArray(Global_Alerted_Markers, Current_Alert_Address, false);
+				}
+							
+				//Update Global Status Marker
+				updateGlobalStatusMarkers(Global_Alarmed_Markers, Global_Alerted_Markers, Global_Maintenanced_Markers);
+				
+				//Update Markers			
+				updateMarkers(Global_Status_Markers, markers);
+			});
+			
+			//Check out Mant
+			webMI.data.subscribe(Mant_Active_nodes, function(e) {
+				var Current_Mant=e.value;
+				var Current_Mant_Address=e.address.replace(Mant_Active_Root,"");
+	
+				if(Current_Mant.length>0){ //There is Missing maintenance
+					Global_Maintenanced_Markers=updateValuesInArray(Global_Maintenanced_Markers, Current_Mant_Address, true);
+				}
+				else{		
+					Global_Maintenanced_Markers=updateValuesInArray(Global_Maintenanced_Markers, Current_Mant_Address, false);
+				}		
+				
+				//Update Global Status Marker
+				updateGlobalStatusMarkers(Global_Alarmed_Markers, Global_Alerted_Markers, Global_Maintenanced_Markers);
+				
+				//Update Markers			
+				updateMarkers(Global_Status_Markers, markers);
+			});
+		
+		
+	})(); 
+}
+
+//--------------------------------------------------------//
+//-------------------Functions Section--------------------//
+
+
+//-----------------Map Handle Functions------------------//
+
+//Initialize Map
+function InitializeMap(){
+
+	//Read the Global_List_Address
+	webMI.data.read(Global_Geo_Address, function(e) {
+	
+	   //Process Result
+	   var result=e.value;
+	   Global_Geo_List=result.map((x) => JSON.parse('{' + x + '}'));
+	   for(var i=0;i<Global_Geo_List.length;i++){
+			Global_Geo_ListI[i]=Global_Geo_List[i][i];
+	   }
+	   
+		//Calculate center
+		var CenterI=calculateCenter(Global_Geo_ListI);
+		var Center=new google.maps.LatLng(Number(CenterI.averageLatitude),Number(CenterI.averageLongitude));
+
+		//Initialize Map
+		var myOptions = {
+			zoom: Current_Zoom,
+			center: Center,
+			mapTypeId: google.maps.MapTypeId.SATELLITE
+		
+		};
+	    map = new google.maps.Map(mapCanvas, myOptions);
+	    
+	    //Idle Behavior
+		google.maps.event.addListenerOnce(map, 'idle', function() {
+			google.maps.event.trigger(map, 'resize');
+			map.setCenter(Center);
+		});
+		
+		
+		//--------Listeners--------//
+		
+		//Mouse movement
+		map.addListener('mousemove', (event) => {
+			if(!Point_fixed) { //if it is false
+				// Get the current latitude and longitude of the mouse pointer
+				Current_Lat = event.latLng.lat();
+				Current_Lng = event.latLng.lng();
+				var Update_text={ "2 Latitude":Current_Lat, "3 Longitude":Current_Lng};
+				updateSelectionText(Update_text);
+			}
+
+		});
+		
+		/*				
+		// Mouse click (In Test)
+		map.addListener("click", (mapsMouseEvent) => {
+			console.log("mapCanvas");
+			console.log(mapCanvas);
+			console.log("Scaling");
+			console.log(extractScaling(mapBorder));
+			var ScreenCTM=webMI.gfx.getScreenCTM("map_canvas");	
+			console.log(ScreenCTM);		 	
+			console.log(mapsMouseEvent);
+			var ScaleX=ScreenCTM.a;
+			var ScaleY=ScreenCTM.d;
+			var eventInfo=mapsMouseEvent.pixel;
+			var myMoveAreaOffsetLeft = webMI.gfx.getAbsoluteOffset("left", true, mapCanvas);
+		    var myMoveAreaOffsetTop = webMI.gfx.getAbsoluteOffset("top", true, mapCanvas);
+
+			console.log("myMoveAreaOffsetLeft: "+myMoveAreaOffsetLeft);			
+			console.log("myMoveAreaOffsetTop: "+myMoveAreaOffsetTop);
+			var projection = map.getProjection();
+			
+			
+			//0,5333198078455784
+			
+			//var position = new google.maps.LatLng(Current_Lat,Current_Lng);
+			const clickedLatLong = mapsMouseEvent.latLng;
+			//console.log("Clicked Lat: "+clickedLatLong.lat());
+			//console.log("Clicked Long: "+clickedLatLong.lng());
+			//Pixel coordinate location projected
+			var point = projection.fromLatLngToPoint(clickedLatLong);
+			//console.log(point);
+			//var OffsetY = ((-0.2209*Math.pow(ScaleY, 3))+(0.3503*Math.pow(ScaleY, 2))+(-0.1962*ScaleY)+ 0.0399)*SVGScaleY;
+						
+			//var OffsetX = (0.041501)*SVGScaleX;
+			//var OffsetX = (0.0042)//;
+			console.log("Pixel OffsetY: "+OffsetY);
+			console.log("Pixel OffsetX: "+OffsetX);
+			//New Pixel coordinate 
+			var pointcalc = new google.maps.Point(Number(point.x)+Number(OffsetX), Number(point.y)+Number(OffsetY));
+			//console.log("pointcalc");				
+			//console.log(pointcalc);
+			
+			//New Latitude and Longitude
+			var latLng = projection.fromPointToLatLng(pointcalc);
+			//console.log(latLng);
+			
+			//console.log("Calculated Lat: "+latLng.lat());
+			//console.log("Calculated Long: "+latLng.lng());
+			
+		});*/
+	});
+}
+
+//Update map
+function updateMap(){
+
+	//---------------Re-initialize markers
+	
+	//Remove all the Makers
+	for (var i=0; i<markers.length; i++){
+			removeMarker(markers,i);
+	}
+	
+	//Remove markers
+	markers=[];
+	Alarmed_Markers=[];
+	Alerted_Markers=[];
+	markers.length = 0;
+	Global_Geo_ListI=[];
+	
+	//------------Read the Global_List_Address
+	webMI.data.read(Global_Geo_Address, function(e) {
+	
+	   //Read data 
+	   var result=e.value;
+	   
+	   //Process Result
+	   Global_Geo_List=result.map((x) => JSON.parse('{' + x + '}'));
+	   for(var i=0;i<Global_Geo_List.length;i++){
+			Global_Geo_ListI[i]=Global_Geo_List[i][i]; //Get array of objects with each geo point
+	   }
+				
+		//Create Markers
+		var zoom = map.getZoom();
+		markerWidth=(zoom/5)*20;
+		markerHeight=(zoom/5)*20;
+		
+		setTimeout(function(){
+			 for (const key in Global_Geo_ListI) {
+				if (Global_Geo_ListI.hasOwnProperty(key)) {
+					const obj = Global_Geo_ListI[key];
+						console.log("Adding: ");
+						console.log(obj);
+						addMarker(map,obj);
+					
+				}
+			}			
+			//Fit map to Markers
+			fitMapToMarkers(map, markers);
+
+		},200);
+		
+		//------------Add Listener for resizing
+		google.maps.event.addListener(map, 'zoom_changed', function() {
+	
+			var zoom = map.getZoom();
+			markerWidth = (zoom/5)*20
+			markerHeight = (zoom/5)*20
+		
+			//set the icon with the new size to the marker
+			for (var i=0; i<markers.length; i++){
+				markers[i].setIcon({
+					url: icon_Current[i],
+					scaledSize: new google.maps.Size(markerWidth, markerHeight)
+				});
+			}
+		});
+		
+	});
+	
+	//Reinitialize Condition Monitoring
+	if(Condition_Monitoring){
++		initMonitoring();
+	}
+	
+}
+
+
+//Calculate Center
+function calculateCenter(data) {
+    let totalLatitude = 0;
+    let totalLongitude = 0;
+    let count = 0;
+
+    for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+            const obj = data[key];
+            // Use the explicit key names
+            if(obj['2 Latitude'] !== undefined && obj['3 Longitude'] !== undefined) {
+                totalLatitude += Number(obj['2 Latitude']);
+                totalLongitude += Number(obj['3 Longitude']);
+                count++;
+            }
+        }
+    }
+
+    if (count === 0) {
+        // Return null or some default value if no valid coordinates are found
+        return null;
+    }
+
+    const averageLatitude = totalLatitude / count;
+    const averageLongitude = totalLongitude / count;
+
+    return { averageLatitude, averageLongitude };
+}
+
+
+//Create Marker
+function addMarker(map,obj) {
+
+	var position = new google.maps.LatLng(Number(obj['2 Latitude']), Number(obj['3 Longitude']));
+	
+	var marker = new google.maps.Marker({
+		position: position,
+		map: map,
+		title: obj['1 Name'],
+		icon:{
+			url: icon_Normal,
+			scaledSize: new google.maps.Size(markerWidth, markerHeight)
+		}
+	});
+	
+	//Add to markers list
+	markers.push(marker);
+	Alarmed_Markers.push(false);
+	Alerted_Markers.push(false);
+	
+	//Add Listeners
+	marker.addListener("click", function(e){
+		webMI.display.openDisplay(obj['5 Display'], {base: obj['4 Address']}, Iframe);
+	});
+	
+}
+
+//Remove markers from the map
+function removeMarker(markers,remove_Index){
+	//Remove from the map
+	markers[remove_Index].setMap(null);
+
+}
+
+//Set myOptions
+function setMapOptions(map){
+	
+	//Initialize Map
+		var myOptions = {
+			zoom: Current_Zoom,
+			center: Center,
+			mapTypeId: google.maps.MapTypeId.SATELLITE
+		
+		};
+		
+		//Update Options
+		map.setOptions(myOptions);
+}
+
+//Fit map in Markers
+function fitMapToMarkers(map, markers) {
+    var bounds = new google.maps.LatLngBounds();
+
+    // Extend the bounds to include each marker's position
+    markers.forEach(function(marker) {
+        bounds.extend(marker.getPosition());
+    });
+	
+    // Adjust the map view to fit the bounds that encompass all markers
+    map.fitBounds(bounds);
+    Current_Zoom=map.getZoom(); //Map Zoom at the moment to keep it Center
+}
+
+
+
+
+function extractScaling(element) {
+    while (element) {
+        // Check if the element has a 'transform' attribute
+        if (element.hasAttribute('transform')) {
+            // Get the value of the 'transform' attribute
+            const transformValue = element.getAttribute('transform');
+
+            // Extract the scale values from the transformation matrix
+            // The matrix is in the form matrix(scaleX, 0, 0, scaleY, translateX, translateY)
+            const matches = transformValue.match(/matrix\(([\d.]+),\s*0,\s*0,\s*([\d.]+),\s*[\d.]+,\s*[\d.]+\)/);
+
+            if (matches && matches.length === 3) {
+                // Convert the scale values to numbers and return them
+                return {
+                    scaleX: parseFloat(matches[1]),
+                    scaleY: parseFloat(matches[2])
+                };
+            }
+        }
+		console.log(element);
+        // Move up to the parent element
+        element = element.parentElement;
+    }
+
+    // Return default scaling of 1 for both X and Y if no transform attribute is found
+    return {
+        scaleX: 1,
+        scaleY: 1
+    };
+}
+
+function calculateOffsetsFromRect(rect) {
+    // Updated coefficients for Ridge regression of OffsetX
+    const interceptX = -0.8024766723788219;
+    const coefX = [
+        1.93740491e-09, 8.80248048e-10, 1.51401482e-11,
+        3.10572002e-09, -1.12435557e-07, -1.22027697e-07, 1.32285208e-06,
+        -1.00147627e-06, -1.76946867e-06, 6.01915072e-07, 4.58462812e-07,
+        2.05933102e-08, 2.12380349e-06, -7.10688213e-07
+    ];
+
+    // Updated coefficients for Ridge regression of OffsetY
+    const interceptY = -0.26043481006360814;
+    const coefY = [
+        5.99731166e-10, 2.99584170e-10, 4.92019568e-12,
+        1.01124106e-09, -3.28567109e-08, -5.04456162e-08, 4.09572508e-07,
+        -3.12887771e-07, -5.71376265e-07, 2.04806454e-07, 1.63717421e-07,
+        6.69234643e-09, 6.91516146e-07, -2.34730215e-07
+    ];
+
+    // Extract the properties from the DOMRect object
+    const { left: X, top: Y, width: Width, height: Height } = rect;
+
+    // Manually calculate the polynomial features up to degree 2
+    const features = [
+        1, X, Y, Width, Height,  // degree 1
+        X*X, X*Y, X*Width, X*Height,  // degree 2 interactions
+        Y*Y, Y*Width, Y*Height,
+        Width*Width, Width*Height,
+        Height*Height
+    ];
+
+    // Calculate OffsetX using the polynomial features and updated Ridge regression coefficients
+    let OffsetX = interceptX;
+    for (let i = 1; i < features.length; i++) {  // Start from 1 to skip the first term (intercept)
+        OffsetX += coefX[i-1] * features[i];
+    }
+
+    // Calculate OffsetY using the polynomial features and updated Ridge regression coefficients
+    let OffsetY = interceptY;
+    for (let i = 1; i < features.length; i++) {  // Start from 1 to skip the first term (intercept)
+        OffsetY += coefY[i-1] * features[i];
+    }
+
+    return { OffsetX, OffsetY };
+}
+
+
+
+//-----------------Condition Monitoring Handling Functions------------------//
+
+
+
+function initMonitoring(){
+	//Call Global_Alarm_Geo_Monitor 
+	webMI.data.call("Global_Geo_Alarm_Monitor_webMI_Method_Script", {}, function(e) {
+		webMI.data.read([Global_Geo_AlarmsR,Global_Geo_Address], function(e) {
+		
+		   //Read data	
+		   Global_Geo_Alarms=e[0].value; //All the objects and the corresponding Loading_Display
+		   var Global_Geo_List=e[1].value; //The list of all markers
+		   
+		   icon_Current=Global_Geo_List.map((x)=>icon_Normal);
+		   
+		  //Find nodes with display matching markers associated display		   
+		   var Matching_Keys=findMatchingKeys(Global_Geo_Alarms, Global_Geo_List);
+		   
+		   //Create Global Alarmed and Alerted status 0 by default	
+		   Global_Status_Markers=matchAlarmsWithDisplays(Global_Geo_Alarms, Global_Geo_List,0); 
+		   Global_Alarmed_Markers=matchAlarmsWithDisplays(Global_Geo_Alarms, Global_Geo_List,false);
+		   Global_Alerted_Markers=matchAlarmsWithDisplays(Global_Geo_Alarms, Global_Geo_List,false);
+		   Global_Maintenanced_Markers=matchAlarmsWithDisplays(Global_Geo_Alarms, Global_Geo_List,false);
+		   
+		   //Elaborate list of nodes to subscribe to		   
+		   Alarm_Active_nodes = Matching_Keys.map((x) => x +Alarm_Active_Root);
+		   Alert_Active_nodes = Matching_Keys.map((x) => x +Alert_Active_Root);
+		   Mant_Active_nodes = Matching_Keys.map((x) => x +Mant_Active_Root);
+		   
+		   setTimeout(function(){
+			 Subscribe_ready=true;
+		   },300);
+		});
+	
+	});	
+}
+
+
+//Update markers based on Global_Status_Markers
+function updateMarkers(alarmData, markers) {
+
+    // Function to determine the icon based on status values
+    const determineIcon = (alarmValues) => {
+        if (alarmValues.every(val => val === 0)) {
+            return { icon: icon_Normal, shouldBounce: false };
+        }
+        const minValue = Math.min(...alarmValues.filter(val => val > 0));
+        switch (minValue) {
+            case 1: return { icon: icon_Alarm, shouldBounce: true };
+            case 2: return { icon: icon_Alert, shouldBounce: true };
+            case 3: return { icon: icon_Mant, shouldBounce: true };
+            default: return { icon: icon_Normal, shouldBounce: true }; // Default case, can be adjusted
+        }
+    };
+
+    alarmData.forEach((alarmArray, index) => {
+        const alarmValues = alarmArray.map(obj => Object.values(obj)[0]);
+        const { icon: iconT, shouldBounce } = determineIcon(alarmValues);
+
+        // Assuming markers[index] is a valid Google Maps marker object
+        if (markers[index]) {
+			icon_Current[index]=iconT;
+            markers[index].setAnimation(shouldBounce ? google.maps.Animation.BOUNCE : null);
+            markers[index].setIcon({
+                url: iconT,
+                scaledSize: new google.maps.Size(markerWidth, markerHeight) // Example sizes, adjust as needed
+            });
+        }
+    });
+}
+
+//Find Matching keys for the Condition Monitoring
+function findMatchingKeys(Global_Geo_Alarms, Global_Geo_List) {
+    // Parse stringified objects in Global_Geo_List and extract '5 Display' values
+    var displaysInGeoList = Global_Geo_List.map(item => {
+        var parsedItem = JSON.parse(`{${item}}`);
+        return parsedItem[Object.keys(parsedItem)[0]]['5 Display'];
+    });
+
+    // Parse stringified objects in Global_Geo_Alarms and find matching keys
+    var matchingKeys = Global_Geo_Alarms.map(item => {
+        var parsedItem = JSON.parse(item);
+        var key = Object.keys(parsedItem)[0];
+        var value = parsedItem[key];
+        if (displaysInGeoList.includes(value)) {
+            return key;
+        }
+    }).filter(key => key !== undefined); // Filter out undefined values
+
+    return matchingKeys;
+}
+
+
+//Associate nodes with Markers
+function matchAlarmsWithDisplays(Global_Geo_Alarms, Global_Geo_List,valueI) {
+    // Parse the stringified JSON objects in Global_Geo_Alarms
+    const alarms = Global_Geo_Alarms.map(str => JSON.parse(str));
+    
+    // Initialize the result array
+    let result = [];
+
+    // Iterate over each string in Global_Geo_List
+    for (let str of Global_Geo_List) {
+        // Correctly parse the stringified JSON object
+        const displayObj = JSON.parse(`{${str}}`);
+        const displayKey = Object.keys(displayObj)[0]; // Get the first key which is the index
+        const displayValue = displayObj[displayKey]['5 Display']; // Access '5 Display' within the object
+
+        // Find matching keys in Global_Geo_Alarms
+        let matches = [];
+        alarms.forEach(alarm => {
+            const key = Object.keys(alarm)[0];
+            const value = alarm[key];
+            if (value === displayValue) {
+                let match = {};
+                match[key] = valueI;
+                matches.push(match);
+            }
+        });
+
+        // Add the matches for this display to the result
+        result.push(matches);
+    }
+
+    return result;
+}
+
+
+//Update global status
+function updateGlobalStatusMarkers(Global_Alarmed_Markers, Global_Alerted_Markers, Global_Maintenanced_Markers) {
+    // Reset Global_Status_Markers to match the structure of the other arrays
+    Global_Status_Markers.length = 0;
+
+    for (let i = 0; i < Global_Alarmed_Markers.length; i++) {
+        Global_Status_Markers[i] = [];
+
+        for (let j = 0; j < Global_Alarmed_Markers[i].length; j++) {
+            let statusObject = {};
+
+            for (const key in Global_Alarmed_Markers[i][j]) {
+                const isAlarmed = Global_Alarmed_Markers[i][j][key];
+                const isAlerted = Global_Alerted_Markers[i][j][key];
+                const isMaintenanced = Global_Maintenanced_Markers[i][j][key];
+
+                if (isAlarmed) {
+                    statusObject[key] = 1; // Alarmed
+                } else if (!isAlarmed && isAlerted) {					
+                    statusObject[key] = 2; // Alerted only if not Alarmed
+                } else if (!isAlarmed && !isAlerted && isMaintenanced) {
+                    statusObject[key] = 3; // Maintenance only if not Alarmed and not Alerted
+                } else {
+                    statusObject[key] = 0; // None are true
+                }
+            }
+
+            Global_Status_Markers[i].push(statusObject);
+        }
+    }
+}
+
+//Update Values on Global Arrays based on the node triggered
+function updateValuesInArray(arrays, keyToUpdate, newValue) {
+    // Iterate over each array in the array of arrays
+    arrays.forEach(array => {
+        // Iterate over each object in the array
+        array.forEach(obj => {
+            // Check if the object has the key we want to update
+            if (obj.hasOwnProperty(keyToUpdate)) {
+                // Update the value of the key
+                obj[keyToUpdate] = newValue;
+            }
+        });
+    });
+    return arrays;
+}
+
+
+
+//-----------------External Integration Functions------------------//
+
+//Update text selection
+function updateSelectionText(New_Values){
+	webMI.trigger.fire("write_value_Global_List_Input", New_Values);
+}
+
+
+//-------------Waiters--------------//
+
+function waitForCondition() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+	var condition=(map!=undefined);
+      if (condition) {
+        clearInterval(interval);
+        resolve(true);
+      }
+    }, 100);
+  });
+}
+
+function waitForCondition2() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+	var condition=(markers.length>=Global_Geo_ListI.length);
+      if (condition) {
+        clearInterval(interval);
+        resolve(true);
+      }
+    }, 100);
+  });
+}
+
+function waitForCondition3() {
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+	var condition=(Alarm_Active_nodes.length>0 && Alert_Active_nodes.length>0 && Subscribe_ready);
+      if (condition) {
+        clearInterval(interval);
+        resolve(true);
+      }
+    }, 100);
+  });
+}
+
+
+
+
+
+webMI.addEvent("map_canvas", "click", function(e) {
+
+			
+	console.log("Foreing x: "+e.clientX);			
+	console.log("Forieng Y: "+e.clientY);
+});
+
+]]></script>
+</svg>

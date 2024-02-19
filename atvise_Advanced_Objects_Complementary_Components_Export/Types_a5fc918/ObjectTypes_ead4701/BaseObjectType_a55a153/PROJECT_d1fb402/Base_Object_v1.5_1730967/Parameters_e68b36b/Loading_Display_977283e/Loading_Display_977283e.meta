@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Parameters.Loading_Display
+NodeClass: Variable
+BrowseName: 1:Loading_Display
+DisplayName: en|Loading_Display
+Description: en|Loading_Display
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

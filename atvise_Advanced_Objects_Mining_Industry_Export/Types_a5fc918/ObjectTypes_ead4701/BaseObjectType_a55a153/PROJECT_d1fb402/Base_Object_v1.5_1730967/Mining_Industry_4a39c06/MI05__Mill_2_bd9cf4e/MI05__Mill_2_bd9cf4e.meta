@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI05_ Mill_2
+NodeClass: ObjectType
+BrowseName: 1:MI05_ Mill_2
+DisplayName: en|MI05_ Mill_2
+Description: en|MI05_ Mill_2
+IsAbstract: false

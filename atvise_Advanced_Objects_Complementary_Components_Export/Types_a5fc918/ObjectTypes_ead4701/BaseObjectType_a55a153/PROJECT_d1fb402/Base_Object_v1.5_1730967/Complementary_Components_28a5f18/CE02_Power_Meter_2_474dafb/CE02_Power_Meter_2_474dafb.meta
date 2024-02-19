@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Complementary_Components.CE02_Power_Meter_2
+NodeClass: ObjectType
+BrowseName: 1:CE02_Power_Meter_2
+DisplayName: en|CE02_Power_Meter_2
+Description: en|CE02_Power_Meter_2
+IsAbstract: false

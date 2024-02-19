@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[//Initialize Variables
+var self;
+var tableData = [];
+var Ind_Mant=0; //Variable for the finished maintenance
+var item; //Variable for current maintenance info
+var Table_Id;
+var data_ready=[];
+var configNode="AGENT.OBJECTS.TimerConfig"; //Configuration node
+var Mant_Notification=webMI.query["base"]+".Maintenance.Mant_Notification";
+var Mant_ActiveR=webMI.query["base"]+".Maintenance.Mant_Active";
+var Mant_Ind_RmR=webMI.query["base"]+".Maintenance.Mant_Ind_Rm";
+
+/*******Initial Conditions*******/
+webMI.addOnload(function() {
+
+	//Define initial text
+    webMI.gfx.setText("id_info", "Press to finish");
+});
+
+/*******HTML Table section********/
+webMI.table.loadResources(function () {
+
+	/* Create the configuration */
+	var config = [];
+
+	/* Configuration of the columns to be displayed */
+	config["columns"] =
+		[
+			{   id: "Number", name: "Number", field: "Number", sortable: false, filter: false, visible: true},
+			{   id: "ID Global", name: "ID Global", field: "ID Global", sortable: false, filter: false, visible: false},
+			{	id: "Name", name: "Name", field: "Name", sortable: false, filter: false, visible: true},
+			{   id: "Initial_Date", name: "Initial Date", field: "Initial Date", sortable: false, filter: true},
+		];
+
+	/* Configuration of the runtime behavior */
+	config["mode"] = "live";
+	
+	/* Configuration selection of data */
+	config["onClickCallback"] = function(e, info){   
+		item = info.item;     
+        Ind_Mant = info.rowIndex;
+        Global_Id=item["ID Global"];
+        Table_Id = item.id                  
+    }
+
+	/* Configuration of the data query */
+	config["dataRequestFunction"] =
+		function customDataRequest(continuation) {
+			self = this;
+			webMI.data.read(Mant_ActiveR, function(e){
+			    var result=e.value; //Bring all the missing maintenance actions		    	    
+			    for (var i=0; i<result.length; i++){					
+					var resultI=JSON.parse(result[i]);	
+					data_ready.push({
+						"Number": i,
+						"ID Global":resultI.Ind_M,
+						"Name":(resultI.Text_M),
+						"Initial Date":((new Date(Number(resultI.Tiempo_M))).toString()).slice(0,-33)	
+					});		
+						    
+				}
+				var data = {};
+				data.result= data_ready;
+				tableData.push(data);
+				self.addData(data);
+			});					
+		};
+		
+
+	/* Registration of the configuration */
+	webMI.table.register("Mant_Table", "config",  config);
+	webMI.table.setReady("Mant_Table", "config");
+});
+
+
+
+
+//Pick finished maintenance
+webMI.addEvent("Finished_Maint", "click", function(e) {
+	
+	   console.log(item);
+	   //Remove de Mant_Active							
+	   webMI.data.write(Mant_Ind_RmR, Ind_Mant);//Upadta active maintenance node
+	   
+	   //Remove from table	  
+	   self.removeData(Table_Id);   
+	   
+	   //Remove from global maintenance
+		webMI.data.read(configNode, function(e) {
+			//Extraigo el array que necesito
+			var New_Config=JSON.parse(e.value);			
+			var config=New_Config[0].config.configs;
+			
+			//Search for id within confignode
+			var index=-1;     
+			for (var i=0; i<config.length; i++){  
+				if(config[i]["row"]==Global_Id) { 
+					index=i;
+				}
+			}		
+			if (index>(-1)){ //If it is there
+				//Remove from internal configNode 
+				New_Config[0].config.configs.splice(index, 1);					
+				
+				//Write from to configNode
+				webMI.data.write(configNode, JSON.stringify(New_Config));	
+			}   
+	   	
+	   	setTimeout(function(){ 
+		   //Read active maintenance
+		   webMI.data.read(Mant_ActiveR, function(j) {
+			   var Mant_Active=j.value;
+			   //Hide maintenance icon
+			   if (Mant_Active.length<=0 || Mant_Active=="{}"){ //Hide if Mant_active is empty
+					webMI.data.write(Mant_Notification, "{}");//Entry new active maintenace
+					//Finished maintenance Notification
+					webMI.gfx.setFill("id_info", "#0bbea9");	
+					webMI.gfx.setText("id_info", "No pending maintenance left");     
+					setTimeout(function(){
+						webMI.display.closeWindow();
+					},750);				   
+				} 
+				
+				else{
+					//Finished maintenance Notification
+					webMI.gfx.setFill("id_info", "#0bbea9");	
+					webMI.gfx.setText("id_info", "Finished Correctly");     
+					setTimeout(function(){
+						webMI.gfx.setFill("id_info", webMI.query["Color"]);
+						webMI.gfx.setText("id_info", "Press to finish");
+					},750);
+				}	
+			});
+		},100);		
+	});
+});
+]]></code>
+</script>

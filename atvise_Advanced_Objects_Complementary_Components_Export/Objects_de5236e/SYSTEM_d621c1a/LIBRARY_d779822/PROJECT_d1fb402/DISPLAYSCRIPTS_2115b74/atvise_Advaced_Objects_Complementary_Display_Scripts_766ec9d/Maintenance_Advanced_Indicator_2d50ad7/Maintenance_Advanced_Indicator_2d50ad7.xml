@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[//------------------Variables Declaration------------------//
+
+//External Variables
+var Mant_ActiveR=webMI.query["base"]+".Maintenance.Mant_Active";
+var Mant_Notification=webMI.query["base"]+".Maintenance.Mant_Notification";
+
+
+
+//---------------General Section---------------//
+
+//Initial Conditions
+webMI.addOnload(function(e) {	
+	
+	//-------------------Settings
+
+	//Hide Mant	
+	webMI.gfx.setVisible("maintenance", false);
+	
+});
+
+//---------------Maintenance Section---------------//
+
+//Add active maintenance
+webMI.data.subscribe(Mant_Notification, function(e) {
+	var id = "maintenance";
+	var value = e.value;	
+	console.log("Mant_Notification");
+	console.log(value);
+	console.log(value.length);
+	if (value !="{}"&&value.length!=0){ //There are Pending maintenance
+		webMI.gfx.setVisible(id, true); //Show maintenance	
+		console.log("Show maintenance");
+	}	
+	else if (value == "{}"||value.length==0){//No maintenance
+		console.log("No maintenance");
+		webMI.gfx.setVisible(id, false);
+	}
+});
+
+//Open Window Mant Viewer
+webMI.addEvent("maintenance", "click", function(e) {
+	webMI.display.openWindow({display:"SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Mant_Viewer_Object_Display",extern:false,height:600,menubar:false,modal:false,movable:true,resizable:true,scrollbars:false,status:false,title:"T{Pending Maintenance: }"+(webMI.query["base"]).split('.').pop(),toolbar:false,width:465,query:webMI.query});
+});
+]]></code>
+</script>

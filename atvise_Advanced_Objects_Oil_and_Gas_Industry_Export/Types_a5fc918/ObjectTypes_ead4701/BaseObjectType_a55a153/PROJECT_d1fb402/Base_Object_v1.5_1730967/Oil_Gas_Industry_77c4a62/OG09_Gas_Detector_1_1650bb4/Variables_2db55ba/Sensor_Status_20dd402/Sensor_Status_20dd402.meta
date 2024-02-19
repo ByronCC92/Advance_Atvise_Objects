@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Oil_Gas_Industry.OG09_Gas_Detector_1.Variables.Sensor_Status
+NodeClass: Variable
+BrowseName: 1:Sensor_Status
+DisplayName: en|Sensor_Status
+Description: en|Sensor_Status
+DataType: Float
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI14_Sizer_2.Variables.Sizer Deck Level
+NodeClass: Variable
+BrowseName: 1:Sizer Deck Level
+DisplayName: en|Sizer Deck Level
+Description: en|Sizer Deck Level
+DataType: Int32
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

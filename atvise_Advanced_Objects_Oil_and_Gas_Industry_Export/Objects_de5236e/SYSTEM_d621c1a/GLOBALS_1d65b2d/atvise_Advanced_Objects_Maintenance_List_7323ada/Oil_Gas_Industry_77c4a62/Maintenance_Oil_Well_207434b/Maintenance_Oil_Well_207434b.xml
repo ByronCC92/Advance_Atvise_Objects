@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+	<uax:ListOfString>
+		<uax:String>&quot;0&quot;:{&quot;text&quot;:&quot;Monitor and adjust well pressure&quot;,&quot;value&quot;:&quot;1&quot;}</uax:String>
+		<uax:String>&quot;1&quot;:{&quot;text&quot;:&quot;Calibrate sensors and cooling systems&quot;,&quot;value&quot;:&quot;2&quot;}</uax:String>
+		<uax:String>&quot;2&quot;:{&quot;text&quot;:&quot;Monitor and calibrate flow meters&quot;,&quot;value&quot;:&quot;3&quot;}</uax:String>
+		<uax:String>&quot;3&quot;:{&quot;text&quot;:&quot;Inspect and adjust level sensors&quot;,&quot;value&quot;:&quot;4&quot;}</uax:String>
+		<uax:String>&quot;4&quot;:{&quot;text&quot;:&quot;Inspect and maintain pumping equipment&quot;,&quot;value&quot;:&quot;5&quot;}</uax:String>
+		<uax:String>&quot;5&quot;:{&quot;text&quot;:&quot;Maintenance and energy efficiency&quot;,&quot;value&quot;:&quot;6&quot;}</uax:String>
+	</uax:ListOfString>
+</Value>

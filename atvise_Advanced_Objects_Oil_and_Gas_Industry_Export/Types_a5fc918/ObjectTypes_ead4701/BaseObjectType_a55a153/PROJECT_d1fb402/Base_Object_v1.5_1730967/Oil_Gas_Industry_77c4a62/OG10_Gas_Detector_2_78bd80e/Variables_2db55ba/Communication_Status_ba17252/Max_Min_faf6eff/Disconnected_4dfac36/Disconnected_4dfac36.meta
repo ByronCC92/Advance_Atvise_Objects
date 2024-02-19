@@ -1,0 +1,9 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Oil_Gas_Industry.OG10_Gas_Detector_2.Variables.Communication_Status.Max_Min.Disconnected
+NodeClass: Object
+BrowseName: 1:Disconnected
+DisplayName: en|Disconnected
+Description: en|Disconnected
+EventNotifier: 0
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition ns=1;s=ObjectTypes.ATVISE.AlarmConditionControl.Discrete
+Reference: forward HasComponent ns=1;s=AGENT.ALARMING.Categories.Error

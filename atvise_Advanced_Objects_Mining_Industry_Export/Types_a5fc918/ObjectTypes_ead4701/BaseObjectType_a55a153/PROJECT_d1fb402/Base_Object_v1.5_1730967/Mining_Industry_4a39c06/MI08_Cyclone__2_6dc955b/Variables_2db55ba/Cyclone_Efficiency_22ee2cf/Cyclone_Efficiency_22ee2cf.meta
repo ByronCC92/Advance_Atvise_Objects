@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI08_Cyclone _2.Variables.Cyclone Efficiency
+NodeClass: Variable
+BrowseName: 1:Cyclone Efficiency
+DisplayName: en|Cyclone Efficiency
+Description: en|Cyclone Efficiency
+DataType: Int32
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

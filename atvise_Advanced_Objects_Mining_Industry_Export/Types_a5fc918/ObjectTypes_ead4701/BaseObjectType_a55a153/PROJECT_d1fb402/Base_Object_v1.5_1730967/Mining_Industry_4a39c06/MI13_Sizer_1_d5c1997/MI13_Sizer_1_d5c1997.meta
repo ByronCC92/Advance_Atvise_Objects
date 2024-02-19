@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI13_Sizer_1
+NodeClass: ObjectType
+BrowseName: 1:MI13_Sizer_1
+DisplayName: en|MI13_Sizer_1
+Description: en|MI13_Sizer_1
+IsAbstract: false

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <code><![CDATA[//External Variables
+var Global_Geo_Alarms = Ua.findNode("AGENT.OBJECTS.Global_Geo_Alarms");
+
+//Internal Variables 
+var Alarm_Objects=new Array();
+var Loading_Root=".Parameters.Loading_Display";
+var Addres=Ua.findNode("AGENT.OBJECTS"); //Search in Agent.Objects folder
+
+//-----------------Find Global Maintenance List
+
+//Browse recursively
+var ret = Addres.result.browse({
+    direction: Ua.Node.BROWSEDIRECTION_FORWARD,
+    reference: Ua.Reference.HIERARCHICALREFERENCES,
+    subType: true,
+    nodeClass: Ua.NodeClass.UNSPECIFIED,
+    maxResult: 0,
+    recursive : true
+});
+
+
+
+//Search within all the Nodes in Agent.Objects
+for (var i = 0; i < ret.result.length; ++i){
+	
+	var AddressI=ret.result[i]["node"]["nodeId"]["address"];
+	
+   //Catch all nodes with Loading_Root
+   if(AddressI.includes(Loading_Root)){	
+	
+		//Analize if Mant_List is not empty
+		var Loading_DisplayI = Ua.findNode(AddressI);
+		var Loading_DisplayII=Loading_DisplayI.result.value; //Display where the object was loaded
+		
+		if (Loading_DisplayII!=undefined &&Loading_DisplayII.length>0){ //Only add if it has been initialized
+			var Intermediate_Object={};
+			Intermediate_Object[String(AddressI.replace(Loading_Root,""))]=	Loading_DisplayII;
+			Alarm_Objects.push(JSON.stringify(Intermediate_Object));
+		}	
+   }
+}
+
+
+//-----------------Update Global Maintenance
+
+//If it exists
+if (Global_Geo_Alarms.result!=undefined){
+		
+	//Assing New List
+	Global_Geo_Alarms.result.assign({value: Alarm_Objects}); //Asign Complete array	 
+		
+}
+//Global_Geo_Alarms doesn´t exists	
+else if(Global_Geo_Alarms.result==undefined){	
+	var Global_Geo_AlarmsN="AGENT.OBJECTS.Global_Geo_Alarms";
+	Ua.createNode(Global_Geo_AlarmsN, {
+		nodeClass: Ua.NodeClass.VARIABLE,
+		parent: "AGENT.OBJECTS",
+		typeDefinition: Ua.VariableType.BASEVARIABLETYPE,
+		reference: Ua.Reference.HASCOMPONENT,
+		dataType: Ua.DataType.STRING,
+		valueRank: Ua.ValueRank.ONEDIMENSION,
+		value: Alarm_Objects
+	});
+}]]></code>
+</script>

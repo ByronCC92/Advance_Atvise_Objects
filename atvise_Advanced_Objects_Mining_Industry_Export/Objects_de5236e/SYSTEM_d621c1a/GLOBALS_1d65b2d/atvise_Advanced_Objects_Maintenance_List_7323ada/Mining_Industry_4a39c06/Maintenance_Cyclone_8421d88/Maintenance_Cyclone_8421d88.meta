@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Mining_Industry.Maintenance_Cyclone
+NodeClass: Variable
+BrowseName: 1:Maintenance_Cyclone
+DisplayName: en|Maintenance_Cyclone
+Description: en|Maintenance_Cyclone
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

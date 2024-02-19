@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Oil_Gas_Industry.Maintenance_Oil_Well
+NodeClass: Variable
+BrowseName: 1:Maintenance_Oil_Well
+DisplayName: en|Maintenance_Oil_Well
+Description: en|Maintenance_Oil_Well
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

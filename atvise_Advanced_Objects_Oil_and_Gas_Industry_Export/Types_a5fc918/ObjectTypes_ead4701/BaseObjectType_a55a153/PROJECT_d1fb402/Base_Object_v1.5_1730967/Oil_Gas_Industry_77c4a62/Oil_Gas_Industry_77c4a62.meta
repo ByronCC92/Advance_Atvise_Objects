@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Oil_Gas_Industry
+NodeClass: ObjectType
+BrowseName: 1:Oil_Gas_Industry
+DisplayName: en|Oil_Gas_Industry
+Description: en|Oil_Gas_Industry
+IsAbstract: false

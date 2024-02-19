@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI08_Cyclone _2
+NodeClass: ObjectType
+BrowseName: 1:MI08_Cyclone _2
+DisplayName: en|MI08_Cyclone _2
+Description: en|MI08_Cyclone _2
+IsAbstract: false

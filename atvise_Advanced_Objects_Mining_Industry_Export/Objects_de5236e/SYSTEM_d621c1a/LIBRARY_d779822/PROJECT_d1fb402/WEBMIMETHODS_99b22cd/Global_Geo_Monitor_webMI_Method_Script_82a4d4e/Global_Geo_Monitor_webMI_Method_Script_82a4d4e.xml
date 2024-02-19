@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <code><![CDATA[//External Variables
+var Geo_ConfigR = "AGENT.OBJECTS.GeoConfig"
+var Geo_Config = Ua.findNode(Geo_ConfigR);
+
+//Internal Variables
+
+
+
+//-----------------Update Geo Config
+
+//Geo_ConfigR doesn´t exists	
+if(Geo_ConfigR.result==undefined){	
+	var Geo_ConfigRN="AGENT.OBJECTS.Geo_Config";
+	Ua.createNode(Geo_ConfigRN, {
+		nodeClass: Ua.NodeClass.VARIABLE,
+		parent: "AGENT.OBJECTS",
+		typeDefinition: Ua.VariableType.BASEVARIABLETYPE,
+		reference: Ua.Reference.HASCOMPONENT,
+		dataType: Ua.DataType.STRING,
+		valueRank: Ua.ValueRank.ONEDIMENSION,
+		value: "{}"	
+	});
+}]]></code>
+</script>

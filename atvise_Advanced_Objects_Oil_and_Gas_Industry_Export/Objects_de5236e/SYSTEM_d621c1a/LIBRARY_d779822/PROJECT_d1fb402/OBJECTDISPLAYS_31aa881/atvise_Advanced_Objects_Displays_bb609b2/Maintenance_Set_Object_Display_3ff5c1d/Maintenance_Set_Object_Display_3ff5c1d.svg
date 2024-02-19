@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="600" version="1.2" width="603" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <svg atv:refpx="147.477" atv:refpy="152.496" height="30" id="id_2" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="5.818" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="111.425">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="name" value="Maintenance_Date"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+  <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+ </svg>
+ <text atv:refpx="63.517" atv:refpy="101" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="14.499" y="105.5">Maintenance Date</text>
+ <text atv:refpx="383.45" atv:refpy="101" fill="$Color$" font-family="Arial" font-size="24" id="id_5" x="344.5" y="105.5">Required Time</text>
+ <text atv:refpx="529.076" atv:refpy="151" fill="$Color$" font-family="Arial" font-size="24" id="id_9" x="514.5" y="155.5">Hours</text>
+ <text atv:refpx="534.375" atv:refpy="206" fill="$Color$" font-family="Arial" font-size="24" id="id_11" x="514.5" y="210.5">Minutes</text>
+ <text atv:refpx="39.703" atv:refpy="325" fill="$Color$" font-family="Arial" font-size="24" id="id_14" x="13.999" y="329.5">Recurrent</text>
+ <svg atv:refpx="125" atv:refpy="554.991" height="30" id="id_17" transform="matrix(2.875,0,0,1.6667,0,0)" width="80" x="3.478" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="317.994">
+  <atv:argument name="label" value="T{Schedule Maintenance}"/>
+  <atv:argument name="fontSize" value="20"/>
+  <atv:overwrite height="48.001" id="id_6" transform="matrix(0.3478,0,0,0.6,0,0)" width="228"/>
+  <atv:overwrite id="button_label_2" transform="matrix(0.3478,0,0,0.6,0,0)" x="115" y="36.5"/>
+  <atv:overwrite id="button_label_1" transform="matrix(0.3478,0,0,0.6,0,0)" x="115" y="21.5"/>
+  <atv:overwrite id="button_label" transform="matrix(0.3478,0,0,0.6,0,0)" x="115" y="29.5"/>
+  <atv:overwrite id="button_symbol_bottom" transform="matrix(0.2087,0,0,0.36,0,0)" x="181.5" y="42.959"/>
+  <atv:overwrite id="button_symbol_top" transform="matrix(0.2087,0,0,0.36,0,0)" x="181.5" y="21.626"/>
+  <atv:overwrite id="button_symbol" transform="matrix(0.3478,0,0,0.6,0,0)" x="105" y="15"/>
+  <atv:overwrite height="46.001" id="button_stroke" transform="matrix(0.3478,0,0,0.6,0,0)" width="226"/>
+  <atv:overwrite height="48.001" id="button_bg" transform="matrix(0.3478,0,0,0.6,0,0)" width="228"/>
+  <atv:overwrite height="50.001" id="outer_frame" transform="matrix(0.3478,0,0,0.6,0,0)" width="230"/>
+ </svg>
+ <text atv:refpx="268" atv:refpy="559" fill="$Color$" font-family="Arial" font-size="20" id="id_info" x="254.5" y="563.5">Texto</text>
+ <line atv:refpx="300" atv:refpy="24" id="id_19" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="60" y2="60"/>
+ <line atv:refpx="300" atv:refpy="270" id="id_23" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="270" y2="270"/>
+ <line atv:refpx="300" atv:refpy="444" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="444" y2="444"/>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.Maintenance_Set_Display_Script" atv:name="" atv:type="text/ecmascript"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"/>
+ <svg atv:refpx="89.999" atv:refpy="355" height="30" id="id_21" width="160" x="9.999" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Checkbox_Complementary_Element" y="340">
+  <atv:argument name="label" value="T{Activate}"/>
+  <atv:argument name="name" value="Recurrent_Maintenance"/>
+  <atv:argument name="fontSize" value="20"/>
+ </svg>
+ <svg atv:refpx="225" atv:refpy="27.5" height="30" id="id_22" transform="matrix(2.6875,0,0,1.1667,0,0)" width="160" x="3.721" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Combobox_Complementary_Element" y="8.571">
+  <atv:argument name="name" value="Maintenance_Type"/>
+  <atv:argument name="mode" value="Enum List"/>
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="contextMenuTextAlignment" value="left"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.3721,0,0,0.8571,0,0)" width="426"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.3721,0,0,0.8571,0,0)" x="405" y="7.501"/>
+  <atv:overwrite id="id_7" transform="matrix(0.3721,0,0,0.8571,0,0)" x="405" y="8.501"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.3721,0,0,0.8571,0,0)" x="405" y="7.501"/>
+  <atv:overwrite id="combobox_label" transform="matrix(0.3721,0,0,0.8571,0,0)" x="395.5" y="22.001"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.3721,0,0,0.8571,0,0)" width="398"/>
+  <atv:overwrite height="27.001" id="combobox_bg" transform="matrix(0.3721,0,0,0.8571,0,0)" width="398"/>
+  <atv:overwrite height="33.001" id="id_1" transform="matrix(0.3721,0,0,0.8571,0,0)" width="428"/>
+  <atv:overwrite height="35.001" id="id_0" transform="matrix(0.3721,0,0,0.8571,0,0)" width="430"/>
+ </svg>
+ <svg atv:refpx="420" atv:refpy="147.5" height="30" id="id_25" transform="matrix(1,0,0,1.1667,0,0)" width="160" x="340" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Rocker_Switch_Complementary_Element" y="111.429">
+  <atv:argument name="name" value="Maintenance_Hours"/>
+  <atv:argument name="fontSize" value="20"/>
+  <atv:overwrite id="icon_plus" transform="matrix(1,0,0,0.8571,0,2.1429)"/>
+  <atv:overwrite height="33" id="inc_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33" id="inc_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35" id="id_5" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="0.508" id="icon_minus" transform="matrix(1,0,0,0.8571,0,0)" y="17.25"/>
+  <atv:overwrite height="33" id="dec_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33" id="dec_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35" id="id_20" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite id="input_label" transform="matrix(1,0,0,0.8571,0,0)" y="22"/>
+  <atv:overwrite height="27" id="blinking_frame" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="27" id="input_field_widget" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="32" id="focus_frame" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33" id="input_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35" id="border_area" transform="matrix(1,0,0,0.8571,0,0)"/>
+ </svg>
+ <svg atv:refpx="420" atv:refpy="197.5" height="30" id="id_26" transform="matrix(1,0,0,1.1667,0,0)" width="160" x="340" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Rocker_Switch_Complementary_Element" y="154.281">
+  <atv:argument name="name" value="Maintenance_Minutes"/>
+  <atv:argument name="fontSize" value="20"/>
+  <atv:overwrite id="icon_plus" transform="matrix(1,0,0,0.8571,0,2.1432)"/>
+  <atv:overwrite height="33.001" id="inc_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33.001" id="inc_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35.001" id="id_5" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="0.508" id="icon_minus" transform="matrix(1,0,0,0.8571,0,0)" y="17.251"/>
+  <atv:overwrite height="33.001" id="dec_stroke" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33.001" id="dec_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35.001" id="id_20" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite id="input_label" transform="matrix(1,0,0,0.8571,0,0)" y="22.001"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="27.001" id="input_field_widget" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="32.001" id="focus_frame" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="33.001" id="input_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
+  <atv:overwrite height="35.001" id="border_area" transform="matrix(1,0,0,0.8571,0,0)"/>
+ </svg>
+ <g atv:refpx="377.504" atv:refpy="357.501" id="Recurrency_Elements">
+  <text atv:refpx="250.339" atv:refpy="301" fill="$Color$" font-family="Arial" font-size="24" id="id_6" x="204.5" y="305.5">Recurrency Type</text>
+  <svg atv:refpx="337.478" atv:refpy="377.496" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="116.36" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="342.848">
+   <atv:argument name="fontSize" value="20"/>
+   <atv:argument name="name" value="Fecha_Recurrencia_Final"/>
+   <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+   <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+   <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+   <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+   <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+   <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+   <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+  </svg>
+  <text atv:refpx="230.763" atv:refpy="381" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="204.5" y="385.5">Final Date</text>
+  <svg atv:refpx="377.504" atv:refpy="337.5" height="30" id="id_27" transform="matrix(2.2188,0,0,1.1667,0,0)" width="160" x="90.139" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Combobox_Complementary_Element" y="274.278">
+   <atv:argument name="name" value="Recurrency_Type"/>
+   <atv:argument name="fontSize" value="20"/>
+   <atv:argument name="text1" value="T{Diario}"/>
+   <atv:argument name="text1value" value="0"/>
+   <atv:argument name="text2" value="T{Semanal}"/>
+   <atv:argument name="text3" value="T{Mensual}"/>
+   <atv:argument name="text2value" value="1"/>
+   <atv:argument name="text3value" value="2"/>
+   <atv:argument name="text4" value="T{Anual}"/>
+   <atv:argument name="text4value" value="3"/>
+   <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.4507,0,0,0.8571,0,0)" width="351.008"/>
+   <atv:overwrite id="button_stroke" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="7.501"/>
+   <atv:overwrite id="id_7" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="8.501"/>
+   <atv:overwrite id="button_bg" transform="matrix(0.4507,0,0,0.8571,0,0)" x="330.008" y="7.501"/>
+   <atv:overwrite id="combobox_label" transform="matrix(0.4507,0,0,0.8571,0,0)" x="320.508" y="22.001"/>
+   <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.4507,0,0,0.8571,0,0)" width="323.008"/>
+   <atv:overwrite height="27.001" id="combobox_bg" transform="matrix(0.4507,0,0,0.8571,0,0)" width="323.008"/>
+   <atv:overwrite height="33.001" id="id_1" transform="matrix(0.4507,0,0,0.8571,0,0)" width="353.008"/>
+   <atv:overwrite height="35.001" id="id_0" transform="matrix(0.4507,0,0,0.8571,0,0)" width="355.008"/>
+  </svg>
+ </g>
+</svg>

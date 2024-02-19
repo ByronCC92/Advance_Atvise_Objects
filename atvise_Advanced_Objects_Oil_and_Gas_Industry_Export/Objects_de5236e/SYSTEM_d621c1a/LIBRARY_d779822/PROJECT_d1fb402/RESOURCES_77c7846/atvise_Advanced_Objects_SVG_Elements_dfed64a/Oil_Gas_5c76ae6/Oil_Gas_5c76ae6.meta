@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.RESOURCES/atvise_Advanced_Objects_SVG_Elements/Oil_Gas
+NodeClass: Object
+BrowseName: 1:Oil_Gas
+DisplayName: en|Oil_Gas
+Description: en|Oil_Gas
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

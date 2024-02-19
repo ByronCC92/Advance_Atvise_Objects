@@ -1,0 +1,14 @@
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20000303 Stylable//EN' 'http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-stylable.dtd'>
+<svg height="999" width="695" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:gridconfig enabled="false" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="false" height="10" width="10"/>
+ </metadata>
+ <path atv:refpx="347.5" atv:refpy="542" d="M0,999L0,85L695,85L695,999Z" fill="#868686" id="id_0" stroke="#4c4c4c" stroke-width="2"/>
+ <path atv:refpx="348.5" atv:refpy="901" d="M88,955L88,847L609,847L609,955Z" fill="#b2b2b2" id="id_1"/>
+ <path atv:refpx="348" atv:refpy="901" d="M109,933L109,869L587,869L587,933Z" fill="#7f7f7f" id="id_2"/>
+ <path atv:refpx="304.5" atv:refpy="42.5" d="M88,85L88,0L521,0L521,85Z" fill="#2c2c2c" id="id_3" stroke="#4c4c4c" stroke-width="2"/>
+ <path atv:refpx="348" atv:refpy="282" d="M131,369L131,195L565,195L565,369Z" fill="#b2b2b2" id="id_4"/>
+ <path atv:refpx="347" atv:refpy="466" d="M217,521L217,411L477,411L477,521Z" fill="#007f7f" id="id_5"/>
+</svg>

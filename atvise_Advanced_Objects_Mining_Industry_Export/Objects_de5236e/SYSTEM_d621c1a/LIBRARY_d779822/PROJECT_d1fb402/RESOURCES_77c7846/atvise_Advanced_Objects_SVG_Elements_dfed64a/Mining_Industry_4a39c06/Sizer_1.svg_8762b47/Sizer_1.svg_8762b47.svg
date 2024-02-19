@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20000303 Stylable//EN"
+"http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/svg-20000303-stylable.dtd">
+
+<svg width="1.6250in" height="0.9223in" viewBox="0 0 999 567">
+
+<path style="fill:#0098e5" d="M28,28 l942,0 0,471 -942,0 0,-471z" />
+<path style="fill:#00b2ff;stroke:#4c4c4c;stroke-width:2" d="M28,28 l942,0 0,18 -942,0 0,-18z" />
+<path style="fill:#00b2ff;stroke:#4c4c4c;stroke-width:2" d="M28,184 l942,0 0,21 -942,0 0,-21z" />
+<path style="fill:#00b2ff;stroke:#4c4c4c;stroke-width:2" d="M28,342 l942,0 0,19 -942,0 0,-19z" />
+<path style="fill:#00004c" d="M28,499 l942,0 0,10 -942,0 0,-10z" />
+<path style="fill:#00b2ff" d="M86,28 l826,0 0,471 -826,0 0,-471z" />
+<path style="fill:#00adfa" d="M86,305 l826,-198 0,392 -826,0 0,-194z" />
+<path style="fill:#00a8f5" d="M86,361 l826,-196 0,334 -826,0 0,-138z" />
+<path style="fill:#00a3f0" d="M86,441 l826,-197 0,255 -826,0 0,-58z" />
+<path style="fill:none;stroke:#4c4c4c;stroke-width:2" d="M86,28 l826,0 0,471 -826,0 0,-471" />
+<path style="fill:#007fcc;stroke:#4c4c4c;stroke-width:2" d="M833,499 l58,0 0,40 -58,0 0,-40z" />
+<path style="fill:#007fcc;stroke:#4c4c4c;stroke-width:2" d="M107,499 l58,0 0,40 -58,0 0,-40z" />
+<circle style="fill:#007fcc" cx="676" cy="263" r="98" />
+<circle style="fill:#007fcc" cx="322" cy="263" r="98" />
+<circle style="fill:#0087d1" cx="673" cy="261" r="91" />
+<circle style="fill:#0087d1" cx="319" cy="261" r="90" />
+<circle style="fill:#0092d9" cx="671" cy="258" r="83" />
+<circle style="fill:#0092d9" cx="318" cy="258" r="83" />
+<path style="fill:#009cde" d="M697,328 l-19,3 -19,0 -21,-3 -16,-12 -14,-13 -11,-17 -4,-21 0,-19 4,-20 11,-17 14,-14 16,-11 21,-4 19,0 19,4 19,11 13,14 9,17 6,20 0,19 -4,21 -11,17 -13,13 -19,12z" />
+<path style="fill:#009cde" d="M344,328 l-18,3 -21,0 -19,-3 -17,-12 -15,-13 -10,-17 -5,-21 0,-19 5,-20 10,-17 15,-14 17,-11 19,-4 21,0 18,4 17,11 15,14 10,17 6,20 0,19 -6,21 -10,17 -15,13 -17,12z" />
+<circle style="fill:#0fa5e5" cx="666" cy="253" r="69" />
+<circle style="fill:#0fa5e5" cx="313" cy="253" r="69" />
+<circle style="fill:#22aeeb" cx="664" cy="251" r="61" />
+<path style="fill:#22aeeb" d="M333,308 l-15,4 -15,0 -17,-4 -13,-9 -12,-11 -9,-13 -4,-15 0,-17 4,-16 9,-15 12,-11 13,-8 17,-3 15,0 15,3 15,8 12,11 7,15 4,16 0,17 -4,15 -7,13 -12,11 -15,9z" />
+<circle style="fill:#33b7f2" cx="661" cy="248" r="55" />
+<ellipse style="fill:#33b7f2" cx="307" cy="248" rx="53" ry="55" />
+<path style="fill:#42c1f7" d="M676,290 l-11,2 -11,0 -14,-2 -9,-6 -9,-9 -6,-12 -4,-11 0,-11 4,-14 6,-9 7,-9 11,-6 14,-4 11,0 11,4 12,6 9,9 6,9 1,14 0,11 -1,11 -6,12 -9,9 -12,6z" />
+<circle style="fill:#42c1f7" cx="305" cy="245" r="47" />
+<circle style="fill:#54ccff" cx="655" cy="243" r="39" />
+<circle style="fill:#54ccff" cx="302" cy="243" r="39" />
+<circle style="fill:none;stroke:#4c4c4c;stroke-width:2" cx="675" cy="263" r="78" />
+<circle style="fill:none;stroke:#4c4c4c;stroke-width:2" cx="676" cy="263" r="98" />
+<circle style="fill:none;stroke:#4c4c4c;stroke-width:2" cx="322" cy="263" r="98" />
+<circle style="fill:none;stroke:#4c4c4c;stroke-width:2" cx="322" cy="263" r="78" />
+<path style="fill:#008cd9" d="M872,46 l19,0 0,119 -19,0 0,-119z" />
+<path style="fill:#008cd9;stroke:#4c4c4c;stroke-width:2" d="M107,46 l19,0 0,119 -19,0 0,-119z" />
+<path style="fill:#0098e5" d="M872,52 l19,0 0,95 -19,0 0,-95z" />
+<path style="fill:#0098e5" d="M107,52 l19,0 0,95 -19,0 0,-95z" />
+<path style="fill:#00a5f2" d="M872,58 l19,0 0,68 -19,0 0,-68z" />
+<path style="fill:#00a5f2" d="M107,58 l19,0 0,68 -19,0 0,-68z" />
+<path style="fill:#00b2ff" d="M872,62 l19,0 0,39 -19,0 0,-39z" />
+<path style="fill:#00b2ff" d="M107,62 l19,0 0,39 -19,0 0,-39z" />
+<path style="fill:#54ccff" d="M872,67 l19,0 0,10 -19,0 0,-10z" />
+<path style="fill:#54ccff" d="M107,67 l19,0 0,10 -19,0 0,-10z" />
+<path style="fill:none;stroke:#4c4c4c;stroke-width:2" d="M872,46 l19,0 0,119 -19,0 0,-119" />
+<path style="fill:#c93" d="M320,269 l-2,-4 0,-4 2,-3 4,0 4,3 0,4 -4,4 -4,0z" />
+<path style="fill:#c93" d="M459,224 l80,0 0,20 -80,0 0,-20z" />
+<path style="fill:#c93" d="M672,269 l-2,-4 0,-4 2,-3 6,0 2,3 0,4 -2,4 -6,0z" />
+
+</svg>

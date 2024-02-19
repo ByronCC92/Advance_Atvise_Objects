@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.MENUSCRIPTS.Test_Menu_Script
+NodeClass: Variable
+BrowseName: 1:Test_Menu_Script
+DisplayName: en|Test_Menu_Script
+Description: en|Test_Menu_Script
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.ScriptCode

@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="30" version="1.2" width="160" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient gradientUnits="objectBoundingBox" id="linear_1" x1="1" x2="1" y1="0" y2="1">
+   <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+   <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient gradientUnits="objectBoundingBox" id="linear_2" x1="1" x2="1" y1="0" y2="1">
+   <stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+   <stop offset="1" stop-color="#ffffff" stop-opacity="0.3"/>
+  </linearGradient>
+ </defs>
+ <desc>Increments/decrements value of an address.</desc>
+ <title>Rocker Switch Horizontal</title>
+ <metadata>
+  <atv:parameter behavior="mandatory" desc="base" name="base" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="alarm address" name="alarm" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="name" name="name" valuetype="string"/>
+  <atv:parameter behavior="optional" config="Yes;No" defaultvalue="Yes" desc="enable status monitoring" name="statusEnabled" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="fire status trigger" name="statusTrigger" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="1" desc="step to increment" name="stepInc" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="1" desc="step to decrement" name="stepDec" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="150" desc="interval [ms] (0 = off)" name="interval" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.keyboard.keyboard" desc="keyboard display" name="keyboard" valuetype="display"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.keyboard.number_keyboard" desc="number keyboard display" name="number_keyboard" valuetype="display"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.dialogs.message_dialog_small" desc="small message dialog display" name="message_dialog_small" valuetype="display"/>
+  <atv:parameter behavior="optional" config="Times New Roman=Times New Roman,Bodoni,Garamond,Minion Web,ITC Stone Serif,MS Georgia,Bitstream Cyberbit,serif;Arial=MS Trebuchet,ITC Avant Garde Gothic,MS Arial,MS Verdana,Univers,Futura,ITC Stone Sans,Gill Sans,Akzidenz Grotesk,Helvetica,sans-serif;Courier=Courier,MS Courier New,Prestige,Everson Mono,monospace;Zapf-Chancery=Caflisch Script,Adobe Poetica,Sanvito,Ex Ponto,Snell Roundhand,Zapf-Chancery,cursive;Alpha Geometrique=Alpha Geometrique,Critter,Cottonwood,FB Reactor,Studz,fantasy" defaultvalue="Arial" desc="family" group="Font" name="fontFamily" substitute="$FONTFAMILY$" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="6;7;8;9;10;11;12;14;16;18;20;22;24;26;28;36;48;72" defaultvalue="12" desc="size" group="Font" name="fontSize" substitute="$FONTSIZE$" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFontColor" desc="color" group="Font" name="fontColor" substitute="$FONTCOLOR$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFillColor" desc="fill color" group="Appearance" name="fillColor" substitute="$FILLCOLOR$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="#ffffff" desc="value field fill color" group="Appearance" name="inputFill" substitute="$INPUTFILL$" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvInactiveColor" desc="value field fill color inactive" group="Appearance" name="fillColorInactive" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvSymbolColor" desc="fill color arrow" group="Appearance" name="arrowFill" substitute="$ARROWFILL$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="#ffffff" desc="stroke color button pressed" group="Appearance" name="buttonStrokePressed" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="#ffffff" desc="focus stroke color" group="Appearance" name="focusStrokeColor" substitute="$FOCUSSTROKECOLOR$" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvBorderColor" desc="border color" group="Appearance" name="borderColor" substitute="$BORDERCOLOR$" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvStatusIndication" desc="status indication" group="Appearance" name="statusIndication" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvAlarmIndication" desc="alarm indication" group="Appearance" name="alarmIndication" valuetype="global"/>
+  <atv:parameter behavior="optional" desc="minimum" group="Options" name="min" valuetype="number"/>
+  <atv:parameter behavior="optional" desc="maximum" group="Options" name="max" valuetype="number"/>
+  <atv:parameter behavior="optional" desc="consistency group" group="Options" name="consistencyGroup" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="tab index" group="Options" name="tabIndex" valuetype="number"/>
+  <atv:parameter behavior="optional" desc="tooltip" group="Options" name="tooltip" valuetype="trstring"/>
+  <atv:parameter behavior="optional" config="SYSTEM.SECURITY.RIGHTS" desc="necessary right" group="Security" name="right" valuetype="address"/>
+  <atv:parameter behavior="optional" desc="activation address" group="Security" name="activeNode" valuetype="address"/>
+  <atv:parameter behavior="optional" desc="activation value" group="Security" name="activeValue" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="show access control notification" group="Security" name="displayAcNotification" valuetype="bool"/>
+  <atv:parameter behavior="optional" config="top-left;top-right;bottom-left;bottom-right" defaultvalue="" desc="menu positioning" group="Menu" name="elementPosition" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="Yes;No" defaultvalue="" desc="menu mouseover active" group="Menu" name="fadeInAtHover" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="menu symbol offset x" group="Menu" name="elementOffsetX" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="menu symbol offset y" group="Menu" name="elementOffsetY" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="context menu click frame" group="Menu" name="clickareaEnlargement" valuetype="number"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="2" width="2"/>
+  <atv:snapconfig enabled="true" height="1" width="1"/>
+ </metadata>
+ <g atv:refpx="0" atv:refpy="0" id="input_element"/>
+ <g atv:refpx="80" atv:refpy="15" id="input_clickarea">
+  <rect atv:bindbr="1,1" atv:bindtl="0,0" atv:refpx="40" atv:refpy="40" fill="$BORDERCOLOR$" height="30" id="border_area" rx="3.5" ry="3.5" stroke="none" stroke-width="0.5" width="80" x="40" y="0"/>
+  <rect atv:bindbr="1,1" atv:bindtl="0,0" atv:refpx="40" atv:refpy="40" fill="$FILLCOLOR$" height="28" id="input_bg" rx="2.5" ry="2.5" stroke="none" stroke-width="0.5" width="78" x="41" y="1"/>
+  <rect atv:bindbr="1,1" atv:bindtl="0,0" atv:refpx="40" atv:refpy="40.549" fill="none" height="27" id="focus_frame" rx="2" ry="2" stroke="none" stroke-width="1" width="77" x="41.5" y="1.5"/>
+  <rect atv:bindbr="1,1" atv:bindtl="0,0" atv:refpx="39" atv:refpy="40" fill="$INPUTFILL$" height="22" id="input_field_widget" rx="1" ry="1" stroke="none" stroke-width="2" width="72" x="44" y="4"/>
+  <rect atv:bindbr="1,1" atv:bindtl="1,0" atv:refpx="39" atv:refpy="40" fill="none" height="22" id="blinking_frame" rx="1" ry="1" stroke="none" stroke-width="2" width="72" x="44" y="4"/>
+  <text atv:bindbr="0.5,0.5" atv:bindtl="0.5,0.5" atv:refpx="80" atv:refpy="13" fill="$FONTCOLOR$" font-family="$FONTFAMILY$" font-size="$FONTSIZE$" id="input_label" text-anchor="middle" x="80" y="19.5">0</text>
+ </g>
+ <g atv:refpx="20" atv:refpy="15" id="clickarea_dec">
+  <rect atv:bindbr="0,1" atv:bindtl="0,0" atv:refpx="20" atv:refpy="66.5" fill="$BORDERCOLOR$" height="30" id="id_20" rx="3.5" ry="3.5" stroke="none" stroke-width="0.5" width="40" x="0" y="0"/>
+  <rect atv:bindbr="0,1" atv:bindtl="0,0" atv:refpx="20" atv:refpy="66.5" fill="$FILLCOLOR$" height="28" id="dec_bg" rx="2.5" ry="2.5" stroke="none" stroke-width="0.5" width="38" x="1" y="1"/>
+  <rect atv:bindbr="0,1" atv:bindtl="0,0" atv:refpx="46" atv:refpy="13.5" fill="$FILLCOLOR$" height="28" id="dec_stroke" rx="2.5" ry="2.5" stroke="none" stroke-width="0.5" width="38" x="1" y="1"/>
+  <rect atv:bindbr="0,0.5" atv:bindtl="0,0.5" atv:refpx="20" atv:refpy="66.5" fill="$ARROWFILL$" height="0.5083" id="icon_minus" stroke="none" stroke-width="2" width="10" x="15" y="14.75"/>
+ </g>
+ <g atv:refpx="140" atv:refpy="15" id="clickarea_inc">
+  <rect atv:bindbr="1,1" atv:bindtl="1,0" atv:refpx="20" atv:refpy="13.5" fill="$BORDERCOLOR$" height="30" id="id_5" rx="3.5" ry="3.5" stroke="none" stroke-width="0.5" width="40" x="120" y="0"/>
+  <rect atv:bindbr="1,1" atv:bindtl="1,0" atv:refpx="20" atv:refpy="13.5" fill="$FILLCOLOR$" height="28" id="inc_bg" rx="2.5" ry="2.5" stroke="none" stroke-width="0.5" width="38" x="121" y="1"/>
+  <rect atv:bindbr="1,1" atv:bindtl="1,0" atv:refpx="20" atv:refpy="13.5" fill="$FILLCOLOR$" height="28" id="inc_stroke" rx="2.5" ry="2.5" stroke="none" stroke-width="0.5" width="38" x="121" y="1"/>
+  <g atv:bindbr="1,0.5" atv:bindtl="1,0.5" atv:refpx="20" atv:refpy="13.5" id="icon_plus">
+   <rect atv:refpx="20" atv:refpy="14" fill="$ARROWFILL$" height="10" id="id_25" stroke="none" stroke-width="2" width="0.5" x="139.75" y="10.5"/>
+   <rect atv:refpx="20" atv:refpy="14" fill="$ARROWFILL$" height="0.5" id="id_28" stroke="none" stroke-width="2" width="10" x="135" y="15.25"/>
+  </g>
+ </g>
+ <foreignObject height="28" id="clickareaFO" width="80" x="0" y="26">
+  <div id="div_clickarea" style="width:100%;height:100%;opacity:0;filter:alpha(opacity=0);background-color:red" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <rect atv:refpx="80" atv:refpy="15" fill="none" height="30" id="bg" stroke="none" stroke-width="0" width="160" x="0" y="0"/>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advaced_Objects_Complementary_Display_Scripts.Rocker_Switch_Display_Script" atv:name="rocker_switch" atv:type="text/ecmascript"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"/>
+</svg>

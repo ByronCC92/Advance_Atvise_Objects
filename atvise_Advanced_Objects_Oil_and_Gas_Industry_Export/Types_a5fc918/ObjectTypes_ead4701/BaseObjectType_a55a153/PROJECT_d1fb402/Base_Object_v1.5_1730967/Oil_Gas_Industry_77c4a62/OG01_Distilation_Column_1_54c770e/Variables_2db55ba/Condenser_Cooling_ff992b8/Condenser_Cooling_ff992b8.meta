@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Oil_Gas_Industry.OG01_Distilation_Column_1.Variables.Condenser Cooling
+NodeClass: Variable
+BrowseName: 1:Condenser Cooling
+DisplayName: en|Condenser Cooling
+Description: en|Condenser Cooling
+DataType: Float
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

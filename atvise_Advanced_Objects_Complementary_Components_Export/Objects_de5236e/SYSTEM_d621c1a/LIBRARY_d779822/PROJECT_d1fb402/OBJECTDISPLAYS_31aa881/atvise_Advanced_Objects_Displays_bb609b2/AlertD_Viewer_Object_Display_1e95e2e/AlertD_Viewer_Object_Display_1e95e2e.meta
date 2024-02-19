@@ -1,0 +1,10 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.AlertD_Viewer_Object_Display
+NodeClass: Variable
+BrowseName: 1:AlertD_Viewer_Object_Display
+DisplayName: en|AlertD_Viewer_Object_Display
+Description: en|AlertD_Viewer_Object_Display
+DataType: XmlElement
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule Shared
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.Display

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Oil_Gas_Industry.OG07_Gas_Blower_1
+NodeClass: ObjectType
+BrowseName: 1:OG07_Gas_Blower_1
+DisplayName: en|OG07_Gas_Blower_1
+Description: en|OG07_Gas_Blower_1
+IsAbstract: false

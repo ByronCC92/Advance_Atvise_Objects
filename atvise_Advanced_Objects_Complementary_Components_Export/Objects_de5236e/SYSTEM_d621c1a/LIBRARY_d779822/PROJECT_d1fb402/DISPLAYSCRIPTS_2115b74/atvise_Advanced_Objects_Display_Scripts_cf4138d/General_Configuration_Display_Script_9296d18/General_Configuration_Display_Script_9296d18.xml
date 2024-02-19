@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[//Initialize Variables
+var Color=webMI.query["Color"];
+var Color2=webMI.query["Color2"];
+var Root_Path;
+var Root_PathR=webMI.query["base"]+".Parameters.Root_Path";
+
+
+/*********When display loads**********/
+
+webMI.addOnload(function(e) {
+
+	//Read Root_Path
+	webMI.data.read(Root_PathR, function(e) {
+	    Root_Path=e.value;	
+	    webMI.query["Display_Mant"]="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Maintenance_Blank_Object_Display";		    	
+	})	
+
+	var id = "Conditions";
+	webMI.gfx.setFill(id, Color2);
+	webMI.gfx.setFill("Alarms", Color);
+	webMI.gfx.setFill("Maintenance", Color);
+	
+	setTimeout(function() {
+		//Open Conditions
+		webMI.display.openDisplay(Root_Path+".Conditions", webMI.query, "info_frame");
+	},200);
+
+});
+
+
+/*********Button Configuration**********/
+
+//Pressing Conditions
+webMI.addEvent("click_area_conditions", "click", function(e) {
+	var id = "Conditions";
+	webMI.gfx.setFill(id, Color2);
+	webMI.gfx.setFill("Alarms", Color);
+	webMI.gfx.setFill("Maintenance", Color);
+	
+	//Open Conditions
+	webMI.display.openDisplay(Root_Path+".Conditions", webMI.query, "info_frame");
+});
+
+
+//Pressing Alarms
+webMI.addEvent("click_area_alarms", "click", function(e) {
+	var id = "Alarms";
+	webMI.gfx.setFill("Conditions", Color);
+	webMI.gfx.setFill(id, Color2);
+	webMI.gfx.setFill("Maintenance", Color);
+	
+	//Open Alarms
+	webMI.display.openDisplay("SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Alarms_Object_Display", webMI.query, "info_frame");
+});
+
+
+
+//Pressing Maintenance
+webMI.addEvent("click_area_maintenance", "click", function(e) {
+	var id = "Maintenance";
+	webMI.gfx.setFill("Conditions", Color);
+	webMI.gfx.setFill("Alarms", Color);
+	webMI.gfx.setFill(id, Color2);
+	
+	//Open Mantenmiento
+	webMI.display.openDisplay("SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Displays.Maintenance_Object_Display", webMI.query, "info_frame");
+	
+});
+
+
+
+
+
+
+]]></code>
+</script>

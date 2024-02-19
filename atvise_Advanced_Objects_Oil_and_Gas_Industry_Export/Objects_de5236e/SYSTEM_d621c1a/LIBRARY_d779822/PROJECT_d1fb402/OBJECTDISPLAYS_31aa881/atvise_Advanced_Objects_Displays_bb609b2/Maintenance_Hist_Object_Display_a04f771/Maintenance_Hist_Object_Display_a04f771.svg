@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="600" version="1.2" width="603" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <svg atv:refpx="157.478" atv:refpy="122.496" height="30" id="id_2" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="11.636" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="85.712">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="name" value="Initial_Date"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+  <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+ </svg>
+ <text atv:refpx="50.733" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="24.5" y="85.5">Intial Date</text>
+ <svg atv:refpx="447.48" atv:refpy="117.496" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="180.358" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="85.712">
+  <atv:argument name="fontSize" value="20"/>
+  <atv:argument name="name" value="Final_Date"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="id_1" transform="matrix(0.5236,0,0,0.7714,0,0)" x="279.454" y="9.445"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" x="250.508" y="7.501"/>
+  <atv:overwrite id="datepicker_label" transform="matrix(0.5818,0,0,0.8571,0,0)" x="240.508" y="22.751"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="271.008"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="27.001" id="input_bg" transform="matrix(0.5818,0,0,0.8571,0,0)" width="243.008"/>
+  <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
+  <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
+ </svg>
+ <text atv:refpx="340.763" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="314.5" y="85.5">Final Date</text>
+ <line atv:refpx="300" atv:refpy="50" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="50" y2="50"/>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.Maintenance_Hist_Display_Script" atv:name="" atv:type="text/ecmascript"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"/>
+ <svg atv:refpx="155.001" atv:refpy="17.499" height="30" id="id_22" transform="matrix(1.6875,0,0,1.1667,0,0)" width="160" x="11.852" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Combobox_Complementary_Element" y="0">
+  <atv:argument name="name" value="Maintenance_Type"/>
+  <atv:argument name="mode" value="Enum List"/>
+  <atv:argument name="fontSize" value="20"/>
+  <atv:overwrite height="31.001" id="focus_frame" transform="matrix(0.5926,0,0,0.8571,0,0)" width="266"/>
+  <atv:overwrite id="button_stroke" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="7.501"/>
+  <atv:overwrite id="id_7" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="8.501"/>
+  <atv:overwrite id="button_bg" transform="matrix(0.5926,0,0,0.8571,0,0)" x="245" y="7.501"/>
+  <atv:overwrite id="combobox_label" transform="matrix(0.5926,0,0,0.8571,0,0)" x="235.5" y="22.001"/>
+  <atv:overwrite height="27.001" id="blinking_frame" transform="matrix(0.5926,0,0,0.8571,0,0)" width="238"/>
+  <atv:overwrite height="27.001" id="combobox_bg" transform="matrix(0.5926,0,0,0.8571,0,0)" width="238"/>
+  <atv:overwrite height="33.001" id="id_1" transform="matrix(0.5926,0,0,0.8571,0,0)" width="268"/>
+  <atv:overwrite height="35.001" id="id_0" transform="matrix(0.5926,0,0,0.8571,0,0)" width="270"/>
+ </svg>
+ <svg atv:refpx="301.5" atv:refpy="375" height="230" id="id_4" transform="matrix(0.8149,0,0,1.9565,0,0)" width="740" x="0" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Alarm_Table_Complementary_Element" y="76.667">
+  <atv:argument name="tableID" value="MantH_Table"/>
+  <atv:argument name="globalBorderColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
+  <atv:argument name="globalFillColor" value="SYSTEM.GLOBALS.Color_Global_1"/>
+  <atv:argument name="globalFontColor" value="SYSTEM.GLOBALS.atvFontColor2"/>
+ </svg>
+</svg>

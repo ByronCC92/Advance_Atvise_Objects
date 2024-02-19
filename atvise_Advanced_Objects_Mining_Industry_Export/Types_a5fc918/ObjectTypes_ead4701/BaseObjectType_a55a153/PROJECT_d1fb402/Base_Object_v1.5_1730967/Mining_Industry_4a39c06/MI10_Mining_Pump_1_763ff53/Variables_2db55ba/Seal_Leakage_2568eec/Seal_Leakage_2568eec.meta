@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI10_Mining_Pump_1.Variables.Seal Leakage
+NodeClass: Variable
+BrowseName: 1:Seal Leakage
+DisplayName: en|Seal Leakage
+Description: en|Seal Leakage
+DataType: Boolean
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

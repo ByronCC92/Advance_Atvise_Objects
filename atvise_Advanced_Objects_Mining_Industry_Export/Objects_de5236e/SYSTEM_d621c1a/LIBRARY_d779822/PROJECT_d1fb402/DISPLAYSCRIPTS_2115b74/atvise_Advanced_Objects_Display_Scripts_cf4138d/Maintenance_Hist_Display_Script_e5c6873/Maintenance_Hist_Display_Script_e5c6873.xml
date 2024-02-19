@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[/*******Initialize Variables*******/
+var Type_M; //Maintenance Type Number
+var Text_M; //Maintenance Type Text
+var Initial_Date;//Initial Date for Maintenance
+var Final_Date;//Final Date for Maintenance
+var tableData = [];
+var Mant_HistR=webMI.query["base"]+".Maintenance.Mant_Hist";
+
+
+/*******Initial Conditions******/
+webMI.addOnload(function() {
+
+	//Date Picker shows current time 
+	var T_Actual=new Date();
+	Initial_Date=T_Actual.getTime()-(24*60*60*1000);//Last 24 hours
+	Final_Date=T_Actual.getTime();
+	
+    webMI.trigger.fire("com.atvise.datepicker_Initial_Date", Initial_Date); 
+    webMI.trigger.fire("com.atvise.datepicker_Final_Date", Final_Date); 
+    setTimeout(function() {  
+		var test=webMI.trigger.fire("update_mant_table", 0); //Update chart
+  	},800);
+  	
+  	//Add values to the maintenance list
+  	webMI.data.read(webMI.query["base"]+".Parameters.Mant_Elements", function(e) {
+	   var Mant_ElementsI=JSON.parse(e.value);
+	   
+	   webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:0, text:"All maintenance"}});
+	   
+	   for (var i in Mant_ElementsI) {
+			var Mant_ElementsII=Mant_ElementsI[i];
+			webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
+	   }
+	   
+	   //Set All maintenance as default 
+	  webMI.trigger.fire("setSelectedItem_Maintenance_Type", {value:{value:0, text:"All maintenance"}});
+	});
+});
+
+/*******Triggers*******/
+
+//Single maintenance elements
+
+//Monitor Initial Date  
+webMI.trigger.connect("com.atvise.datepicker_Initial_Date", function (e) {
+	Initial_Date=new Date(e.value);
+	webMI.trigger.fire("update_mant_table", 0); //Update chart
+});
+
+//Monitor Final Date
+webMI.trigger.connect("com.atvise.datepicker_Final_Date", function (e) {
+	setTimeout(function() {
+		Final_Date=new Date(e.value);	
+		webMI.trigger.fire("update_mant_table", 0); //Update chart
+	},200);
+});
+
+//Monitor Maintenance Combobox 
+webMI.trigger.connect("com.atvise.combobox_Maintenance_Type", function (e) {
+	var result=e.value;
+	Type_M=result.value;	
+	Text_M=e.value.text;	
+	webMI.trigger.fire("update_mant_table", 0); //Update chart	
+});
+
+
+
+/*******Dynamic Table*******/
+
+/******HTML Code section********/
+
+webMI.table.loadResources(function () {
+
+	/* Create the configuration */
+	var config = [];
+
+	/* Configuration of the columns to be displayed */
+	config["columns"] =
+		[
+			{   id: "Name", name: "Name", field: "Name", sortable: false, filter: false, visible: true, width:100},
+			{	id: "CompletionTime", name: "Completion Time", field: "Completion_Time", sortable: false, filter: false, visible: true, width:85},
+			{   id: "InitialTime", name: "Initial Time", field: "Initial_Time", sortable: false, filter: false, visible: true, width:85},			
+			{   id: "Duration", name: "Duration", field: "Duration", sortable: false, filter: true, width:42},
+			{   id: "MSC", name: "MSC", field: "MSC", sortable: false, filter: true, width:25},
+		];
+
+	/* Configuration of the runtime behavior */
+	config["mode"] = "live";
+	
+	/* Configuration of the data query */
+	config["dataRequestFunction"] =
+		function customDataRequest(continuation) {
+			self = this;
+			var tableController = webMI.table.request("MantH_Table", "controller");
+			
+			
+			
+			webMI.trigger.connect("update_mant_table", function (h) {
+				//------------Bring data from historian-----------//
+				
+				//Filter Config
+				var filter = {};
+				var Ready_Data=[];
+				
+				filter.type = ["v:1"]; //Values			
+				filter.timestamp = ["n:>=" + Initial_Date.getTime() + "<" + Final_Date.getTime()];
+				filter.address = ["g:"+Mant_HistR];			
+				
+				//Ask for data           
+				webMI.data.queryFilter(filter, function(e){
+					var result=e.result;
+					if(result.length>0){//Is not empty
+						
+						var Mant_HistV=new Array();
+						for (var i=0; i<result.length; i++)	 {
+							 Mant_HistV.push(result[i].value);
+						}					
+														    
+						for (var i=0; i<Mant_HistV.length; i++){
+							const myArray = JSON.parse(Mant_HistV[i]);
+							if (myArray.Actual_Time>=Initial_Date.getTime()&&myArray.Actual_Time<=Final_Date.getTime()&&((Text_M==undefined||Text_M=="All maintenance")||(Text_M!=undefined&&myArray.Text_M==Text_M))){
+								Ready_Data.push({
+									"Name": myArray.Text_M,
+									"Completion_Time":(new Date(myArray.Actual_Time).toString()).slice(0,-33),
+									"Initial_Time":(new Date(myArray.Time_M).toString()).slice(0,-33),									
+									"Duration":Math.abs(myArray.Used_Time),
+									"MSC":(Math.abs(myArray.MSC)).toFixed(2)+"%",	
+								});	
+							}					    
+						}
+					}
+					var data = {};
+					data.result= Ready_Data;
+					tableData.push(data);
+					tableController.clearData(); //Clear Data
+					self.addData(data);
+					
+				});	
+			});					
+		};
+		
+
+	/* Registration of the configuration */
+	webMI.table.register("MantH_Table", "config",  config);
+	webMI.table.setReady("MantH_Table", "config");
+});
+
+
+
+
+
+]]></code>
+</script>

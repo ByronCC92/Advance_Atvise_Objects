@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="40" version="1.2" width="400" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <metadata>
+  <atv:parameter behavior="optional" defaultvalue="" desc="Name" name="Name" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="#b1b1b1" desc="Border Color" group="Appearance" name="Border_Color" substitute="$BorderColor$" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="2" desc="Border Thickness" group="Appearance" name="Border_Thickness" valuetype="number"/>
+  <atv:parameter behavior="optional" config="center;right;left;justify" defaultvalue="center" desc="Alignment" group="Appearance" name="Alignment" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="Times New Roman=Times New Roman,Bodoni,Garamond,Minion Web,ITC Stone Serif,MS Georgia,Bitstream Cyberbit,serif;Arial=MS Trebuchet,ITC Avant Garde Gothic,MS Arial,MS Verdana,Univers,Futura,ITC Stone Sans,Gill Sans,Akzidenz Grotesk,Helvetica,sans-serif;Courier=Courier,MS Courier New,Prestige,Everson Mono,monospace;Zapf-Chancery=Caflisch Script,Adobe Poetica,Sanvito,Ex Ponto,Snell Roundhand,Zapf-Chancery,cursive;Alpha Geometrique=Alpha Geometrique,Critter,Cottonwood,FB Reactor,Studz,fantasy" defaultvalue="Arial" desc="Font" group="Font" name="Font" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="18" desc="Font Size" group="Font" name="Font_Size" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="#000000" desc="Font_Color" group="Font" name="Font_Color" valuetype="color"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <foreignObject height="40" id="id_1" width="400" x="0" y="0">
+  <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml">
+   <div id="inputSquare">
+    <div id="text-container" style="width: 300px; border: 1px solid black; word-wrap: break-word; text-align: center; overflow-y: scroll"/>
+   </div>
+  </div>
+ </foreignObject>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//External Variables
+var name= webMI.query["Name"];
+var Border_Color= webMI.query["Border_Color"];
+var Border_Thickness= webMI.query["Border_Thickness"];
+var Font_Size= webMI.query["Font_Size"];
+var Font_Color= webMI.query["Font_Color"];
+var Font= webMI.query["Font"];
+var Alignment= webMI.query["Alignment"];
+
+// Global variable to hold the value
+let globalValue = '';
+var initial_Size={};
+var text_container;
+
+//Reference HTML elements
+const elementdiv=document.getElementById('id_1');
+const childdiv = elementdiv.children[0]; // Index is zero-based
+const childdiv2 = childdiv.children[0]; // Index is zero-based
+
+
+//Initial conditions
+webMI.addOnload(function() {
+    
+   //Get div size for reference
+	initial_Size = elementdiv.getBoundingClientRect();
+	
+	//Dinamical HTML Settings
+	text_container = document.getElementById('text-container');
+	console.log(text_container);
+	//Set Style dinamically
+	text_container.style.width = Number(initial_Size.width-9-Border_Thickness)+"px";
+	text_container.style.height = Number(initial_Size.height-9-Border_Thickness)+"px";
+	text_container.style.borderColor = Border_Color;
+    text_container.style.borderWidth = Number(Border_Thickness)+"px";
+    text_container.style.fontFamily = Font;
+    text_container.style.fontSize = Number(Font_Size)+"px";
+    text_container.style.color = Font_Color;
+    text_container.style.textAlign = Alignment;
+
+	
+	
+});
+
+
+//Write value to the element remotely
+webMI.trigger.connect("write_value_"+name, function(e) {
+		console.log("Writting: "+e.value.value);
+		text_container.innerHTML = e.value.value;
+});
+]]></script>
+</svg>

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Oil_Gas_Industry.OG04_Dome_Tank_1
+NodeClass: ObjectType
+BrowseName: 1:OG04_Dome_Tank_1
+DisplayName: en|OG04_Dome_Tank_1
+Description: en|OG04_Dome_Tank_1
+IsAbstract: false

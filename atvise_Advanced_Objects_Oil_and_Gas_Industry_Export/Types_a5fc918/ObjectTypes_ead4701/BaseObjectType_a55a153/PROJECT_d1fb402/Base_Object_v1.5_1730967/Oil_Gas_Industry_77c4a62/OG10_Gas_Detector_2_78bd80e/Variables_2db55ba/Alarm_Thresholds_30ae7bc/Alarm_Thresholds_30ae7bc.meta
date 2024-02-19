@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Oil_Gas_Industry.OG10_Gas_Detector_2.Variables.Alarm_Thresholds
+NodeClass: Variable
+BrowseName: 1:Alarm_Thresholds
+DisplayName: en|Alarm_Thresholds
+Description: en|Alarm_Thresholds
+DataType: Float
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

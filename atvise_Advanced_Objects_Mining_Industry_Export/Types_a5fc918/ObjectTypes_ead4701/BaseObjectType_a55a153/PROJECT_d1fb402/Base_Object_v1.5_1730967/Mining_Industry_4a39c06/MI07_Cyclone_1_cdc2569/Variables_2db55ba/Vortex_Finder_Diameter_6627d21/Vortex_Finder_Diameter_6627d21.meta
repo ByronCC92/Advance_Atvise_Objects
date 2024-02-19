@@ -1,0 +1,11 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI07_Cyclone_1.Variables.Vortex Finder Diameter
+NodeClass: Variable
+BrowseName: 1:Vortex Finder Diameter
+DisplayName: en|Vortex Finder Diameter
+Description: en|Vortex Finder Diameter
+DataType: Int32
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType
+Reference: forward HasHistoricalConfiguration ns=1;s=AGENT.HISTORY.Historicos

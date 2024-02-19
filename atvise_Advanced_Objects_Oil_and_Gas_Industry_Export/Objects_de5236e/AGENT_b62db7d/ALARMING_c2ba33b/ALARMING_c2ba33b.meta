@@ -1,0 +1,7 @@
+NodeId: ns=1;s=AGENT.ALARMING
+NodeClass: Object
+BrowseName: 1:ALARMING
+DisplayName: en|ALARMING
+Description: en|ALARMING
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

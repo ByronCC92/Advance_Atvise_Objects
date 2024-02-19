@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI02_ Crusher_2
+NodeClass: ObjectType
+BrowseName: 1:MI02_ Crusher_2
+DisplayName: en|MI02_ Crusher_2
+Description: en|MI02_ Crusher_2
+IsAbstract: false

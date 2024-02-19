@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Parameters" type="http" trigger="false" relative="false" value=""/>
+  <code><![CDATA[//External Variables
+var ParametersI= Parameters.request.getvalues;
+
+// Excecution
+var filename = ParametersI.File_Name; // Replace with your CSV file name
+var maxRows = Number(ParametersI.Rows); // Replace with your CSV file name
+//var filename = "C:\\Users\\bcort\\Desktop\\Documentos Clientes\\Latam\\Entoria\\Datos Queretaro 22-10-22 al 22-10-23.csv"; // Replace with your CSV file name
+var result = csvFileToObjectsArray(filename,maxRows);
+
+return JSON.stringify(result);
+
+
+//------------Functions------------//
+
+function csvFileToObjectsArray(filename, maxRows) {
+    var reader = new CSVReader({ encoding: "UTF-8" }); // Adjust encoding if needed
+    var objectsArray = [];
+    var columnNames = [];
+    var processedRows = 0; // Counter for processed data rows, excluding the header
+
+    reader.load(filename, {
+        onReady: function(numRows) {
+            console.log("Total rows read: ", numRows);
+        },
+        onData: function(rowIndex, row) {
+            // Store column names from the first row
+            if (rowIndex === 0) {
+                columnNames = row;
+                var headerObject = {};
+                columnNames.forEach((columnName, index) => {
+                    headerObject[columnName] = columnName; // Replicate column names as values for the header row
+                });
+                objectsArray.push(headerObject); // Push the header as the first object
+                return CSVReader.CONTINUE;
+            }
+
+            // Increment processed rows counter
+            processedRows++;
+
+            // Stop processing if maxRows limit is reached (including the header)
+            if (processedRows >= maxRows) {
+                return CSVReader.STOP;
+            }
+
+            // Creating an object for each subsequent row, maintaining column order
+            var rowObject = {};
+            for (var i = 0; i < columnNames.length; i++) {
+                rowObject[columnNames[i]] = row[i];
+            }
+            objectsArray.push(rowObject);
+
+            return CSVReader.CONTINUE;
+        },
+        onError: function(msg) {
+            console.log("Error: ", msg);
+        }
+    });
+
+    return objectsArray;
+}]]></code>
+</script>

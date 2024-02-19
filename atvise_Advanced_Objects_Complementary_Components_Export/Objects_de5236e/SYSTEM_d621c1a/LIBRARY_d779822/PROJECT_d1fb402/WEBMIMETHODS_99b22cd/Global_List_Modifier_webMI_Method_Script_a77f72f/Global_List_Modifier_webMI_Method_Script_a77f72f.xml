@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Parameters" type="http" trigger="false" relative="false" value=""/>
+  <code><![CDATA[//External Variables
+var ParametersI= Parameters.request.getvalues;
+var Global_List = Ua.findNode(ParametersI.Global_List);
+var Global_ListI=Global_List.result.value;
+
+//Internal Variables
+var Global_ListI_mod;
+var Global_ListII= Global_ListI.map((x) => JSON.parse('{' + x + '}'));
+
+console.log("----------------Modify List");
+console.log("Action: "+ParametersI.Action);
+console.log(ParametersI.Modify_Index);
+
+//Determine Action
+switch (ParametersI.Action) {
+  case "Modify":
+		Global_ListI_mod=modifyElement(Global_ListI,Number(ParametersI.Modify_Index),(ParametersI.New_Value).replace(/'/g, '"'));
+    break;
+  case 'Add':
+		Global_ListI_mod=addElement(Global_ListI,(ParametersI.New_Value).replace(/'/g, '"'));
+    break;
+  case 'Remove':
+		Global_ListI_mod=removeElement(Global_ListI,Number(ParametersI.Modify_Index));
+    break;
+  default:
+    console.log("No action found");
+}
+
+
+console.log("Original_List");
+console.log(Global_List.result.value);
+
+console.log("Mod_List");
+console.log(Global_ListI_mod);
+
+//Implement Changes
+Global_List.result.assign({value:Global_ListI_mod}); //Asign Complete array
+
+
+//---------------Functions Section--------------//
+
+// Function to modify the text or value of an element based on text, value, and index
+function modifyElement(array, index, newValue) {
+    array = array.map((x, i) => i === index ? JSON.parse('{' + x + '}') : x);
+	
+    // Modify the text and value properties
+    array[index][index] = JSON.parse(newValue);
+
+    // Convert the modified element back to a string
+    array[index] = JSON.stringify(array[index]).slice(1, -1);
+
+    return array;
+}
+
+
+// Function to add a new element to the array
+function addElement(array, newValue) {
+
+	array = array.map((x) => JSON.parse('{' + x + '}'));
+
+    // Create a new element object
+    const newElement= {};
+    
+	newElement[String(array.length)] = JSON.parse(newValue);
+	
+    // Convert the new element to a string and add it to the array
+    array.push(newElement);
+	
+    return (array.map((x) => (JSON.stringify(x)).slice(1, -1)));
+}
+
+
+// Function to remove an element from the array based on the index
+function removeElement(array, index) {
+    // Remove the element at the specified index
+    const removedElement = array.splice(index, 1)[0];
+    
+    //Adapt the indexes
+    array = array.map((x) => JSON.parse('{' + x + '}'));
+    
+    // Create a new array to store the reorganized elements
+    let newArray = [];
+
+    // Loop through the original array
+    for (let i = 0; i < array.length; i++) {
+        // Get the current object
+        let currentObj = array[i];
+
+        // Get the key of the current object (which is the first and only key in the object)
+        let currentKey = Object.keys(currentObj)[0];
+
+        // Create a new object with the new key (i) and the same value
+        let newObj = {};
+        newObj[i] = currentObj[currentKey];
+
+        // Add the new object to the new array
+        newArray.push(newObj);
+    }
+   return (newArray.map((x) => (JSON.stringify(x)).slice(1, -1)));
+}
+]]></code>
+</script>

@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Mining_Industry.MI03_Crusher_3
+NodeClass: ObjectType
+BrowseName: 1:MI03_Crusher_3
+DisplayName: en|MI03_Crusher_3
+Description: en|MI03_Crusher_3
+IsAbstract: false

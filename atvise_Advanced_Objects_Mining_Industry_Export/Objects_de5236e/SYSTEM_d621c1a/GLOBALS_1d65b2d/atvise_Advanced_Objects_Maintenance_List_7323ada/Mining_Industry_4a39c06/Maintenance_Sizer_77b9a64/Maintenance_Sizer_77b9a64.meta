@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Maintenance_List.Mining_Industry.Maintenance_Sizer
+NodeClass: Variable
+BrowseName: 1:Maintenance_Sizer
+DisplayName: en|Maintenance_Sizer
+Description: en|Maintenance_Sizer
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

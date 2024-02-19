@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Oil_Gas_Industry.OG03_Distilation_Column_3
+NodeClass: ObjectType
+BrowseName: 1:OG03_Distilation_Column_3
+DisplayName: en|OG03_Distilation_Column_3
+Description: en|OG03_Distilation_Column_3
+IsAbstract: false

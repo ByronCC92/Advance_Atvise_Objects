@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advance_Objects_Dynamic_Table_List.Dynamic_Table_List
+NodeClass: Variable
+BrowseName: 1:Dynamic_Table_List
+DisplayName: en|Dynamic_Table_List
+Description: en|Dynamic_Table_List
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

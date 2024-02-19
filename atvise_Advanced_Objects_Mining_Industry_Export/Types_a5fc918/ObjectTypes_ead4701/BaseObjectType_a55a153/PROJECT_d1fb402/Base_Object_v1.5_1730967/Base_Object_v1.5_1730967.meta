@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5
+NodeClass: ObjectType
+BrowseName: 1:Base_Object_v1.5
+DisplayName: en|Base_Object_v1.5
+Description: en|Base_Object_v1.5
+IsAbstract: false

@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements
+NodeClass: Object
+BrowseName: 1:atvise_Advanced_Objects_Complementary_Elements
+DisplayName: en|atvise_Advanced_Objects_Complementary_Elements
+Description: en|atvise_Advanced_Objects_Complementary_Elements
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

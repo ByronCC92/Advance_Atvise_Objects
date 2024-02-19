@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <help/>
+  </metadata>
+  <code><![CDATA[/*******Initialize Variables*******/
+var Type_M; //Maintenance Type Number
+var Text_M; //Maintenance Type Text
+var Initial_Date;//Initial Date for Maintenance
+var Actual_Date; //Actual Time
+var Final_Date;//Final Date for Maintenance
+var Hour_M=0;//Maintenance Hours
+var Min_M=0; //Maintenance Min
+var Rec_Act=0; //Activate Recurrency(inactive)
+var Type_R; //Recurrency Type
+var configNode="AGENT.OBJECTS.TimerConfig"; //Configuration node
+var Mant_Notification=webMI.query["base"]+".Maintenance.Mant_Notification";
+var Message_Time=1000;
+
+/*******Initial Conditions******/
+webMI.addOnload(function() {
+
+	//Date Picker shows current time 
+	var T_Actual=new Date();
+    webMI.trigger.fire("com.atvise.datepicker_Maintenance_Date", T_Actual.getTime()); //Actualizo Fecha Mantenimiento
+    webMI.trigger.fire("com.atvise.datepicker_Recurrency_Final_Date", T_Actual.getTime()+15768000000); //Actualizo Fecha Final Recurrencia (6 meses)
+    
+    //Check inicialize false
+    webMI.trigger.fire("setChecked", false);
+     
+	//Hide Recurrency options
+	webMI.gfx.setVisible("Recurrency_Elements", false);    
+	
+	//Define initial text
+    webMI.gfx.setText("id_info", "Press to add a Maintenance");
+    
+    //Add values to the maintenance list
+  	webMI.data.read(webMI.query["base"]+".Parameters.Mant_Elements", function(e) {
+	   var Mant_ElementsI=JSON.parse(e.value);
+	   	   
+	   for (var i in Mant_ElementsI) {
+			var Mant_ElementsII=Mant_ElementsI[i];
+			webMI.trigger.fire("addItemT_Maintenance_Type", {value:{value:Mant_ElementsII.value, text:Mant_ElementsII.text}});
+	   }
+	   
+	   //Set All maintenance as default 
+	  webMI.trigger.fire("setSelectedItem_Maintenance_Type", {value:{value:Mant_ElementsI[0].value, text:Mant_ElementsI[0].text}});
+	});
+});
+
+/*******Triggers*******/
+
+//Single maintenance elements
+
+//Monitor Maintenance Date Picker 
+webMI.trigger.connect("com.atvise.datepicker_Maintenance_Date", function (e) {
+	Initial_Date=e.value;
+});
+
+//Monitor Maintenance Combobox 
+webMI.trigger.connect("com.atvise.combobox_Maintenance_Type", function (e) {
+	var result=e.value;
+	Type_M=result.value;	
+	Text_M=e.value.text;	
+});
+
+//Monitor rocker Hour
+webMI.trigger.connect("com.atvise.rocker_Maintenance_Hours", function (e) {
+	Hour_M=e.value;
+});
+
+//Monitor rocker Min
+webMI.trigger.connect("com.atvise.rocker_Maintenance_Minutes", function (e) {
+	Min_M=e.value;
+});
+
+//Recurrent Maintenance Elements
+
+//Monitor Recurrent checkbox 
+webMI.trigger.connect("com.atvise.checkbox_Recurrent_Maintenance", function (e) {
+	Rec_Act=e.value;	
+	if(Rec_Act){
+		webMI.gfx.setVisible("Recurrency_Elements", true);
+	}
+	else{
+		webMI.gfx.setVisible("Recurrency_Elements", false);
+	}
+});
+
+//Monitor Recurrent Combobox 
+webMI.trigger.connect("com.atvise.combobox_Recurrency_Type", function (e) {
+	Type_R=e.value;
+});
+
+//Monitor Recurrent Final Date
+webMI.trigger.connect("com.atvise.datepicker_Recurrency_Final_Date", function (e) {
+	Final_Date=e.value;	
+});
+
+
+/*******Write Config*******/
+
+webMI.addEvent("id_17", "click", function(e) {
+
+	/*This code excecutes only when:
+		-Maintenance type!=undefinded
+		-Initial Date !=undefinded		
+		-Hours + Min > 0 		
+	*/
+	
+	
+	
+	//Avoid scheduling in current time
+	Actual_Date= new Date();
+	var Actual_DateI=resetSecondsAndMilliseconds(new Date(Actual_Date));
+	
+	var Initial_DateI=resetSecondsAndMilliseconds(new Date(Initial_Date));
+	
+	console.log("Actual_DateI: "+Actual_DateI);
+	console.log("Initial_DateI: "+Initial_DateI);
+	if (Type_M!=undefined && Initial_Date!=undefined && (Hour_M+Min_M)>0 && Initial_DateI!=Actual_DateI){
+	
+		//Create Date Strings
+		var Initial_DateS=(new Date(Initial_Date)).toString();
+		
+		var Final_DateS=(new Date(Final_Date)).toString();
+		
+		//Configure Recurrency String 
+		var Rec_pattern="";
+		var Rec_type="";
+		var Rep_Period="0";
+		var Weekdays={};		
+		if(Rec_Act){			
+			switch(Number(Type_R.value))
+			{
+			  case 0: // Daily
+				Rec_pattern="day_1___";
+				Rec_type="day_1___#";
+				Rep_Period="1";
+				break;
+				
+			  case 1: //Weekly
+				var Rec_Day=((new Date()).getDay()==0) ? 7 : (new Date()).getDay()+1;
+				Rec_pattern="week_1___"+Rec_Day;
+				Rec_type="week_1___"+Rec_Day+"#";
+				Rep_Period="2";
+				//Repeated day
+				Weekdays={
+					"1": false,
+					"2": false,
+					"3": false,
+					"4": false,
+					"5": false,
+					"6": false,
+					"7": false
+				 };
+				Weekdays[String(Rec_Day)]=true;				
+				break;
+				
+			  case 2: //Monthly
+				Rec_pattern="month_1___";
+				Rec_type="month_1___#";
+				Rep_Period="3";
+				break;
+				
+			  case 2: //Anual
+				Rec_pattern="year_1___";
+				Rec_type="year_1___#";
+				Rep_Period="4";
+				break;
+			 
+			}
+		}
+		
+		
+		
+		
+		//Read Current Configuration
+		webMI.data.read(configNode, function(e) {
+			
+			//Configure On Value
+			var Total_Seconds=((Hour_M*60)+(Min_M))*60; //Required_Time
+			var row="_"+String(new Date().getTime());
+			//var valueOn="{Ind_M:"+row+".Text_M:"+Text_M+".Tiempo_M:"+Initial_Date+"Required_Time:"+Total_Seconds+"}"; //Indice 0 por defectp
+			var valueOn=JSON.stringify({Ind_M:row,Text_M:Text_M,Tiempo_M:Initial_Date,Required_Time:Total_Seconds});
+			
+			//Create Config			
+			var Config=	{
+					  "row": row,
+					  "active": "true",
+					  "start_date": Initial_DateS.slice(0, (Final_DateS.search(" GMT"))),
+					  "end_date": Final_DateS.slice(0, (Final_DateS.search(" GMT"))),				
+					  "nodeOn": Mant_Notification,				 
+					  "valueOn": valueOn,
+					  "valueOff": JSON.stringify({}),
+					  "event_pid": "",
+					  "event_length": String(Total_Seconds),
+					  "rec_pattern": Rec_pattern,
+					  "rec_type": Rec_type,
+					  "text": Text_M,
+					  "repeatPeriod": Rep_Period,
+					  "startDate": Initial_Date,
+					  "endDate": Final_Date,
+					  "duration": String(Total_Seconds),
+					  "weekdays": Weekdays
+			};			
+			
+			//TimerConfig exists			
+			if (e.value!=undefined){	
+				  
+				 //TimerConfig is not empty 
+				 if (e.value!=""&&(e.value)!="[]"&&(e.value).length!=0){ 
+					
+					
+					//Get required array 
+					var New_Config=JSON.parse(e.value);				
+					
+					//Entry new Array
+					New_Config[0].config.configs.push(Config);
+											
+				}
+				
+				//TimerConfig is empty
+				else if (e.value==""||(e.value).length<=0||(e.value)=="[]") {	
+					
+					
+					//Define new configuration
+					var New_Config=[
+					  {
+						"id": "",
+						"config": {
+						  "configs": [Config]
+						}
+					  }
+					];									
+				}
+				
+				//Write new config in the node
+					webMI.data.write(configNode, JSON.stringify(New_Config));
+			}		
+			
+			//TimerConfig doesn´t exist
+			else if (e.value==undefined||(e.value).length<=0) {	
+				
+				//Define config
+				var New_Config=[
+				  {
+					"id": "",
+					"config": {
+					  "configs": [Config]
+					}
+				  }
+				];
+				//Create Node
+				Crea_configNode(JSON.stringify(New_Config));					
+			}			
+			
+						
+		});
+		
+		//Notify that it was written
+		webMI.gfx.setFill("id_info", "#0bbea9");	
+		webMI.gfx.setText("id_info", "Written Correctly");     
+		setTimeout(function(){
+			webMI.gfx.setFill("id_info", webMI.query["Color"]);
+			webMI.gfx.setText("id_info", "Press to add a Maintenance");
+		},Message_Time);			
+	} 
+	
+	else {
+		if(Initial_DateI==Actual_DateI){ //Same time
+			//Notify it wasn´t written	
+			webMI.gfx.setFill("id_info", "#aa0000");
+			webMI.gfx.setText("id_info", "Should be different than Current time");     
+			setTimeout(function(){
+				webMI.gfx.setFill("id_info", webMI.query["Color"]);
+				webMI.gfx.setText("id_info", "Press to add a Maintenance");
+			},Message_Time);	
+		}
+		else{
+		//Notify it wasn´t written	
+			webMI.gfx.setFill("id_info", "#aa0000");
+			webMI.gfx.setText("id_info", "Missing Information");     
+			setTimeout(function(){
+				webMI.gfx.setFill("id_info", webMI.query["Color"]);
+				webMI.gfx.setText("id_info", "Press to add a Maintenance");
+			},Message_Time);	
+		}
+	} 
+	
+});
+
+
+
+//--------------------Functions Section-------------------------//
+
+
+function resetSecondsAndMilliseconds(date) {
+    // Set seconds to 0 and milliseconds to 0
+    date.setSeconds(0, 0);
+    return date.getTime();
+}
+
+/*
+	Code required to create the node when it is empty
+*/
+function Crea_configNode(value){	
+	webMI.data.call(
+			"AddNode",
+			{
+				address: configNode,
+				typeDefinition: "i=62",
+				dataType: "STRING",
+				value: value,
+				nodeClass: "VARIABLE"
+			},
+			function (result) {
+				if ("error" in result) {
+					return;
+				}			
+				webMI.data.call(
+					"AddNode",
+					{
+						address: configNode + ".timerScript",
+						typeDefinition: "VariableTypes.ATVISE.ScriptCode",
+						dataType: "XMLELEMENT",
+						value: "",
+						nodeClass: "VARIABLE"
+					},
+					function (result) {
+						if ("error" in result) {
+							return;
+						}
+						webMI.data.call(
+							"AddNode",
+							{
+								address: configNode + ".timerScript.scriptVersion",
+								typeDefinition: "i=62",
+								dataType: "STRING",
+								value: "1.0",
+								nodeClass: "VARIABLE"
+							},
+							function (result) {
+								if ("error" in result) {
+									return;
+								}
+							}
+						);
+						webMI.data.call(
+							"SetNodeValue",
+							{
+								address: configNode + ".timerScript",
+								addressVersion: configNode + ".timerScript.scriptVersion",
+								value:
+									'<?xml version="1.0" encoding="UTF-8"?><script><parameter name="mytimer" type="timer" trigger="true" relative="false" value="" starttime="00:00:00" repeat="00:00:20"/><code><![CDATA[' +
+									scriptCode +
+									"]]\><\/code><\/script>",
+								version: "1.1" /*on script change increase this*/
+							},
+							function (result) {
+								if ("error" in result) {
+									return;
+							}
+						}
+					);
+				}
+			);
+		}
+	);
+}
+	
+/**
+ * ADDITIONAL SCRIPT CODE SECTION
+ */
+var scriptCode =
+	"function getLocalConfig(a) {\n" +
+	"    var b = {configs: []};\n" +
+	"    for (var i = 0; i < a.length; i++) {\n" +
+	"        if (a[i].config && a[i].config.configs) {\n" +
+	"            for (var j = 0; j < a[i].config.configs.length; j++) {\n" +
+	"                b.configs[b.configs.length] = a[i].config.configs[j];\n" +
+	"            }\n" +
+	"        }\n" +
+	"    }\n" +
+	"    return b;\n" +
+	"}\n" +
+	"function setInactive(a,b) {\n" +
+	"    for (var i = 0; i < a.length; i++) {\n" +
+	"        if (a[i].config && a[i].config.configs) {\n" +
+	"            for (var j = 0; j < a[i].config.configs.length; j++) {\n" +
+	"                if (a[i].config.configs[j].row == b) {\n" +
+	"                    a[i].config.configs[j].active = \"false\";\n" +
+	"					change = true;\n" +
+	"                }\n" +
+	"            }\n" +
+	"        }\n" +
+	"    }\n" +
+	"}\n" +
+	"function getBoolean(a) {\n" +
+	"    if (a == \"1\" || a == \"true\"){\n" +
+	"        return true;\n" +
+	"    } else if (a == \"0\" || a == \"false\"){\n" +
+	"        return false;\n" +
+	"    }\n" +
+	"	return null;\n" +
+	"}\n" +
+	"\n" +
+	"var configNAddress = base;\n" +
+	"var configN = Ua.findNode(configNAddress);\n" +
+	"var configNExist = Ua.Status(configN) != Ua.Status.BADNODEIDUNKNOWN;\n" +
+	"\n" +
+	"var change = false;\n" +
+	"if (configN.result.value != \"\") {\n" +
+	"    var globalConfig = JSON.parse(configN.result.value);\n" +
+	"    var timerConfig = getLocalConfig(globalConfig);\n" +
+	"    if (timerConfig != undefined && timerConfig.configs != undefined) {\n" +
+	"        for (var i = 0; i < timerConfig.configs.length; i++) {\n" +
+	"            var config = timerConfig.configs[i];\n" +
+	"            if (config != undefined && config != null && config.active == \"true\") {\n" +
+	"                var startDate = new Date(config.startDate);\n" +
+	"                var endDate = new Date(config.endDate);\n" +
+	"                var durationMS = config.duration*1000;\n" +
+	"                var repeat = config.repeat;\n" +
+	"                var repeatPeriod = config.repeatPeriod;\n" +
+	"                var valueOn = config.valueOn;\n" +
+	"                var valueOff = config.valueOff;\n" +
+	"                var weekdays = config.weekdays;\n" +
+	"                if (config.nodeOn != undefined) {\n" +
+	"                    var tempNodeOn = config.nodeOn;\n" +
+	"                    if (tempNodeOn.indexOf(\"AGENT.OBJECTS\") == -1) {\n" +
+	"                        tempNodeOn = \"AGENT.OBJECTS.\" + tempNodeOn\n" +
+	"                    }\n" +
+	"					 \n" +
+	"					 var nodeOnAddress = tempNodeOn;\n" +
+	"					 var nodeOn = Ua.findNode(nodeOnAddress);\n" +
+	"					 var nodeOnExist = Ua.Status(nodeOn) != Ua.Status.BADNODEIDUNKNOWN;\n" +
+	"					 \n" +
+	"                    if (nodeOnExist) {\n" +
+	"                        var activate = false;\n" +
+	"                        var curTime = mytimer.getTime();\n" +
+	"                        var curDayOfWeek = mytimer.getDay();\n" +
+	"                        var curDay = mytimer.getDate();\n" +
+	"                        var curMonth = mytimer.getMonth() + 1;\n" +
+	"                        var curYear = mytimer.getYear() + 1900;\n" +
+	"                        var curHour = mytimer.getHours();\n" +
+	"                        var curMinutes = mytimer.getMinutes();\n" +
+	"                        if (curDayOfWeek == 0) {\n" +
+	"                            curDayOfWeek = 7\n" +
+	"                        }\n" +
+	"                        var startTime = startDate.getTime();\n" +
+	"                        var startDay = startDate.getDate();\n" +
+	"                        var startMonth = startDate.getMonth() + 1;\n" +
+	"                        var startYear = startDate.getYear() + 1900;\n" +
+	"                        var startHour = startDate.getHours();\n" +
+	"                        var startMinutes = startDate.getMinutes();\n" +
+	"                        var endDay = endDate.getDate();\n" +
+	"                        var endMonth = endDate.getMonth() + 1;\n" +
+	"                        var endYear = endDate.getYear() + 1900;\n" +
+	"                        var endHour = new Date(startTime + durationMS).getHours();\n" +
+	"                        var endMinutes = new Date(startTime + durationMS).getMinutes();\n" +
+	"                        var endTime = new Date(endYear,endMonth-1, endDay,endHour,endMinutes)\n" +
+	"                        var once = repeatPeriod == 0;\n" +
+	"                        var daily = repeatPeriod == 1;\n" +
+	"                        var weekly = repeatPeriod == 2;\n" +
+	"                        var monthly = repeatPeriod == 3;\n" +
+	"                        var yearly = repeatPeriod == 4;\n" +
+	"                        var inTime = false;\n" +
+	"                        var stayActive = true;\n" +
+	"                        if (once) {\n" +
+	"                            inTime = ((curDay == startDay && curMonth == startMonth && curYear == startYear) || (curDay == endDay && curMonth == endMonth && curYear == endYear))\n" +
+	"                        } else if (daily || weekly) {\n" +
+	"                            inTime = startTime <= curTime && endTime >= curTime;\n" +
+	"                        } else if (monthly) {\n" +
+	"                            inTime = curTime <= endTime && (curDay == startDay || curDay == endDay);\n" +
+	"                        } else if (yearly) {\n" +
+	"                            inTime = curTime <= endTime && ((curDay == startDay && curMonth == startMonth) || (curDay == endDay && curMonth == endMonth)) ;\n" +
+	"                        }\n" +
+	"                        if (inTime) {\n" +
+	"                            if (once) {\n" +
+	"                                if (curDay == startDay && curMonth == startMonth && curYear == startYear && curHour == startHour && curMinutes == startMinutes) {\n" +
+	"                                    stayActive = true;\n" +
+	"                                    if (typeof nodeOn.result.value == \"boolean\" && getBoolean(valueOn) != null){ nodeOn.result.value = getBoolean(valueOn);}\n" +
+	"                                    else { nodeOn.result.value = valueOn;}\n" +
+	"                                }\n" +
+	"                                if (curDay == endDay && curMonth == endMonth && curYear == endYear && curHour == endHour && curMinutes == endMinutes) {\n" +
+	"                                    stayActive = false;\n" +
+	"                                    if (typeof nodeOn.result.value == \"boolean\" && getBoolean(valueOff) != null){ nodeOn.result.value = getBoolean(valueOff);}\n" +
+	"                                    else { nodeOn.result.value = valueOff;}\n" +
+	"                                }\n" +
+	"                            } else if (daily || weekly && weekdays[curDayOfWeek] || monthly && (curDay == startDay || curDay == endDay) || yearly && (curDay == startDay && curMonth == startMonth || curDay == endDay && curMonth == endMonth)) {\n" +
+	"                                if (curHour == startHour && curMinutes == startMinutes) {\n" +
+	"                                    stayActive = true;\n" +
+	"                                    if (typeof nodeOn.result.value == \"boolean\" && getBoolean(valueOn) != null){ nodeOn.result.value = getBoolean(valueOn);}\n" +
+	"                                    else { nodeOn.result.value = valueOn;}\n" +
+	"                                }\n" +
+	"                                if (curHour == endHour && curMinutes == endMinutes) {\n" +
+	"                                    if (typeof nodeOn.result.value == \"boolean\" && getBoolean(valueOff) != null){ nodeOn.result.value = getBoolean(valueOff);}\n" +
+	"                                    else { nodeOn.result.value = valueOff;}\n" +
+	"                                    if (curTime > endTime) {\n" +
+	"                                        stayActive = false\n" +
+	"                                    }\n" +
+	"                                }\n" +
+	"                            }\n" +
+	"                            if (!stayActive) setInactive(globalConfig,config.row);\n" +
+	"                        }\n" +
+	"						if (!inTime && curTime > endTime){\n" +
+	"                            setInactive(globalConfig,config.row);\n" +
+	"						}\n" +
+	"                    }\n" +
+	"                }\n" +
+	"            }\n" +
+	"        }\n" +
+	"    }\n" +
+	"	if (change){\n" +
+	"		configN.result.value = JSON.stringify(globalConfig)\n" +
+	"		change = false;\n" +
+	"	}\n" +
+	"}";]]></code>
+</script>

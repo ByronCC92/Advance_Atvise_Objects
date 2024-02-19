@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Complementary_Components.CE04_Flow_Meter_1
+NodeClass: ObjectType
+BrowseName: 1:CE04_Flow_Meter_1
+DisplayName: en|CE04_Flow_Meter_1
+Description: en|CE04_Flow_Meter_1
+IsAbstract: false

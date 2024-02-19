@@ -1,0 +1,9 @@
+NodeId: ns=1;s=AGENT.OBJECTS.TimerConfig
+NodeClass: Variable
+BrowseName: 1:TimerConfig
+DisplayName: en|TimerConfig
+Description: en|TimerConfig
+DataType: String
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasTypeDefinition BaseVariableType

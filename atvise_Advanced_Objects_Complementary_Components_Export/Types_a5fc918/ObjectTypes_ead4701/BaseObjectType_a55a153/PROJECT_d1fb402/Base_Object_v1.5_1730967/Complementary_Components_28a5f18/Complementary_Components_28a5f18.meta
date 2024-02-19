@@ -1,0 +1,6 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Complementary_Components
+NodeClass: ObjectType
+BrowseName: 1:Complementary_Components
+DisplayName: en|Complementary_Components
+Description: en|Complementary_Components
+IsAbstract: false

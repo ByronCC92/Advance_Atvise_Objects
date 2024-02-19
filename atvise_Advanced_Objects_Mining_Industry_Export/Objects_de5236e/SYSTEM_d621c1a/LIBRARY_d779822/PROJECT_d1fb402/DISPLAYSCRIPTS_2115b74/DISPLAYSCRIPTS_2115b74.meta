@@ -1,0 +1,7 @@
+NodeId: ns=1;s=SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS
+NodeClass: Object
+BrowseName: 1:DISPLAYSCRIPTS
+DisplayName: en|DISPLAYSCRIPTS
+Description: en|DISPLAYSCRIPTS
+EventNotifier: 0
+Reference: forward HasTypeDefinition FolderType

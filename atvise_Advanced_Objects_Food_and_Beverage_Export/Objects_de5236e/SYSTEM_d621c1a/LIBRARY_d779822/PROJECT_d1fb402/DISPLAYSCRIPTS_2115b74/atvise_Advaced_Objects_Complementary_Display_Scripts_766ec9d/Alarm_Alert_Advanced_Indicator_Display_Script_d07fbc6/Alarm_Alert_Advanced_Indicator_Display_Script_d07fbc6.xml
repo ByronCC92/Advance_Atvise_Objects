@@ -6,7 +6,9 @@
   </metadata>
   <code><![CDATA[var Alarm_ActiveR=webMI.query["base"]+".Alarm.Alarm_Active";
 var AlertR=webMI.query["base"]+".Alarm.Alert_Active";
-
+var Icon_Alarm_IndicatorR=webMI.query["base"]+".Parameters.Icon_Alarm_Indicator";
+var Icon_Indicator=true;
+console.log(Icon_Indicator);
 
 //Alarms window variable
  var Pop_Position; 
@@ -301,385 +303,390 @@ webMI.addEvent("click_area_alertD_min", "mouseout", function(e) {
 
 
 //--------------Alarms Section---------------//
-
-setTimeout(function(){ //Give the server some time
-	//Alarm Activation
-	webMI.data.subscribe(Alarm_ActiveR, function(e) {		
-		
-		var timestamp= (new Date()).getTime();
-		
-		//Initialize Variables
-		var result=e.value;	
-		var contador_Max=0;
-		var contador_Min=0;
-		
-		for(var i=0; i<result.length;i++){
-			if(result[i]!=""){//It is not empty
-				var AlarmaAct = JSON.parse(result[i]);//Alarm being analized
-				//Alarm High
-				if(AlarmaAct.Condition_type=="Max"){
-					contador_Max=contador_Max+1;
-				}	
+webMI.data.read(Icon_Alarm_IndicatorR, function(e) {
+	var Icon_Indicator=e.value;
+	if(Icon_Indicator){ //If the icons are active
+	
+		setTimeout(function(){ //Give the server some time
+			//Alarm Activation
+			webMI.data.subscribe(Alarm_ActiveR, function(e) {		
 				
-				//Alarm Min
+				var timestamp= (new Date()).getTime();
+				
+				//Initialize Variables
+				var result=e.value;	
+				var contador_Max=0;
+				var contador_Min=0;
+				
+				for(var i=0; i<result.length;i++){
+					if(result[i]!=""){//It is not empty
+						var AlarmaAct = JSON.parse(result[i]);//Alarm being analized
+						//Alarm High
+						if(AlarmaAct.Condition_type=="Max"){
+							contador_Max=contador_Max+1;
+						}	
+						
+						//Alarm Min
+						else{
+								contador_Min=contador_Min+1;
+						}
+					}
+				}		
+				
+				//Alarm High Section
+				if(contador_Max>0){ //Active Alarm
+						webMI.gfx.setVisible("alarm_square", true);
+						webMI.gfx.setVisible("click_area_alarm", true);
+						webMI.gfx.setVisible("alarm_text", true);					
+						
+						//Set Active Alarm counter
+						webMI.gfx.setText("alarm_text", contador_Max);				
+				
+						//Active alarm
+						alarmActive=true;
+						
+				}
 				else{
-						contador_Min=contador_Min+1;
+					webMI.gfx.setVisible("alarm_square", false);
+					webMI.gfx.setVisible("click_area_alarm", false);
+					webMI.gfx.setVisible("alarm_text", false);
+					
+					//Inactive Alarm
+					alarmActive=false;					
+				}	
+				
+				//Alarm Min Section
+				if(contador_Min>0){ //Active Alarm
+						webMI.gfx.setVisible("alarm_square_min", true);
+						webMI.gfx.setVisible("click_area_alarm_min", true);
+						webMI.gfx.setVisible("alarm_text_min", true);					
+						
+						//Set count of active alarms min
+						webMI.gfx.setText("alarm_text_min", contador_Min);				
+				
+						//Active alarm
+						alarmActive_min=true;
+						
 				}
-			}
-		}		
-		
-		//Alarm High Section
-		if(contador_Max>0){ //Active Alarm
-				webMI.gfx.setVisible("alarm_square", true);
-				webMI.gfx.setVisible("click_area_alarm", true);
-				webMI.gfx.setVisible("alarm_text", true);					
+				else{
+					webMI.gfx.setVisible("alarm_square_min", false);
+					webMI.gfx.setVisible("click_area_alarm_min", false);
+					webMI.gfx.setVisible("alarm_text_min", false);
+					
+					//Inactive Alarm
+					alarmActive_min=false;					
+				}	
 				
-				//Set Active Alarm counter
-				webMI.gfx.setText("alarm_text", contador_Max);				
+				//Bar Section
+				if(!alarmActive&&!alertCActive&&!alertDActive&&!alarmActive_min&&!alertCActive_min&&!alertDActive_min){	//Si todas las Alarms y alertas estan en false
+					webMI.gfx.setVisible("Ind_Bar", false);
+				}
+				else{	//If at least one alert or alarm is active
+					webMI.gfx.setVisible("Ind_Bar", true);
+				}
+			});	
+		},400);
 		
-				//Active alarm
-				alarmActive=true;
-				
-		}
-		else{
-			webMI.gfx.setVisible("alarm_square", false);
-			webMI.gfx.setVisible("click_area_alarm", false);
-			webMI.gfx.setVisible("alarm_text", false);
+		
+		//---------------Alert Section---------------//
+		//Alert Activation
+		webMI.data.subscribe(AlertR, function(e) {
+			//Initialize Variables
+			var result=e.value;		
+			var AlertC=0;
+			var AlertD=0;
+			var AlertC_min=0;
+			var AlertD_min=0;
 			
-			//Inactive Alarm
-			alarmActive=false;					
-		}	
-		
-		//Alarm Min Section
-		if(contador_Min>0){ //Active Alarm
-				webMI.gfx.setVisible("alarm_square_min", true);
-				webMI.gfx.setVisible("click_area_alarm_min", true);
-				webMI.gfx.setVisible("alarm_text_min", true);					
-				
-				//Set count of active alarms min
-				webMI.gfx.setText("alarm_text_min", contador_Min);				
-		
-				//Active alarm
-				alarmActive_min=true;
-				
-		}
-		else{
-			webMI.gfx.setVisible("alarm_square_min", false);
-			webMI.gfx.setVisible("click_area_alarm_min", false);
-			webMI.gfx.setVisible("alarm_text_min", false);
-			
-			//Inactive Alarm
-			alarmActive_min=false;					
-		}	
-		
-		//Bar Section
-		if(!alarmActive&&!alertCActive&&!alertDActive&&!alarmActive_min&&!alertCActive_min&&!alertDActive_min){	//Si todas las Alarms y alertas estan en false
-			webMI.gfx.setVisible("Ind_Bar", false);
-		}
-		else{	//If at least one alert or alarm is active
-			webMI.gfx.setVisible("Ind_Bar", true);
-		}
-	});	
-},400);
-
-
-//---------------Alert Section---------------//
-//Alert Activation
-webMI.data.subscribe(AlertR, function(e) {
-	//Initialize Variables
-	var result=e.value;		
-	var AlertC=0;
-	var AlertD=0;
-	var AlertC_min=0;
-	var AlertD_min=0;
-	
-	for(var i=0; i<result.length;i++){ //Go through all the alerts
-		var InstantAlert=JSON.parse(result[i]);
-		if (InstantAlert!=""){ //If there is an alert
-			if (InstantAlert.Status=="Increasing"){ //It is Increasing
-				if (InstantAlert.Condition_type=="Max"){ //It is Max		
-					AlertC=AlertC+1;
-				}
-				else if (InstantAlert.Condition_type=="Min"){ //It is Min
-					AlertC_min=AlertC_min+1;
-				}			
-			}
-			else if (InstantAlert.Status=="Decreasing"){ //It is Decreasing
-				if (InstantAlert.Condition_type=="Max"){ //It is Max			
-					AlertD=AlertD+1;
-				}
-				else if (InstantAlert.Condition_type=="Min"){ //It is Min
-					AlertD_min=AlertD_min+1;
+			for(var i=0; i<result.length;i++){ //Go through all the alerts
+				var InstantAlert=JSON.parse(result[i]);
+				if (InstantAlert!=""){ //If there is an alert
+					if (InstantAlert.Status=="Increasing"){ //It is Increasing
+						if (InstantAlert.Condition_type=="Max"){ //It is Max		
+							AlertC=AlertC+1;
+						}
+						else if (InstantAlert.Condition_type=="Min"){ //It is Min
+							AlertC_min=AlertC_min+1;
+						}			
+					}
+					else if (InstantAlert.Status=="Decreasing"){ //It is Decreasing
+						if (InstantAlert.Condition_type=="Max"){ //It is Max			
+							AlertD=AlertD+1;
+						}
+						else if (InstantAlert.Condition_type=="Min"){ //It is Min
+							AlertD_min=AlertD_min+1;
+						}	
+					}
 				}	
 			}
-		}	
-	}
-	
-	////////////Max Section
-	
-	//Increasing Max Analysis
-	if (AlertC>0){ //There are Increasing Alerts
-		webMI.gfx.setVisible("alert_increasing", true);
-		webMI.gfx.setVisible("alertC_text", true);
-		webMI.gfx.setVisible("click_area_alertC", true);	
+			
+			////////////Max Section
+			
+			//Increasing Max Analysis
+			if (AlertC>0){ //There are Increasing Alerts
+				webMI.gfx.setVisible("alert_increasing", true);
+				webMI.gfx.setVisible("alertC_text", true);
+				webMI.gfx.setVisible("click_area_alertC", true);	
+				
+				
+				//Set Count of Increasing Alerts
+				webMI.gfx.setText("alertC_text", AlertC);
+				
+				alertCActive=true;	
+			}
+			else{ //There are not Increasing Alerts
+				webMI.gfx.setVisible("alert_increasing", false);
+				webMI.gfx.setVisible("alertC_text", false);
+				webMI.gfx.setVisible("click_area_alertC", false);
+				
+				alertCActive=false;
+			}
+			
+			
+			//Decreasing Max Analysis
+			if (AlertD>0){ //There are Decreasing Alerts
+				webMI.gfx.setVisible("alert_decreasing", true);
+				webMI.gfx.setVisible("alertD_text", true);
+				webMI.gfx.setVisible("click_area_alertD", true);	
+				
+				
+				//Set Count of Decreasing Alerts
+				webMI.gfx.setText("alertD_text", AlertD);	
+				
+				alertDActive=true;
+			}
+			else{ //There are not Increasing Alerts
+				webMI.gfx.setVisible("alert_decreasing", false);
+				webMI.gfx.setVisible("alertD_text", false);
+				webMI.gfx.setVisible("click_area_alertD", false);
+				
+				alertDActive=false;
+			}
+			
+			////////////Min Section
+			
+			//Increasing Min Analysis
+			if (AlertC_min>0){ //There are Increasing Alerts
+				webMI.gfx.setVisible("alert_increasing_min", true);
+				webMI.gfx.setVisible("alertC_text_min", true);
+				webMI.gfx.setVisible("click_area_alertC_min", true);	
+				
+				
+				//Set Count of Increasing Alerts
+				webMI.gfx.setText("alertC_text_min", AlertC_min);
+				
+				alertCActive_min=true;	
+			}
+			else{ //There are not Increasing Alerts
+				webMI.gfx.setVisible("alert_increasing_min", false);
+				webMI.gfx.setVisible("alertC_text_min", false);
+				webMI.gfx.setVisible("click_area_alertC_min", false);
+				
+				alertCActive_min=false;
+			}
+			
+			
+			//Decreasing Min Analysis
+			if (AlertD_min>0){ //There are Decreasing Alerts
+				webMI.gfx.setVisible("alert_decreasing_min", true);
+				webMI.gfx.setVisible("alertD_text_min", true);
+				webMI.gfx.setVisible("click_area_alertD_min", true);	
+				
+				
+				//Set Count of Decreasing Alerts
+				webMI.gfx.setText("alertD_text_min", AlertD_min);	
+				
+				alertDActive_min=true;
+			}
+			else{ //There are not Increasing Alerts
+				webMI.gfx.setVisible("alert_decreasing_min", false);
+				webMI.gfx.setVisible("alertD_text_min", false);
+				webMI.gfx.setVisible("click_area_alertD_min", false);
+				
+				alertDActive_min=false;
+			}
+			
+			
+			//Bar Section
+			if(!alarmActive&&!alertCActive&&!alertDActive&&!alarmActive_min&&!alertCActive_min&&!alertDActive_min){	//Si todas las Alarms y alertas estan en false
+				webMI.gfx.setVisible("Ind_Bar", false);
+			}
+			else{	//If at least one alert or alarm is active
+				webMI.gfx.setVisible("Ind_Bar", true);
+			}
+		
+		});
+		
+		//---------------Functions Section---------------//
 		
 		
-		//Set Count of Increasing Alerts
-		webMI.gfx.setText("alertC_text", AlertC);
+		//Animation function Alarms and alerts Pulsating
 		
-		alertCActive=true;	
-	}
-	else{ //There are not Increasing Alerts
-		webMI.gfx.setVisible("alert_increasing", false);
-		webMI.gfx.setVisible("alertC_text", false);
-		webMI.gfx.setVisible("click_area_alertC", false);
-		
-		alertCActive=false;
-	}
-	
-	
-	//Decreasing Max Analysis
-	if (AlertD>0){ //There are Decreasing Alerts
-		webMI.gfx.setVisible("alert_decreasing", true);
-		webMI.gfx.setVisible("alertD_text", true);
-		webMI.gfx.setVisible("click_area_alertD", true);	
-		
-		
-		//Set Count of Decreasing Alerts
-		webMI.gfx.setText("alertD_text", AlertD);	
-		
-		alertDActive=true;
-	}
-	else{ //There are not Increasing Alerts
-		webMI.gfx.setVisible("alert_decreasing", false);
-		webMI.gfx.setVisible("alertD_text", false);
-		webMI.gfx.setVisible("click_area_alertD", false);
-		
-		alertDActive=false;
-	}
-	
-	////////////Min Section
-	
-	//Increasing Min Analysis
-	if (AlertC_min>0){ //There are Increasing Alerts
-		webMI.gfx.setVisible("alert_increasing_min", true);
-		webMI.gfx.setVisible("alertC_text_min", true);
-		webMI.gfx.setVisible("click_area_alertC_min", true);	
+		//Alarm Max
+		setInterval(() => {
+			if(alarmActive){
+				const initialfactor=1;
+				const targetfactor=1.2;
+				
+				const id="alarm_square";
+				
+				//Color Calculation
+				ColorAct=generateColorIntensity(ColorIni,(initialfactor+(increment*1.2)));
+				webMI.gfx.setScaleX(id, initialfactor+increment);
+				webMI.gfx.setScaleY(id, initialfactor+increment);
+				webMI.gfx.setFill(id, ColorAct);
+				
+				if (isGrowing) {
+				  // If it is increasing, increase Size
+				  increment=increment+0.02;
+				  if (initialfactor+increment >= targetfactor) {
+					isGrowing = false;
+				  }
+				} 
+				
+				else {		
+				  // If it is decreasing, reduce size		  
+				  increment=increment-0.02;
+				  if (initialfactor+increment <= initialfactor) {
+					isGrowing = true;
+				  }
+				}  
+			 }	 
+		}, 75); // Interval in Miliseconds
 		
 		
-		//Set Count of Increasing Alerts
-		webMI.gfx.setText("alertC_text_min", AlertC_min);
+		//Alarm Min
+		setInterval(() => {
+			if(alarmActive_min){
+				const initialfactor=1;
+				const targetfactor=1.2;
+				
+				const id="alarm_square_min";
+				
+				//Color Calculation
+				ColorAct=generateColorIntensity(ColorIni,(initialfactor+(increment*1.2)));
+				webMI.gfx.setScaleX(id, initialfactor+increment);
+				webMI.gfx.setScaleY(id, initialfactor+increment);
+				webMI.gfx.setFill(id, ColorAct);
+				
+				if (isGrowing) {
+				  // If it is increasing, increase Size
+				  increment=increment+0.02;
+				  if (initialfactor+increment >= targetfactor) {
+					isGrowing = false;
+				  }
+				} 
+				
+				else {		
+				  // If it is decreasing, reduce size		  
+				  increment=increment-0.02;
+				  if (initialfactor+increment <= initialfactor) {
+					isGrowing = true;
+				  }
+				}  
+			 }	 
+		}, 75); // Interval in Miliseconds
 		
-		alertCActive_min=true;	
-	}
-	else{ //There are not Increasing Alerts
-		webMI.gfx.setVisible("alert_increasing_min", false);
-		webMI.gfx.setVisible("alertC_text_min", false);
-		webMI.gfx.setVisible("click_area_alertC_min", false);
 		
-		alertCActive_min=false;
-	}
-	
-	
-	//Decreasing Min Analysis
-	if (AlertD_min>0){ //There are Decreasing Alerts
-		webMI.gfx.setVisible("alert_decreasing_min", true);
-		webMI.gfx.setVisible("alertD_text_min", true);
-		webMI.gfx.setVisible("click_area_alertD_min", true);	
+		//Increasing Alert Max
+		setInterval(() => {	
+		
+			 if(alertCActive){		
+				const initialposition=0;
+				const targetposition=-Movement_Range; //Advance X Pixels
+				const id="alert_increasing";
+				const id2="alertC_text";
+						
+				//Color Calculation
+				//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
+				webMI.gfx.setMoveY(id,initialposition+incrementAlerC);
+				webMI.gfx.setFill(id, ColorActAlerC);
+				
+				webMI.gfx.setMoveY(id2,initialposition+incrementAlerC);
+				
+				// If it is increasing, increase Size
+				incrementAlerC=incrementAlerC-Step_size;
+				if (initialposition+incrementAlerC <= targetposition) {
+					incrementAlerC=0;
+				}		
+			 }
+		}, 50); // Interval in Miliseconds
+		
+		//Decreasing Alert Max
+		setInterval(() => {	
+		
+			 if(alertDActive){	
+				const initialposition=0;
+				const targetposition=Movement_Range; //Advance X Pixels
+				const id="alert_decreasing";
+				const id2="alertD_text";
+						
+				//Color Calculation
+				//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
+				webMI.gfx.setMoveY(id,initialposition+incrementAlerD);
+				webMI.gfx.setFill(id, ColorActAlerD);
+				
+				webMI.gfx.setMoveY(id2,initialposition+incrementAlerD);
+				
+				// If it is increasing, increase Size
+				incrementAlerD=incrementAlerD+Step_size;
+				if (initialposition+incrementAlerD >= targetposition) {
+					incrementAlerD=0;
+				}		
+			 }
+		}, 50); // Interval in Miliseconds
 		
 		
-		//Set Count of Decreasing Alerts
-		webMI.gfx.setText("alertD_text_min", AlertD_min);	
+		//Increasing Alert Min
+		setInterval(() => {	
 		
-		alertDActive_min=true;
-	}
-	else{ //There are not Increasing Alerts
-		webMI.gfx.setVisible("alert_decreasing_min", false);
-		webMI.gfx.setVisible("alertD_text_min", false);
-		webMI.gfx.setVisible("click_area_alertD_min", false);
+			 if(alertCActive_min){	
+				
+				const initialposition=0;
+				const targetposition=Movement_Range; //Advance X Pixels
+				const id="alert_increasing_min";
+				const id2="alertC_text_min";
+						
+				//Color Calculation
+				
+				webMI.gfx.setMoveY(id,initialposition+incrementAlerC_min);
+				webMI.gfx.setFill(id, ColorActAlerC);
+				
+				webMI.gfx.setMoveY(id2,initialposition+incrementAlerC_min);
+				
+				// If it is increasing, increase Size
+				incrementAlerC_min=incrementAlerC_min+Step_size;
+				if (initialposition+incrementAlerC_min >= targetposition) {
+					incrementAlerC_min=0;
+				}		
+			 }
+		}, 50); // Interval in Miliseconds
 		
-		alertDActive_min=false;
-	}
-	
-	
-	//Bar Section
-	if(!alarmActive&&!alertCActive&&!alertDActive&&!alarmActive_min&&!alertCActive_min&&!alertDActive_min){	//Si todas las Alarms y alertas estan en false
-		webMI.gfx.setVisible("Ind_Bar", false);
-	}
-	else{	//If at least one alert or alarm is active
-		webMI.gfx.setVisible("Ind_Bar", true);
-	}
-
+		//Decreasing Alert Min
+		setInterval(() => {	
+		
+			 if(alertDActive_min){	
+				const initialposition=0;
+				const targetposition=-Movement_Range; //Advance X Pixels
+				const id="alert_decreasing_min";
+				const id2="alertD_text_min";
+						
+				//Color Calculation
+				//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
+				webMI.gfx.setMoveY(id,initialposition+incrementAlerD_min);
+				webMI.gfx.setFill(id, ColorActAlerD);
+				
+				webMI.gfx.setMoveY(id2,initialposition+incrementAlerD_min);
+				
+				// If it is increasing, increase Size
+				incrementAlerD_min=incrementAlerD_min-Step_size;
+				if (initialposition+incrementAlerD_min <=targetposition) {
+					incrementAlerD_min=0;
+				}		
+			 }
+		}, 50); // Interval in Miliseconds
+	}//Finishes if
 });
-
-//---------------Functions Section---------------//
-
-
-//Animation function Alarms and alerts Pulsating
-
-//Alarm Max
-setInterval(() => {
-	if(alarmActive){
-		const initialfactor=1;
-		const targetfactor=1.2;
-		
-		const id="alarm_square";
-		
-		//Color Calculation
-		ColorAct=generateColorIntensity(ColorIni,(initialfactor+(increment*1.2)));
-		webMI.gfx.setScaleX(id, initialfactor+increment);
-		webMI.gfx.setScaleY(id, initialfactor+increment);
-		webMI.gfx.setFill(id, ColorAct);
-		
-		if (isGrowing) {
-		  // If it is increasing, increase Size
-		  increment=increment+0.02;
-		  if (initialfactor+increment >= targetfactor) {
-			isGrowing = false;
-		  }
-		} 
-		
-		else {		
-		  // If it is decreasing, reduce size		  
-		  increment=increment-0.02;
-		  if (initialfactor+increment <= initialfactor) {
-			isGrowing = true;
-		  }
-		}  
-	 }	 
-}, 75); // Interval in Miliseconds
-
-
-//Alarm Min
-setInterval(() => {
-	if(alarmActive_min){
-		const initialfactor=1;
-		const targetfactor=1.2;
-		
-		const id="alarm_square_min";
-		
-		//Color Calculation
-		ColorAct=generateColorIntensity(ColorIni,(initialfactor+(increment*1.2)));
-		webMI.gfx.setScaleX(id, initialfactor+increment);
-		webMI.gfx.setScaleY(id, initialfactor+increment);
-		webMI.gfx.setFill(id, ColorAct);
-		
-		if (isGrowing) {
-		  // If it is increasing, increase Size
-		  increment=increment+0.02;
-		  if (initialfactor+increment >= targetfactor) {
-			isGrowing = false;
-		  }
-		} 
-		
-		else {		
-		  // If it is decreasing, reduce size		  
-		  increment=increment-0.02;
-		  if (initialfactor+increment <= initialfactor) {
-			isGrowing = true;
-		  }
-		}  
-	 }	 
-}, 75); // Interval in Miliseconds
-
-
-//Increasing Alert Max
-setInterval(() => {	
-
-	 if(alertCActive){		
-		const initialposition=0;
-		const targetposition=-Movement_Range; //Advance X Pixels
-		const id="alert_increasing";
-		const id2="alertC_text";
-				
-		//Color Calculation
-		//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
-		webMI.gfx.setMoveY(id,initialposition+incrementAlerC);
-		webMI.gfx.setFill(id, ColorActAlerC);
-		
-		webMI.gfx.setMoveY(id2,initialposition+incrementAlerC);
-		
-		// If it is increasing, increase Size
-		incrementAlerC=incrementAlerC-Step_size;
-		if (initialposition+incrementAlerC <= targetposition) {
-			incrementAlerC=0;
-		}		
-	 }
-}, 50); // Interval in Miliseconds
-
-//Decreasing Alert Max
-setInterval(() => {	
-
-	 if(alertDActive){	
-		const initialposition=0;
-		const targetposition=Movement_Range; //Advance X Pixels
-		const id="alert_decreasing";
-		const id2="alertD_text";
-				
-		//Color Calculation
-		//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
-		webMI.gfx.setMoveY(id,initialposition+incrementAlerD);
-		webMI.gfx.setFill(id, ColorActAlerD);
-		
-		webMI.gfx.setMoveY(id2,initialposition+incrementAlerD);
-		
-		// If it is increasing, increase Size
-		incrementAlerD=incrementAlerD+Step_size;
-		if (initialposition+incrementAlerD >= targetposition) {
-			incrementAlerD=0;
-		}		
-	 }
-}, 50); // Interval in Miliseconds
-
-
-//Increasing Alert Min
-setInterval(() => {	
-
-	 if(alertCActive_min){	
-	 	
-		const initialposition=0;
-		const targetposition=Movement_Range; //Advance X Pixels
-		const id="alert_increasing_min";
-		const id2="alertC_text_min";
-				
-		//Color Calculation
-		
-		webMI.gfx.setMoveY(id,initialposition+incrementAlerC_min);
-		webMI.gfx.setFill(id, ColorActAlerC);
-		
-		webMI.gfx.setMoveY(id2,initialposition+incrementAlerC_min);
-		
-		// If it is increasing, increase Size
-		incrementAlerC_min=incrementAlerC_min+Step_size;
-		if (initialposition+incrementAlerC_min >= targetposition) {
-			incrementAlerC_min=0;
-		}		
-	 }
-}, 50); // Interval in Miliseconds
-
-//Decreasing Alert Min
-setInterval(() => {	
-
-	 if(alertDActive_min){	
-		const initialposition=0;
-		const targetposition=-Movement_Range; //Advance X Pixels
-		const id="alert_decreasing_min";
-		const id2="alertD_text_min";
-				
-		//Color Calculation
-		//ColorActAlerC=generateColorIntensity(ColorIniAlerC,(initialposition+-((incrementAlerC))));
-		webMI.gfx.setMoveY(id,initialposition+incrementAlerD_min);
-		webMI.gfx.setFill(id, ColorActAlerD);
-		
-		webMI.gfx.setMoveY(id2,initialposition+incrementAlerD_min);
-		
-		// If it is increasing, increase Size
-		incrementAlerD_min=incrementAlerD_min-Step_size;
-		if (initialposition+incrementAlerD_min <=targetposition) {
-			incrementAlerD_min=0;
-		}		
-	 }
-}, 50); // Interval in Miliseconds
 
 
 

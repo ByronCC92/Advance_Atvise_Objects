@@ -15,7 +15,8 @@ var Global_Maintenance_AddressR=webMI.query["base"]+".Parameters.Mant_Address";
 var StartupR=webMI.query["base"]+".Parameters.Startup";
 var Loading_Display=webMI.query["base"]+".Parameters.Loading_Display";
 var Mant_ElementsR=webMI.query["base"]+".Parameters.Mant_Elements";
-
+var Icon_Alarm_IndicatorR=webMI.query["base"]+".Parameters.Icon_Alarm_Indicator";
+var Icon_Indicator=webMI.query["Icon_Indicator"];
 
 //---------------General Section---------------//
 
@@ -23,6 +24,9 @@ var Mant_ElementsR=webMI.query["base"]+".Parameters.Mant_Elements";
 webMI.addOnload(function(e) {	
 	
 	//-------------------Settings	
+	
+	//Setting Icon Approach
+	webMI.data.write(Icon_Alarm_IndicatorR, Icon_Indicator);
 	
 	//Find Loading_Display
 	var iframeSrc = cleanUpString(findFirstIframeSrc());

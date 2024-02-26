@@ -1,0 +1,10 @@
+NodeId: ns=1;s=ObjectTypes.PROJECT.Base_Object_v1.5.Parameters.Icon_Alarm_Indicator
+NodeClass: Variable
+BrowseName: 1:Icon_Alarm_Indicator
+DisplayName: en|Icon_Alarm_Indicator
+Description: en|Icon_Alarm_Indicator
+DataType: Boolean
+ValueRank: -1
+AccessLevel: 103
+Reference: forward HasModellingRule New
+Reference: forward HasTypeDefinition BaseVariableType

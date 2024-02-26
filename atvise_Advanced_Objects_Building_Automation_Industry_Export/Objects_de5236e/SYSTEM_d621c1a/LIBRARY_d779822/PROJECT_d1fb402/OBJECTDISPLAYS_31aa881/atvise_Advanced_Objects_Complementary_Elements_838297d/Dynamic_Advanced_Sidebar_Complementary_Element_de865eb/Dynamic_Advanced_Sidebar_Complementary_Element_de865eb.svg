@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg height="890" version="1.2" width="200" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs/>
+ <desc>Generates a navigation bar (existing display structure or user-defined).</desc>
+ <title>Navigation</title>
+ <metadata>
+  <!-- custom --> custom menu title 1 - custom menu display 1
+		<!-- panel -->
+  <!-- home -->
+  <!-- arrow -->
+  <!-- item -->
+  <!-- icon -->
+  <!-- font -->
+  <!-- options -->
+  <!-- security -->
+  <atv:parameter behavior="optional" defaultvalue="navigation_1" desc="navigation id" name="navContainerID" substitute="$CONTAINERID$" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 1 title" group="Custom menu" name="navCustomTitle01" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 1 display" group="Custom menu" name="navCustomDisplay01" valuetype="display"/>
+  <atv:parameter behavior="optional" desc="menu item 2 title" group="Custom menu" name="navCustomTitle02" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 2 display" group="Custom menu" name="navCustomDisplay02" valuetype="display"/>
+  <atv:parameter behavior="optional" desc="menu item 3 title" group="Custom menu" name="navCustomTitle03" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 3 display" group="Custom menu" name="navCustomDisplay03" valuetype="display"/>
+  <atv:parameter behavior="optional" desc="menu item 4 title" group="Custom menu" name="navCustomTitle04" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 4 display" group="Custom menu" name="navCustomDisplay04" valuetype="display"/>
+  <atv:parameter behavior="optional" desc="menu item 5 title" group="Custom menu" name="navCustomTitle05" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 5 display" group="Custom menu" name="navCustomDisplay05" valuetype="display"/>
+  <atv:parameter behavior="optional" desc="menu item 6 title" group="Custom menu" name="navCustomTitle06" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 6 display" group="Custom menu" name="navCustomDisplay06" valuetype="display"/>
+  <atv:parameter behavior="optional" desc="menu item 7 title" group="Custom menu" name="navCustomTitle07" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 7 display" group="Custom menu" name="navCustomDisplay07" valuetype="display"/>
+  <atv:parameter behavior="optional" desc="menu item 8 title" group="Custom menu" name="navCustomTitle08" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 8 display" group="Custom menu" name="navCustomDisplay08" valuetype="display"/>
+  <atv:parameter behavior="optional" desc="menu item 9 title" group="Custom menu" name="navCustomTitle09" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 9 display" group="Custom menu" name="navCustomDisplay09" valuetype="display"/>
+  <atv:parameter behavior="optional" desc="menu item 10 title" group="Custom menu" name="navCustomTitle10" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="menu item 10 display" group="Custom menu" name="navCustomDisplay10" valuetype="display"/>
+  <atv:parameter behavior="optional" desc="menu from JSON string" group="Custom menu" name="navCustomMenu" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="Dynamic_Advanced_Sidebar" desc="menu from trigger" group="Custom menu" name="navCustomTrigger" valuetype="string"/>
+  <atv:parameter behavior="optional" desc="entry point" group="Custom menu" name="navCustomEntry" valuetype="display"/>
+  <atv:parameter behavior="optional" config="bottom;left;right;top" defaultvalue="left" desc="alignment" group="Appearance: general" name="navPanelAlign" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="true;false" defaultvalue="true" desc="visibility" group="Appearance: general" name="navVisible" valuetype="bool"/>
+  <atv:parameter behavior="optional" config="none;slide-left;slide-right;fade" defaultvalue="fade" desc="animation" group="Appearance: general" name="navAnimateType" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="1" desc="animation speed" group="Appearance: general" name="navAnimateFactor" valuetype="number"/>
+  <atv:parameter behavior="optional" desc="menu background color" group="Appearance: general" name="navPanelBackgroundColor" valuetype="color"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvBorderColor" desc="menu border color" group="Appearance: general" name="navPanelBorderColor" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="0" desc="menu border width" group="Appearance: general" name="navPanelBorderWidth" valuetype="number"/>
+  <atv:parameter behavior="optional" config="solid;dotted;dashed" defaultvalue="solid" desc="menu border style" group="Appearance: general" name="navPanelBorderStyle" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvBorderColor" desc="item border color" group="Appearance: general" name="navItemBorderColor" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="0" desc="item border radius" group="Appearance: general" name="navItemBorderRadius" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="0" desc="item border width" group="Appearance: general" name="navItemBorderWidth" valuetype="number"/>
+  <atv:parameter behavior="optional" config="solid;dotted;dashed" defaultvalue="solid" desc="item border style" group="Appearance: general" name="navItemBorderStyle" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="0" desc="item padding" group="Appearance: general" name="navItemPadding" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="visibility" group="Appearance: home element" name="navHomeActive" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="HOME" desc="title" group="Appearance: home element" name="navHomeText" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="" desc="display" group="Appearance: home element" name="navHomeDisplay" valuetype="display"/>
+  <atv:parameter behavior="optional" config="left;center;right" defaultvalue="center" desc="horizontal alignment" group="Appearance: home element" name="navHomeAlignHorizontal" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="top;middle;bottom" defaultvalue="middle" desc="vertical alignment" group="Appearance: home element" name="navHomeAlignVertical" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="background color" group="Appearance: home element" name="navHomeBackground" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFontColor2" desc="font color" group="Appearance: home element" name="navHomeColor" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="50" desc="height in vertical layouts" group="Appearance: home element" name="navHomeHeight" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="150" desc="width in horizontal layouts" group="Appearance: home element" name="navHomeWidth" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="true" desc="icon visibility" group="Appearance: home element" name="navIconHomeActive" valuetype="bool"/>
+  <atv:parameter behavior="optional" defaultvalue="false" desc="visibility" group="Appearance: navigation elements" name="navArrowActive" valuetype="bool"/>
+  <atv:parameter behavior="optional" config="left;center;right" defaultvalue="center" desc="horizontal alignment" group="Appearance: navigation elements" name="navArrowAlignHorizontal" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="top;middle;bottom" defaultvalue="middle" desc="vertical alignment" group="Appearance: navigation elements" name="navArrowAlignVertical" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFillColor2" desc="background color" group="Appearance: navigation elements" name="navArrowBackground" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFontColor2" desc="font color" group="Appearance: navigation elements" name="navArrowColor" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="73" desc="height in vertical layouts" group="Appearance: navigation elements" name="navArrowHeight" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="73" desc="width in horizontal layouts" group="Appearance: navigation elements" name="navArrowWidth" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="23" desc="number of menu items" group="Appearance: menu items" name="navItemCount" valuetype="number"/>
+  <atv:parameter behavior="optional" config="left;center;right" defaultvalue="left" desc="horizontal alignment" group="Appearance: menu items" name="navItemAlignHorizontal" valuetype="enum"/>
+  <atv:parameter behavior="optional" config="top;middle;bottom" defaultvalue="middle" desc="vertical alignment" group="Appearance: menu items" name="navItemAlignVertical" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_3" desc="background color active" group="Appearance: menu items" name="navItemBackgroundActive" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_2" desc="background color hovered" group="Appearance: menu items" name="navItemBackgroundHover" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="background color inactive" group="Appearance: menu items" name="navItemBackgroundInactive" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="132" desc="height in vertical layouts" group="Appearance: menu items" name="navItemHeightSteady" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="200" desc="width in horizontal layouts" group="Appearance: menu items" name="navItemWidthSteady" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="100" desc="percent height / width active" group="Appearance: menu items" name="navItemIndentationActive" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="100" desc="percent height / width inactive" group="Appearance: menu items" name="navItemIndentationInactive" valuetype="number"/>
+  <atv:parameter desc="home" behavior="optional" valuetype="string" group="Appearance: icons" defaultvalue="&lt;i class=&quot;fas fa-home&quot;>&lt;/i>" name="navIconHomeIcon"/>
+  <atv:parameter desc="arrow down" behavior="optional" valuetype="string" group="Appearance: icons" defaultvalue="&lt;i class=&quot;fas fa-chevron-down&quot;>&lt;/i>" name="navIconArrowDown"/>
+  <atv:parameter desc="arrow left" behavior="optional" valuetype="string" group="Appearance: icons" defaultvalue="&lt;i class=&quot;fas fa-chevron-left&quot;>&lt;/i>" name="navIconArrowLeft"/>
+  <atv:parameter desc="arrow right" behavior="optional" valuetype="string" group="Appearance: icons" defaultvalue="&lt;i class=&quot;fas fa-chevron-right&quot;>&lt;/i>" name="navIconArrowRight"/>
+  <atv:parameter desc="arrow up" behavior="optional" valuetype="string" group="Appearance: icons" defaultvalue="&lt;i class=&quot;fas fa-chevron-up&quot;>&lt;/i>" name="navIconArrowUp"/>
+  <atv:parameter desc="open menu" behavior="optional" valuetype="string" group="Appearance: icons" defaultvalue="&lt;i class=&quot;fas fa-caret-right&quot;>&lt;/i>" name="navIconFolderOpen"/>
+  <atv:parameter desc="close menu" behavior="optional" valuetype="string" group="Appearance: icons" defaultvalue="&lt;i class=&quot;fas fa-caret-left&quot;>&lt;/i>" name="navIconFolderClose"/>
+  <atv:parameter behavior="optional" config="Arial;Courier;Tahoma;Verdana" defaultvalue="Verdana" desc="font family" group="Font" name="navFontType" valuetype="enum"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFontColor2" desc="font color active" group="Font" name="navFontColorActive" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFontColor" desc="font color hovered" group="Font" name="navFontColorHover" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvFontColor2" desc="font color inactive" group="Font" name="navFontColorInactive" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="16" desc="font size" group="Font" name="navFontSize" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="content" desc="id of the content frame" group="Options" name="navContent" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="3000" desc="minimum z-Index" group="Options" name="navContainerZIndex" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="100" desc="scroll factor" group="Options" name="navScrollFactorGeneral" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="15" desc="scroll factor mobile" group="Options" name="navScrollFactorMobile" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="500" desc="delay adjustment" group="Options" name="navDelayVisibility" valuetype="number"/>
+  <atv:parameter behavior="optional" defaultvalue="nav*" desc="parameter limitation" group="Options" name="navRemoveKeyFromQuery" valuetype="string"/>
+  <atv:parameter behavior="optional" config="SYSTEM.SECURITY.RIGHTS" desc="necessary right" group="Security" name="navSecurityRight" valuetype="address"/>
+  <atv:parameter behavior="optional" desc="activation address" group="Security" name="navActiveNode" valuetype="address"/>
+  <atv:parameter behavior="optional" desc="activation value" group="Security" name="navActiveValue" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advanced_Objects_Sidebar_List.Advanced_Sidebar_Global_List" desc="Dynamic Sidebar Global List" group="Custom menu" name="navGlobalList" valuetype="global"/>
+  <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.atvise_Advanced_Objects_Sidebar_List.Advanced_Sidebar_Global_List" desc="Dynamic Sidebar Global List Address" group="Custom menu" name="navGlobalListA" valuetype="string"/>
+  <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
+  <atv:snapconfig enabled="true" height="10" width="10"/>
+ </metadata>
+ <foreignObject height="890" id="$CONTAINERID$_container" width="200" x="0" y="0">
+  <div id="$CONTAINERID$_fo" style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
+ </foreignObject>
+ <rect atv:refpx="200" atv:refpy="890" fill="#e5e5e5" fill-opacity="0.113725" height="890" id="$CONTAINERID$_background" rx="0" ry="0" stroke="#d7d7d7" stroke-width="0" width="200" x="0" y="0"/>
+ <text atv:bindbr="0,0" atv:bindtl="0,0" atv:refpx="39" atv:refpy="26" fill="#000000" fill-opacity="0.956863" font-family="Arial" font-size="24" id="$CONTAINERID$_description" x="10" y="30.5">Navigation</text>
+ <script atv:desc="" atv:href="SYSTEM.LIBRARY.ATVISE.DISPLAYSCRIPTS.navigation" atv:name="navigation" atv:type="text/ecmascript"/>
+ <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//-----Initialize Variables
+
+//External Parameters
+var Sidebar_GlobalList= webMI.query["navGlobalListA"];
+
+//Initial Conditions
+webMI.addOnload(function() {
+    
+    //Read data 
+    webMI.data.read(Sidebar_GlobalList, function(e) {
+    
+		var EnumList=convertArrayToStringifiedObjects(e.value);
+	    console.log(EnumList);
+	    var itemsArray = Object.values(EnumList);
+		//Create structure
+		var menuStructure = buildMenuStructure(itemsArray);
+		console.log(menuStructure);
+		// Transform the menu items 
+		var menuString = JSON.stringify(menuStructure);
+	   
+	    // Trigger Menu
+		webMI.trigger.fire("Dynamic_Advanced_Sidebar", menuString);
+	   
+	});
+    
+});
+
+
+//-----Functions
+
+// Recursive function to build menu structure
+function buildMenuStructure(items, level = 0, parentId = null) {
+    return items.filter(item => {
+        // Treat item as top-level if it has no parent and its level is above 0, or if it matches the current level and parent ID.
+        return item.Level == level && (parentId ? item.Parent === parentId : true);
+    })
+    .map(item => {
+        var menuItem = {
+            name: (item.Icon ? item.Icon + " " : "") + item.Name,
+            display: item.Display,
+            // Only add 'sub' property if there are child items
+            ...(items.some(subItem => subItem.Parent === item.ID) && {sub: buildMenuStructure(items, level + 1, item.ID)})
+        };
+        return menuItem;
+    });
+}
+
+
+//Enum list Convertion
+function convertArrayToStringifiedObjects(array) {
+  // Start with an opening bracket for a valid JSON object
+  let jsonString = '{';
+
+  // Iterate over the array, adding each item as a property in the JSON string
+  array.forEach((item, index) => {
+    // Add comma before items except the first one to separate properties in JSON
+    if (index > 0) {
+      jsonString += ',';
+    }
+    // Append the item to the JSON string, ensuring proper JSON format
+    jsonString += item;
+  });
+
+  // Close the JSON string to complete the object notation
+  jsonString += '}';
+
+  try {
+    // Parse the constructed string into an actual JavaScript object
+    const resultObject = JSON.parse(jsonString);
+    return resultObject;
+  } catch (error) {
+    console.error("Error parsing JSON:", error);
+    // Handle or return error appropriately
+    return null;
+  }
+}]]></script>
+</svg>

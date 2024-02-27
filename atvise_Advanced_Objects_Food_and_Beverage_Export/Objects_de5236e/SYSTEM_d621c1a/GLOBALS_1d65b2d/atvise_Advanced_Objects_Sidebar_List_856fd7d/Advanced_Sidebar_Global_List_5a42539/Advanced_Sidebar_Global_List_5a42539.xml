@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Value xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+	<uax:ListOfString>
+		<uax:String>&quot;0&quot;:{&quot;Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Scheduler&quot;,&quot;ID&quot;:&quot;Level_1A&quot;,&quot;Icon&quot;:&quot;&lt;i class=&apos;fas fa-calendar&apos; style=&apos;margin-left: 5px; margin-right: 5px;&apos;&gt;&lt;/i&gt;&quot;,&quot;Level&quot;:&quot;0&quot;,&quot;Name&quot;:&quot;Level_1A&quot;,&quot;Parent&quot;:&quot;&quot;}</uax:String>
+		<uax:String>&quot;1&quot;:{&quot;Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Geo_Dashboard&quot;,&quot;ID&quot;:&quot;Level_1B&quot;,&quot;Icon&quot;:&quot;&lt;i class=&apos;fas fa-exclamation-triangle bounce infinite&apos; style=&apos; margin-left: 5px; margin-right: 5px;&apos;&gt;&lt;/i&gt;  &quot;,&quot;Level&quot;:&quot;0&quot;,&quot;Name&quot;:&quot;Level_1B&quot;,&quot;Parent&quot;:&quot;&quot;}</uax:String>
+		<uax:String>&quot;2&quot;:{&quot;Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Geo_Dashboard&quot;,&quot;ID&quot;:&quot;Level_2A&quot;,&quot;Icon&quot;:&quot;&lt;i class=&apos;fas fa-solid fa-user&apos;style=&apos; margin-left: 5px; margin-right: 5px;&apos;&gt;&lt;/i&gt;&quot;,&quot;Level&quot;:&quot;1&quot;,&quot;Name&quot;:&quot;Level_2A&quot;,&quot;Parent&quot;:&quot;Level_1A&quot;}</uax:String>
+		<uax:String>&quot;3&quot;:{&quot;Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Geo_Dashboard&quot;,&quot;ID&quot;:&quot;Level_2B&quot;,&quot;Icon&quot;:&quot;&quot;,&quot;Level&quot;:&quot;1&quot;,&quot;Name&quot;:&quot;Level_2B&quot;,&quot;Parent&quot;:&quot;Level_1B&quot;}</uax:String>
+		<uax:String>&quot;4&quot;:{&quot;Display&quot;:&quot;AGENT.DISPLAYS.MAIN.Geo_Dashboard&quot;,&quot;ID&quot;:&quot;Level_2A2&quot;,&quot;Icon&quot;:&quot;&quot;,&quot;Level&quot;:&quot;1&quot;,&quot;Name&quot;:&quot;Level_2A2&quot;,&quot;Parent&quot;:&quot;Level_1A&quot;}</uax:String>
+	</uax:ListOfString>
+</Value>

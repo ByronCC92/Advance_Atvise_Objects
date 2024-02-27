@@ -1,0 +1,9 @@
+NodeId: ns=1;s=SYSTEM.GLOBALS.atvise_Advanced_Objects_Sidebar_List.Advanced_Sidebar_Global_List
+NodeClass: Variable
+BrowseName: 1:Advanced_Sidebar_Global_List
+DisplayName: en|Advanced_Sidebar_Global_List
+Description: en|Advanced_Sidebar_Global_List
+DataType: String
+ValueRank: 1
+AccessLevel: 103
+Reference: forward HasTypeDefinition ns=1;s=VariableTypes.ATVISE.GlobalVariable

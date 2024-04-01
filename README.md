@@ -8,3 +8,4 @@ An extensive library of advance SCADA objects for the automation industry
 12/02/2024: Added General Manufacturing Objects
 18/02/2024: Added Mining, Oil and gas and Complementary Components(Finish library first phase)
 26/02/2024: Added Dynamic Advanced Sidebar
+01/04/2024: Added SQL Interface and fixed problem with Dynamic Table

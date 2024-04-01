@@ -5,42 +5,36 @@
     <owner>root</owner>
     <runcontext>caller</runcontext>
   </metadata>
-  <code><![CDATA[function csvFileToObjectsArray(filename) {
-    var reader = new CSVReader({ encoding: "UTF-8" }); // Adjust encoding if needed
-    var objectsArray = [];
-    var columnNames = [];
+  <code><![CDATA[const Final_Time=new Date();
+const Initial_Time=new Date(Final_Time-2*60*1000); //Last 2 minutes
 
-    reader.load(filename, {
-        onReady: function(numRows) {
-            console.log("Total rows read: ", numRows);
-        },
-        onData: function(rowIndex, row) {
-            // Storing column names from the first row
-            if (rowIndex === 0) {
-                columnNames = row;
-                return CSVReader.CONTINUE;
-            }
+// List of addresses to query
+const addresses = [
+    "AGENT.OBJECTS.Pump_Test.Variables.Flow_Rate",
+    "AGENT.OBJECTS.Pump_Test.Variables.Motor_Current",
+    "AGENT.OBJECTS.Pump_Test.Variables.Suction_Pressure"
+];
 
-            // Creating an object for each subsequent row, maintaining column order
-            var rowObject = {};
-            for (var i = 0; i < columnNames.length; i++) {
-                rowObject[columnNames[i]] = row[i];
-            }
-            objectsArray.push(rowObject);
+// Construct the filter object for the query
+const filter = {
+    type: ["v:1"], // Data values
+    timestamp: [`n:>=${Initial_Time.getTime()}<${Final_Time.getTime()}`], // Time range filter
+    address: addresses.map(addr => `g:${addr}`) // Convert addresses to the required format
+};
+// Capture the start time
+    const startTime = new Date();
 
-            return CSVReader.CONTINUE;
-        },
-        onError: function(msg) {
-            console.log("Error: ", msg);
-        }
-    });
+// Perform the query
+const result = history.query(filter);
 
-    return objectsArray;
-}
+// Capture the end time
+        const endTime = new Date();
 
-// Example usage
-var filename = "C:\\Users\\bcort\\Desktop\\Documentos Clientes\\Latam\\Entoria\\Datos Queretaro 22-10-22 al 22-10-23.csv"; // Replace with your CSV file name
-var result = csvFileToObjectsArray(filename);
+// Calculate the total time taken
+const timeTaken = endTime - startTime;
 
-return result;]]></code>
+console.log(`Total Time Taken: ${timeTaken} ms`);
+
+// Process the query result
+console.log("Query Result:", result);]]></code>
 </script>

@@ -149,6 +149,7 @@ var Ref_Variables_T=[webMI.query["Initial_Date"],webMI.query["Final_Date"]];
 var Ref_Variable_L =webMI.query["Leading_Address"]; //Leading Address
 var Periodicity_Mode =webMI.query["Periodicity_Mode"]; //Leading Address
 var Total_Row =webMI.query["Add_Total"]; //Leading Address
+var Ref_Variable_F_Present=false;
 
 //Table Variables
 var Table_Initialized=false;
@@ -222,26 +223,9 @@ webMI.addOnload(function() {
 		
 	}	
 	
-	//If Leading address is not defined
-	if (Ref_Variable_L==undefined){
-		Periodicity_Mode="All Periodicities";
-	}
-		else{
-		//Leading Addres is present
-		if (!Ref_Variables.includes(Ref_Variable_L)){
-			//Put it first only when it has not been defined. 
-			Ref_Variables.unshift(Ref_Variable_L);
-			Ref_Variables_F.unshift("g:"+Ref_Variable_L);
-			Leading_Index=0;
-		}
-		else{
-			Leading_Index=Ref_Variables.indexOf(Ref_Variable_L);
-		}
-	}
-	
-	
 	(async () => {
 	 await waitForCondition();
+		leadingAddressHandler();
 		webMI.trigger.fire("update_mant_table", 0); //Update chart
 	})();
 });
@@ -318,6 +302,9 @@ webMI.table.loadResources(function () {
 				filter.type = ["v:1"]; //Valores			
 				filter.timestamp = ["n:>=" + Initial_Date.getTime() + "<" + Final_Date.getTime()];
 				filter.address = Ref_Variables_F;
+				
+				console.log("Ref_VariablesF: ");
+				console.log(Ref_Variables_F);				
 				
 				//Solicito datos            
 				webMI.data.queryFilter(filter, function(e){
@@ -567,8 +554,34 @@ function processInputData(inputObject) {
             }
         }
     }
+    Ref_Variable_F_Present=Ref_Variables.includes(Ref_Variable_L);
 }
 
+function leadingAddressHandler (){
+
+//If Leading address is not defined
+	if (Ref_Variable_L==undefined){
+		Periodicity_Mode="All Periodicities";
+	}
+	else{
+		console.log("Test to fix");
+		console.log("Ref_Variables to test");
+		console.log(Ref_Variables);
+		console.log("Ref_Variable_L");
+		console.log(Ref_Variable_L);
+		console.log(Ref_Variable_F_Present); 
+		//Leading Addres is present
+		if (!Ref_Variable_F_Present&&Periodicity_Mode!="All Periodicities"){
+			//Put it first only when it has not been defined. 
+			Ref_Variables.unshift(Ref_Variable_L);
+			Ref_Variables_F.unshift("g:"+Ref_Variable_L);
+			Leading_Index=0;
+		}
+		else{
+			Leading_Index=Ref_Variables.indexOf(Ref_Variable_L);
+		} 
+	}
+}
 
 //Get all the timestamps
 function getUniqueTimestamps(arrayOfTimestampArrays) {

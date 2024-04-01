@@ -102,7 +102,7 @@ var Click_Area=["click_area_play","click_area_history"];
 var Real_Time=true; //Comienza en tiempo real
 
 //External
-var File_Name=webMI.query["File_Name"];
+var File_Name=(webMI.query["File_Name"]).replace(/\\/g, '\\\\');;
 var maxRows=webMI.query["maxRows"];
 var DateFormat=webMI.query["DateFormat"];
 var TimeColumnName=webMI.query["TimeColumnName"];
@@ -123,7 +123,7 @@ webMI.addOnload(function() {
     webMI.gfx.setVisible("Date_Selection", false);
     
     //Write value to the element remotely
-	webMI.trigger.fire("write_value_CSV_Reader", {value:String("Reading: "+File_Name)}); 
+	webMI.trigger.fire("write_value_CSV_Reader", {value:String("Reading: "+webMI.query["File_Name"])}); 
     
 	//Prepare data
 	PrepareData(function (e){     
@@ -309,9 +309,9 @@ setInterval(function(){
 function PrepareData(callback) {
 	//Call Modification Script
     webMI.data.call("CVS_Reader_webMI_Method_Script", {"File_Name":File_Name , "Rows": maxRows}, function(e) {
-		console.log(JSON.parse(e.result));
+
 		Global_Data=JSON.parse(e.result);
-	
+		console.log(Global_Data);
 	
 		//Date Picker shows current time
 		Initial_Date=new Date(parseDateString(Global_Data[1][TimeColumnName],DateFormat));
@@ -329,8 +329,8 @@ function PrepareData(callback) {
 	});
 }
 
-//Wait for data to be ready
 
+//Wait for data to be ready
 function waitForCondition() {
   return new Promise((resolve) => {
     const interval = setInterval(() => {
@@ -377,11 +377,6 @@ function parseDateString(dateStr, formatStr) {
     return new Date(newDateStr);
 }
 
-
-//Update Title Text
-function updateTitleText(){
-
-}
 
 
 

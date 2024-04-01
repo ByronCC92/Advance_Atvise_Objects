@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <metadata>
+    <priority>0</priority>
+    <owner>root</owner>
+    <runcontext>caller</runcontext>
+  </metadata>
+  <parameter name="Parameters" type="http" trigger="false" relative="false" value=""/>
+  <code><![CDATA[//External Variables
+var ParametersI= Parameters.request.getvalues;
+
+//Variables
+var ODBCConnectionString = ParametersI.ODBCConnectionString; // ConnectionString
+var NumberOfRows = Number(ParametersI.NumberOfRows); // NumberOfRows
+var ExplicitSQLFilter = ParametersI.ExplicitSQLFilter; // NumberOfRows
+var Table = ParametersI.Table; // NumberOfRows
+var DatabaseType = ParametersI.DatabaseType; // DatabaseType
+
+console.log(ParametersI);
+
+var data=queryDatabase(ODBCConnectionString, Table, NumberOfRows, ExplicitSQLFilter = "");
+console.log(data);
+
+return JSON.stringify(data);
+
+function queryDatabase(ODBCConnectionString, Table, NumberOfRows, ExplicitSQLFilter = "") {
+    var o = new ODBCClient(ODBCConnectionString);
+
+    if (!o.open()) {
+        console.error("Failed to open ODBC connection.");
+        return;
+    }
+	
+	//Create SQLQuery
+	let sqlQuery;
+	if (DatabaseType=="SQL_Express"){
+		sqlQuery = `SELECT TOP ${NumberOfRows} * FROM ${Table} ${ExplicitSQLFilter ? 'WHERE ' + ExplicitSQLFilter : ''} ORDER BY ID DESC`; // Adjust 'ID' as needed
+	}
+	else{
+		// Construct the SQL query
+		sqlQuery = `SELECT * FROM ${Table} ${ExplicitSQLFilter ? 'WHERE ' + ExplicitSQLFilter : ''} LIMIT ${NumberOfRows}`;
+	}
+    let result = [];
+
+    try {
+        var queryResult = o.query(sqlQuery, {
+            onHead: function(columns) {
+                // Use the first callback call to create the header object
+                let header = columns.reduce((acc, column) => ({ ...acc, [column.name]: column.name }), {});
+                result.push(header);
+            },
+            onData: function(rowIdx, row) {
+                // For each row, create an object with column names as keys
+                let rowData = row.reduce((acc, columnData, index) => {
+                    let columnName = Object.keys(result[0])[index]; // Assuming column order matches
+                    return { ...acc, [columnName]: columnData };
+                }, {});
+                result.push(rowData);
+                return ODBCClient.CONTINUE;
+            }
+        });
+    } catch (error) {
+        console.error("Error querying ODBC server:", error);
+    } finally {
+        o.close();
+    }
+
+    return result;
+}]]></code>
+</script>

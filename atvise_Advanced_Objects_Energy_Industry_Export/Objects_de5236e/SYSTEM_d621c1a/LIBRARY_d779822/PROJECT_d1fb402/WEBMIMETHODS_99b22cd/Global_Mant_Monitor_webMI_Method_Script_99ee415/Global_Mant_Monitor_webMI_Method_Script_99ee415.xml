@@ -5,14 +5,21 @@
     <owner>root</owner>
     <runcontext>caller</runcontext>
   </metadata>
-  <code><![CDATA[//External Variables
-var Global_Maintenance = Ua.findNode("AGENT.OBJECTS.Global_Maintenance");
+  <parameter name="h" type="http" trigger="false" relative="false" value=""/>
+  <code><![CDATA[//Parameters
+var Parameters=h.request.getvalues;
+
+
+//External Variables
+var Global_Maintenance = Ua.findNode(Parameters.Global_Maintenance);
+var Addres=Ua.findNode(Parameters.Global_Maintenance_Base_Folder); //Search in Agent.Objects folder
+
 
 //Internal Variables
 var Mant_Objects=new Array();
 var Mant_Root=".Maintenance.Mant_Hist";
 var Mant_List_Root=".Parameters.Mant_Address";
-var Addres=Ua.findNode("AGENT.OBJECTS"); //Search in Agent.Objects folder
+
 
 //-----------------Find Global Maintenance List
 
@@ -59,15 +66,27 @@ if (Global_Maintenance.result!=undefined){
 }
 //Global_Maintenance doesn´t exists	
 else if(Global_Maintenance.result==undefined){	
-	var Global_MaintenanceN="AGENT.OBJECTS.Global_Maintenance";
+	var Global_MaintenanceN=Parameters.Global_Maintenance;
 	Ua.createNode(Global_MaintenanceN, {
 		nodeClass: Ua.NodeClass.VARIABLE,
-		parent: "AGENT.OBJECTS",
+		parent: removeLastElement(Global_MaintenanceN),
 		typeDefinition: Ua.VariableType.BASEVARIABLETYPE,
 		reference: Ua.Reference.HASCOMPONENT,
 		dataType: Ua.DataType.STRING,
 		valueRank: Ua.ValueRank.ONEDIMENSION,
 		value: Mant_Objects.sort()
 	});
+}
+
+
+function removeLastElement(inputString) {
+    // Divide la cadena en un arreglo utilizando el punto como separador
+    let parts = inputString.split('.');
+    
+    // Remueve el último elemento del arreglo
+    parts.pop();
+    
+    // Une nuevamente los elementos restantes con el punto
+    return parts.join('.');
 }]]></code>
 </script>

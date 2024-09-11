@@ -4,6 +4,7 @@
  <metadata>
   <atv:parameter behavior="optional" defaultvalue="SYSTEM.GLOBALS.Color_Global_1" desc="Color" name="Color" substitute="$Color$" valuetype="global"/>
   <atv:parameter behavior="optional" defaultvalue="AGENT.OBJECTS.Global_Maintenance" desc="Global Maintenance Node" name="Global_Maintenance" valuetype="address"/>
+  <atv:parameter behavior="optional" defaultvalue="AGENT.OBJECTS" desc="Global Maintenance Base Folder" name="Global_Maintenance_Base_Folder" valuetype="address"/>
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
@@ -76,6 +77,7 @@
  </svg>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[//External Variables
 var Global_MaintenanceR=webMI.query["Global_Maintenance"];
+var Global_Maintenance_Base_FolderR=webMI.query["Global_Maintenance_Base_Folder"];
 var Color=webMI.query["Color"];
 
 
@@ -89,7 +91,7 @@ var ElementsR;
 webMI.addOnload(function() {
 	   
 	 //Call Global_Mant_Monitor to clean up the list  	 
-	 webMI.data.call("Global_Mant_Monitor_webMI_Method_Script", {}, function(e) {
+	  webMI.data.call("Global_Mant_Monitor_webMI_Method_Script", {Global_Maintenance:Global_MaintenanceR,Global_Maintenance_Base_Folder:Global_Maintenance_Base_FolderR}, function(e) {
 		 
 		//Menu Initial Conditions
 		setactive(0);		

@@ -559,7 +559,7 @@ function calculateOffsetsFromRect(rect) {
 
 function initMonitoring(){
 	//Call Global_Alarm_Geo_Monitor 
-	webMI.data.call("Global_Geo_Alarm_Monitor_webMI_Method_Script", {}, function(e) {
+	webMI.data.call("Global_Geo_Alarm_Monitor_webMI_Method_Script",  {Global_Geo_Alarms:Global_Geo_AlarmsR}, function(e) {
 		webMI.data.read([Global_Geo_AlarmsR,Global_Geo_Address], function(e) {
 		
 		   //Read data	

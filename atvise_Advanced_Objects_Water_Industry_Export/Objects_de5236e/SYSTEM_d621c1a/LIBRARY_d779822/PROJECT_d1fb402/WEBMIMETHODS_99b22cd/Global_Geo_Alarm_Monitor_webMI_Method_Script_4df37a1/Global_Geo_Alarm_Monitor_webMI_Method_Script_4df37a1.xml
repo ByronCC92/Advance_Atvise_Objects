@@ -5,18 +5,21 @@
     <owner>root</owner>
     <runcontext>caller</runcontext>
   </metadata>
-  <code><![CDATA[//External Variables
-var Global_Geo_Alarms = Ua.findNode("AGENT.OBJECTS.Global_Geo_Alarms");
+  <parameter name="Parameters" type="http" trigger="false" relative="false" value=""/>
+  <code><![CDATA[var ParametersI= Parameters.request.getvalues;
+var Global_Geo_Alarms = Ua.findNode(ParametersI.Global_Geo_Alarms);
+var Address=Ua.findNode(extractBeforeLastDot(ParametersI.Global_Geo_Alarms));
+
+//External Variables
 
 //Internal Variables 
 var Alarm_Objects=new Array();
 var Loading_Root=".Parameters.Loading_Display";
-var Addres=Ua.findNode("AGENT.OBJECTS"); //Search in Agent.Objects folder
 
 //-----------------Find Global Maintenance List
 
 //Browse recursively
-var ret = Addres.result.browse({
+var ret = Address.result.browse({
     direction: Ua.Node.BROWSEDIRECTION_FORWARD,
     reference: Ua.Reference.HIERARCHICALREFERENCES,
     subType: true,
@@ -69,5 +72,14 @@ else if(Global_Geo_Alarms.result==undefined){
 		valueRank: Ua.ValueRank.ONEDIMENSION,
 		value: Alarm_Objects
 	});
+}
+
+
+function extractBeforeLastDot(str) {
+    const lastDotIndex = str.lastIndexOf('.');
+    if (lastDotIndex === -1) {
+        return str; // Si no hay puntos, retornar la cadena completa
+    }
+    return str.substring(0, lastDotIndex);
 }]]></code>
 </script>

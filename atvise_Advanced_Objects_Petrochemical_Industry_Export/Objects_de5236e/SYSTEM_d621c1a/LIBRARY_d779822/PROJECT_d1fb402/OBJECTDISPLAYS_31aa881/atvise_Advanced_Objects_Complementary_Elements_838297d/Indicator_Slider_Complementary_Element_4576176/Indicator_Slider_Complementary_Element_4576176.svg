@@ -2,7 +2,7 @@
 <svg height="106" version="1.2" width="544.5" xmlns="http://www.w3.org/2000/svg" xmlns:atv="http://webmi.atvise.com/2007/svgext" xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs/>
  <metadata>
-  <atv:parameter behavior="optional" defaultvalue="" desc="Label" name="Label" substitute="$LABEL$" valuetype="string"/>
+  <atv:parameter behavior="optional" defaultvalue="T{}" desc="Label" name="Label" substitute="$LABEL$" valuetype="trstring"/>
   <atv:parameter behavior="optional" desc="Input" name="Input" valuetype="address"/>
   <atv:parameter behavior="optional" desc="Object Conditions Node" name="Object_Conditions" valuetype="address"/>
   <atv:parameter behavior="optional" desc="Alert Range" name="Alert_Range" valuetype="address"/>

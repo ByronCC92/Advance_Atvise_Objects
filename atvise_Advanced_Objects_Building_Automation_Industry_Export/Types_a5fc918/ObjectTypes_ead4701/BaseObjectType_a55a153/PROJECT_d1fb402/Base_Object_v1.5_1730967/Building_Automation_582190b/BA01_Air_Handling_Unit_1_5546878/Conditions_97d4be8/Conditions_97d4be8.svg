@@ -6,7 +6,7 @@
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
- <text atv:refpx="49.476" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14.5" y="25.5">Conditions of</text>
+ <text atv:refpx="49.476" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14.5" y="25.5">T{Conditions of}</text>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Initialize Variables*******/
 
 
@@ -19,32 +19,21 @@ webMI.addOnload(function() {
 
 
 ]]></script>
- <svg atv:refpx="415" atv:refpy="615" height="30" id="id_11" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="657.778" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="600">
+ <svg atv:refpx="301.5" atv:refpy="615" height="30" id="id_11" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="456" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="600">
   <atv:argument name="base" prefix="base"/>
   <atv:argument name="unit" value="T{s}"/>
   <atv:argument name="fontSize" value="14"/>
-  <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
+  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+  <atv:overwrite id="input_label" transform="matrix(2.1751,0,0,1,6.9324,0)" x="63.055"/>
   <atv:overwrite id="blinking_frame" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
   <atv:overwrite id="focus_frame" transform="matrix(1.7778,0,0,1,0,0)" width="86"/>
   <atv:overwrite id="input_bg" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
   <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
-  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+  <atv:overwrite id="input_border" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
  </svg>
- <text atv:refpx="228.105" atv:refpy="971.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_12" x="374.5" y="586">Operating Time</text>
- <svg atv:refpx="195" atv:refpy="615" height="30" id="id_5" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="266.667" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="600">
-  <atv:argument name="base" prefix="base" value=".Variables.Temperature"/>
-  <atv:argument name="unit" value="T{pH}"/>
-  <atv:argument name="fontSize" value="14"/>
-  <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
-  <atv:overwrite id="blinking_frame" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
-  <atv:overwrite id="focus_frame" transform="matrix(1.7778,0,0,1,0,0)" width="86"/>
-  <atv:overwrite id="input_bg" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
-  <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
-  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
- </svg>
- <text atv:refpx="29.014" atv:refpy="971.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_6" x="154.5" y="586">Temperature</text>
+ <text atv:refpx="112.105" atv:refpy="971.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_12" x="258.5" y="586">T{Operating Time}</text>
  <svg atv:refpx="297.002" atv:refpy="104.001" height="106" id="id_2" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="72.272">
-  <atv:argument name="Label" value="Temperature Out"/>
+  <atv:argument name="Label" value="T{Temperature Out}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Temperature Out"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -52,7 +41,7 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="297.002" atv:refpy="200.667" height="106" id="id_3" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="188.71">
-  <atv:argument name="Label" value="Humidity Out"/>
+  <atv:argument name="Label" value="T{Humidity Out}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Humidity Out"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -60,7 +49,7 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="297.002" atv:refpy="297.335" height="106" id="id_4" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="305.147">
-  <atv:argument name="Label" value="Motor Current"/>
+  <atv:argument name="Label" value="T{Motor Current}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Motor Current"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -68,19 +57,19 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="297.002" atv:refpy="394.001" height="106" id="id_13" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="421.585">
-  <atv:argument name="Label" value="Filter Differencial Presure"/>
+  <atv:argument name="Label" value="T{Filter Differencial Presure}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Filter Differencial Presure"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
-  <atv:argument name="Unit" value="mm"/>
+  <atv:argument name="Unit" value="psi"/>
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="297.002" atv:refpy="494.001" height="106" id="id_9" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="542.038">
-  <atv:argument name="Label" value="Fan Speed"/>
+  <atv:argument name="Label" value="T{Fan Speed}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Fan Speed"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
-  <atv:argument name="Unit" value="Inches"/>
+  <atv:argument name="Unit" value="rpm"/>
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
 </svg>

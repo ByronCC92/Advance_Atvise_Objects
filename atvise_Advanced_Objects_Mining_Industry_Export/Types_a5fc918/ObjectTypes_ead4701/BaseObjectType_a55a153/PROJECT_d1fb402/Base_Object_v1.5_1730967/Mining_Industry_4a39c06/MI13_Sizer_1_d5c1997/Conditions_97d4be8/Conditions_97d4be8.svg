@@ -6,7 +6,7 @@
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
- <text atv:refpx="49.476" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14.5" y="25.5">Conditions of</text>
+ <text atv:refpx="49.476" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14.5" y="25.5">T{Conditions of}</text>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Initialize Variables*******/
 
 
@@ -19,64 +19,67 @@ webMI.addOnload(function() {
 
 
 ]]></script>
- <svg atv:refpx="214.999" atv:refpy="455" height="30" id="id_5" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="302.222" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="440">
+ <svg atv:refpx="145.999" atv:refpy="605" height="30" id="id_5" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="179.555" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="590">
   <atv:argument name="base" prefix="base" value=".Variables.Sizer Temperature"/>
   <atv:argument name="fontSize" value="14"/>
   <atv:argument name="unit" value="T{ºC}"/>
-  <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
+  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+  <atv:overwrite id="input_label" transform="matrix(2.1751,0,0,1,6.9324,0)" x="63.055"/>
   <atv:overwrite id="blinking_frame" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
   <atv:overwrite id="focus_frame" transform="matrix(1.7778,0,0,1,0,0)" width="86"/>
   <atv:overwrite id="input_bg" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
   <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
-  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+  <atv:overwrite id="input_border" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
  </svg>
- <text atv:refpx="-27.533" atv:refpy="811.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_6" transform="matrix(1.1111,0,0,1,-17.776,0)" x="164.5" y="426">Sizer Temperature</text>
- <svg atv:refpx="334.999" atv:refpy="455" height="30" id="id_7" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="515.556" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="440">
+ <text atv:refpx="-103.533" atv:refpy="961.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_6" transform="matrix(1.1111,0,0,1,-9.3324,0)" x="88.5" y="576">T{Sizer Temperature}</text>
+ <svg atv:refpx="300.499" atv:refpy="605" height="30" id="id_7" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="454.222" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="590">
   <atv:argument name="base" prefix="base" value=".Variables.Sizer Motor Current"/>
   <atv:argument name="unit" value="T{Amps}"/>
   <atv:argument name="fontSize" value="14"/>
-  <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
+  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+  <atv:overwrite id="input_label" transform="matrix(2.1751,0,0,1,6.9324,0)" x="63.055"/>
   <atv:overwrite id="blinking_frame" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
   <atv:overwrite id="focus_frame" transform="matrix(1.7778,0,0,1,0,0)" width="86"/>
   <atv:overwrite id="input_bg" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
   <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
-  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+  <atv:overwrite id="input_border" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
  </svg>
- <text atv:refpx="102.257" atv:refpy="811.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_8" x="284.5" y="426">Sizer Motor Current</text>
- <svg atv:refpx="324.993" atv:refpy="109.442" height="106" id="id_2" transform="matrix(0.7529,0,0,0.9329,0,0)" width="544.5" x="159.384" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="64.316">
-  <atv:argument name="Label" value="Sizer Deck Level"/>
+ <text atv:refpx="63.257" atv:refpy="961.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_8" transform="matrix(1,0,0,1,0.0001,0)" x="245.5" y="576">T{Sizer Motor Current}</text>
+ <svg atv:refpx="301.488" atv:refpy="109.442" height="106" id="id_2" transform="matrix(0.7529,0,0,0.9329,0,0)" width="544.5" x="128.165" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="64.316">
+  <atv:argument name="Label" value="T{Sizer Deck Level}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Sizer Deck Level"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
   <atv:argument name="Unit" value="%"/>
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
- <svg atv:refpx="324.993" atv:refpy="219.438" height="106" id="id_3" transform="matrix(0.7529,0,0,0.9329,0,0)" width="544.5" x="159.384" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="182.227">
-  <atv:argument name="Label" value="Feed Rate"/>
+ <svg atv:refpx="301.488" atv:refpy="294.439" height="106" id="id_3" transform="matrix(0.7529,0,0,0.9329,0,0)" width="544.5" x="128.165" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="262.622">
+  <atv:argument name="Label" value="T{Feed Rate}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Feed Rate"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
   <atv:argument name="Unit" value="TPH"/>
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
- <svg atv:refpx="324.983" atv:refpy="319.437" height="106" id="id_14" transform="matrix(0.753,0,0,0.9329,0,0)" width="544.5" x="159.363" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="289.42">
-  <atv:argument name="Label" value="Sizer Speed"/>
+ <svg atv:refpx="301.478" atv:refpy="479.437" height="106" id="id_14" transform="matrix(0.753,0,0,0.9329,0,0)" width="544.5" x="128.148" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="460.928">
+  <atv:argument name="Label" value="T{Sizer Speed}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Sizer Speed"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
   <atv:argument name="Unit" value="RPM"/>
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
- <svg atv:refpx="464.999" atv:refpy="455" height="30" id="id_4" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="746.667" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="440">
+ <svg atv:refpx="454.999" atv:refpy="605" height="30" id="id_4" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="728.889" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="590">
   <atv:argument name="base" prefix="base" value=".Variables.Sizer Power"/>
   <atv:argument name="unit" value="T{kW}"/>
   <atv:argument name="fontSize" value="14"/>
-  <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
+  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+  <atv:overwrite id="input_label" transform="matrix(2.1751,0,0,1,6.9324,0)" x="63.055"/>
   <atv:overwrite id="blinking_frame" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
   <atv:overwrite id="focus_frame" transform="matrix(1.7778,0,0,1,0,0)" width="86"/>
   <atv:overwrite id="input_bg" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
   <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
-  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
+  <atv:overwrite id="input_border" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
  </svg>
- <text atv:refpx="258.599" atv:refpy="881.213" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_9" x="424.5" y="426">Sizer Power</text>
+ <text atv:refpx="251.599" atv:refpy="1031.213" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_9" transform="matrix(1,0,0,1,0.0002,0)" x="417.5" y="576">T{Sizer Power}</text>
 </svg>

@@ -6,7 +6,7 @@
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
- <text atv:refpx="38.976" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="4" y="25.5">Conditions of</text>
+ <text atv:refpx="38.976" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="4" y="25.5">T{Conditions of}</text>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Initialize Variables*******/
 
 
@@ -19,52 +19,40 @@ webMI.addOnload(function() {
 
 
 ]]></script>
- <svg atv:refpx="455" atv:refpy="565" height="30" id="id_11" transform="matrix(0.5625,0,0,1,0,0)" width="160" x="728.889" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="550">
-  <atv:argument name="base" prefix="base"/>
-  <atv:argument name="unit" value="T{s}"/>
-  <atv:argument name="fontSize" value="14"/>
-  <atv:overwrite id="input_label" transform="matrix(1.7778,0,0,1,0,0)" x="82.055"/>
-  <atv:overwrite id="blinking_frame" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
-  <atv:overwrite id="focus_frame" transform="matrix(1.7778,0,0,1,0,0)" width="86"/>
-  <atv:overwrite id="input_bg" transform="matrix(1.7778,0,0,1,0,0)" width="82"/>
-  <atv:overwrite id="id_1" transform="matrix(1.7778,0,0,1,0,0)" width="88"/>
-  <atv:overwrite id="id_0" transform="matrix(1.7778,0,0,1,0,0)" width="90"/>
- </svg>
- <text atv:refpx="268.105" atv:refpy="921.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_12" x="414.5" y="536">Operating Time</text>
- <svg atv:refpx="286.502" atv:refpy="84.001" height="106" id="id_2" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="48.181">
-  <atv:argument name="Label" value="Gas Density"/>
+ <svg atv:refpx="286.752" atv:refpy="84.001" height="106" id="id_2" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.66" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="48.181">
+  <atv:argument name="Label" value="T{Gas Density}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Gas_Density"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
   <atv:argument name="Unit" value="g/cm3"/>
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
- <svg atv:refpx="286.502" atv:refpy="181.6" height="106" id="id_3" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="165.743">
-  <atv:argument name="Label" value="Load Current"/>
+ <svg atv:refpx="286.752" atv:refpy="206.5" height="106" id="id_3" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.66" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="195.736">
+  <atv:argument name="Label" value="T{Load Current}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Load_Current"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
   <atv:argument name="Unit" value="amps"/>
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
- <svg atv:refpx="286.502" atv:refpy="279.202" height="106" id="id_4" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="283.305">
-  <atv:argument name="Label" value="Temperature"/>
+ <svg atv:refpx="286.752" atv:refpy="329.002" height="106" id="id_4" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.66" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="343.291">
+  <atv:argument name="Label" value="T{Temperature}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Temperature"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
   <atv:argument name="Unit" value="ºC"/>
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
- <svg atv:refpx="286.502" atv:refpy="376.801" height="106" id="id_13" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="400.867">
-  <atv:argument name="Label" value="Vacuum Pressure"/>
+ <svg atv:refpx="286.752" atv:refpy="451.501" height="106" id="id_13" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.66" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="490.846">
+  <atv:argument name="Label" value="T{Vacuum Pressure}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Vacuum_Pressure"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
   <atv:argument name="Unit" value="PSI"/>
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
- <svg atv:refpx="286.502" atv:refpy="474.401" height="106" id="id_6" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="518.429">
-  <atv:argument name="Label" value="Voltage"/>
+ <svg atv:refpx="286.752" atv:refpy="574.001" height="106" id="id_6" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.66" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="638.4">
+  <atv:argument name="Label" value="T{Voltage}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Voltage"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>

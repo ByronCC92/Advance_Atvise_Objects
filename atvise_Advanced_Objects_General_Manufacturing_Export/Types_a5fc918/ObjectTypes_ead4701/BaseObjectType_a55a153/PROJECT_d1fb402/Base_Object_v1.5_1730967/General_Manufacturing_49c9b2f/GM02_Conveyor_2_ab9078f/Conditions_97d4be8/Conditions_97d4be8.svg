@@ -6,7 +6,7 @@
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
- <text atv:refpx="49.476" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14.5" y="25.5">Conditions of</text>
+ <text atv:refpx="49.476" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14.5" y="25.5">T{Conditions of}</text>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Initialize Variables*******/
 
 
@@ -19,20 +19,21 @@ webMI.addOnload(function() {
 
 
 ]]></script>
- <svg atv:refpx="320" atv:refpy="625" height="30" id="id_11" transform="matrix(0.625,0,0,1,0,0)" width="160" x="432" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="610">
+ <svg atv:refpx="320" atv:refpy="605" height="30" id="id_11" transform="matrix(0.625,0,0,1,0,0)" width="160" x="432" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.in_out_value" y="590">
   <atv:argument name="base" prefix="base" value=".Times.Time"/>
   <atv:argument name="unit" value="T{s}"/>
   <atv:argument name="fontSize" value="14"/>
-  <atv:overwrite id="input_label" transform="matrix(1.6,0,0,1,0,0)" x="92.055"/>
+  <atv:overwrite id="id_0" transform="matrix(1.6,0,0,1,0,0)" width="100"/>
+  <atv:overwrite id="input_label" transform="matrix(1.9576,0,0,1,2.6627,0)" x="73.055"/>
   <atv:overwrite id="blinking_frame" transform="matrix(1.6,0,0,1,0,0)" width="92"/>
   <atv:overwrite id="focus_frame" transform="matrix(1.6,0,0,1,0,0)" width="96"/>
   <atv:overwrite id="input_bg" transform="matrix(1.6,0,0,1,0,0)" width="92"/>
   <atv:overwrite id="id_1" transform="matrix(1.6,0,0,1,0,0)" width="98"/>
-  <atv:overwrite id="id_0" transform="matrix(1.6,0,0,1,0,0)" width="100"/>
+  <atv:overwrite id="input_border" transform="matrix(1.6,0,0,1,0,0)" width="100"/>
  </svg>
- <text atv:refpx="128.105" atv:refpy="981.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_12" x="274.5" y="596">Operating Time</text>
+ <text atv:refpx="128.105" atv:refpy="961.404" fill="#000000" font-family="Arial" font-size="12" font-weight="bold" id="id_12" x="274.5" y="576">T{Operating Time}</text>
  <svg atv:refpx="297.002" atv:refpy="104.001" height="106" id="id_2" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="72.272">
-  <atv:argument name="Label" value="Conveyor Speed"/>
+  <atv:argument name="Label" value="T{Conveyor Speed}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Conveyor_Speed "/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -40,7 +41,7 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="297.002" atv:refpy="204.001" height="106" id="id_3" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="192.725">
-  <atv:argument name="Label" value="Material Flow"/>
+  <atv:argument name="Label" value="T{Material Flow}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Material_Flow"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -48,7 +49,7 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="297.002" atv:refpy="294.001" height="106" id="id_4" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="301.132">
-  <atv:argument name="Label" value="Belt Tension"/>
+  <atv:argument name="Label" value="T{Belt Tension}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Belt_Tension"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -56,7 +57,7 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="297.002" atv:refpy="394.001" height="106" id="id_13" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="421.585">
-  <atv:argument name="Label" value="Temperature"/>
+  <atv:argument name="Label" value="T{Temperature}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Temperature"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -64,11 +65,11 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="297.002" atv:refpy="494.001" height="106" id="id_5" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="83.953" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="542.038">
-  <atv:argument name="Label" value="Motor Current"/>
+  <atv:argument name="Label" value="T{Motor Current}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Motor_Current"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
-  <atv:argument name="Unit" value="A"/>
+  <atv:argument name="Unit" value="amps"/>
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
 </svg>

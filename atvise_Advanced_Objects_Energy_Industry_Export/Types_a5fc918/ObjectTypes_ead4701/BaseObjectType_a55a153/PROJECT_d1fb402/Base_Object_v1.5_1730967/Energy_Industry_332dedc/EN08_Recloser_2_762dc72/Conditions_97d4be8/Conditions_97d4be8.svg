@@ -6,7 +6,7 @@
   <atv:gridconfig enabled="true" gridstyle="lines" height="20" width="20"/>
   <atv:snapconfig enabled="true" height="10" width="10"/>
  </metadata>
- <text atv:refpx="38.976" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="4" y="25.5">Conditions of</text>
+ <text atv:refpx="38.976" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="4" y="25.5">T{Conditions of}</text>
  <script atv:desc="" atv:name="" type="text/ecmascript"><![CDATA[/*******Initialize Variables*******/
 
 
@@ -20,7 +20,7 @@ webMI.addOnload(function() {
 
 ]]></script>
  <svg atv:refpx="286.502" atv:refpy="84.001" height="106" id="id_2" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="48.181">
-  <atv:argument name="Label" value="Battery Voltage"/>
+  <atv:argument name="Label" value="T{Battery Voltage}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Battery_Voltage"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -28,7 +28,7 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="286.502" atv:refpy="181.6" height="106" id="id_3" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="165.743">
-  <atv:argument name="Label" value="Frequency"/>
+  <atv:argument name="Label" value="T{Frequency}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Frequency"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -36,7 +36,7 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="286.502" atv:refpy="279.202" height="106" id="id_4" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="283.305">
-  <atv:argument name="Label" value="Load Current"/>
+  <atv:argument name="Label" value="T{Load Current}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Load_Current"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -44,7 +44,7 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="286.502" atv:refpy="376.801" height="106" id="id_13" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="400.867">
-  <atv:argument name="Label" value="Temperature"/>
+  <atv:argument name="Label" value="T{Temperature}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Temperature"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -52,7 +52,7 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="286.502" atv:refpy="572.001" height="106" id="id_5" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="635.991">
-  <atv:argument name="Label" value="Voltage"/>
+  <atv:argument name="Label" value="T{Voltage}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Voltage"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>
@@ -60,7 +60,7 @@ webMI.addOnload(function() {
   <atv:argument name="Color" prefix="Color" value=""/>
  </svg>
  <svg atv:refpx="286.502" atv:refpy="474.401" height="106" id="id_6" transform="matrix(0.8338,0,0,0.8302,0,0)" width="544.5" x="71.36" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Indicator_Slider_Complementary_Element" y="518.429">
-  <atv:argument name="Label" value="Trip Coil Current"/>
+  <atv:argument name="Label" value="T{Trip Coil Current}"/>
   <atv:argument name="Input" prefix="base" value=".Variables.Trip_Coil_Current"/>
   <atv:argument name="Object_Conditions" prefix="base" value=".Parameters.Object_Conditions"/>
   <atv:argument name="Alert_Range" prefix="base" value=".Parameters.Alert_Range"/>

@@ -19,11 +19,11 @@
   <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
  </svg>
- <text atv:refpx="63.517" atv:refpy="101" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="14.499" y="105.5">Maintenance Date</text>
- <text atv:refpx="383.45" atv:refpy="101" fill="$Color$" font-family="Arial" font-size="24" id="id_5" x="344.5" y="105.5">Required Time</text>
- <text atv:refpx="529.076" atv:refpy="151" fill="$Color$" font-family="Arial" font-size="24" id="id_9" x="514.5" y="155.5">Hours</text>
- <text atv:refpx="534.375" atv:refpy="206" fill="$Color$" font-family="Arial" font-size="24" id="id_11" x="514.5" y="210.5">Minutes</text>
- <text atv:refpx="39.703" atv:refpy="325" fill="$Color$" font-family="Arial" font-size="24" id="id_14" x="13.999" y="329.5">Recurrent</text>
+ <text atv:refpx="63.517" atv:refpy="101" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="14.499" y="105.5">T{Maintenance Date}</text>
+ <text atv:refpx="383.45" atv:refpy="101" fill="$Color$" font-family="Arial" font-size="24" id="id_5" x="344.5" y="105.5">T{Required Time}</text>
+ <text atv:refpx="529.076" atv:refpy="151" fill="$Color$" font-family="Arial" font-size="24" id="id_9" x="514.5" y="155.5">T{Hours}</text>
+ <text atv:refpx="534.375" atv:refpy="206" fill="$Color$" font-family="Arial" font-size="24" id="id_11" x="514.5" y="210.5">T{Minutes}</text>
+ <text atv:refpx="39.703" atv:refpy="325" fill="$Color$" font-family="Arial" font-size="24" id="id_14" x="13.999" y="329.5">T{Recurrent}</text>
  <svg atv:refpx="125" atv:refpy="554.991" height="30" id="id_17" transform="matrix(2.875,0,0,1.6667,0,0)" width="80" x="3.478" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.button" y="317.994">
   <atv:argument name="label" value="T{Schedule Maintenance}"/>
   <atv:argument name="fontSize" value="20"/>
@@ -38,7 +38,7 @@
   <atv:overwrite height="48.001" id="button_bg" transform="matrix(0.3478,0,0,0.6,0,0)" width="228"/>
   <atv:overwrite height="50.001" id="outer_frame" transform="matrix(0.3478,0,0,0.6,0,0)" width="230"/>
  </svg>
- <text atv:refpx="268" atv:refpy="559" fill="$Color$" font-family="Arial" font-size="20" id="id_info" x="254.5" y="563.5">Texto</text>
+ <text atv:refpx="268" atv:refpy="559" fill="$Color$" font-family="Arial" font-size="20" id="id_info" x="254.5" y="563.5">T{Texto}</text>
  <line atv:refpx="300" atv:refpy="24" id="id_19" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="60" y2="60"/>
  <line atv:refpx="300" atv:refpy="270" id="id_23" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="270" y2="270"/>
  <line atv:refpx="300" atv:refpy="444" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="444" y2="444"/>
@@ -100,8 +100,8 @@
   <atv:overwrite height="33.001" id="input_bg" transform="matrix(1,0,0,0.8571,0,0)"/>
   <atv:overwrite height="35.001" id="border_area" transform="matrix(1,0,0,0.8571,0,0)"/>
  </svg>
- <g atv:refpx="377.504" atv:refpy="357.501" id="Recurrency_Elements">
-  <text atv:refpx="250.339" atv:refpy="301" fill="$Color$" font-family="Arial" font-size="24" id="id_6" x="204.5" y="305.5">Recurrency Type</text>
+ <g atv:refpx="377.504" atv:refpy="357.501" id="id_4">
+  <text atv:refpx="250.339" atv:refpy="301" fill="$Color$" font-family="Arial" font-size="24" id="id_6" x="204.5" y="305.5">T{Recurrency Type}</text>
   <svg atv:refpx="337.478" atv:refpy="377.496" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="116.36" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="342.848">
    <atv:argument name="fontSize" value="20"/>
    <atv:argument name="name" value="Fecha_Recurrencia_Final"/>
@@ -115,7 +115,7 @@
    <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
    <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
   </svg>
-  <text atv:refpx="230.763" atv:refpy="381" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="204.5" y="385.5">Final Date</text>
+  <text atv:refpx="230.763" atv:refpy="381" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="204.5" y="385.5">T{Final Date}</text>
   <svg atv:refpx="377.504" atv:refpy="337.5" height="30" id="id_27" transform="matrix(2.2188,0,0,1.1667,0,0)" width="160" x="90.139" xlink:href="SYSTEM.LIBRARY.PROJECT.OBJECTDISPLAYS.atvise_Advanced_Objects_Complementary_Elements.Combobox_Complementary_Element" y="274.278">
    <atv:argument name="name" value="Recurrency_Type"/>
    <atv:argument name="fontSize" value="20"/>

@@ -26,8 +26,8 @@
   <atv:overwrite height="48.001" id="button_bg" transform="matrix(0.6154,0,0,0.6,0,0)" width="128"/>
   <atv:overwrite height="50.001" id="outer_frame" transform="matrix(0.6154,0,0,0.6,0,0)" width="130"/>
  </svg>
- <text atv:refpx="188" atv:refpy="609" fill="$Color$" font-family="Arial" font-size="20" id="id_info" x="174.5" y="613.5">Texto</text>
- <text atv:refpx="87.431" atv:refpy="559" fill="$Color$" font-family="Arial" font-size="20" id="id_1" x="4.5" y="563.5">Choose Finished Maintenance</text>
+ <text atv:refpx="188" atv:refpy="609" fill="$Color$" font-family="Arial" font-size="20" id="id_info" x="174.5" y="613.5">T{Texto}</text>
+ <text atv:refpx="87.431" atv:refpy="559" fill="$Color$" font-family="Arial" font-size="20" id="id_1" x="4.5" y="563.5">T{Choose Finished Maintenance}</text>
  <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.Maintenance_Viewer_Display_Script" atv:name="" atv:type="text/ecmascript"/>
  <script atv:desc="" atv:name="" type="text/ecmascript"/>
 </svg>

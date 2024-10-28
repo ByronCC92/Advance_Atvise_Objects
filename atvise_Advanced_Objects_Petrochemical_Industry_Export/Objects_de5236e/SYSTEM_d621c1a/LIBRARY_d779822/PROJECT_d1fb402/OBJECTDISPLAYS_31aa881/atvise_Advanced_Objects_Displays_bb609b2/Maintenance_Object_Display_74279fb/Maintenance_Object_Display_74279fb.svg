@@ -29,7 +29,7 @@
  </g>
  <rect atv:refpx="450" atv:refpy="30" fill="#000000" fill-opacity="0" height="40" id="click_area_set" stroke="none" stroke-width="2" width="40" x="430" y="5"/>
  <script atv:desc="" atv:href="SYSTEM.LIBRARY.PROJECT.DISPLAYSCRIPTS.atvise_Advanced_Objects_Display_Scripts.Maintenance_Display_Script" atv:name="" atv:type="text/ecmascript"/>
- <text atv:refpx="64.048" atv:refpy="26" fill="$Color$" font-family="Arial" font-size="24" id="id_1" x="14.5" y="30.5">Maintenance Type</text>
+ <text atv:refpx="64.048" atv:refpy="26" fill="$Color$" font-family="Arial" font-size="24" id="id_1" x="14.5" y="30.5">T{Maintenance Type}</text>
  <rect atv:refpx="500" atv:refpy="30" fill="#000000" height="40" id="background_chart" stroke="none" stroke-width="2" width="40" x="480" y="5"/>
  <svg atv:refpx="500" atv:refpy="30" height="20" id="id_36" transform="matrix(1.75,0,0,1.75,0,0)" width="20" x="275.714" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Symbols.20x20.chart" y="4.286">
   <atv:argument name="symbolColor" value="#ffffff"/>

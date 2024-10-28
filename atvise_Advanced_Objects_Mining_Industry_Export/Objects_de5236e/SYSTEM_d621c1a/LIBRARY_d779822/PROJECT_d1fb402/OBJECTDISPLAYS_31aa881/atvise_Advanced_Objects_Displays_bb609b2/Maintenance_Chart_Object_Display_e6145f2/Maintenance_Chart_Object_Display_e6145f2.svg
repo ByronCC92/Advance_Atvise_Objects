@@ -19,7 +19,7 @@
   <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
  </svg>
- <text atv:refpx="50.733" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="24.5" y="85.5">Intial Date</text>
+ <text atv:refpx="50.733" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="24.5" y="85.5">T{Intial Date}</text>
  <svg atv:refpx="447.479" atv:refpy="117.496" height="30" id="id_15" transform="matrix(1.7188,0,0,1.1667,0,0)" width="160" x="180.358" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="85.712">
   <atv:argument name="fontSize" value="20"/>
   <atv:argument name="name" value="Final_Date"/>
@@ -33,7 +33,7 @@
   <atv:overwrite height="33.001" id="id_0" transform="matrix(0.5818,0,0,0.8571,0,0)" width="273.008"/>
   <atv:overwrite height="35.001" id="id_2" transform="matrix(0.5818,0,0,0.8571,0,0)" width="275.008"/>
  </svg>
- <text atv:refpx="340.763" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="314.5" y="85.5">Final Date</text>
+ <text atv:refpx="340.763" atv:refpy="81" fill="$Color$" font-family="Arial" font-size="24" id="id_16" x="314.5" y="85.5">T{Final Date}</text>
  <line atv:refpx="300" atv:refpy="50" id="id_24" stroke="$Color$" stroke-width="2" x1="0" x2="600" y1="50" y2="50"/>
  <foreignObject height="300" id="chart_container1" width="603" x="0" y="300">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>

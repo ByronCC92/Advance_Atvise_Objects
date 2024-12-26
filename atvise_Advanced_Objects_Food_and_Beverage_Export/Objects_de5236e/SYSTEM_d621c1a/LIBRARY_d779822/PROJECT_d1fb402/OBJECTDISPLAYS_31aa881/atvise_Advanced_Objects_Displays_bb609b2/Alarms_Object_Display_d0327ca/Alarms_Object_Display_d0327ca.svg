@@ -9,11 +9,11 @@
  <g atv:insensitive="true" atv:refpx="0" atv:refpy="0" id="id_6">
   <rect atv:refpx="301.5" atv:refpy="325" fill="#ffffff" height="650.00" id="id_9" width="603.00" x="0" y="0"/>
  </g>
- <text atv:refpx="38.379" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14" y="25.5">Alarms of</text>
+ <text atv:refpx="38.379" atv:refpy="21" fill="$Color$" font-family="Arial" font-size="24" id="id_info" x="14" y="25.5">T{Alarms of}</text>
  <foreignObject height="320" id="chart_container1" width="560" x="20" y="160">
   <div style="width:100%;height:100%" xmlns="http://www.w3.org/1999/xhtml"/>
  </foreignObject>
- <g atv:refpx="310" atv:refpy="107.501" id="Date_Selection">
+ <g atv:refpx="310" atv:refpy="107.5" id="id_4">
   <svg atv:refpx="149.975" atv:refpy="117.496" height="30" id="id_2" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="24.615" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="94.283">
    <atv:argument name="fontSize" value="20"/>
    <atv:argument name="name" value="Initial_Date"/>
@@ -27,7 +27,7 @@
    <atv:overwrite height="33.001" id="id_0" transform="matrix(0.6154,0,0,0.8571,0,0)" width="258"/>
    <atv:overwrite height="35.001" id="id_2" transform="matrix(0.6154,0,0,0.8571,0,0)" width="260"/>
   </svg>
-  <text atv:refpx="67.126" atv:refpy="91" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="45" y="95.5">Initial Date</text>
+  <text atv:refpx="67.126" atv:refpy="91" fill="$Color$" font-family="Arial" font-size="24" id="id_3" x="45" y="95.5">T{Initial Date}</text>
   <svg atv:refpx="429.975" atv:refpy="117.496" height="30" id="id_0" transform="matrix(1.625,0,0,1.1667,0,0)" width="160" x="196.923" xlink:href="SYSTEM.LIBRARY.ATVISE.OBJECTDISPLAYS.Advanced.picker_date" y="94.283">
    <atv:argument name="fontSize" value="20"/>
    <atv:argument name="name" value="Final_Date"/>
@@ -41,7 +41,7 @@
    <atv:overwrite height="33.001" id="id_0" transform="matrix(0.6154,0,0,0.8571,0,0)" width="258"/>
    <atv:overwrite height="35.001" id="id_2" transform="matrix(0.6154,0,0,0.8571,0,0)" width="260"/>
   </svg>
-  <text atv:refpx="347.326" atv:refpy="91" fill="$Color$" font-family="Arial" font-size="24" id="id_1" x="325" y="95.5">Final Date</text>
+  <text atv:refpx="347.326" atv:refpy="91" fill="$Color$" font-family="Arial" font-size="24" id="id_1" x="325" y="95.5">T{Final Date}</text>
  </g>
  <rect atv:refpx="500" atv:refpy="30" fill="#000000" height="40" id="background_play" stroke="none" stroke-width="2" width="40" x="480" y="10"/>
  <rect atv:refpx="550" atv:refpy="30" fill="#000000" height="40" id="background_history" stroke="none" stroke-width="2" width="40" x="530" y="10"/>
